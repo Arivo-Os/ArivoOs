@@ -15,6 +15,8 @@
       --muted: #6b7fa3;
       --muted2: #8fa3c8;
       --mono: 'JetBrains Mono', monospace;
+      --phone-width: clamp(148px, 17vw, 220px);
+      --phone-ratio: 9 / 19.5;
     }
 
     html { scroll-behavior: smooth; }
@@ -292,8 +294,10 @@
     .phone-wrap-video {
       opacity: 1;
       transform: none;
-      width: min(300px, calc(100vw - 48px), calc(72dvh * 9 / 19.5));
+      --video-phone-width: min(clamp(200px, 22vw, 280px), calc(100vw - 48px));
+      width: var(--video-phone-width);
       max-width: 100%;
+      flex-shrink: 0;
     }
 
     .phone-frame-video {
@@ -307,30 +311,26 @@
 
     .phone-screen-video {
       padding: 0;
-      min-height: unset;
-      height: auto;
       background: #000;
-    }
-
-    .phone-frame-video .phone-screen {
-      min-height: unset;
     }
 
     .phone-screen-video-inner {
       position: relative;
       width: 100%;
-      aspect-ratio: 9 / 19.5;
+      height: calc((var(--video-phone-width) - 28px) * 19.5 / 9);
       overflow: hidden;
       border-radius: 24px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .showcase-video-player {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center top;
+      object-fit: contain;
+      object-position: center center;
       display: block;
     }
 
@@ -369,7 +369,7 @@
       display: flex;
       gap: 24px;
       justify-content: center;
-      align-items: flex-end;
+      align-items: flex-start;
       flex-wrap: wrap;
       padding: 0 24px;
     }
@@ -379,18 +379,25 @@
       flex-direction: column;
       align-items: center;
       gap: 16px;
+      width: var(--phone-width);
+      max-width: calc(50vw - 24px);
+      flex-shrink: 0;
+      align-self: flex-start;
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .phone-wrap.visible { opacity: 1; transform: translateY(0); }
-    .phone-wrap:nth-child(2) { transition-delay: 0.12s; }
-    .phone-wrap:nth-child(3) { transition-delay: 0.24s; }
-    .phone-wrap:nth-child(4) { transition-delay: 0.36s; }
+    .phones-row .phone-wrap:nth-child(1) { transition-delay: 0.12s; }
+    .phones-row .phone-wrap:nth-child(2) { transition-delay: 0.24s; }
+    .phones-row .phone-wrap:nth-child(3) { transition-delay: 0.36s; }
+    .phones-row .phone-wrap:nth-child(4) { transition-delay: 0.48s; }
 
     .phone-frame {
-      width: 220px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
       background: linear-gradient(160deg, rgba(20,35,65,0.9), rgba(8,15,30,0.95));
       border-radius: 36px;
       border: 1.5px solid rgba(255,255,255,0.12);
@@ -398,6 +405,7 @@
       padding: 14px;
       position: relative;
       transition: transform 0.3s;
+      flex-shrink: 0;
     }
 
     .phone-frame:hover { transform: translateY(-8px) scale(1.02); }
@@ -407,14 +415,26 @@
       background: rgba(5,12,26,0.95);
       border-radius: 0 0 14px 14px;
       margin: 0 auto 10px;
+      flex-shrink: 0;
     }
 
     .phone-screen {
       background: #0a1628;
       border-radius: 24px;
       overflow: hidden;
-      min-height: 380px;
       position: relative;
+      width: 100%;
+      flex: none;
+      min-height: unset;
+    }
+
+    .phone-screen:not(.phone-screen-video) {
+      height: calc((var(--phone-width) - 28px) * 19.5 / 9);
+      overflow: hidden;
+    }
+
+    .phone-screen-video {
+      flex: none;
     }
 
     /* Dashboard Screen */
@@ -1339,18 +1359,19 @@
       .features-grid { grid-template-columns: 1fr; }
       .why-inner { grid-template-columns: 1fr; gap: 40px; }
       .phones-row { gap: 14px; }
-      .phone-frame { width: 165px; }
-      .phone-screen:not(.phone-screen-video) { min-height: 290px; }
+      .phone-wrap { max-width: calc(50vw - 20px); }
       .phone-wrap-video {
-        width: min(260px, calc(100vw - 48px), calc(65dvh * 9 / 19.5));
+        --video-phone-width: min(clamp(180px, 28vw, 240px), calc(100vw - 48px));
       }
     }
 
     @media (max-width: 640px) {
+      :root { --phone-width: clamp(130px, 42vw, 165px); }
       .nav-cta .btn-ghost { display: none; }
       .showcase-video { margin-bottom: 40px; padding: 0 16px; }
+      .phone-wrap { max-width: calc(50vw - 12px); }
       .phone-wrap-video {
-        width: min(240px, calc(100vw - 32px), calc(58dvh * 9 / 19.5));
+        --video-phone-width: min(clamp(160px, 72vw, 220px), calc(100vw - 32px));
       }
       .video-sound-toggle {
         right: 18px;
@@ -1359,8 +1380,6 @@
         height: 32px;
       }
       .phones-row { gap: 10px; }
-      .phone-frame { width: 140px; }
-      .phone-screen { min-height: 250px; }
       .s-amount { font-size: 0.85rem; }
       .founder-card { padding: 32px 24px; }
       .waitlist-form { flex-direction: column; }
