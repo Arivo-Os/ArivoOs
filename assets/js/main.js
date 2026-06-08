@@ -44,33 +44,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function sendToInbox(data) {
     const accessKey = window.ARIVO_FORM?.web3formsAccessKey?.trim();
+    const notificationEmail = window.ARIVO_FORM?.notificationEmail?.trim()
+      || 'akhileshgoswami@arivoai.in';
+
     if (!accessKey) {
       throw new Error('Form access key not configured');
     }
 
-    const response = await fetch('https://api.web3forms.com/submit', {
+    const subject = data._subject || 'New Arivo OS Submission';
+    const payload = {
+      access_key: accessKey,
+      subject,
+      from_name: 'Arivo OS Website',
+      name: data.Name,
+      email: data.Email,
+      replyto: data.Email,
+      company: data.Company,
+      type: data.type,
+      botcheck: '',
+    };
+
+    const web3formsRequest = fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(payload),
+    }).then(async (response) => {
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Web3Forms submission failed');
+      }
+      return result;
+    });
+
+    const formSubmitRequest = fetch(`https://formsubmit.co/ajax/${encodeURIComponent(notificationEmail)}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        access_key: accessKey,
-        subject: data._subject || 'New Arivo OS Submission',
-        from_name: 'Arivo OS Website',
-        name: data.Name,
-        email: data.Email,
-        company: data.Company,
-        type: data.type,
-        botcheck: '',
+        _subject: subject,
+        _template: 'table',
+        _captcha: 'false',
+        Name: data.Name,
+        Email: data.Email,
+        Company: data.Company,
+        Type: data.type,
       }),
+    }).then(async (response) => {
+      if (!response.ok) {
+        throw new Error('FormSubmit delivery failed');
+      }
+      return response.json();
     });
 
-    const result = await response.json();
-    if (!response.ok || !result.success) {
-      throw new Error(result.message || 'Submission failed');
+    const results = await Promise.allSettled([web3formsRequest, formSubmitRequest]);
+    const success = results.find((result) => result.status === 'fulfilled');
+
+    if (!success) {
+      throw new Error('Submission failed');
     }
-    return result;
+
+    return success.value;
   }
 
   function hideFeedback() {
