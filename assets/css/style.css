@@ -295,8 +295,7 @@
     .phone-wrap-video {
       opacity: 1;
       transform: none;
-      width: auto;
-      max-width: calc(100vw - 32px);
+      width: min(280px, calc(100vw - 32px));
       flex-shrink: 0;
     }
 
@@ -312,14 +311,11 @@
     .phone-screen-video {
       padding: 0;
       background: #000;
-      display: flex;
-      justify-content: center;
     }
 
     .phone-screen-video-inner {
       position: relative;
       width: 100%;
-      max-width: 100%;
       aspect-ratio: 9 / 16;
       overflow: hidden;
       border-radius: 24px;
@@ -327,34 +323,37 @@
     }
 
     .showcase-video-player {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center;
+      object-position: left center;
+      transform: scale(var(--video-scale, 1.72));
+      transform-origin: left center;
+      -webkit-transform: scale(var(--video-scale, 1.72));
+      -webkit-transform-origin: left center;
       display: block;
-      vertical-align: top;
     }
 
     .video-watermark-cover {
       position: absolute;
       right: 0;
       bottom: 0;
-      width: 42%;
-      height: 16%;
-      min-width: 80px;
-      min-height: 32px;
-      max-width: 120px;
-      max-height: 44px;
+      width: 34%;
+      height: 12%;
+      min-width: 64px;
+      min-height: 26px;
       background: #0a1628;
       z-index: 2;
       pointer-events: none;
-      border-top-left-radius: 10px;
+      border-top-left-radius: 8px;
     }
 
     .video-watermark {
       position: absolute;
-      right: 8px;
-      bottom: 8px;
+      right: 6px;
+      bottom: 6px;
       z-index: 3;
       display: flex;
       align-items: center;
@@ -1476,7 +1475,10 @@
         --phone-width: 170px;
       }
       .phone-wrap-video {
-        max-width: calc(100vw - 32px);
+        width: min(260px, calc(100vw - 32px));
+      }
+      .showcase-video-player {
+        --video-scale: 1.75;
       }
     }
 
@@ -1485,10 +1487,13 @@
         --phone-frame-padding: 10px;
       }
       .nav-cta .btn-ghost { display: none; }
-      .showcase-video { margin-bottom: 40px; padding: 0 16px; }
       .phone-wrap-video {
-        max-width: calc(100vw - 32px);
+        width: min(240px, calc(100vw - 32px));
       }
+      .showcase-video-player {
+        --video-scale: 1.78;
+      }
+      .showcase-video { margin-bottom: 40px; padding: 0 16px; }
       .video-sound-toggle {
         left: 10px;
         bottom: 10px;

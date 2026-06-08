@@ -193,43 +193,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const productVideo = document.getElementById('productVideo');
   const videoSoundToggle = document.getElementById('videoSoundToggle');
-  const productVideoWrap = document.querySelector('.phone-wrap-video');
   const productVideoInner = document.getElementById('productVideoInner');
 
-  function fitProductVideo() {
-    if (!productVideo?.videoWidth || !productVideoWrap || !productVideoInner) return;
+  function fitVideoCrop() {
+    if (!productVideo?.videoWidth || !productVideoInner) return;
 
-    const framePadding = parseFloat(
-      getComputedStyle(document.documentElement).getPropertyValue('--phone-frame-padding')
-    ) || 14;
-    const ratio = productVideo.videoWidth / productVideo.videoHeight;
-    const isMobile = window.innerWidth <= 640;
-    const maxOuterWidth = isMobile
-      ? Math.min(window.innerWidth - 32, 240)
-      : Math.min(window.innerWidth - 48, 280);
-    const maxInnerHeight = isMobile
-      ? Math.min(window.innerHeight * 0.5, 420)
-      : Math.min(window.innerHeight * 0.58, 500);
+    const containerRatio = productVideoInner.clientWidth / productVideoInner.clientHeight;
+    const videoRatio = productVideo.videoWidth / productVideo.videoHeight;
+    const scale = Math.max(containerRatio / videoRatio, 1.72);
 
-    let innerWidth = maxOuterWidth - framePadding * 2;
-    let innerHeight = innerWidth / ratio;
-
-    if (innerHeight > maxInnerHeight) {
-      innerHeight = maxInnerHeight;
-      innerWidth = innerHeight * ratio;
-    }
-
-    const outerWidth = innerWidth + framePadding * 2;
-    productVideoWrap.style.width = `${outerWidth}px`;
-    productVideoInner.style.width = `${innerWidth}px`;
-    productVideoInner.style.height = `${innerHeight}px`;
-    productVideoInner.style.aspectRatio = 'auto';
+    productVideoInner.style.setProperty('--video-scale', scale.toFixed(2));
   }
 
   if (productVideo && videoSoundToggle) {
-    productVideo.addEventListener('loadedmetadata', fitProductVideo);
-    window.addEventListener('resize', fitProductVideo);
-    if (productVideo.readyState >= 1) fitProductVideo();
+    productVideo.addEventListener('loadedmetadata', fitVideoCrop);
+    window.addEventListener('resize', fitVideoCrop);
+    if (productVideo.readyState >= 1) fitVideoCrop();
     productVideo.play().catch(() => {});
 
     videoSoundToggle.addEventListener('click', () => {
