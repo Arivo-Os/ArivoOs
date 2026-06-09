@@ -91,6 +91,8 @@
       height: 34px;
       display: block;
       flex-shrink: 0;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
     .logo-icon-sm {
@@ -1599,7 +1601,7 @@
     @media (prefers-reduced-motion: reduce) {
       .showcase-video-player { display: none; }
       .phone-screen-video-inner {
-        background: #0a1628 url("../images/logo.svg") center / 40% no-repeat;
+        background: #0a1628 url("../images/logo.png") center / 40% no-repeat;
       }
     }
 
