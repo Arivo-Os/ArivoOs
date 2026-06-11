@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       await sendToInbox({
         Name: name,
         Email: email,
-        type: 'Beta Waitlist Signup',
+        type: 'Beta List Signup',
         _subject: 'New Arivo OS Beta Signup',
       });
 
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showError();
     } finally {
       btn.disabled = false;
-      btn.textContent = 'Join waitlist';
+      btn.textContent = 'Join beta list';
     }
   }
 
