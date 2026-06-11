@@ -1188,6 +1188,136 @@
       font-weight: 600;
     }
 
+    /* ─── BETA PROGRAM ─── */
+    .beta-program {
+      padding: 100px 0 72px;
+      border-top: 1px solid var(--border);
+    }
+
+    .beta-program-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 48px;
+    }
+
+    .beta-intro {
+      margin: 0 auto;
+    }
+
+    .beta-status {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .beta-status-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 22px;
+      text-align: left;
+    }
+
+    .beta-status-card.done {
+      border-color: rgba(52, 211, 153, 0.2);
+      background: rgba(52, 211, 153, 0.04);
+    }
+
+    .beta-status-card.active {
+      border-color: rgba(52, 211, 153, 0.4);
+      background: rgba(52, 211, 153, 0.08);
+      box-shadow: 0 0 40px rgba(52, 211, 153, 0.06);
+    }
+
+    .beta-status-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(52, 211, 153, 0.15);
+      color: #34d399;
+    }
+
+    .beta-status-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .beta-status-card p {
+      font-size: 0.88rem;
+      color: var(--muted2);
+      line-height: 1.65;
+    }
+
+    .beta-offer {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 28px 32px;
+      margin-bottom: 56px;
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.08), rgba(59, 130, 246, 0.06));
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: 20px;
+    }
+
+    .beta-offer-icon {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .beta-offer h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .beta-offer p {
+      font-size: 0.92rem;
+      color: var(--muted2);
+      line-height: 1.7;
+    }
+
+    .beta-product {
+      margin-bottom: 48px;
+    }
+
+    .beta-product-title {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .beta-product-sub {
+      text-align: center;
+      color: var(--muted2);
+      font-size: 0.95rem;
+      margin: 0 auto 32px;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .beta-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .beta-cta {
+      text-align: center;
+    }
+
     /* ─── WAITLIST ─── */
     .waitlist {
       padding: 100px 0;
@@ -1640,6 +1770,8 @@
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
       .features-grid { grid-template-columns: 1fr; }
+      .beta-status { grid-template-columns: 1fr; }
+      .beta-features-grid { grid-template-columns: 1fr; }
       .why-inner { grid-template-columns: 1fr; gap: 40px; }
       .phones-row {
         display: grid;
@@ -1748,6 +1880,8 @@
         gap: 14px;
       }
       .waitlist-form { flex-direction: column; }
+      .beta-offer { flex-direction: column; padding: 22px 20px; }
+      .beta-program { padding: 72px 0 56px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .floating-badge { display: none; }
       .hero-stats { gap: 24px; }

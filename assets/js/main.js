@@ -175,8 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       hideForms();
       showSuccess(
-        "You're in the beta!",
-        "We'll email you when early access opens — plus your complimentary 1-month trial."
+        "You're on the beta list!",
+        "We'll email your beta access link when your batch is onboarded — plus your complimentary 1-month Pro plan."
       );
       nameInput.value = '';
       emailInput.value = '';
