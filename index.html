@@ -49,45 +49,311 @@
           </div>
         </div>
         <div class="phone-wrap">
-          <!-- Premium Simulated Product Screenshot Inside Phone Wrapper -->
-          <div class="phone-mockup">
-            <div class="phone-header">
-              <span class="phone-dot"></span>
-              <span class="phone-dot"></span>
-              <span class="phone-dot"></span>
-              <span class="phone-title">ARIVO ENGINE</span>
+          <div class="phone-mockup" id="phoneAppMockup">
+            <!-- Simulated iOS Status Bar -->
+            <div class="phone-status-bar">
+              <span>13:05</span>
+              <div class="status-bar-icons">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h.01M8 16h.01M16 16h.01M5 12h.01M19 12h.01M2 8h.01M22 8h.01"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/></svg>
+              </div>
             </div>
+            
+            <!-- App Header -->
+            <div class="phone-header">
+              <span class="phone-header-brand">ARIVO OS</span>
+              <div class="engine-status-badge">
+                <span class="engine-status-dot"></span>
+                <span>OS active</span>
+              </div>
+            </div>
+            
+            <!-- Phone Screen Layout -->
             <div class="phone-screen">
-              <div class="decision-input-card">
-                <div class="input-label">Decision Request</div>
-                <div class="input-value">Allocate ₹100,000 surplus capital</div>
-                <div class="input-context">Emergency fund & monthly expenses mapped</div>
-              </div>
-              
-              <div class="engine-divider">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="12" y1="5" x2="12" y2="19"></line>
-                  <polyline points="19 12 12 19 5 12"></polyline>
-                </svg>
-              </div>
-
-              <!-- Large Recommendation Card Inside Mockup -->
-              <div class="phone-card">
-                <div class="phone-card-title">Arivo Recommendation</div>
-                <div class="phone-card-value">Invest ₹75,000</div>
-                <div class="phone-card-meta" style="margin-bottom: 8px;">Keep ₹25,000 in your emergency fund.</div>
-                <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">92%
-                  Confidence</div>
-                <div style="font-size: 13px; color: #94A3B8; display: flex; align-items: center; gap: 6px;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  Emergency fund remains protected
+              <!-- Loading Skeleton State (Toggled by JS) -->
+              <div class="phone-screen-content" id="skeletonScreen" style="display: none;">
+                <div class="skeleton-screen">
+                  <div class="skeleton-widget">
+                    <div class="skeleton-pulse skeleton-line short"></div>
+                    <div class="skeleton-pulse skeleton-rect"></div>
+                  </div>
+                  <div class="skeleton-widget" style="height: 120px;">
+                    <div class="skeleton-pulse skeleton-line short"></div>
+                    <div class="skeleton-pulse skeleton-line"></div>
+                    <div class="skeleton-pulse skeleton-line v-short"></div>
+                  </div>
+                  <div class="skeleton-widget" style="flex: 1;">
+                    <div class="skeleton-pulse skeleton-line short"></div>
+                    <div class="skeleton-pulse skeleton-rect"></div>
+                    <div class="skeleton-pulse skeleton-rect"></div>
+                  </div>
                 </div>
               </div>
+
+              <!-- Main Screen Content Wrapper -->
+              <div class="phone-screen-content" id="appScreenContent">
+                
+                <!-- Tab 1: Dashboard (Home Screen) -->
+                <div class="phone-tab-panel active" id="tab-dashboard">
+                  <!-- Financial Snapshot Section -->
+                  <div class="app-card">
+                    <span class="app-card-title">Net Worth Growth</span>
+                    <span class="app-card-value">₹1,245,000</span>
+                    <span class="app-card-meta text-success">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                      +2.4% vs last month
+                    </span>
+                    <!-- Sparkline SVG -->
+                    <svg class="micro-chart" viewBox="0 0 100 30" fill="none">
+                      <path d="M 0 25 Q 20 20 40 18 T 80 8 T 100 2" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"></path>
+                    </svg>
+                  </div>
+                  
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="app-card">
+                      <span class="app-card-title">Net Cash Flow</span>
+                      <span class="app-card-value" style="font-size: 15px;">+₹45,200</span>
+                      <span class="app-card-meta text-success">Positive</span>
+                    </div>
+                    <div class="app-card" style="align-items: center; justify-content: center; flex-direction: row; gap: 10px; padding: 10px;">
+                      <div class="health-score-container">
+                        <svg class="health-gauge-svg">
+                          <circle class="health-gauge-bg" cx="32" cy="32" r="24"/>
+                          <circle class="health-gauge-fill" id="healthGaugeRing" cx="32" cy="32" r="24" style="stroke-dashoffset: 24;"/>
+                        </svg>
+                        <div class="health-score-text">
+                          <span class="health-score-num">84</span>
+                          <span class="health-score-lbl">Score</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Priority Actions (Top 3) -->
+                  <div>
+                    <div class="app-card-title" style="margin-bottom: 6px; padding-left: 2px;">Priority Actions</div>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                      <div class="priority-action-item">
+                        <div class="action-info">
+                          <span class="action-title">Allocate surplus capital</span>
+                          <span class="action-meta">
+                            <span class="text-success">94% Conf.</span> • 4 min
+                          </span>
+                        </div>
+                        <button class="action-btn-mini" onclick="window.mockNavigateToDecide(this)">Execute</button>
+                      </div>
+                      <div class="priority-action-item">
+                        <div class="action-info">
+                          <span class="action-title">Refinance car loan</span>
+                          <span class="action-meta">
+                            <span class="text-success">91% Conf.</span> • Save ₹1,200/mo
+                          </span>
+                        </div>
+                        <button class="action-btn-mini" onclick="window.mockReviewAction(this)">Review</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Goal Cards & Progress -->
+                  <div>
+                    <div class="app-card-title" style="margin-bottom: 6px; padding-left: 2px;">Goals & Milestones</div>
+                    <div class="app-card" style="gap: 10px;">
+                      <div class="progress-row">
+                        <div class="progress-header">
+                          <span>Emergency Reserve (6x)</span>
+                          <span class="text-success">100%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                          <div class="progress-bar-fill success" id="goalBar1" style="width: 100%;"></div>
+                        </div>
+                      </div>
+                      <div class="progress-row">
+                        <div class="progress-header">
+                          <span>Home Purchase Goal</span>
+                          <span>54% (₹650k / ₹1.2M)</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                          <div class="progress-bar-fill" id="goalBar2" style="width: 54%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Active Insights Feed -->
+                  <div class="app-card" style="background: rgba(13, 148, 136, 0.05); border-color: rgba(13, 148, 136, 0.15);">
+                    <span class="app-card-title" style="color: var(--accent);">Engine Insight</span>
+                    <span style="font-size: 11px; line-height: 1.4; color: #FFFFFF;">
+                      Auto-sweep opportunities detected. Link credit accounts to optimize interest sweep potential.
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Tab 2: Decisions (Recommendation Engine) -->
+                <div class="phone-tab-panel" id="tab-decisions">
+                  <div class="input-summary-badge">
+                    <span class="app-card-title">surplus capital allocation</span>
+                    <div style="font-size: 11px; color: #FFFFFF; font-weight: 500; margin-top: 2px;">Allocate ₹100,000 surplus capital</div>
+                  </div>
+
+                  <div class="app-card" style="border-color: rgba(20, 184, 166, 0.25);">
+                    <span class="app-card-title" style="color: var(--accent);">Arivo Engine Recommendation</span>
+                    <span class="app-card-value" style="margin-bottom: 8px;">Invest ₹75,000 and keep ₹25,000 liquid</span>
+                    
+                    <div class="badge-row">
+                      <span class="decision-badge-item confidence-badge">94% Confidence</span>
+                      <span class="decision-badge-item risk-badge">Moderate Risk</span>
+                      <span class="decision-badge-item impact-badge">+1.4% Yield</span>
+                    </div>
+
+                    <div style="font-size: 11px; color: rgba(255, 255, 255, 0.6); line-height: 1.4; margin-top: 6px;">
+                      <strong>Why generated:</strong> Maintains 6x monthly emergency buffer while optimizing growth path for your 2027 home down payment goal.
+                    </div>
+
+                    <div class="engine-details-table">
+                      <div class="table-cell">
+                        <span class="table-label">Time to complete</span>
+                        <span class="table-value">~4 minutes</span>
+                      </div>
+                      <div class="table-cell">
+                        <span class="table-label">Estimated Gains</span>
+                        <span class="table-value">+₹12,500/year</span>
+                      </div>
+                    </div>
+
+                    <button class="execute-action-btn" id="executeRecBtn" onclick="window.mockExecuteRecommendation(this)">
+                      <span>Execute Allocation Plan</span>
+                    </button>
+                  </div>
+
+                  <div style="font-size: 9px; color: rgba(255, 255, 255, 0.35); text-align: center; margin-top: 4px;">
+                    Calculated using Modern Portfolio Optimization. Data processed locally.
+                  </div>
+                </div>
+
+                <!-- Tab 3: Copilot (Financial OS) -->
+                <div class="phone-tab-panel" id="tab-copilot">
+                  <div class="app-card">
+                    <span class="app-card-title">Loaded Financial Memory</span>
+                    <div class="context-panel">
+                      <div class="context-pill-container">
+                        <span class="context-pill">
+                          <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:#10B981;"></span>
+                          Slab: 30% Tax
+                        </span>
+                        <span class="context-pill">
+                          <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:#10B981;"></span>
+                          Vehicle: 8.4% Debt
+                        </span>
+                        <span class="context-pill">
+                          <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:#10B981;"></span>
+                          Home Goal: ₹1.2M
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="copilot-prompt-container">
+                    <span class="app-card-title" style="margin-bottom: 4px; padding-left: 2px;">Evaluate Life Scenarios</span>
+                    <div class="prompt-pill-list">
+                      <button class="prompt-pill-btn" onclick="window.mockCopilotPrompt('Can I afford a ₹50,000 vacation?', this)">
+                        "Can I afford a ₹50,000 vacation?"
+                      </button>
+                      <button class="prompt-pill-btn" onclick="window.mockCopilotPrompt('What if I raise my savings rate to 40%?', this)">
+                        "What if I raise my savings rate to 40%?"
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Interactive Response Card -->
+                  <div class="copilot-answer-card" id="copilotAnswerCard">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span class="app-card-title" style="color: var(--accent); margin-bottom: 0;">Evaluation Output</span>
+                      <span class="decision-badge-item confidence-badge" id="copilotConfidence" style="font-size: 8px;">98% Confidence</span>
+                    </div>
+                    <span class="copilot-answer-text" id="copilotAnswerText"></span>
+                    <div class="reasoning-accordion-header">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Decision Reasoning Loaded</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tab 4: Explore (Better Empty State / Onboarding) -->
+                <div class="phone-tab-panel" id="tab-explore">
+                  <div class="app-card" style="text-align: center; align-items: center; padding: 20px 16px;">
+                    <div class="empty-state-graphics">
+                      <svg class="empty-state-svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                      </svg>
+                    </div>
+                    <div class="empty-state-text">
+                      <h4>Secure Financial Vault</h4>
+                      <p>Connect your profiles with read-only, bank-grade encryption to populate dashboard metrics.</p>
+                    </div>
+                  </div>
+
+                  <div class="connect-action-checklist">
+                    <div class="checklist-item">
+                      <div class="checklist-info">
+                        <div class="checklist-circle" id="checkCircle1">
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="checklist-label" id="checkLabel1">Link primary transaction account</span>
+                      </div>
+                      <button class="checklist-btn" id="checkBtn1" onclick="window.mockConnectAccount(1)">Link</button>
+                    </div>
+
+                    <div class="checklist-item">
+                      <div class="checklist-info">
+                        <div class="checklist-circle" id="checkCircle2">
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="checklist-label" id="checkLabel2">Define savings & life goals</span>
+                      </div>
+                      <button class="checklist-btn disabled" id="checkBtn2" onclick="window.mockConnectAccount(2)">Define</button>
+                    </div>
+                  </div>
+
+                  <div class="app-card" style="background: rgba(255, 255, 255, 0.02); border-color: rgba(255, 255, 255, 0.04); padding: 10px;">
+                    <span class="app-card-title" style="margin-bottom: 4px;">Engine Tip</span>
+                    <span style="font-size: 10px; color: rgba(255, 255, 255, 0.5); line-height: 1.3;">
+                      Rule of thumb: Maintain 3-6 months of operating expenses in highly liquid accounts before placing capital in growth assets.
+                    </span>
+                  </div>
+                </div>
+
+              </div>
             </div>
+
+            <!-- Simulated Bottom Navbar Tab Selector -->
+            <div class="phone-navbar">
+              <button class="phone-nav-item active" onclick="window.switchPhoneTab('dashboard', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+                </svg>
+                <span class="phone-nav-label">Snapshot</span>
+              </button>
+              <button class="phone-nav-item" onclick="window.switchPhoneTab('decisions', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span class="phone-nav-label">Decisions</span>
+              </button>
+              <button class="phone-nav-item" onclick="window.switchPhoneTab('copilot', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                </svg>
+                <span class="phone-nav-label">Copilot</span>
+              </button>
+              <button class="phone-nav-item" onclick="window.switchPhoneTab('explore', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+                </svg>
+                <span class="phone-nav-label">Connect</span>
+              </button>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -235,53 +501,75 @@
           <h2 class="section-title">Transparent decision logic.</h2>
         </div>
 
-        <div class="phone-card example-center-card"
-          style="background-color: var(--bg-primary); border: 1px solid var(--border);">
-          <div class="example-header">
-            <div class="example-label" style="color: var(--text-secondary);">Decision Request</div>
-            <h3 class="example-question">Allocate ₹100,000 surplus capital today</h3>
-          </div>
-
-          <div class="example-box" style="margin: 16px 0;">
+        <div class="phone-card example-center-card">
+          <!-- Premium Card Header -->
+          <div class="example-card-header">
             <div>
-              <div class="example-label">Recommendation</div>
-              <div class="example-value" style="color: var(--accent); font-size: 22px;">Invest ₹75,000 and keep ₹25,000
-                liquid.</div>
+              <div class="example-title-label">Decision Request</div>
+              <div class="example-title-value">Allocate ₹100,000 surplus capital today</div>
             </div>
-            <span class="example-confidence">92% Confidence</span>
+            <div class="engine-status-badge">
+              <span class="engine-status-dot"></span>
+              <span>ENGINE ACTIVE</span>
+            </div>
           </div>
 
-          <div class="example-label">Evaluation Logic</div>
-          <ul class="example-reasons-list">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Emergency fund remains intact
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Monthly cash flow stays positive
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Home purchase goal remains on track
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              Risk profile supports moderate investing
-            </li>
-          </ul>
+          <div class="example-card-body">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+              <div>
+                <div class="example-title-label">Recommendation Output</div>
+                <div style="font-size: 20px; font-weight: 700; color: var(--accent); line-height: 1.25;">
+                  Invest ₹75,000 in equity index fund, keep ₹25,000 liquid.
+                </div>
+              </div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="example-metrics-grid">
+              <div class="example-metric-card">
+                <span class="example-metric-label">Confidence</span>
+                <span class="example-metric-value highlight-green">94%</span>
+              </div>
+              <div class="example-metric-card">
+                <span class="example-metric-label">Impact</span>
+                <span class="example-metric-value highlight-green">+1.4% Yield</span>
+              </div>
+              <div class="example-metric-card">
+                <span class="example-metric-label">Risk Level</span>
+                <span class="example-metric-value highlight-warning">Moderate</span>
+              </div>
+              <div class="example-metric-card">
+                <span class="example-metric-label">Time</span>
+                <span class="example-metric-value">~4 minutes</span>
+              </div>
+            </div>
+
+            <div class="example-title-label" style="margin-bottom: 12px;">Evaluation Logic Reasoning</div>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+              <div class="logic-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Emergency Fund:</strong> Intact at 6.0x monthly expenses (₹150,000 threshold protected).</span>
+              </div>
+              <div class="logic-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Cash Flow:</strong> Net monthly surplus remains positive at +₹45,200.</span>
+              </div>
+              <div class="logic-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Home Down Payment Goal:</strong> Remains on schedule for December 2027 completion.</span>
+              </div>
+              <div class="logic-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Tax Optimization:</strong> Allocation structure leverages Section 80C exemptions for max yield.</span>
+              </div>
+            </div>
+
+            <!-- Trust Badge Footer -->
+            <div class="privacy-badge-container">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Calculated by Arivo Decision Core. Zero personal data shared.</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
