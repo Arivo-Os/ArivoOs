@@ -1,597 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arivo | Make Better Financial Decisions</title>
-  <meta name="description" content="Arivo is an AI-powered financial decision platform. Make smarter financial decisions using your goals, financial profile, and previous choices." />
-  <meta name="robots" content="index, follow" />
+  <title>Arivo — Personalized Financial Decision Engine</title>
+  <meta name="description"
+    content="Decision intelligence for personal finance. Arivo helps you decide what to do with your money based on your goals, income, expenses, and life plans." />
+
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap"
+    rel="stylesheet" />
+
   <link rel="stylesheet" href="arivo.css" />
-  <meta name="theme-color" content="#ffffff" />
 </head>
+
 <body>
 
-  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
+  <!-- Navigation -->
   <header class="site-header">
-    <div class="nav-shell">
-      <nav aria-label="Main navigation">
-        <a href="/" class="nav-logo">
-          <span>Arivo</span>
-        </a>
-        <div class="nav-right" id="navMenu">
-          <a href="#how-it-works" class="nav-link">How It Works</a>
-          <a href="#why-arivo" class="nav-link">Why Arivo</a>
-          <a href="#blog" class="nav-link">Blog</a>
-          <div class="nav-cta">
-            <a href="#waitlist" class="btn btn-primary btn-sm">Start Free</a>
-          </div>
-        </div>
-        <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+    <div class="container nav-container">
+      <a href="/" class="nav-logo">ARIVO</a>
+      <nav class="nav-links" id="navMenu">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#why-arivo">Why Arivo</a>
       </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <main id="main-content">
-
-  <!-- HERO -->
-  <section class="hero" id="home" aria-labelledby="hero-heading">
-    <div class="hero-mesh" aria-hidden="true"></div>
-    <div class="grid-bg" aria-hidden="true"></div>
-
-    <div class="container hero-layout">
-      <div class="hero-content reveal hero-stagger">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          AI-Powered Financial Decision Platform
+  <main>
+    <!-- Section 1: Hero Section -->
+    <section class="hero-section bg-white" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Never second-guess a financial decision again.</h1>
+          <p>A personalized financial decision engine that helps you decide what to do with your money. Financial guidance built around your goals, income, expenses, and life plans—not another chatbot.</p>
+          <div class="hero-actions">
+            <a href="#waitlist" class="btn btn-primary">Get Early Access</a>
+            <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+          </div>
         </div>
+        <div class="phone-wrap">
+          <!-- Premium Simulated Product Screenshot Inside Phone Wrapper -->
+          <div class="phone-mockup">
+            <div class="phone-header">
+              <span class="phone-dot"></span>
+              <span class="phone-dot"></span>
+              <span class="phone-dot"></span>
+              <span class="phone-title">ARIVO ENGINE</span>
+            </div>
+            <div class="phone-screen">
+              <div class="decision-input-card">
+                <div class="input-label">Decision Request</div>
+                <div class="input-value">Allocate ₹100,000 surplus capital</div>
+                <div class="input-context">Emergency fund & monthly expenses mapped</div>
+              </div>
+              
+              <div class="engine-divider">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+              </div>
 
-        <h1 id="hero-heading">
-          Designed for better<br/>
-          <span class="gradient-text">financial decisions.</span>
-        </h1>
-
-        <p class="hero-sub hero-tagline">
-          Arivo helps you decide what to do next with your money through personalized recommendations, transparent reasoning, and clear action plans.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#waitlist" class="btn btn-primary btn-xl">Start Free</a>
-          <a href="#how-it-works" class="btn btn-ghost btn-xl">See How It Works</a>
+              <!-- Large Recommendation Card Inside Mockup -->
+              <div class="phone-card">
+                <div class="phone-card-title">Arivo Recommendation</div>
+                <div class="phone-card-value">Invest ₹75,000</div>
+                <div class="phone-card-meta" style="margin-bottom: 8px;">Keep ₹25,000 in your emergency fund.</div>
+                <div style="font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 6px;">92%
+                  Confidence</div>
+                <div style="font-size: 13px; color: #94A3B8; display: flex; align-items: center; gap: 6px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  Emergency fund remains protected
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="hero-preview reveal" aria-hidden="true">
-        <div class="recommendation-card">
-          <div class="card-header">
-            <span class="card-question-label">Question</span>
-            <h3 class="card-question">Should I invest ₹100,000?</h3>
+    <!-- Section 2: Trust Section -->
+    <section class="trust-section bg-white">
+      <div class="container">
+        <h3 class="trust-headline">Built for real financial decisions</h3>
+        <div class="trust-badges">
+          <div class="trust-badge-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Buying a House
           </div>
-          <div class="card-recommendation-box">
-            <div class="rec-status-wrap">
-              <span class="rec-label">Recommendation</span>
-              <span class="rec-value">Invest ₹75,000</span>
-              <span style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px;">Keep ₹25,000 in emergency fund</span>
-            </div>
-            <div class="rec-confidence-wrap">
-              <span class="confidence-label">Confidence</span>
-              <span class="confidence-value">92%</span>
-            </div>
+          <div class="trust-badge-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Buying a Car
           </div>
-          <div class="card-section-title">Why This Recommendation</div>
-          <ul class="why-list">
+          <div class="trust-badge-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Building an Emergency Fund
+          </div>
+          <div class="trust-badge-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Paying Off Debt
+          </div>
+          <div class="trust-badge-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Retirement Planning
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: How It Works -->
+    <section class="bg-secondary" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Clear, structured financial guidance</h2>
+        </div>
+        <div class="how-it-works-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3>Map Your Financial Profile</h3>
+            <p>Provide Arivo with your income, expenses, goals, and existing financial obligations.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3>Model Any Scenario</h3>
+            <p>Evaluate choices regarding home purchases, surplus investing, debt payoff, or career changes.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3>Get Objective Action Steps</h3>
+            <p>Receive clear recommendations, confidence scores, and transparent financial reasoning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Why Arivo -->
+    <section class="bg-white" id="why-arivo">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Built for decisions, not dashboards.</h2>
+        </div>
+        <div class="why-arivo-grid">
+          <div class="why-card">
+            <div class="why-card-header">
+              <div class="why-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+              </div>
+              <h3>Personalized Recommendations</h3>
+            </div>
+            <p>Advice built around your financial situation.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-header">
+              <div class="why-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </div>
+              <h3>Transparent Reasoning</h3>
+            </div>
+            <p>See exactly why every recommendation was made.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-header">
+              <div class="why-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="6"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                </svg>
+              </div>
+              <h3>Goal-Aware Guidance</h3>
+            </div>
+            <p>Your goals remain central to every decision.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-header">
+              <div class="why-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>Context Memory</h3>
+            </div>
+            <p>Arivo remembers what matters so future recommendations become more relevant.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Example Recommendation -->
+    <section class="bg-secondary example-section" id="examples">
+      <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="section-header" style="text-align: center;">
+          <h2 class="section-title">Transparent decision logic.</h2>
+        </div>
+
+        <div class="phone-card example-center-card"
+          style="background-color: var(--bg-primary); border: 1px solid var(--border);">
+          <div class="example-header">
+            <div class="example-label" style="color: var(--text-secondary);">Decision Request</div>
+            <h3 class="example-question">Allocate ₹100,000 surplus capital today</h3>
+          </div>
+
+          <div class="example-box" style="margin: 16px 0;">
+            <div>
+              <div class="example-label">Recommendation</div>
+              <div class="example-value" style="color: var(--accent); font-size: 22px;">Invest ₹75,000 and keep ₹25,000
+                liquid.</div>
+            </div>
+            <span class="example-confidence">92% Confidence</span>
+          </div>
+
+          <div class="example-label">Evaluation Logic</div>
+          <ul class="example-reasons-list">
             <li>
-              <span class="check-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              Emergency fund remains protected
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Emergency fund remains intact
             </li>
             <li>
-              <span class="check-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              Positive monthly cash flow
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Monthly cash flow stays positive
             </li>
             <li>
-              <span class="check-icon">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </span>
-              Home goal stays on track
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Home purchase goal remains on track
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Risk profile supports moderate investing
             </li>
           </ul>
-          <div class="card-section-title">Expected Outcome</div>
-          <p style="font-size: 0.9rem; color: var(--text); font-weight: 600; margin-bottom: 16px; padding-left: 2px;">
-            ₹148,000 in 5 years
-          </p>
-          <div class="card-action-bar">
-            <a href="#waitlist" class="card-action-btn">Take Action</a>
-          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- POSITIONING COMPARISON -->
-  <section class="positioning-section reveal" id="positioning">
-    <div class="container">
-      <div class="showcase-header">
-        <div class="section-label">Arivo vs Others</div>
-        <h2 class="section-title">Most Finance Apps Show Data.<br/>Arivo Helps You Decide.</h2>
-        <p class="section-sub">A comparison of how different tools approach your money.</p>
-      </div>
-      <div class="positioning-grid-v2">
-        <div class="pos-card">
-          <span class="pos-badge">Banks</span>
-          <h3 class="pos-title">Show Balances</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">List your transactions and bank balances, but leave you guessing what to do with the money.</p>
-          <div class="pos-list" style="margin-top: auto;">
-            <div class="pos-list-item" style="font-size: 0.85rem;"><span class="icon" style="color: var(--rose);">✗</span> No goal awareness</div>
-            <div class="pos-list-item" style="font-size: 0.85rem;"><span class="icon" style="color: var(--rose);">✗</span> No proactive guidance</div>
-          </div>
-        </div>
-        <div class="pos-card">
-          <span class="pos-badge">Investment Apps</span>
-          <h3 class="pos-title">Show Returns</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">Show charts and portfolio returns, but don't tell you if you can afford to invest more or when to stop.</p>
-          <div class="pos-list" style="margin-top: auto;">
-            <div class="pos-list-item" style="font-size: 0.85rem;"><span class="icon" style="color: var(--rose);">✗</span> Stop at raw data</div>
-            <div class="pos-list-item" style="font-size: 0.85rem;"><span class="icon" style="color: var(--rose);">✗</span> High risk of over-investing</div>
-          </div>
-        </div>
-        <div class="pos-card">
-          <span class="pos-badge">AI Chatbots</span>
-          <h3 class="pos-title">Answer Questions</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">Give generic, bookish answers. They don't know your risk tolerance, account aggregators, or financial history.</p>
-          <div class="pos-list" style="margin-top: auto;">
-            <div class="pos-list-item" style="font-size: 0.85rem;"><span class="icon" style="color: var(--rose);">✗</span> Zero personalization</div>
-            <div class="pos-list-item" style="font-size: 0.85rem;"><span class="icon" style="color: var(--rose);">✗</span> No memory of past decisions</div>
-          </div>
-        </div>
-        <div class="pos-card pos-arivo">
-          <span class="pos-badge">Arivo</span>
-          <h3 class="pos-title">Helps You Decide</h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">Analyzes your current balances, upcoming bills, goals, and previous decisions to guide your best next move.</p>
-          <div class="pos-list" style="margin-top: auto;">
-            <div class="pos-list-item" style="font-size: 0.85rem;"><span class="icon" style="color: var(--success);">✓</span> Goal-aware recommendations</div>
-            <div class="pos-list-item" style="font-size: 0.85rem;"><span class="icon" style="color: var(--success);">✓</span> Clear best next actions</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINANCIAL DECISION EXAMPLES -->
-  <section class="problem-section container reveal" id="examples">
-    <div class="showcase-header">
-      <div class="section-label">Real Outcomes</div>
-      <h2 class="section-title">Real Financial Decisions</h2>
-      <p class="section-sub">See how Arivo answers the money questions that matter most.</p>
-    </div>
-    <div class="decisions-examples-grid">
-      <div class="recommendation-card" style="max-width: 100%;">
-        <div class="card-header">
-          <span class="card-question-label">Question</span>
-          <h3 class="card-question">Can I afford a house?</h3>
-        </div>
-        <div class="card-recommendation-box">
-          <div class="rec-status-wrap">
-            <span class="rec-label">Recommendation</span>
-            <span class="rec-value" style="color: var(--amber);">Wait 8 months</span>
-          </div>
-          <div class="rec-confidence-wrap">
-            <span class="confidence-label">Confidence</span>
-            <span class="confidence-value">94%</span>
-          </div>
-        </div>
-        <div class="card-section-title">Why This Recommendation</div>
-        <ul class="why-list">
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Home loan rates are at 8.5%+</li>
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Rental yield is low at 2.1%</li>
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Asset price growth is stabilizing</li>
-        </ul>
-        <div class="card-section-title">Expected Outcome</div>
-        <p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 0;">Save ₹12L in lifetime interest by building a larger down payment.</p>
-      </div>
-
-      <div class="recommendation-card" style="max-width: 100%;">
-        <div class="card-header">
-          <span class="card-question-label">Question</span>
-          <h3 class="card-question">Should I increase my SIP?</h3>
-        </div>
-        <div class="card-recommendation-box">
-          <div class="rec-status-wrap">
-            <span class="rec-label">Recommendation</span>
-            <span class="rec-value">Increase by ₹3,000</span>
-          </div>
-          <div class="rec-confidence-wrap">
-            <span class="confidence-label">Confidence</span>
-            <span class="confidence-value">91%</span>
-          </div>
-        </div>
-        <div class="card-section-title">Why This Recommendation</div>
-        <ul class="why-list">
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Monthly surplus cash flow is safe</li>
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Emergency fund is complete</li>
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Compounding potential is high</li>
-        </ul>
-        <div class="card-section-title">Expected Outcome</div>
-        <p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 0;">Add ₹2.8L to your retirement milestone in 5 years.</p>
-      </div>
-
-      <div class="recommendation-card" style="max-width: 100%;">
-        <div class="card-header">
-          <span class="card-question-label">Question</span>
-          <h3 class="card-question">Should I buy a new car?</h3>
-        </div>
-        <div class="card-recommendation-box">
-          <div class="rec-status-wrap">
-            <span class="rec-label">Recommendation</span>
-            <span class="rec-value" style="color: var(--rose);">Not Yet</span>
-          </div>
-          <div class="rec-confidence-wrap">
-            <span class="confidence-label">Confidence</span>
-            <span class="confidence-value">89%</span>
-          </div>
-        </div>
-        <div class="card-section-title">Why This Recommendation</div>
-        <ul class="why-list">
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>EMI would exceed 15% of income</li>
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Insurance &amp; maintenance under-budgeted</li>
-          <li><span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>High opportunity cost on equity goals</li>
-        </ul>
-        <div class="card-section-title">Expected Outcome</div>
-        <p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 0;">Avoid fixed monthly liabilities; re-evaluate in 6 months.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY ARIVO -->
-  <section class="why-arivo-section reveal" id="why-arivo">
-    <div class="container">
-      <div class="showcase-header">
-        <div class="section-label">Why Arivo</div>
-        <h2 class="section-title">Decide with complete clarity.</h2>
-        <p class="section-sub">Arivo provides transparent, math-backed reasoning for every choice.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-card-icon">
-            <svg class="why-card-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="3"></circle><circle cx="5" cy="19" r="3"></circle><circle cx="19" cy="19" r="3"></circle><line x1="12" y1="8" x2="19" y2="16"></line><line x1="12" y1="8" x2="5" y2="16"></line></svg>
-          </div>
-          <h3>Transparent Reasoning</h3>
-          <p>See the exact 'why' behind every recommendation. No hidden calculations, no black-box AI guidance.</p>
-          <div class="why-tags-row">
-            <span class="why-tag">Explainable Decisions</span>
-            <span class="why-tag">Full Transparency</span>
-          </div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon">
-            <svg class="why-card-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-          </div>
-          <h3>Confidence Scores</h3>
-          <p>Every decision suggestion shows a clear confidence percentage, backed by mathematical analysis of your finances.</p>
-          <div class="why-tags-row">
-            <span class="why-tag">Mathematical Rigor</span>
-            <span class="why-tag">Probability Modeling</span>
-          </div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon">
-            <svg class="why-card-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-          </div>
-          <h3>Goal-Aware Decisions</h3>
-          <p>Your short-term spending is automatically aligned with your long-term milestones — house, retirement, emergency fund.</p>
-          <div class="why-tags-row">
-            <span class="why-tag">Milestone Alignment</span>
-            <span class="why-tag">Prioritization</span>
-          </div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon">
-            <svg class="why-card-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <h3>Financial Context Memory</h3>
-          <p>Arivo securely retains and learns from your risk profile, financial health metrics, and previous cash flow choices.</p>
-          <div class="why-tags-row">
-            <span class="why-tag">Personal History</span>
-            <span class="why-tag">Adaptability</span>
-          </div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-icon">
-            <svg class="why-card-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-          </div>
-          <h3>Clear Action Plans</h3>
-          <p>Never get left staring at raw charts. Always receive a clear path forward with simple, actionable next steps.</p>
-          <div class="why-tags-row">
-            <span class="why-tag">Clear Actions</span>
-            <span class="why-tag">Zero Bloat</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how-it-works-section reveal" id="how-it-works">
-    <div class="container">
-      <div class="showcase-header">
-        <div class="section-label">Process</div>
-        <h2 class="section-title">How Arivo Works</h2>
-        <p class="section-sub">A simple, 3-step path to smarter money choices.</p>
-      </div>
-      <div class="steps-flow">
-        <div class="step-card">
-          <span class="step-number">1</span>
-          <h3>Tell Your Situation</h3>
-          <p>Ask a financial question, or securely link your accounts to let Arivo analyze your profiles.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-number">2</span>
-          <h3>Analyze Finances</h3>
-          <p>Our advanced reasoning engines map your goals, risk profile, and cash flow to evaluate all options.</p>
-        </div>
-        <div class="step-card">
-          <span class="step-number">3</span>
-          <h3>Receive Recommendation</h3>
-          <p>Get a clear, actionable recommendation backed by confidence scores and transparent reasoning.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- USE CASES -->
-  <section class="use-cases-section reveal" id="use-cases">
-    <div class="container">
-      <div class="showcase-header">
-        <div class="section-label">Use Cases</div>
-        <h2 class="section-title">Decide With Confidence in Every Moment</h2>
-        <p class="section-sub">Arivo guides you across all your major financial decisions.</p>
-      </div>
-      <div class="use-cases-grid">
-        <div class="use-case-chip"><span class="use-case-name">Buying A House</span></div>
-        <div class="use-case-chip"><span class="use-case-name">Retirement Planning</span></div>
-        <div class="use-case-chip"><span class="use-case-name">Emergency Fund</span></div>
-        <div class="use-case-chip"><span class="use-case-name">Investment Decisions</span></div>
-        <div class="use-case-chip"><span class="use-case-name">Major Purchases</span></div>
-        <div class="use-case-chip"><span class="use-case-name">Debt Management</span></div>
-        <div class="use-case-chip"><span class="use-case-name">Goal Planning</span></div>
-        <div class="use-case-chip"><span class="use-case-name">SIP Optimization</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUST -->
-  <section class="trust-section reveal" id="trust-built-for">
-    <div class="container">
-      <div class="showcase-header">
-        <div class="section-label">Trust</div>
-        <h2 class="section-title">Built For Smarter Decisions</h2>
-        <p class="section-sub">Arivo is built to guide different individuals through their unique financial journeys.</p>
-      </div>
-      <div class="trust-built-grid">
-        <div class="trust-built-card">Young Professionals</div>
-        <div class="trust-built-card">Families</div>
-        <div class="trust-built-card">Investors</div>
-        <div class="trust-built-card">Home Buyers</div>
-        <div class="trust-built-card">Retirement Planners</div>
-        <div class="trust-built-card">Goal-Oriented Individuals</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WAITLIST -->
-  <section class="waitlist" id="waitlist" aria-labelledby="waitlist-heading">
-    <div class="container">
-      <div class="waitlist-inner reveal">
-        <div class="beta-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-          Beta Access
+    <!-- Section 6: Comparison Section -->
+    <section class="bg-white" id="comparison">
+      <div class="container">
+        <div class="section-header" style="max-width: 900px;">
+          <h2 class="section-title">Most finance apps track money.<br />Arivo helps you make decisions.</h2>
         </div>
 
-        <h2 id="waitlist-heading" style="line-height: 1.15;">
-          Your Financial Future<br />
-          <span class="beta-accent">Deserves Better Decisions.</span>
-        </h2>
+        <div class="comparison-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Traditional Finance Apps</th>
+                <th>Arivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>• Track transactions</li>
+                    <li>• Show dashboards</li>
+                    <li>• Generic insights</li>
+                    <li>• Historical information</li>
+                  </ul>
+                </td>
+                <td class="arivo-col">
+                  <ul>
+                    <li>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      Helps make decisions
+                    </li>
+                    <li>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      Provides recommendations
+                    </li>
+                    <li>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      Personalized guidance
+                    </li>
+                    <li>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      Action-oriented outcomes
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-        <p class="waitlist-sub">Stop relying on generic advice. Start making financial decisions with confidence.</p>
+    <!-- Section 7: Final CTA Section (Dark Section) -->
+    <section class="cta-section bg-dark-cta" id="waitlist">
+      <div class="container cta-container">
+        <h2>Every financial decision has consequences. Make them with confidence.</h2>
+        <p>Get personalized financial guidance built around your life.</p>
 
-        <form class="waitlist-form" id="waitlistForm" novalidate style="margin-top: 24px;">
+        <form class="waitlist-form" id="waitlistForm" novalidate>
           <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <input type="text" class="waitlist-input" placeholder="Your name" id="waitlistName" autocomplete="name" />
-          <input type="tel" class="waitlist-input" placeholder="Your mobile number" id="waitlistPhone" autocomplete="tel" />
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+            <input type="text" class="waitlist-input" placeholder="Your name" id="waitlistName" autocomplete="name"
+              required />
+            <input type="tel" class="waitlist-input" placeholder="Your mobile number" id="waitlistPhone"
+              autocomplete="tel" required />
+          </div>
+
           <div class="waitlist-form-row">
-            <input type="email" class="waitlist-input" placeholder="Enter your email" id="emailInput" autocomplete="email" />
-            <button type="submit" class="waitlist-btn" id="waitlistBtn">Start Free</button>
+            <input type="email" class="waitlist-input" placeholder="Enter your email" id="emailInput"
+              autocomplete="email" required />
+            <button type="submit" class="waitlist-btn" id="waitlistBtn"> Get Early access</button>
           </div>
         </form>
 
         <div class="form-feedback success-msg" id="successMsg" role="status" aria-live="polite">
-          <div class="feedback-icon">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          </div>
           <div class="feedback-text">
-            <strong id="successTitle">You're on the beta list!</strong>
-            <span id="successBody">We'll email your beta access link when your batch is onboarded — plus your complimentary 1-month Pro plan.</span>
-          </div>
-        </div>
-        <div class="form-feedback error-msg" id="errorMsg" role="alert">
-          <div class="feedback-icon">!</div>
-          <div class="feedback-text">
-            <strong>Something went wrong</strong>
-            <span>Please try again or email <a href="mailto:akhileshgoswami@arivoai.in">akhileshgoswami@arivoai.in</a></span>
+            <strong id="successTitle">You're on the list!</strong><br />
+            <span id="successBody">We'll email your access link when your batch is onboarded.</span>
           </div>
         </div>
 
-        <ul class="waitlist-perks reveal-stagger">
+        <div class="form-feedback error-msg" id="errorMsg" role="alert">
+          <div class="feedback-text">
+            <strong>Something went wrong</strong><br />
+            <span>Please try again or email us.</span>
+          </div>
+        </div>
+
+        <ul class="waitlist-perks">
           <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
-            1 month of Pro plan — free
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 12 20 22 4 22 4 12"></polyline>
+              <rect x="2" y="7" width="20" height="5"></rect>
+              <line x1="12" y1="22" x2="12" y2="7"></line>
+              <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+              <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+            </svg>
+            1 month of Pro — free
           </li>
           <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
             Bank-grade security
           </li>
           <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-            Early access to Arivo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            Early access
           </li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- BETA PROGRAM -->
-  <section class="beta-program reveal" id="beta" aria-labelledby="beta-heading">
-    <div class="container">
-      <div class="beta-program-header reveal-stagger">
-        <div class="section-label">Beta Program</div>
-        <h2 class="section-title" id="beta-heading">Private beta — onboarding in batches</h2>
-        <p class="section-sub beta-intro">Android MVP is ready. Join the waitlist and we'll send your access link as we open the next cohort.</p>
-      </div>
-
-      <div class="beta-status reveal-stagger">
-        <article class="beta-status-card done">
-          <span class="beta-status-step" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          </span>
-          <h3>MVP + AA shipped</h3>
-          <p>Android app with Account Aggregator linking and weekly action recommendations.</p>
-        </article>
-        <article class="beta-status-card done">
-          <span class="beta-status-step" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          </span>
-          <h3>Waitlist open</h3>
-          <p>Early signups from landing page and founder outreach — onboarding in small batches.</p>
-        </article>
-        <article class="beta-status-card active">
-          <span class="beta-status-step" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </span>
-          <h3>Next cohort</h3>
-          <p>Join the list — we'll email your beta access when your batch opens.</p>
-        </article>
-      </div>
-
-      <div class="beta-offer reveal">
-        <div class="beta-offer-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <div>
-          <h3>1 month of Pro — free for every beta tester</h3>
-          <p>Use the full product, share feedback, and help shape what Arivo becomes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG -->
-  <section class="blog reveal" id="blog" aria-labelledby="blog-heading">
-    <div class="container">
-      <div class="blog-header reveal-stagger">
-        <div class="section-label">Blog</div>
-        <h2 class="section-title" id="blog-heading">Stories from the Arivo journey</h2>
-        <p class="section-sub blog-intro">Building real-time financial accountability in public.</p>
-      </div>
-
-      <div class="blog-grid reveal-stagger">
-        <a href="https://medium.com/@akhileshgoswami_10630/i-use-4-finance-apps-daily-and-still-dont-know-my-net-worth-d5ea7d268f0a" class="blog-card" target="_blank" rel="noopener noreferrer">
-          <span class="blog-card-tag">Personal Finance</span>
-          <h3 class="blog-card-title">I Use 4 Finance Apps Daily and Still Don't Know My Net Worth</h3>
-          <p class="blog-card-excerpt">Zerodha, Coin, bank apps, credit cards — four apps every day. And I still couldn't answer one simple question about my financial health.</p>
-          <div class="blog-card-footer"><span>2 min read</span><span class="blog-card-read">Read on Medium →</span></div>
-        </a>
-        <a href="https://medium.com/@akhileshgoswami_10630/your-mutual-fund-is-up-32-so-why-does-your-financial-life-still-feel-uncertain-d93938b468d3" class="blog-card" target="_blank" rel="noopener noreferrer">
-          <span class="blog-card-tag">Investing</span>
-          <h3 class="blog-card-title">Your Mutual Fund is Up 32%. So Why Does Your Financial Life Still Feel Uncertain?</h3>
-          <p class="blog-card-excerpt">Most Indian investors are winning on paper — and losing in practice. Here's why portfolio gains don't always translate to financial clarity.</p>
-          <div class="blog-card-footer"><span>2 min read</span><span class="blog-card-read">Read on Medium →</span></div>
-        </a>
-        <a href="https://medium.com/@akhileshgoswami_10630/were-not-chasing-10-000-users-we-re-obsessed-with-10-ac13da271883" class="blog-card" target="_blank" rel="noopener noreferrer">
-          <span class="blog-card-tag">Startup</span>
-          <h3 class="blog-card-title">We're Not Chasing 10,000 Users. We're Obsessed With 10.</h3>
-          <p class="blog-card-excerpt">Most startups optimize for scale too early. We're focused on something smaller — and much harder: 10 people who genuinely love the product.</p>
-          <div class="blog-card-footer"><span>2 min read</span><span class="blog-card-read">Read on Medium →</span></div>
-        </a>
-        <a href="https://medium.com/@akhileshgoswami_10630/i-hired-a-new-co-founder-he-works-24-7-and-never-asks-for-a-salary-a919b10784bc" class="blog-card" target="_blank" rel="noopener noreferrer">
-          <span class="blog-card-tag">Building in Public</span>
-          <h3 class="blog-card-title">I Hired a New Co-Founder. He Works 24/7 and Never Asks for a Salary.</h3>
-          <p class="blog-card-excerpt">The only problem? He disappears every few hours when I run out of credits. A story about building Arivo with AI co-founders.</p>
-          <div class="blog-card-footer"><span>2 min read</span><span class="blog-card-read">Read on Medium →</span></div>
-        </a>
-        <a href="https://medium.com/@akhileshgoswami_10630/nobody-told-me-building-a-startup-would-feel-like-this-5ab4f7e3e110" class="blog-card" target="_blank" rel="noopener noreferrer">
-          <span class="blog-card-tag">Founder's Notes</span>
-          <h3 class="blog-card-title">Nobody Told Me Building a Startup Would Feel Like This</h3>
-          <p class="blog-card-excerpt">An honest update from someone in the early trenches — the highs, the doubts, and what it actually feels like to ship a fintech product in India.</p>
-          <div class="blog-card-footer"><span>2 min read</span><span class="blog-card-read">Read on Medium →</span></div>
-        </a>
-      </div>
-
-      <div class="blog-cta">
-        <a href="https://medium.com/@akhileshgoswami_10630" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-          View all posts on Medium →
-        </a>
-      </div>
-    </div>
-  </section>
-
+    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer reveal reveal-fade">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="nav-logo">
-          <span>Arivo</span>
-        </a>
-        <p class="footer-tagline">AI-Powered Financial Decision Platform. We don't just show you data — we help you decide what to do next.</p>
-        <p class="footer-copy">© 2026 Arivo. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-logo-box">
+        <a href="/" class="footer-logo">ARIVO</a>
+        <div class="footer-tagline">Financial Decisions Made Clear</div>
       </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#why-arivo">Why Arivo</a>
-        <a href="#waitlist">Early Access</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#blog">Blog</a>
-        <a href="mailto:akhileshgoswami@arivoai.in">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <a href="privacy.html">Privacy</a>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-social">
-        <a href="mailto:akhileshgoswami@arivoai.in" class="icon-link icon-link-sm" aria-label="Email Akhilesh Goswami" title="Email">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/akhilesh-goswami/" target="_blank" rel="noopener noreferrer" class="icon-link icon-link-sm" aria-label="LinkedIn" title="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
-        </a>
-        <a href="https://www.linkedin.com/company/arivo-os/" target="_blank" rel="noopener noreferrer" class="icon-link icon-link-sm" aria-label="Arivo on LinkedIn" title="Company LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
-        </a>
-        <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer" class="icon-link icon-link-sm" aria-label="Arivo on Medium" title="Medium">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"></path></svg>
-        </a>
+        <a href="mailto:akhileshgoswami@arivoai.in">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Inline form config
     window.ARIVO_FORM = {
       web3formsAccessKey: '8720f665-cae0-4d29-bcc3-24f50ef18586',
       notificationEmail: 'akhileshgoswami@arivoai.in',
@@ -599,4 +442,5 @@
   </script>
   <script src="main.js"></script>
 </body>
+
 </html>
