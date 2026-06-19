@@ -151,301 +151,117 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMsg.classList.add('visible');
       } finally {
         btn.disabled = false;
-        btn.textContent = 'Get Early Access';
+        btn.textContent = 'Join Waitlist';
       }
     });
   }
 
-  // ─── Arivo Phone Mockup Interactive Logic ───
-  
-  // Tab Switching
-  window.switchPhoneTab = function(tabName, btnElement) {
-    const navbar = document.querySelector('.phone-navbar');
-    if (!navbar) return;
-    
-    // Reset active button state
-    navbar.querySelectorAll('.phone-nav-item').forEach(btn => btn.classList.remove('active'));
-    if (btnElement) {
-      btnElement.classList.add('active');
-    } else {
-      // Find button based on index/name if switch was programmatically triggered
-      const idxMap = { 'dashboard': 0, 'decisions': 1, 'copilot': 2, 'explore': 3 };
-      const items = navbar.querySelectorAll('.phone-nav-item');
-      if (items[idxMap[tabName]]) items[idxMap[tabName]].classList.add('active');
+  const decisionScenarios = [
+    {
+      label: 'Buying a car',
+      question: 'Should I buy a ₹12 lakh car this year?',
+      action: 'Wait 8–12 months before purchasing.',
+      basis: 'Your stated goals',
+      outcome: 'A delay could protect cash reserves and keep your home goal easier to manage.',
+      reasons: [
+        'Current savings rate is below target',
+        'Emergency fund is not fully funded',
+        'Car EMI would reduce monthly flexibility',
+        'Home purchase goal remains a higher priority',
+      ],
+    },
+    {
+      label: 'Paying off debt',
+      question: 'Should I use my bonus to close my personal loan?',
+      action: 'Pay off 60% now and keep the rest liquid.',
+      basis: 'Debt + cash buffer',
+      outcome: 'A partial payoff could reduce interest pressure without leaving you short on cash.',
+      reasons: [
+        'Loan interest is higher than expected short-term returns',
+        'Full repayment would leave cash reserves too thin',
+        'Partial closure improves monthly flexibility immediately',
+        'Remaining balance can be cleared over the next two quarters',
+      ],
+    },
+    {
+      label: 'Emergency fund',
+      question: 'Can I start investing before my emergency fund is complete?',
+      action: 'Build emergency reserves first for 4 more months.',
+      basis: 'Reserve gap',
+      outcome: 'A stronger reserve could reduce the chance of selling investments during an emergency.',
+      reasons: [
+        'Current reserve covers less than 3 months of expenses',
+        'Income has variable monthly components',
+        'Upcoming insurance premium needs cash planning',
+        'Investing becomes safer after the reserve target is met',
+      ],
+    },
+    {
+      label: 'Renting vs buying',
+      question: 'Should I keep renting or buy a house next year?',
+      action: 'Rent for another year and increase down payment savings.',
+      basis: 'Home goal timing',
+      outcome: 'Waiting could improve loan readiness and reduce pressure on your monthly budget.',
+      reasons: [
+        'Current down payment would create a high EMI burden',
+        'Rent remains cheaper than the projected ownership cost',
+        'A larger down payment reduces long-term interest',
+        'Career location may change within 12 months',
+      ],
+    },
+    {
+      label: 'Career switch',
+      question: 'Can I take a lower salary for a better career path?',
+      action: 'Proceed only after creating a 9-month transition buffer.',
+      basis: 'Income change',
+      outcome: 'A transition buffer could make the move easier to handle without risking fixed commitments.',
+      reasons: [
+        'New role has stronger long-term income potential',
+        'Short-term salary drop affects savings rate',
+        'Existing EMIs need a larger safety buffer',
+        'Planned move is viable after reducing discretionary spending',
+      ],
+    },
+  ];
+
+  const scenarioLabel = document.getElementById('scenarioLabel');
+  const decisionQuestion = document.getElementById('decisionQuestion');
+  const recommendedAction = document.getElementById('recommendedAction');
+  const recommendationBasis = document.getElementById('recommendationBasis');
+  const expectedOutcome = document.getElementById('expectedOutcome');
+  const reasonList = document.getElementById('reasonList');
+  const chatThread = document.querySelector('.chat-thread');
+  let activeScenarioIndex = 0;
+
+  function renderDecisionScenario(index) {
+    const scenario = decisionScenarios[index];
+    if (!scenario || !scenarioLabel || !decisionQuestion || !recommendedAction || !recommendationBasis || !expectedOutcome || !reasonList) {
+      return;
     }
 
-    const appScreenContent = document.getElementById('appScreenContent');
-    const skeletonScreen = document.getElementById('skeletonScreen');
-    
-    if (appScreenContent && skeletonScreen) {
-      // Trigger skeleton loading animation
-      appScreenContent.style.display = 'none';
-      skeletonScreen.style.display = 'flex';
-      
-      setTimeout(() => {
-        skeletonScreen.style.display = 'none';
-        appScreenContent.style.display = 'flex';
-        
-        // Toggle tabs
-        const tabPanels = appScreenContent.querySelectorAll('.phone-tab-panel');
-        tabPanels.forEach(panel => {
-          panel.classList.remove('active');
-          panel.style.display = 'none';
-        });
-        
-        const activePanel = document.getElementById(`tab-${tabName}`);
-        if (activePanel) {
-          activePanel.classList.add('active');
-          activePanel.style.display = 'flex';
-          
-          // Re-trigger layout animations
-          if (tabName === 'dashboard') {
-            animateDashboardWidgets();
-          }
-        }
-      }, 300);
-    }
-  };
+    scenarioLabel.textContent = scenario.label;
+    decisionQuestion.textContent = scenario.question;
+    recommendedAction.textContent = scenario.action;
+    recommendationBasis.textContent = scenario.basis;
+    expectedOutcome.textContent = scenario.outcome;
+    reasonList.replaceChildren(...scenario.reasons.map((reason) => {
+      const item = document.createElement('li');
+      item.textContent = reason;
+      return item;
+    }));
 
-  // Dashboard Animations
-  function animateDashboardWidgets() {
-    // Health Score ring animation
-    const ring = document.getElementById('healthGaugeRing');
-    if (ring) {
-      // Reset first
-      ring.style.strokeDashoffset = '151';
-      // Animate score of 84 (circumference of radius 24 is ~150.79. Score 84 means fill 84% -> offset = 151 - (151 * 0.84) = 24.16)
-      setTimeout(() => {
-        ring.style.strokeDashoffset = '24';
-      }, 100);
-    }
-
-    // Goal Bars
-    const bar1 = document.getElementById('goalBar1');
-    const bar2 = document.getElementById('goalBar2');
-    if (bar1) {
-      bar1.style.width = '0%';
-      setTimeout(() => { bar1.style.width = '100%'; }, 100);
-    }
-    if (bar2) {
-      bar2.style.width = '0%';
-      setTimeout(() => { bar2.style.width = '54%'; }, 100);
+    if (chatThread) {
+      chatThread.style.animation = 'none';
+      void chatThread.offsetHeight;
+      chatThread.style.animation = 'slideUp 0.35s ease both';
     }
   }
 
-  // Auto initialize gauge offset on startup
-  setTimeout(animateDashboardWidgets, 500);
-
-  // Triggered by Priority Action List
-  window.mockNavigateToDecide = function(btn) {
-    // Navigate to Decisions Tab
-    window.switchPhoneTab('decisions');
-  };
-
-  window.mockReviewAction = function(btn) {
-    btn.textContent = 'Reviewed';
-    btn.classList.add('success-state');
-    btn.disabled = true;
-  };
-
-  // Decisions Tab Execute Button Action
-  window.mockExecuteRecommendation = function(btn) {
-    btn.disabled = true;
-    const originalContent = btn.innerHTML;
-    btn.innerHTML = `
-      <svg class="skeleton-pulse" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="animation: spin 1s infinite linear; border-radius: 50%;">
-        <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
-      </svg>
-      <span>Processing Sweep...</span>
-    `;
-    
-    // Add rotate styles dynamically
-    if (!document.getElementById('mockSpinStyle')) {
-      const style = document.createElement('style');
-      style.id = 'mockSpinStyle';
-      style.innerHTML = `@keyframes spin { to { transform: rotate(360deg); } }`;
-      document.head.appendChild(style);
-    }
-
-    setTimeout(() => {
-      btn.innerHTML = `
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
-        <span>Allocation Executed</span>
-      `;
-      btn.classList.add('success-state');
-      
-      // Toast notification simulation
-      const toast = document.createElement('div');
-      toast.style.cssText = `
-        position: absolute;
-        top: 40px;
-        left: 20px;
-        right: 20px;
-        background: #10B981;
-        color: white;
-        padding: 10px 14px;
-        border-radius: 8px;
-        font-size: 11px;
-        font-weight: 600;
-        z-index: 100;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        animation: slideUp 0.3s forwards ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      `;
-      toast.innerHTML = `
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>₹75,000 auto-allocated successfully</span>
-      `;
-      
-      const phoneScreen = document.querySelector('.phone-screen');
-      if (phoneScreen) {
-        phoneScreen.appendChild(toast);
-        setTimeout(() => {
-          toast.style.animation = 'none';
-          toast.style.opacity = '1';
-          toast.style.transition = 'opacity 0.3s ease';
-          toast.style.opacity = '0';
-          setTimeout(() => toast.remove(), 300);
-        }, 2200);
-      }
-    }, 1200);
-  };
-
-  // Copilot Scenarios Simulation
-  window.mockCopilotPrompt = function(promptText, btn) {
-    const answerCard = document.getElementById('copilotAnswerCard');
-    const answerText = document.getElementById('copilotAnswerText');
-    const confidenceText = document.getElementById('copilotConfidence');
-    
-    if (!answerCard || !answerText) return;
-    
-    answerCard.style.display = 'none';
-    answerCard.classList.remove('active');
-    
-    // Simulate Loading State inside copilot chat pane
-    const loadingCard = document.createElement('div');
-    loadingCard.className = 'app-card skeleton-pulse';
-    loadingCard.style.cssText = `
-      height: 60px;
-      margin-top: 8px;
-      background: rgba(255, 255, 255, 0.02);
-      border-color: rgba(255, 255, 255, 0.05);
-    `;
-    loadingCard.innerHTML = `
-      <div class="skeleton-line short"></div>
-      <div class="skeleton-line"></div>
-    `;
-    
-    const copilotTab = document.getElementById('tab-copilot');
-    if (copilotTab) {
-      copilotTab.appendChild(loadingCard);
-      
-      // Auto scroll tab container
-      const container = copilotTab.closest('.phone-screen-content');
-      if (container) {
-        setTimeout(() => {
-          container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
-        }, 50);
-      }
-      
-      setTimeout(() => {
-        loadingCard.remove();
-        
-        let response = '';
-        let conf = '';
-        if (promptText.includes('vacation')) {
-          response = "<strong>Affordability Check:</strong> Vacation allocation of ₹50,000 is 100% supported under current model parameters. Safe cash buffer remains intact. Under goal schedule, this delay shifts your 2027 home down payment target by exactly 4 calendar days.";
-          conf = '98% Confidence';
-        } else if (promptText.includes('savings rate')) {
-          response = "<strong>Goal Sweep Model:</strong> Increasing savings to 40% adds +₹18,400 monthly capital. Accelerates home purchase goal completion from Dec 2027 to March 2027, saving an estimated ₹24,000 in compounding rental expense.";
-          conf = '95% Confidence';
-        }
-        
-        confidenceText.textContent = conf;
-        answerText.innerHTML = response;
-        answerCard.style.display = 'flex';
-        answerCard.classList.add('active');
-        
-        if (container) {
-          container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
-        }
-      }, 700);
-    }
-  };
-
-  // Onboarding On Explore Screen
-  window.mockConnectAccount = function(step) {
-    const btn = document.getElementById(`checkBtn${step}`);
-    if (!btn) return;
-    
-    btn.disabled = true;
-    
-    if (step === 1) {
-      btn.textContent = 'Connecting...';
-      
-      setTimeout(() => {
-        btn.textContent = 'Linked';
-        btn.classList.add('disabled');
-        
-        document.getElementById('checkCircle1').classList.add('checked');
-        document.getElementById('checkLabel1').classList.add('completed');
-        
-        // Enable step 2 button
-        const btn2 = document.getElementById('checkBtn2');
-        if (btn2) {
-          btn2.classList.remove('disabled');
-        }
-      }, 1000);
-    } else if (step === 2) {
-      btn.textContent = 'Saving...';
-      
-      setTimeout(() => {
-        btn.textContent = 'Defined';
-        btn.classList.add('disabled');
-        
-        document.getElementById('checkCircle2').classList.add('checked');
-        document.getElementById('checkLabel2').classList.add('completed');
-        
-        // Empty state solved toast
-        const toast = document.createElement('div');
-        toast.style.cssText = `
-          position: absolute;
-          top: 40px;
-          left: 20px;
-          right: 20px;
-          background: #0D9488;
-          color: white;
-          padding: 10px 14px;
-          border-radius: 8px;
-          font-size: 11px;
-          font-weight: 600;
-          z-index: 100;
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-          animation: slideUp 0.3s forwards ease;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        `;
-        toast.innerHTML = `
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Financial vaults integrated.</span>
-        `;
-        
-        const phoneScreen = document.querySelector('.phone-screen');
-        if (phoneScreen) {
-          phoneScreen.appendChild(toast);
-          setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transition = 'opacity 0.3s ease';
-            setTimeout(() => toast.remove(), 300);
-          }, 2000);
-        }
-      }, 1000);
-    }
-  };
+  if (scenarioLabel) {
+    setInterval(() => {
+      activeScenarioIndex = (activeScenarioIndex + 1) % decisionScenarios.length;
+      renderDecisionScenario(activeScenarioIndex);
+    }, 6500);
+  }
 
 });
