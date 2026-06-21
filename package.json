@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist/assets && cp index.html privacy.html terms.html arivo.css main.js form-config.js dist/ && cp -R assets/* dist/assets/",
+    "build": "rm -rf dist && mkdir -p dist/assets && cp index.html about.html contact.html blog.html privacy.html terms.html arivo.css main.js form-config.js dist/ && cp -R assets/* dist/assets/",
     "dev": "npm run build && wrangler dev",
     "deploy": "npm run build && wrangler deploy"
   },

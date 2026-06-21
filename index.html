@@ -4,9 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="assets/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0071e3" />
   <title>Arivo — Decision Intelligence for Your Financial Life</title>
   <meta name="description"
-    content="Arivo is a Financial Decision Engine. Analyze major money choices — home, car, investments, travel — with confidence scores, risk analysis, and clear recommendations." />
+    content="Arivo analyzes your finances, goals, spending, debt, and cash flow to help you decide whether to spend, save, invest, borrow, or wait." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,14 +26,17 @@
 
   <header class="site-header">
     <div class="container nav-inner">
-      <a href="/" class="logo">Arivo</a>
+      <a href="/" class="logo" aria-label="Arivo home">
+        <img src="assets/logo-mark.svg" alt="" class="logo-mark" width="28" height="28" />
+        <span>Arivo</span>
+      </a>
       <nav class="nav-links" id="navMenu">
-        <a href="#product">Product</a>
         <a href="#why">Why Arivo</a>
-        <a href="#blog">Blog</a>
-        <a href="#founder">Founder</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <a href="#waitlist" class="btn btn-sm">Join Waitlist</a>
+      <a href="#waitlist" class="btn btn-sm">Join the Waitlist</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu">
         <span></span><span></span>
       </button>
@@ -39,41 +47,148 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
-      <div class="hero-visual" aria-hidden="true">
-        <div class="ai-orb">
-          <div class="ai-orb-core"></div>
-          <div class="ai-orb-ring ai-orb-ring-1"></div>
-          <div class="ai-orb-ring ai-orb-ring-2"></div>
-          <div class="ai-orb-ring ai-orb-ring-3"></div>
+      <div class="container hero-layout">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="ai-orb-wrap">
+            <div class="ai-orb-halo"></div>
+            <div class="ai-orb" id="aiOrb">
+              <svg class="ai-orb-arcs" viewBox="0 0 400 400" fill="none">
+                <defs>
+                  <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0071e3" stop-opacity="0.9" />
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0.5" />
+                  </linearGradient>
+                </defs>
+                <circle cx="200" cy="200" r="168" stroke="url(#arcGrad)" stroke-width="2"
+                  stroke-dasharray="100 960" stroke-linecap="round" opacity="0.55" />
+                <circle cx="200" cy="200" r="138" stroke="url(#arcGrad)" stroke-width="1.5"
+                  stroke-dasharray="70 800" stroke-linecap="round" opacity="0.4"
+                  transform="rotate(48 200 200)" />
+                <circle cx="200" cy="200" r="108" stroke="url(#arcGrad)" stroke-width="1"
+                  stroke-dasharray="50 630" stroke-linecap="round" opacity="0.35"
+                  transform="rotate(-24 200 200)" />
+              </svg>
+              <div class="ai-orb-ring ai-orb-ring-1"></div>
+              <div class="ai-orb-ring ai-orb-ring-2"></div>
+              <div class="ai-orb-ring ai-orb-ring-3"></div>
+              <div class="orbit-track orbit-track-1"><span class="orbit-dot"></span></div>
+              <div class="orbit-track orbit-track-2"><span class="orbit-dot"></span></div>
+              <div class="orbit-track orbit-track-3"><span class="orbit-dot"></span></div>
+              <svg class="orb-signal-paths" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+                <path class="orb-path orb-path-1" d="M200 52 C200 100 200 130 200 168" />
+                <path class="orb-path orb-path-2" d="M348 200 C300 200 260 200 232 200" />
+                <path class="orb-path orb-path-3" d="M200 348 C200 300 200 260 200 232" />
+                <path class="orb-path orb-path-4" d="M52 200 C100 200 140 200 168 200" />
+                <circle class="orb-node orb-node-1" cx="200" cy="52" r="5" />
+                <circle class="orb-node orb-node-2" cx="348" cy="200" r="5" />
+                <circle class="orb-node orb-node-3" cx="200" cy="348" r="5" />
+                <circle class="orb-node orb-node-4" cx="52" cy="200" r="5" />
+              </svg>
+              <div class="orb-signals" aria-hidden="true">
+                <span class="orb-signal orb-signal-1">Income</span>
+                <span class="orb-signal orb-signal-2">Savings</span>
+                <span class="orb-signal orb-signal-3">Goals</span>
+                <span class="orb-signal orb-signal-4">Risk</span>
+              </div>
+              <svg class="ai-orb-confidence" viewBox="0 0 400 400" aria-hidden="true">
+                <circle class="ai-orb-confidence-track" cx="200" cy="200" r="72" fill="none"
+                  stroke="rgba(0, 113, 227, 0.1)" stroke-width="3.5" />
+                <circle class="ai-orb-confidence-fill" id="orbConfidenceRing" cx="200" cy="200" r="72" fill="none"
+                  stroke="url(#arcGrad)" stroke-width="3.5" stroke-linecap="round"
+                  transform="rotate(-90 200 200)" stroke-dasharray="0 452" />
+              </svg>
+              <div class="ai-orb-sphere">
+                <div class="orb-scan" aria-hidden="true"></div>
+                <div class="ai-orb-shine"></div>
+                <div class="ai-orb-core"></div>
+                <span class="orb-core-percent" id="orbCorePercent" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="orb-report" id="orbReport" aria-hidden="true">
+              <div class="orb-pipeline" id="orbPipeline">
+                <span class="orb-pipeline-step" data-step="1">Signals</span>
+                <span class="orb-pipeline-line" aria-hidden="true"></span>
+                <span class="orb-pipeline-step" data-step="2">Analyze</span>
+                <span class="orb-pipeline-line" aria-hidden="true"></span>
+                <span class="orb-pipeline-step" data-step="3">Verdict</span>
+              </div>
+              <div class="orb-report-card">
+                <div class="orb-report-header">
+                  <span class="orb-report-status" id="orbReportStatus">
+                    <span class="orb-report-dot"></span>
+                    <span id="orbReportStatusText">Gathering signals</span>
+                  </span>
+                  <span class="orb-report-id">Live preview</span>
+                </div>
+                <p class="orb-report-decision" id="orbReportDecision">Home purchase</p>
+                <div class="orb-report-verdict-row" id="orbReportVerdictRow" hidden>
+                  <span class="orb-report-verdict verdict-approved" id="orbVerdict">Proceed</span>
+                  <span class="orb-report-confidence" id="orbConfidenceNum">87%</span>
+                </div>
+                <div class="orb-report-meter" aria-hidden="true">
+                  <div class="orb-report-meter-fill" id="orbConfidenceBar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="ai-rays"></div>
-      </div>
 
-      <div class="container hero-content">
-        <p class="hero-eyebrow reveal">Financial Decision Engine</p>
-        <h1 class="hero-title reveal">
-          <span class="hero-title-line">Every major financial decision.</span>
-          <span class="hero-title-line hero-title-accent">One intelligent answer.</span>
-        </h1>
+        <div class="hero-content">
+          <p class="hero-eyebrow">
+            <svg class="hero-eyebrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M12 3v3M12 18v3M3 12h3M18 12h3M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M17.7 6.3l-2.1 2.1M8.4 15.6l-2.1 2.1" />
+            </svg>
+            Financial Decision Engine
+          </p>
+          <h1 class="hero-title">
+            <span class="hero-title-line">Every financial decision</span>
+            <span class="hero-title-line hero-title-accent">deserves a clear answer.</span>
+          </h1>
 
-        <div class="hero-sub reveal">
-          <p class="hero-ask-label">Decisions the engine evaluates</p>
-          <ul class="hero-questions" id="heroQuestions">
-            <li class="active">Home purchase</li>
-            <li>Car financing</li>
-            <li>Investment timing</li>
-            <li>Career &amp; relocation</li>
-          </ul>
-          <p class="hero-desc">Arivo analyzes your income, savings, goals, and obligations — then delivers a clear
-            recommendation with confidence score and long-term impact.</p>
-        </div>
+          <p class="hero-desc">Arivo analyzes your finances, goals, spending, debt, and cash flow to help you decide
+            whether to spend, save, invest, borrow, or wait.</p>
 
-        <div class="hero-cta reveal">
-          <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
-          <a href="#product" class="btn btn-ghost">See Engine Demo</a>
-        </div>
+          <div class="hero-engine-panel">
+            <div class="hero-engine-header">
+              <span class="hero-engine-live">
+                <span class="hero-live-dot" id="heroLiveDot"></span>
+                <span id="heroLiveLabel">Evaluating decision</span>
+              </span>
+              <div class="hero-question-dots" id="heroQuestionDots" aria-hidden="true">
+                <span class="active"></span><span></span><span></span><span></span>
+              </div>
+            </div>
 
-        <div class="store-badges reveal" aria-label="Mobile apps coming soon">
+            <p class="hero-ask-label">Decisions the engine evaluates</p>
+            <div class="hero-question-stage">
+              <ul class="hero-questions" id="heroQuestions">
+                <li class="active" data-confidence="87" data-verdict="Proceed" data-risk="low">Home purchase</li>
+                <li data-confidence="91" data-verdict="Approved" data-risk="low">Car financing</li>
+                <li data-confidence="93" data-verdict="Approved" data-risk="low">Investment timing</li>
+                <li data-confidence="76" data-verdict="Review" data-risk="medium">Career &amp; relocation</li>
+              </ul>
+              <div class="hero-question-meta" id="heroQuestionMeta" hidden>
+                <span class="hero-meta-verdict verdict-approved" id="heroMetaVerdict">Proceed</span>
+                <span class="hero-meta-confidence" id="heroMetaConfidence">87% confidence</span>
+              </div>
+            </div>
+
+            <div class="hero-value-tags" aria-hidden="true">
+              <span>Verdict</span>
+              <span>Confidence</span>
+              <span>Impact</span>
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <a href="#waitlist" class="btn btn-primary btn-hero-primary">Join the Waitlist</a>
+            <a href="#product" class="btn btn-ghost">See Engine Demo</a>
+          </div>
+
+          <p class="hero-trust">Launching soon · Limited early access</p>
+
+          <div class="store-badges" aria-label="Mobile apps coming soon">
           <div class="store-badge store-badge-disabled" title="Coming soon on the App Store">
             <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor"
@@ -97,15 +212,46 @@
             <span class="store-soon">Coming Soon</span>
           </div>
         </div>
+        </div>
       </div>
     </section>
 
     <!-- Social Proof -->
     <section class="statement statement-social">
       <div class="container">
-        <div class="statement-block reveal">
-          <p class="statement-muted">Most financial apps tell you what happened.</p>
-          <p class="statement-bold">Arivo tells you what to do next.</p>
+        <div class="statement-contrast reveal">
+          <span class="section-label">The difference</span>
+          <div class="statement-split">
+            <div class="statement-split-card statement-split-old">
+              <span class="statement-split-tag">Most financial apps</span>
+              <p class="statement-split-line">Tell you what <em>happened</em>.</p>
+              <div class="statement-chips statement-chips-muted" aria-hidden="true">
+                <span>Past spending</span>
+                <span>Balances</span>
+                <span>Receipts</span>
+              </div>
+            </div>
+
+            <div class="statement-split-bridge" aria-hidden="true">
+              <span class="statement-split-bridge-line"></span>
+              <span class="statement-split-bridge-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="statement-split-card statement-split-new">
+              <span class="statement-split-tag statement-split-tag-new">Arivo</span>
+              <p class="statement-split-line statement-split-line-bold">Tells you what to do <span class="statement-gradient">next</span>.</p>
+              <div class="statement-chips statement-chips-new" aria-hidden="true">
+                <span>Clear verdict</span>
+                <span>Confidence</span>
+                <span>Next step</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -113,61 +259,103 @@
     <!-- Problem -->
     <section class="problem" id="problem">
       <div class="container">
-        <div class="problem-copy reveal">
-          <p class="problem-lead">People spend months researching decisions.</p>
-          <ul class="problem-list">
-            <li>Buying a car.</li>
-            <li>Buying a house.</li>
-            <li>Planning a wedding.</li>
-            <li>Investing savings.</li>
-            <li>Changing jobs.</li>
-            <li>Moving cities.</li>
-          </ul>
-          <p class="problem-punch">Yet most decisions are still guesses.</p>
+        <div class="problem-header reveal">
+          <span class="section-label">The problem</span>
+          <h2 class="problem-title">People spend months researching decisions.</h2>
+          <p class="problem-subtitle">Spreadsheets, calculators, and blogs — yet the answer never feels clear.</p>
         </div>
 
-        <div class="problem-visual reveal">
-          <div class="problem-crossed">
-            <div class="problem-icon-card">
-              <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                <rect x="8" y="12" width="48" height="40" rx="4" stroke="currentColor" stroke-width="2" />
-                <line x1="16" y1="24" x2="48" y2="24" stroke="currentColor" stroke-width="2" />
-                <line x1="16" y1="32" x2="40" y2="32" stroke="currentColor" stroke-width="2" />
-                <line x1="16" y1="40" x2="44" y2="40" stroke="currentColor" stroke-width="2" />
-              </svg>
-              <span>Spreadsheets</span>
-              <div class="cross-line"></div>
-            </div>
-            <div class="problem-icon-card">
-              <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                <rect x="12" y="8" width="40" height="48" rx="6" stroke="currentColor" stroke-width="2" />
-                <rect x="18" y="16" width="28" height="10" rx="2" stroke="currentColor" stroke-width="2" />
-                <circle cx="24" cy="36" r="3" fill="currentColor" />
-                <circle cx="32" cy="36" r="3" fill="currentColor" />
-                <circle cx="40" cy="36" r="3" fill="currentColor" />
-                <circle cx="24" cy="44" r="3" fill="currentColor" />
-                <circle cx="32" cy="44" r="3" fill="currentColor" />
-                <circle cx="40" cy="44" r="3" fill="currentColor" />
-              </svg>
-              <span>Calculators</span>
-              <div class="cross-line"></div>
-            </div>
-            <div class="problem-icon-card">
-              <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                <rect x="10" y="10" width="44" height="44" rx="4" stroke="currentColor" stroke-width="2" />
-                <line x1="18" y1="22" x2="46" y2="22" stroke="currentColor" stroke-width="2" />
-                <line x1="18" y1="30" x2="42" y2="30" stroke="currentColor" stroke-width="2" />
-                <line x1="18" y1="38" x2="38" y2="38" stroke="currentColor" stroke-width="2" />
-                <line x1="18" y1="46" x2="34" y2="46" stroke="currentColor" stroke-width="2" />
-              </svg>
-              <span>Finance blogs</span>
-              <div class="cross-line"></div>
-            </div>
+        <div class="problem-body">
+          <div class="problem-left reveal">
+            <p class="problem-decisions-label">Life's biggest money moments</p>
+            <ul class="problem-decisions">
+              <li>Buying a car</li>
+              <li>Buying a house</li>
+              <li>Planning a wedding</li>
+              <li>Investing savings</li>
+              <li>Changing jobs</li>
+              <li>Moving cities</li>
+            </ul>
+            <p class="problem-punch">Yet most decisions are still <strong>guesses.</strong></p>
           </div>
 
-          <div class="problem-answer">
-            <span class="problem-answer-brand">Arivo.</span>
-            <span class="problem-answer-text">One answer.</span>
+          <div class="problem-right reveal">
+            <div class="problem-old-way">
+              <span class="problem-way-tag">What people use today</span>
+              <div class="problem-crossed reveal reveal-stagger">
+                <div class="problem-icon-card">
+                  <span class="problem-card-badge">Not enough</span>
+                  <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                    <rect x="8" y="12" width="48" height="40" rx="4" stroke="currentColor" stroke-width="2" />
+                    <line x1="16" y1="24" x2="48" y2="24" stroke="currentColor" stroke-width="2" />
+                    <line x1="16" y1="32" x2="40" y2="32" stroke="currentColor" stroke-width="2" />
+                    <line x1="16" y1="40" x2="44" y2="40" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                  <span>Spreadsheets</span>
+                  <p class="problem-card-note">Manual, error-prone</p>
+                  <div class="cross-line"></div>
+                </div>
+                <div class="problem-icon-card">
+                  <span class="problem-card-badge">Not enough</span>
+                  <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                    <rect x="12" y="8" width="40" height="48" rx="6" stroke="currentColor" stroke-width="2" />
+                    <rect x="18" y="16" width="28" height="10" rx="2" stroke="currentColor" stroke-width="2" />
+                    <circle cx="24" cy="36" r="3" fill="currentColor" />
+                    <circle cx="32" cy="36" r="3" fill="currentColor" />
+                    <circle cx="40" cy="36" r="3" fill="currentColor" />
+                    <circle cx="24" cy="44" r="3" fill="currentColor" />
+                    <circle cx="32" cy="44" r="3" fill="currentColor" />
+                    <circle cx="40" cy="44" r="3" fill="currentColor" />
+                  </svg>
+                  <span>Calculators</span>
+                  <p class="problem-card-note">One number, no context</p>
+                  <div class="cross-line"></div>
+                </div>
+                <div class="problem-icon-card">
+                  <span class="problem-card-badge">Not enough</span>
+                  <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                    <rect x="10" y="10" width="44" height="44" rx="4" stroke="currentColor" stroke-width="2" />
+                    <line x1="18" y1="22" x2="46" y2="22" stroke="currentColor" stroke-width="2" />
+                    <line x1="18" y1="30" x2="42" y2="30" stroke="currentColor" stroke-width="2" />
+                    <line x1="18" y1="38" x2="38" y2="38" stroke="currentColor" stroke-width="2" />
+                    <line x1="18" y1="46" x2="34" y2="46" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                  <span>Finance blogs</span>
+                  <p class="problem-card-note">Generic, not personal</p>
+                  <div class="cross-line"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="problem-connector" aria-hidden="true">
+              <span class="problem-connector-line"></span>
+              <span class="problem-connector-pill">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="problem-answer">
+              <div class="problem-answer-glow" aria-hidden="true"></div>
+              <div class="problem-answer-inner">
+                <span class="problem-answer-eyebrow">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  The Arivo way
+                </span>
+                <span class="problem-answer-brand">Arivo.</span>
+                <span class="problem-answer-text">One answer.</span>
+                <div class="problem-answer-tags">
+                  <span>Verdict</span>
+                  <span>Confidence</span>
+                  <span>Impact</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -213,6 +401,9 @@
 
               <div class="product-answer" id="productAnswer">
                 <div class="product-verdict verdict-approved" id="productVerdict">Approved</div>
+                <div class="confidence-meter" aria-hidden="true">
+                  <div class="confidence-meter-fill" id="productConfidenceBar"></div>
+                </div>
 
                 <div class="product-details">
                   <div class="product-detail">
@@ -251,7 +442,7 @@
             financial choices and tell you what to do next.</p>
         </div>
 
-        <div class="why-compare reveal">
+        <div class="why-compare reveal reveal-stagger">
           <div class="why-col why-col-not">
             <h3 class="why-col-title">What it replaces</h3>
             <ul class="why-list">
@@ -282,146 +473,146 @@
     <!-- Big Statement -->
     <section class="statement statement-big">
       <div class="container">
-        <div class="statement-block reveal">
-          <p class="statement-muted">The future of money is not tracking.</p>
-          <p class="statement-bold statement-gradient">The future of money is decision intelligence.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Founder -->
-    <section class="founder" id="founder">
-      <div class="container">
-        <div class="founder-card reveal">
-          <div class="founder-photo">
-            <img src="assets/founder-akhilesh-goswami.png" alt="Akhilesh Goswami, Founder of Arivo" />
-          </div>
-          <div class="founder-info">
-            <span class="section-label">Founder</span>
-            <h2 class="founder-name">Akhilesh Goswami</h2>
-            <p class="founder-bio">Building Arivo to help people make life's biggest financial decisions with clarity,
-              confidence, and intelligence — before expensive mistakes happen.</p>
-            <div class="founder-social">
-              <a href="https://www.linkedin.com/in/akhilesh-goswami/" target="_blank" rel="noopener noreferrer"
-                class="social-link" aria-label="Akhilesh Goswami on LinkedIn">
+        <div class="statement-vision reveal">
+          <span class="section-label">The shift</span>
+          <div class="statement-compare">
+            <div class="statement-card statement-card-old">
+              <span class="statement-card-tag">The old paradigm</span>
+              <p class="statement-muted">The future of money is not tracking.</p>
+              <div class="statement-card-icons" aria-hidden="true">
+                <span>Charts</span>
+                <span>Receipts</span>
+                <span>Balances</span>
+              </div>
+            </div>
+            <div class="statement-bridge" aria-hidden="true">
+              <span class="statement-bridge-line"></span>
+              <span class="statement-bridge-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor"
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
-              </a>
-              <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer"
-                class="social-link" aria-label="Arivo blog on Medium">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor"
-                    d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-                </svg>
-              </a>
-              <a href="https://www.linkedin.com/company/125614133/" target="_blank" rel="noopener noreferrer"
-                class="social-link" aria-label="Arivo on LinkedIn">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor"
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-              <a href="mailto:akhileshgoswami@arivoai.in" class="social-link" aria-label="Email Arivo">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4 6h16v12H4z M4 7l8 6 8-6" />
-                </svg>
-              </a>
+              </span>
+            </div>
+            <div class="statement-card statement-card-new">
+              <span class="statement-card-tag statement-card-tag-new">The new paradigm</span>
+              <p class="statement-bold statement-gradient">The future of money is decision intelligence.</p>
+              <div class="statement-card-icons statement-card-icons-new" aria-hidden="true">
+                <span>Verdict</span>
+                <span>Confidence</span>
+                <span>Impact</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Blog -->
-    <section class="blog" id="blog">
+    <!-- About teaser -->
+    <section class="about-teaser">
       <div class="container">
-        <div class="blog-header reveal">
-          <span class="section-label">From the blog</span>
-          <h2 class="blog-title">Ideas on smarter financial decisions.</h2>
-          <p class="blog-desc">Thoughts on decision-making, money psychology, and building Arivo — from our founder.</p>
-        </div>
-
-        <div class="blog-grid reveal">
-          <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer"
-            class="blog-card">
-            <span class="blog-card-tag">Decision Intelligence</span>
-            <h3>Why financial decisions need more than spreadsheets</h3>
-            <p>Most people don't need another dashboard. They need a clear answer before they act.</p>
-            <span class="blog-card-link">Read on Medium →</span>
-          </a>
-          <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer"
-            class="blog-card">
-            <span class="blog-card-tag">Building Arivo</span>
-            <h3>Designing AI for life's biggest money questions</h3>
-            <p>From car loans to career moves — how we're thinking about decision intelligence.</p>
-            <span class="blog-card-link">Read on Medium →</span>
-          </a>
-          <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer"
-            class="blog-card">
-            <span class="blog-card-tag">Personal Finance</span>
-            <h3>The cost of guessing on major financial choices</h3>
-            <p>Expensive mistakes often come from timing, not math. Here's what changes that.</p>
-            <span class="blog-card-link">Read on Medium →</span>
-          </a>
-        </div>
-
-        <div class="blog-cta reveal">
-          <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer"
-            class="btn btn-ghost">View all posts on Medium</a>
+        <div class="about-teaser-inner reveal">
+          <div class="about-teaser-glow" aria-hidden="true"></div>
+          <div class="about-teaser-copy">
+            <span class="section-label">About Arivo</span>
+            <h2 class="about-teaser-title">Decision intelligence for your financial life.</h2>
+            <p class="about-teaser-desc">Learn why we're building a new category — and how Arivo helps you decide with
+              clarity before life's biggest money moments.</p>
+            <div class="about-teaser-pills" aria-hidden="true">
+              <span>Our mission</span>
+              <span>Why we exist</span>
+              <a href="about.html#founder" class="about-teaser-pill-link">Meet the founder</a>
+            </div>
+          </div>
+          <div class="about-teaser-action">
+            <a href="about.html" class="btn btn-primary about-teaser-btn">Know more about us</a>
+            <a href="contact.html" class="about-teaser-link">Get in touch →</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Waitlist -->
     <section class="waitlist" id="waitlist">
-      <div class="container waitlist-inner reveal">
-        <h2 class="waitlist-title">
-          Before your next financial decision,<br />run it through Arivo.
-        </h2>
-
-        <form class="waitlist-form" id="waitlistForm" novalidate>
-          <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-          <div class="waitlist-row">
-            <input type="text" class="waitlist-input" placeholder="Name" id="waitlistName" autocomplete="name" required />
-            <input type="tel" class="waitlist-input" placeholder="Phone" id="waitlistPhone" autocomplete="tel" required />
+      <div class="container">
+        <div class="waitlist-wrap reveal">
+          <div class="waitlist-copy">
+            <span class="section-label">Early access</span>
+            <h2 class="waitlist-title">Before your next financial decision, run it through Arivo.</h2>
+            <p class="waitlist-lead">Join the waitlist for priority access to the Financial Decision Engine — before
+              your next big money move.</p>
+            <ul class="waitlist-perks">
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Free early access at launch
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Full decision engine previews
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Priority onboarding batch
+              </li>
+            </ul>
           </div>
-          <div class="waitlist-row waitlist-row-main">
-            <input type="email" class="waitlist-input" placeholder="Email address" id="emailInput" autocomplete="email"
-              required />
-            <button type="submit" class="btn btn-primary" id="waitlistBtn">Join Waitlist</button>
-          </div>
-        </form>
 
-        <div class="form-msg success-msg" id="successMsg" role="status">
-          <strong>You're on the list.</strong>
-          <span>We'll reach out when your batch opens.</span>
-        </div>
-        <div class="form-msg error-msg" id="errorMsg" role="alert">
-          <strong>Something went wrong.</strong>
-          <span>Try again or email akhileshgoswami@arivoai.in</span>
-        </div>
+          <div class="waitlist-panel">
+            <div class="waitlist-panel-header">
+              <span class="waitlist-panel-label">Join the waitlist</span>
+              <span class="waitlist-panel-badge">Limited spots</span>
+            </div>
 
-        <p class="waitlist-note">Launching soon. Limited early access.</p>
+            <form class="waitlist-form" id="waitlistForm" novalidate>
+              <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-        <div class="store-badges store-badges-compact" aria-label="Mobile apps coming soon">
-          <div class="store-badge store-badge-disabled">
-            <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor"
-                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-            </svg>
-            <span class="store-badge-text"><small>App Store</small>Coming Soon</span>
-          </div>
-          <div class="store-badge store-badge-disabled">
-            <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor"
-                d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12 3.84 21.85C3.34 21.6 3 21.09 3 20.5ZM16.81 15.12 6.05 21.34l8.49-8.49 2.27 2.27ZM20.16 10.81c.34.27.59.69.59 1.19s-.22.92-.57 1.19l-2.29 1.32-2.5-2.5 2.5-2.5 2.29 1.32ZM6.05 2.66 16.81 8.88 14.54 11.15 6.05 2.66Z" />
-            </svg>
-            <span class="store-badge-text"><small>Google Play</small>Coming Soon</span>
+              <div class="waitlist-row">
+                <input type="text" class="waitlist-input" placeholder="Name" id="waitlistName" autocomplete="name" required />
+                <input type="tel" class="waitlist-input" placeholder="Phone" id="waitlistPhone" autocomplete="tel" required />
+              </div>
+              <div class="waitlist-row waitlist-row-main">
+                <input type="email" class="waitlist-input" placeholder="Email address" id="emailInput" autocomplete="email"
+                  required />
+                <button type="submit" class="btn btn-primary waitlist-submit" id="waitlistBtn">Join Waitlist</button>
+              </div>
+            </form>
+
+            <div class="form-msg success-msg" id="successMsg" role="status">
+              <strong>You're on the list.</strong>
+              <span>We'll reach out when your batch opens.</span>
+            </div>
+            <div class="form-msg error-msg" id="errorMsg" role="alert">
+              <strong>Something went wrong.</strong>
+              <span>Try again or email akhileshgoswami@arivoai.in</span>
+            </div>
+
+            <p class="waitlist-note">Launching soon · Limited early access</p>
+
+            <div class="store-badges store-badges-compact waitlist-stores" aria-label="Mobile apps coming soon">
+              <div class="store-badge store-badge-disabled">
+                <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor"
+                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                <span class="store-badge-text"><small>App Store</small>Coming Soon</span>
+              </div>
+              <div class="store-badge store-badge-disabled">
+                <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor"
+                    d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12 3.84 21.85C3.34 21.6 3 21.09 3 20.5ZM16.81 15.12 6.05 21.34l8.49-8.49 2.27 2.27ZM20.16 10.81c.34.27.59.69.59 1.19s-.22.92-.57 1.19l-2.29 1.32-2.5-2.5 2.5-2.5 2.29 1.32ZM6.05 2.66 16.81 8.88 14.54 11.15 6.05 2.66Z" />
+                </svg>
+                <span class="store-badge-text"><small>Google Play</small>Coming Soon</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -432,7 +623,10 @@
   <footer class="footer">
     <div class="container footer-top">
       <div class="footer-brand-col">
-        <span class="footer-logo">Arivo</span>
+        <span class="footer-logo">
+          <img src="assets/logo-mark.svg" alt="" class="footer-logo-mark" width="22" height="22" />
+          Arivo
+        </span>
         <p class="footer-tagline">Every major financial decision. One intelligent answer.</p>
       </div>
       <div class="footer-col">
@@ -443,14 +637,14 @@
       </div>
       <div class="footer-col">
         <span class="footer-col-title">Company</span>
-        <a href="#founder">Founder</a>
-        <a href="#blog">Blog</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
       </div>
       <div class="footer-col">
         <span class="footer-col-title">Connect</span>
-        <a href="mailto:akhileshgoswami@arivoai.in">Contact</a>
+        <a href="contact.html">Contact</a>
         <a href="https://www.linkedin.com/company/125614133/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer">Medium</a>
       </div>
