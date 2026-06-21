@@ -1,51 +1,201 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Nav Toggle
+  // Mobile nav
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
 
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
       const open = navMenu.classList.toggle('is-open');
-      navToggle.classList.toggle('is-open', open);
       navToggle.setAttribute('aria-expanded', String(open));
       navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
-
     navMenu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('is-open');
-        navToggle.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
+      link.addEventListener('click', () => navMenu.classList.remove('is-open'));
     });
   }
 
-  // Helper validation styling
-  function markInvalid(input) {
-    input.style.borderColor = '#E5675F';
-    input.style.boxShadow = '0 0 0 3px rgba(229,103,95,0.15)';
+  // Scroll reveal
+  document.querySelectorAll('.reveal').forEach((el) => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('visible');
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+    observer.observe(el);
+  });
+
+  // Hero question rotation
+  const heroQuestions = document.querySelectorAll('#heroQuestions li');
+  let questionIndex = 0;
+
+  if (heroQuestions.length) {
+    setInterval(() => {
+      heroQuestions[questionIndex].classList.remove('active');
+      questionIndex = (questionIndex + 1) % heroQuestions.length;
+      heroQuestions[questionIndex].classList.add('active');
+    }, 3200);
+  }
+
+  // Product scenarios
+  const scenarios = {
+    car: {
+      decisionType: 'Vehicle purchase',
+      scenario: '₹15L car financing',
+      verdict: 'Approved',
+      verdictClass: 'verdict-approved',
+      confidence: '91%',
+      details: [
+        { label: 'Impact', value: 'Low risk' },
+        { label: 'Recommended EMI', value: '₹18,000' },
+        { label: 'Future savings impact', value: 'Minimal', wide: true },
+      ],
+      reasoning: null,
+      recommendation: null,
+    },
+    trip: {
+      decisionType: 'Travel expense',
+      scenario: 'Bali trip · ₹2.5L budget',
+      verdict: 'Worth Reviewing',
+      verdictClass: 'verdict-review',
+      confidence: '88%',
+      details: [],
+      reasoning: ['Trip budget reduces emergency fund below target.'],
+      recommendation: 'Wait 2 months or reduce budget.',
+    },
+    invest: {
+      decisionType: 'Investment allocation',
+      scenario: '₹50,000 lump-sum deploy',
+      verdict: 'Approved',
+      verdictClass: 'verdict-approved',
+      confidence: '93%',
+      details: [],
+      reasoning: [
+        'Strong cash position.',
+        'Emergency fund healthy.',
+        'Investment fits goals.',
+      ],
+      recommendation: null,
+    },
+  };
+
+  const productStage = document.getElementById('productStage');
+  const productDecisionType = document.getElementById('productDecisionType');
+  const productScenario = document.getElementById('productScenario');
+  const productVerdict = document.getElementById('productVerdict');
+  const productConfidence = document.getElementById('productConfidence');
+  const productDetail2Wrap = document.getElementById('productDetail2Wrap');
+  const productDetail2Label = document.getElementById('productDetail2Label');
+  const productDetail2 = document.getElementById('productDetail2');
+  const productDetail3Wrap = document.getElementById('productDetail3Wrap');
+  const productDetail3Label = document.getElementById('productDetail3Label');
+  const productDetail3 = document.getElementById('productDetail3');
+  const productDetail4Wrap = document.getElementById('productDetail4Wrap');
+  const productDetail4Label = document.getElementById('productDetail4Label');
+  const productDetail4 = document.getElementById('productDetail4');
+  const productReasoning = document.getElementById('productReasoning');
+  const productTabs = document.querySelectorAll('.product-tab');
+
+  function renderScenario(key) {
+    const s = scenarios[key];
+    if (!s || !productStage) return;
+
+    productStage.classList.add('fading');
+
     setTimeout(() => {
-      input.style.borderColor = '';
-      input.style.boxShadow = '';
-    }, 2000);
+      if (productDecisionType) productDecisionType.textContent = s.decisionType;
+      if (productScenario) productScenario.textContent = s.scenario;
+      if (productVerdict) {
+        productVerdict.textContent = s.verdict;
+        productVerdict.className = `product-verdict ${s.verdictClass}`;
+      }
+      if (productConfidence) productConfidence.textContent = s.confidence;
+
+      // Car scenario uses detail rows
+      const hasDetails = s.details && s.details.length > 0;
+      if (productDetail2Wrap) productDetail2Wrap.hidden = !hasDetails;
+      if (productDetail3Wrap) productDetail3Wrap.hidden = !hasDetails || s.details.length < 2;
+      if (productDetail4Wrap) productDetail4Wrap.hidden = !hasDetails || s.details.length < 3;
+
+      if (hasDetails) {
+        if (productDetail2Label) productDetail2Label.textContent = s.details[0].label;
+        if (productDetail2) productDetail2.textContent = s.details[0].value;
+        if (s.details[1]) {
+          if (productDetail3Label) productDetail3Label.textContent = s.details[1].label;
+          if (productDetail3) productDetail3.textContent = s.details[1].value;
+        }
+        if (s.details[2]) {
+          if (productDetail4Label) productDetail4Label.textContent = s.details[2].label;
+          if (productDetail4) productDetail4.textContent = s.details[2].value;
+        }
+      }
+
+      // Reasoning block for trip/invest
+      if (productReasoning) {
+        if (s.reasoning && s.reasoning.length) {
+          productReasoning.hidden = false;
+          let html = '<span class="product-reasoning-label">Analysis signals</span><ul class="product-reasoning-list">';
+          s.reasoning.forEach((r) => { html += `<li>${r}</li>`; });
+          html += '</ul>';
+          if (s.recommendation) {
+            html += `<p class="product-recommendation">Engine recommendation: ${s.recommendation}</p>`;
+          }
+          productReasoning.innerHTML = html;
+        } else {
+          productReasoning.hidden = true;
+          productReasoning.innerHTML = '';
+        }
+      }
+
+      productStage.classList.remove('fading');
+    }, 250);
   }
 
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  productTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      productTabs.forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      renderScenario(tab.dataset.scenario);
+    });
+  });
+
+  // Auto-rotate product demo
+  const tabKeys = ['car', 'trip', 'invest'];
+  let tabIndex = 0;
+
+  if (productTabs.length) {
+    setInterval(() => {
+      tabIndex = (tabIndex + 1) % tabKeys.length;
+      productTabs.forEach((t) => {
+        const active = t.dataset.scenario === tabKeys[tabIndex];
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', String(active));
+      });
+      renderScenario(tabKeys[tabIndex]);
+    }, 7000);
   }
 
-  // Form Submission via Web3Forms & FormSubmit API
+  // Waitlist form
+  function markInvalid(input) {
+    input.style.borderColor = 'rgba(255, 100, 100, 0.5)';
+    setTimeout(() => { input.style.borderColor = ''; }, 2000);
+  }
+
   async function sendToInbox(data) {
     const accessKey = window.ARIVO_FORM?.web3formsAccessKey?.trim();
     const notificationEmail = window.ARIVO_FORM?.notificationEmail?.trim() || 'akhileshgoswami@arivoai.in';
-
-    if (!accessKey) {
-      throw new Error('Form access key not configured');
-    }
+    if (!accessKey) throw new Error('Not configured');
 
     const payload = {
       access_key: accessKey,
-      subject: data._subject || 'New Arivo Submission',
+      subject: data._subject || 'New Arivo Waitlist',
       from_name: 'Arivo Website',
       name: data.Name,
       email: data.Email,
@@ -53,63 +203,41 @@ document.addEventListener('DOMContentLoaded', () => {
       botcheck: '',
     };
 
-    const web3formsRequest = fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify(payload),
-    }).then(async (response) => {
-      const result = await response.json();
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Web3Forms submission failed');
-      }
-      return result;
-    });
-
-    const formSubmitRequest = fetch(`https://formsubmit.co/ajax/${encodeURIComponent(notificationEmail)}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify({
-        _subject: payload.subject,
-        _template: 'table',
-        _captcha: 'false',
-        Name: data.Name,
-        Email: data.Email,
-        Phone: data.Phone,
+    const results = await Promise.allSettled([
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      }).then(async (r) => {
+        const j = await r.json();
+        if (!r.ok || !j.success) throw new Error();
+        return j;
       }),
-    }).then(async (response) => {
-      if (!response.ok) {
-        throw new Error('FormSubmit delivery failed');
-      }
-      return response.json();
-    });
+      fetch(`https://formsubmit.co/ajax/${encodeURIComponent(notificationEmail)}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: payload.subject,
+          _template: 'table',
+          _captcha: 'false',
+          Name: data.Name,
+          Email: data.Email,
+          Phone: data.Phone,
+        }),
+      }).then((r) => { if (!r.ok) throw new Error(); return r.json(); }),
+    ]);
 
-    // Try both methods for durability
-    const results = await Promise.allSettled([web3formsRequest, formSubmitRequest]);
-    const success = results.find((result) => result.status === 'fulfilled');
-
-    if (!success) {
-      throw new Error('Submission failed');
-    }
-
-    return success.value;
+    if (!results.some((r) => r.status === 'fulfilled')) throw new Error();
   }
 
-  const waitlistForm = document.getElementById('waitlistForm');
-  if (waitlistForm) {
-    waitlistForm.addEventListener('submit', async (e) => {
+  const form = document.getElementById('waitlistForm');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       const nameInput = document.getElementById('waitlistName');
       const phoneInput = document.getElementById('waitlistPhone');
       const emailInput = document.getElementById('emailInput');
       const btn = document.getElementById('waitlistBtn');
-
       const successMsg = document.getElementById('successMsg');
       const errorMsg = document.getElementById('errorMsg');
 
@@ -117,37 +245,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = phoneInput.value.trim();
       const email = emailInput.value.trim();
 
-      // Clear alerts
       successMsg.classList.remove('visible');
       errorMsg.classList.remove('visible');
 
-      if (!name) {
-        markInvalid(nameInput);
-        return;
-      }
-      if (!phone || phone.length < 10) {
-        markInvalid(phoneInput);
-        return;
-      }
-      if (!isValidEmail(email)) {
-        markInvalid(emailInput);
-        return;
-      }
+      if (!name) { markInvalid(nameInput); return; }
+      if (!phone || phone.length < 10) { markInvalid(phoneInput); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { markInvalid(emailInput); return; }
 
       btn.disabled = true;
       btn.textContent = 'Joining...';
 
       try {
-        await sendToInbox({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          _subject: 'New Arivo V2 Signup',
-        });
-
-        waitlistForm.reset();
+        await sendToInbox({ Name: name, Phone: phone, Email: email, _subject: 'New Arivo Waitlist Signup' });
+        form.reset();
         successMsg.classList.add('visible');
-      } catch (err) {
+      } catch {
         errorMsg.classList.add('visible');
       } finally {
         btn.disabled = false;
@@ -155,113 +267,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  const decisionScenarios = [
-    {
-      label: 'Buying a car',
-      question: 'Should I buy a ₹12 lakh car this year?',
-      action: 'Wait 8–12 months before purchasing.',
-      basis: 'Your stated goals',
-      outcome: 'A delay could protect cash reserves and keep your home goal easier to manage.',
-      reasons: [
-        'Current savings rate is below target',
-        'Emergency fund is not fully funded',
-        'Car EMI would reduce monthly flexibility',
-        'Home purchase goal remains a higher priority',
-      ],
-    },
-    {
-      label: 'Paying off debt',
-      question: 'Should I use my bonus to close my personal loan?',
-      action: 'Pay off 60% now and keep the rest liquid.',
-      basis: 'Debt + cash buffer',
-      outcome: 'A partial payoff could reduce interest pressure without leaving you short on cash.',
-      reasons: [
-        'Loan interest is higher than expected short-term returns',
-        'Full repayment would leave cash reserves too thin',
-        'Partial closure improves monthly flexibility immediately',
-        'Remaining balance can be cleared over the next two quarters',
-      ],
-    },
-    {
-      label: 'Emergency fund',
-      question: 'Can I start investing before my emergency fund is complete?',
-      action: 'Build emergency reserves first for 4 more months.',
-      basis: 'Reserve gap',
-      outcome: 'A stronger reserve could reduce the chance of selling investments during an emergency.',
-      reasons: [
-        'Current reserve covers less than 3 months of expenses',
-        'Income has variable monthly components',
-        'Upcoming insurance premium needs cash planning',
-        'Investing becomes safer after the reserve target is met',
-      ],
-    },
-    {
-      label: 'Renting vs buying',
-      question: 'Should I keep renting or buy a house next year?',
-      action: 'Rent for another year and increase down payment savings.',
-      basis: 'Home goal timing',
-      outcome: 'Waiting could improve loan readiness and reduce pressure on your monthly budget.',
-      reasons: [
-        'Current down payment would create a high EMI burden',
-        'Rent remains cheaper than the projected ownership cost',
-        'A larger down payment reduces long-term interest',
-        'Career location may change within 12 months',
-      ],
-    },
-    {
-      label: 'Career switch',
-      question: 'Can I take a lower salary for a better career path?',
-      action: 'Proceed only after creating a 9-month transition buffer.',
-      basis: 'Income change',
-      outcome: 'A transition buffer could make the move easier to handle without risking fixed commitments.',
-      reasons: [
-        'New role has stronger long-term income potential',
-        'Short-term salary drop affects savings rate',
-        'Existing EMIs need a larger safety buffer',
-        'Planned move is viable after reducing discretionary spending',
-      ],
-    },
-  ];
-
-  const scenarioLabel = document.getElementById('scenarioLabel');
-  const decisionQuestion = document.getElementById('decisionQuestion');
-  const recommendedAction = document.getElementById('recommendedAction');
-  const recommendationBasis = document.getElementById('recommendationBasis');
-  const expectedOutcome = document.getElementById('expectedOutcome');
-  const reasonList = document.getElementById('reasonList');
-  const chatThread = document.querySelector('.chat-thread');
-  let activeScenarioIndex = 0;
-
-  function renderDecisionScenario(index) {
-    const scenario = decisionScenarios[index];
-    if (!scenario || !scenarioLabel || !decisionQuestion || !recommendedAction || !recommendationBasis || !expectedOutcome || !reasonList) {
-      return;
-    }
-
-    scenarioLabel.textContent = scenario.label;
-    decisionQuestion.textContent = scenario.question;
-    recommendedAction.textContent = scenario.action;
-    recommendationBasis.textContent = scenario.basis;
-    expectedOutcome.textContent = scenario.outcome;
-    reasonList.replaceChildren(...scenario.reasons.map((reason) => {
-      const item = document.createElement('li');
-      item.textContent = reason;
-      return item;
-    }));
-
-    if (chatThread) {
-      chatThread.style.animation = 'none';
-      void chatThread.offsetHeight;
-      chatThread.style.animation = 'slideUp 0.35s ease both';
-    }
-  }
-
-  if (scenarioLabel) {
-    setInterval(() => {
-      activeScenarioIndex = (activeScenarioIndex + 1) % decisionScenarios.length;
-      renderDecisionScenario(activeScenarioIndex);
-    }, 6500);
-  }
-
 });
