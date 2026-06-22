@@ -25,8 +25,8 @@
   <style>
     .legal-content {
       max-width: 800px;
-      margin: 80px auto;
-      padding: 0 24px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
     }
 
     .legal-content h1 {
@@ -75,21 +75,28 @@
   </style>
 </head>
 
-<body>
+<body class="subpage">
 
-  <!-- Navigation -->
   <header class="site-header">
-    <div class="container nav-container">
-      <a href="/" class="nav-logo">ARIVO</a>
-      <nav class="nav-links">
-        <a href="/#how-it-works">How It Works</a>
-        <a href="/#why-arivo">Why Arivo</a>
-        <a href="/#waitlist" class="btn btn-primary btn-sm">Get Early Access</a>
+    <div class="container nav-inner">
+      <a href="/" class="logo" aria-label="Arivo home">
+        <img src="/assets/logo-mark.svg" alt="" class="logo-mark" width="28" height="28" />
+        <span>Arivo</span>
+      </a>
+      <nav class="nav-links" id="navMenu">
+        <a href="/#why">Why Arivo</a>
+        <a href="/about">About</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
       </nav>
+      <a href="/#waitlist" class="btn btn-sm">Get Early Access</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <main class="container">
+  <main class="subpage-main">
     <article class="legal-content">
       <h1>Terms and Conditions</h1>
       <div class="last-updated">Last Updated: June 2026</div>
@@ -134,24 +141,41 @@
     </article>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-logo-box">
-        <a href="/" class="footer-logo">
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand-col">
+        <span class="footer-logo">
           <img src="/assets/logo-mark.svg" alt="" class="footer-logo-mark" width="22" height="22" />
           Arivo
-        </a>
-        <div class="footer-tagline">Financial Decisions Made Clear</div>
+        </span>
+        <p class="footer-tagline">Every major financial decision. One intelligent answer.</p>
       </div>
-      <div class="footer-links">
-        <a href="/privacy">Privacy Policy</a>
+      <div class="footer-col">
+        <span class="footer-col-title">Product</span>
+        <a href="/#product">Demo</a>
+        <a href="/#why">Why Arivo</a>
+        <a href="/#waitlist">Join Waitlist</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Company</span>
+        <a href="/about">About</a>
+        <a href="/blog">Blog</a>
+        <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
-        <a href="mailto:akhileshgoswami@arivoai.in">Contact</a>
       </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Connect</span>
+        <a href="/contact">Contact</a>
+        <a href="https://www.linkedin.com/company/125614133/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer">Medium</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 Arivo. All rights reserved.</span>
     </div>
   </footer>
 
+  <script src="/main.js"></script>
 </body>
 
 </html>

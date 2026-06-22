@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist/assets dist/about dist/contact dist/blog dist/privacy dist/terms && cp index.html dist/ && cp about.html dist/about/index.html && cp contact.html dist/contact/index.html && cp blog.html dist/blog/index.html && cp privacy.html dist/privacy/index.html && cp terms.html dist/terms/index.html && cp arivo.css main.js form-config.js robots.txt sitemap.xml dist/ && cp -R assets/* dist/assets/",
+    "build": "rm -rf dist && mkdir -p dist/assets && cp index.html arivo.css main.js suggestions.js form-config.js robots.txt sitemap.xml dist/ && cp -R assets/* dist/assets/ && cp -R about contact blog privacy terms dist/",
     "dev": "npm run build && wrangler dev",
+    "preview": "npm run build && python3 -m http.server 8080 --directory dist",
     "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {

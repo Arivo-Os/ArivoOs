@@ -1,4 +1,402 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const mockupTemplates = {
+    chat: document.getElementById('tpl-app-chat'),
+    verdict: document.getElementById('tpl-app-verdict'),
+  };
+
+  const chatVariants = [
+    {
+      user: 'Can I buy a car?',
+      ai: 'I can help evaluate that purchase. A few purchase details are required before I can evaluate affordability.',
+      opening: 'How much do you currently have in savings or liquid cash?',
+      inputTitle: 'Tell me about the car',
+      inputSub: 'Share the price and financing details to run affordability analysis.',
+      fieldLabel: 'Car price',
+      inputValue: '80,000',
+      toastText: 'Can I buy a car?',
+    },
+    {
+      user: 'Can I afford a Bali trip?',
+      ai: 'Let me check that against your savings goals and emergency fund.',
+      opening: null,
+      inputTitle: 'Tell me about the trip',
+      inputSub: 'Share the total trip cost and timing to run affordability analysis.',
+      fieldLabel: 'Trip budget',
+      inputValue: '2,50,000',
+      toastText: 'Can I afford a Bali trip?',
+    },
+  ];
+
+  const verdictVariants = [
+    {
+      title: 'Wait Before Purchasing a Vehicle',
+      risk: 'Medium Risk · 74% confidence',
+      copy: 'Wait before proceeding with this vehicle purchase; the data shows trade-offs that should be improved first.',
+      insight: 'Emergency fund covers 0.8 months',
+      banner: 'Estimated EMI is approximately ₹1,360 / month',
+    },
+    {
+      title: 'Review Before Booking Bali',
+      risk: 'Worth reviewing · 68% confidence',
+      copy: 'This trip fits your goals, but it would reduce your emergency buffer more than recommended right now.',
+      insight: 'Emergency fund covers 0.8 months',
+      banner: 'Trip would use ~3 months of savings',
+    },
+  ];
+
+  const narrativeSteps = [
+    { screen: 'chat', chatIndex: 0, verdictIndex: 0, hold: 2600 },
+    { screen: 'chat', chatIndex: 0, verdictIndex: 0, hold: 2000, typing: true, toast: { title: 'Arivo', text: 'Pulling your financial profile…' } },
+    { screen: 'chat', chatIndex: 0, verdictIndex: 0, hold: 1800, toast: { title: 'Arivo', text: 'Analyzing vehicle affordability…' } },
+    {
+      screen: 'verdict',
+      chatIndex: 0,
+      verdictIndex: 0,
+      hold: 4200,
+      toast: { title: 'Decision ready', text: 'Vehicle purchase · Medium risk' },
+      revealAfterToast: 850,
+    },
+    { screen: 'verdict', chatIndex: 0, verdictIndex: 0, hold: 2200 },
+    {
+      screen: 'chat',
+      chatIndex: 1,
+      verdictIndex: 1,
+      hold: 3200,
+      toast: { title: 'New message', text: 'Can I afford a Bali trip?' },
+      revealAfterToast: 900,
+    },
+    { screen: 'chat', chatIndex: 1, verdictIndex: 1, hold: 2000, typing: true, toast: { title: 'Arivo', text: 'Evaluating trip budget…' } },
+    { screen: 'chat', chatIndex: 1, verdictIndex: 1, hold: 1600, toast: { title: 'Arivo', text: 'Analyzing travel budget…' } },
+    {
+      screen: 'verdict',
+      chatIndex: 1,
+      verdictIndex: 1,
+      hold: 4500,
+      toast: { title: 'Decision ready', text: 'Travel expense · Worth reviewing' },
+      revealAfterToast: 850,
+    },
+  ];
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  function initAppCarousel(root) {
+    const slides = [...root.querySelectorAll('.app-carousel-slide')];
+    const hitArea = root.querySelector('.app-carousel-hit');
+    const ghost = root.querySelector('.app-carousel-ghost');
+    const backPhone = root.querySelector('.app-phone-back');
+    const isDual = root.hasAttribute('data-dual-phones');
+    const toast = root.querySelector('.app-carousel-toast');
+    const toastTitle = root.querySelector('.app-carousel-toast-title');
+    const toastText = root.querySelector('.app-carousel-toast-text');
+    if (!slides.length) return;
+
+    const slideByScreen = {};
+    let backReady = false;
+
+    slides.forEach((slide) => {
+      const key = slide.dataset.screen;
+      const tpl = mockupTemplates[key];
+      if (tpl) slide.appendChild(tpl.content.cloneNode(true));
+      slideByScreen[key] = slide;
+    });
+
+    if (isDual && backPhone) {
+      const backMount = backPhone.querySelector('.app-back-screen');
+      const verdictTpl = mockupTemplates.verdict;
+      if (backMount && verdictTpl) {
+        backMount.appendChild(verdictTpl.content.cloneNode(true));
+        backReady = true;
+      }
+    }
+
+    let index = slides.findIndex((s) => s.classList.contains('is-active'));
+    if (index < 0) index = 0;
+    let busy = false;
+    let narrativeTimer = null;
+    let stepIndex = 0;
+
+    function getSlideIndex(screen) {
+      return slides.findIndex((s) => s.dataset.screen === screen);
+    }
+
+    function applyChatVariantTo(rootEl, variantIndex) {
+      const variant = chatVariants[variantIndex];
+      if (!variant || !rootEl) return;
+      const openingEl = rootEl.querySelector('.app-msg-opening');
+      const userEl = rootEl.querySelector('.app-bubble-user-dynamic');
+      const aiEl = rootEl.querySelector('.app-msg-ai-dynamic');
+      const titleEl = rootEl.querySelector('.app-input-title-dynamic');
+      const subEl = rootEl.querySelector('.app-input-sub-dynamic');
+      const labelEl = rootEl.querySelector('.app-field-label-dynamic');
+      const valueEl = rootEl.querySelector('.app-field-active span');
+
+      if (openingEl) {
+        if (variant.opening) {
+          openingEl.textContent = variant.opening;
+          openingEl.classList.remove('is-hidden');
+        } else {
+          openingEl.classList.add('is-hidden');
+        }
+      }
+      if (userEl) userEl.textContent = variant.user;
+      if (aiEl) aiEl.textContent = variant.ai;
+      if (titleEl) titleEl.textContent = variant.inputTitle;
+      if (subEl) subEl.textContent = variant.inputSub;
+      if (labelEl) labelEl.textContent = variant.fieldLabel;
+      if (valueEl) valueEl.textContent = variant.inputValue;
+    }
+
+    function applyVerdictVariantTo(rootEl, variantIndex) {
+      const variant = verdictVariants[variantIndex];
+      if (!variant || !rootEl) return;
+      const titleEl = rootEl.querySelector('.app-verdict-title-dynamic');
+      const riskEl = rootEl.querySelector('.app-verdict-risk-dynamic');
+      const copyEl = rootEl.querySelector('.app-verdict-copy-dynamic');
+      const insightEl = rootEl.querySelector('.app-insight-dynamic');
+      const bannerEl = rootEl.querySelector('.app-banner-dynamic');
+      if (titleEl) titleEl.textContent = variant.title;
+      if (riskEl) riskEl.textContent = variant.risk;
+      if (copyEl) copyEl.textContent = variant.copy;
+      if (insightEl) insightEl.textContent = variant.insight;
+      if (bannerEl) bannerEl.textContent = variant.banner;
+    }
+
+    function setChatVariant(variantIndex, animate = false) {
+      const chatSlide = slideByScreen.chat;
+      if (!chatSlide) return;
+
+      const userEl = chatSlide.querySelector('.app-bubble-user-dynamic');
+      const aiEl = chatSlide.querySelector('.app-msg-ai-dynamic');
+
+      const apply = () => {
+        applyChatVariantTo(chatSlide, variantIndex);
+        userEl?.classList.remove('is-updating');
+        aiEl?.classList.remove('is-updating');
+        if (isDual) updateBackPhone();
+      };
+
+      if (animate && userEl && aiEl) {
+        userEl.classList.add('is-updating');
+        aiEl.classList.add('is-updating');
+        setTimeout(apply, 180);
+      } else {
+        apply();
+      }
+    }
+
+    function setVerdictVariant(variantIndex) {
+      const verdictSlide = slideByScreen.verdict;
+      if (!verdictSlide) return;
+      applyVerdictVariantTo(verdictSlide, variantIndex);
+      if (isDual) updateBackPhone();
+    }
+
+    function setTyping(active) {
+      const typing = slideByScreen.chat?.querySelector('.app-typing');
+      const inputCard = slideByScreen.chat?.querySelector('.app-input-card-dynamic');
+      if (typing) typing.classList.toggle('is-visible', active);
+      if (inputCard) inputCard.classList.toggle('is-hidden', active);
+    }
+
+    function showToast(data) {
+      if (!toast || !data) {
+        hideToast();
+        return;
+      }
+      if (toastTitle) toastTitle.textContent = data.title;
+      if (toastText) toastText.textContent = data.text;
+      toast.classList.add('is-visible');
+    }
+
+    function hideToast() {
+      toast?.classList.remove('is-visible');
+    }
+
+    function updateBackPhone() {
+      if (!isDual || !backPhone) return;
+
+      const step = narrativeSteps[stepIndex];
+      const activeScreen = slides[index]?.dataset.screen || 'chat';
+      const verdictIdx = step?.verdictIndex ?? 0;
+      const backMount = backPhone.querySelector('.app-back-screen');
+
+      if (activeScreen !== 'chat' || !backMount) {
+        backPhone.classList.add('is-hidden');
+        return;
+      }
+
+      backPhone.classList.remove('is-hidden');
+      applyVerdictVariantTo(backMount, verdictIdx);
+    }
+
+    function updateGhost() {
+      if (isDual) {
+        updateBackPhone();
+        return;
+      }
+      if (!ghost) return;
+      const nextScreen = narrativeSteps[(stepIndex + 1) % narrativeSteps.length]?.screen || 'verdict';
+      const nextSlide = slideByScreen[nextScreen];
+      if (!nextSlide) return;
+      ghost.innerHTML = '';
+      const clone = nextSlide.cloneNode(true);
+      clone.classList.remove('is-active', 'is-leaving', 'is-entering', 'is-entering-active', 'is-leaving-back', 'is-entering-back');
+      clone.classList.add('app-phone', 'app-carousel-ghost-inner');
+      ghost.appendChild(clone);
+    }
+
+    function goToScreen(screen, direction = 1, options = {}) {
+      const nextIndex = getSlideIndex(screen);
+      if (busy || nextIndex < 0 || nextIndex === index) return Promise.resolve();
+
+      return new Promise((resolve) => {
+        busy = true;
+        if (!options.keepToast) hideToast();
+        setTyping(false);
+
+        const current = slides[index];
+        const next = slides[nextIndex];
+        const step = narrativeSteps[stepIndex];
+        const viewport = root.querySelector('.app-carousel-viewport');
+
+        if (screen === 'chat' && step?.chatIndex !== undefined) {
+          applyChatVariantTo(next, step.chatIndex);
+        }
+        if (screen === 'verdict' && step?.verdictIndex !== undefined) {
+          applyVerdictVariantTo(next, step.verdictIndex);
+        }
+
+        const finish = () => {
+          current.classList.remove('is-active', 'is-leaving', 'is-leaving-back', 'is-entering', 'is-entering-back', 'is-entering-active');
+          next.classList.add('is-active');
+          next.classList.remove('is-leaving', 'is-leaving-back', 'is-entering', 'is-entering-back', 'is-entering-active');
+          index = nextIndex;
+          viewport?.classList.remove('is-switching');
+          if (isDual) updateBackPhone();
+          else updateGhost();
+          busy = false;
+          resolve();
+        };
+
+        if (isDual) {
+          viewport?.classList.add('is-switching');
+          setTimeout(() => {
+            current.classList.remove('is-active');
+            next.classList.add('is-active');
+            index = nextIndex;
+            viewport?.classList.remove('is-switching');
+            updateBackPhone();
+            busy = false;
+            resolve();
+          }, 300);
+          return;
+        }
+
+        const forward = direction >= 0;
+        current.classList.add('is-leaving');
+        current.classList.toggle('is-leaving-back', !forward);
+
+        requestAnimationFrame(() => {
+          next.classList.add('is-entering');
+          next.classList.toggle('is-entering-back', !forward);
+          requestAnimationFrame(() => next.classList.add('is-entering-active'));
+        });
+
+        setTimeout(finish, 420);
+      });
+    }
+
+    async function runNarrativeStep() {
+      const step = narrativeSteps[stepIndex];
+      if (!step) {
+        stepIndex = 0;
+        return runNarrativeStep();
+      }
+
+      const currentScreen = slides[index]?.dataset.screen;
+      const needsSwitch = currentScreen !== step.screen;
+      const sameScreen = !needsSwitch;
+
+      if (step.chatIndex !== undefined) {
+        setChatVariant(step.chatIndex, sameScreen && step.chatIndex > 0);
+      }
+      if (step.verdictIndex !== undefined) {
+        setVerdictVariant(step.verdictIndex);
+      }
+
+      if (step.toast && needsSwitch && step.revealAfterToast) {
+        setTyping(false);
+        updateBackPhone();
+        showToast(step.toast);
+        await sleep(step.revealAfterToast);
+        const dir = getSlideIndex(step.screen) > index ? 1 : -1;
+        await goToScreen(step.screen, dir, { keepToast: true });
+      } else {
+        if (needsSwitch) {
+          const dir = getSlideIndex(step.screen) > index ? 1 : -1;
+          await goToScreen(step.screen, dir);
+        }
+
+        if (step.typing) {
+          setTyping(true);
+        } else {
+          setTyping(false);
+        }
+
+        if (step.toast) {
+          setTimeout(() => showToast(step.toast), step.typing ? 400 : 200);
+        } else {
+          hideToast();
+        }
+      }
+
+      updateBackPhone();
+
+      narrativeTimer = setTimeout(() => {
+        stepIndex = (stepIndex + 1) % narrativeSteps.length;
+        runNarrativeStep();
+      }, step.hold);
+    }
+
+    function startNarrative() {
+      if (narrativeTimer) clearTimeout(narrativeTimer);
+      stepIndex = 0;
+      index = getSlideIndex('chat');
+      root.querySelector('.app-carousel-viewport')?.classList.remove('is-switching');
+      slides.forEach((s, i) => {
+        s.classList.remove('is-leaving', 'is-leaving-back', 'is-entering', 'is-entering-back', 'is-entering-active');
+        s.classList.toggle('is-active', i === index);
+      });
+      setTyping(false);
+      hideToast();
+      setChatVariant(0);
+      setVerdictVariant(0);
+      updateBackPhone();
+      runNarrativeStep();
+    }
+
+    hitArea?.addEventListener('click', () => {
+      if (narrativeTimer) clearTimeout(narrativeTimer);
+      if (busy) return;
+      stepIndex = (stepIndex + 1) % narrativeSteps.length;
+      runNarrativeStep();
+    });
+
+    if (isDual) {
+      applyChatVariantTo(slideByScreen.chat, 0);
+      applyVerdictVariantTo(slideByScreen.verdict, 0);
+      if (backReady) applyVerdictVariantTo(backPhone.querySelector('.app-back-screen'), 0);
+      updateBackPhone();
+    } else {
+      updateGhost();
+    }
+    startNarrative();
+  }
+
+  document.querySelectorAll('[data-app-carousel]').forEach(initAppCarousel);
+
   // Page load — enable hero animations
   requestAnimationFrame(() => {
     document.body.classList.add('loaded');
@@ -41,179 +439,19 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // Hero engine cycle — 3-phase story synced with decision rotation
-  const heroQuestions = document.querySelectorAll('#heroQuestions li');
-  const aiOrb = document.getElementById('aiOrb');
-  const aiOrbWrap = document.querySelector('.ai-orb-wrap');
+  // Hero app showcase — subtle float on desktop
+  const heroAppShowcase = document.querySelector('.hero-app-showcase');
   const heroVisual = document.querySelector('.hero-visual');
-  const orbReportStatusText = document.getElementById('orbReportStatusText');
-  const orbReportDecision = document.getElementById('orbReportDecision');
-  const orbReportVerdictRow = document.getElementById('orbReportVerdictRow');
-  const orbVerdict = document.getElementById('orbVerdict');
-  const orbConfidenceNum = document.getElementById('orbConfidenceNum');
-  const orbConfidenceBar = document.getElementById('orbConfidenceBar');
-  const orbConfidenceRing = document.getElementById('orbConfidenceRing');
-  const orbCorePercent = document.getElementById('orbCorePercent');
-  const pipelineSteps = document.querySelectorAll('.orb-pipeline-step');
-  const heroLiveDot = document.getElementById('heroLiveDot');
-  const heroLiveLabel = document.getElementById('heroLiveLabel');
-  const heroQuestionMeta = document.getElementById('heroQuestionMeta');
-  const heroMetaVerdict = document.getElementById('heroMetaVerdict');
-  const heroMetaConfidence = document.getElementById('heroMetaConfidence');
-  const heroQuestionDots = document.getElementById('heroQuestionDots');
-  const CONFIDENCE_CIRC = 2 * Math.PI * 72;
-  const PHASE_GATHER = 1000;
-  const PHASE_ANALYZE = 1500;
-  const PHASE_HOLD = 2400;
-  let questionIndex = 0;
-  let phaseTimers = [];
-  let countAnimFrame = null;
 
-  function clearPhaseTimers() {
-    phaseTimers.forEach(clearTimeout);
-    phaseTimers = [];
-    if (countAnimFrame) cancelAnimationFrame(countAnimFrame);
-  }
-
-  function schedule(fn, delay) {
-    phaseTimers.push(setTimeout(fn, delay));
-  }
-
-  function setPipelineStep(step) {
-    pipelineSteps.forEach((el, i) => {
-      el.classList.toggle('active', i + 1 === step);
-      el.classList.toggle('done', i + 1 < step);
-    });
-  }
-
-  function setConfidenceRing(pct) {
-    if (!orbConfidenceRing) return;
-    const filled = (CONFIDENCE_CIRC * pct) / 100;
-    orbConfidenceRing.style.strokeDasharray = `${filled} ${CONFIDENCE_CIRC}`;
-  }
-
-  function animateCount(el, target, duration = 900) {
-    if (!el) return;
-    const start = performance.now();
-    const tick = (now) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = `${Math.round(target * eased)}%`;
-      if (p < 1) countAnimFrame = requestAnimationFrame(tick);
-    };
-    countAnimFrame = requestAnimationFrame(tick);
-  }
-
-  function resetOrbMotion() {
-    if (!aiOrb) return;
-    aiOrb.classList.remove('is-gathering', 'is-analyzing', 'is-ready');
-    if (aiOrbWrap) aiOrbWrap.classList.remove('is-ready', 'risk-approved', 'risk-review');
-    void aiOrb.offsetWidth;
-  }
-
-  function updateHeroDots(index) {
-    if (!heroQuestionDots) return;
-    heroQuestionDots.querySelectorAll('span').forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
-
-  function runOrbCycle(decisionEl) {
-    if (!decisionEl || !aiOrb) return;
-
-    clearPhaseTimers();
-    resetOrbMotion();
-
-    const label = decisionEl.textContent.trim();
-    const confidence = parseInt(decisionEl.dataset.confidence || '90', 10);
-    const verdict = decisionEl.dataset.verdict || 'Approved';
-    const risk = decisionEl.dataset.risk === 'medium' ? 'review' : 'approved';
-    const verdictClass = risk === 'approved' ? 'verdict-approved' : 'verdict-review';
-
-    if (orbReportDecision) {
-      orbReportDecision.textContent = label;
-      orbReportDecision.classList.add('is-updating');
-    }
-    if (orbReportVerdictRow) orbReportVerdictRow.hidden = true;
-    if (orbCorePercent) orbCorePercent.textContent = '';
-    if (orbConfidenceBar) orbConfidenceBar.style.width = '0%';
-    if (heroQuestionMeta) heroQuestionMeta.hidden = true;
-    if (heroLiveDot) {
-      heroLiveDot.classList.remove('is-ready', 'is-review');
-    }
-    if (heroLiveLabel) heroLiveLabel.textContent = 'Evaluating decision';
-    setConfidenceRing(0);
-    setPipelineStep(1);
-    if (orbReportStatusText) orbReportStatusText.textContent = 'Gathering signals';
-
-    schedule(() => {
-      aiOrb.classList.add('is-gathering');
-      if (orbReportDecision) orbReportDecision.classList.remove('is-updating');
-    }, 50);
-
-    schedule(() => {
-      aiOrb.classList.remove('is-gathering');
-      aiOrb.classList.add('is-analyzing');
-      setPipelineStep(2);
-      if (orbReportStatusText) orbReportStatusText.textContent = 'Analyzing decision';
-      if (heroLiveLabel) heroLiveLabel.textContent = 'Analyzing…';
-    }, PHASE_GATHER);
-
-    schedule(() => {
-      aiOrb.classList.remove('is-analyzing');
-      aiOrb.classList.add('is-ready');
-      if (aiOrbWrap) {
-        aiOrbWrap.classList.add('is-ready', risk === 'approved' ? 'risk-approved' : 'risk-review');
-      }
-      setPipelineStep(3);
-      if (orbReportStatusText) orbReportStatusText.textContent = 'Analysis complete';
-      if (orbReportVerdictRow) orbReportVerdictRow.hidden = false;
-      if (orbVerdict) {
-        orbVerdict.textContent = verdict;
-        orbVerdict.className = `orb-report-verdict ${verdictClass}`;
-      }
-      if (orbConfidenceNum) orbConfidenceNum.textContent = `${confidence}%`;
-      if (orbConfidenceBar) orbConfidenceBar.style.width = `${confidence}%`;
-      setConfidenceRing(confidence);
-      animateCount(orbCorePercent, confidence);
-      if (heroQuestionMeta) heroQuestionMeta.hidden = false;
-      if (heroMetaVerdict) {
-        heroMetaVerdict.textContent = verdict;
-        heroMetaVerdict.className = `hero-meta-verdict ${verdictClass}`;
-      }
-      if (heroMetaConfidence) heroMetaConfidence.textContent = `${confidence}% confidence`;
-      if (heroLiveLabel) heroLiveLabel.textContent = 'Analysis complete';
-      if (heroLiveDot) {
-        heroLiveDot.classList.add(risk === 'approved' ? 'is-ready' : 'is-review');
-      }
-    }, PHASE_GATHER + PHASE_ANALYZE);
-  }
-
-  function rotateHeroQuestion() {
-    if (!heroQuestions.length) return;
-    heroQuestions[questionIndex].classList.remove('active');
-    questionIndex = (questionIndex + 1) % heroQuestions.length;
-    const active = heroQuestions[questionIndex];
-    active.classList.add('active');
-    updateHeroDots(questionIndex);
-    runOrbCycle(active);
-  }
-
-  if (heroQuestions.length) {
-    updateHeroDots(0);
-    schedule(() => runOrbCycle(heroQuestions[0]), 1000);
-    setInterval(rotateHeroQuestion, PHASE_GATHER + PHASE_ANALYZE + PHASE_HOLD);
-  }
-
-  if (heroVisual && aiOrbWrap && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (heroVisual && heroAppShowcase && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     heroVisual.addEventListener('mousemove', (e) => {
       const rect = heroVisual.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-      aiOrbWrap.style.transform = `translate(${x * 14}px, ${y * 10}px)`;
+      heroAppShowcase.style.transform = `translate(${x * 10}px, ${y * 8}px)`;
     });
     heroVisual.addEventListener('mouseleave', () => {
-      aiOrbWrap.style.transform = '';
+      heroAppShowcase.style.transform = '';
     });
   }
 
@@ -222,63 +460,69 @@ document.addEventListener('DOMContentLoaded', () => {
     car: {
       decisionType: 'Vehicle purchase',
       scenario: '₹15L car financing',
+      question: 'Should I finance this ₹15L vehicle?',
       verdict: 'Approved',
       verdictClass: 'verdict-approved',
       confidence: '91%',
       confidenceNum: 91,
-      details: [
-        { label: 'Impact', value: 'Low risk' },
-        { label: 'Recommended EMI', value: '₹18,000' },
-        { label: 'Future savings impact', value: 'Minimal', wide: true },
+      risk: 'Low',
+      reasoning: [
+        'EMI fits within 15% of monthly income.',
+        'Emergency fund remains above 6 months.',
+        'Down payment preserves savings goals.',
       ],
-      reasoning: null,
-      recommendation: null,
+      actions: ['EMI breakdown', 'Purchase timeline', 'Loan comparison'],
     },
     trip: {
       decisionType: 'Travel expense',
       scenario: 'Bali trip · ₹2.5L budget',
+      question: 'Should I take this ₹2.5L trip now?',
       verdict: 'Worth Reviewing',
       verdictClass: 'verdict-review',
       confidence: '88%',
       confidenceNum: 88,
-      details: [],
-      reasoning: ['Trip budget reduces emergency fund below target.'],
-      recommendation: 'Wait 2 months or reduce budget.',
+      risk: 'Medium',
+      reasoning: [
+        'Trip budget reduces emergency fund below target.',
+        'Savings goal timeline extends by 3 months.',
+        'Cash flow remains positive but tighter.',
+      ],
+      actions: ['Wait 2 months', 'Reduce trip budget', 'Build emergency fund'],
     },
     invest: {
       decisionType: 'Investment allocation',
       scenario: '₹50,000 lump-sum deploy',
+      question: 'Should I invest ₹50,000 now?',
       verdict: 'Approved',
       verdictClass: 'verdict-approved',
       confidence: '93%',
       confidenceNum: 93,
-      details: [],
+      risk: 'Low',
       reasoning: [
-        'Strong cash position.',
-        'Emergency fund healthy.',
-        'Investment fits goals.',
+        'Strong cash position after investment.',
+        'Emergency fund healthy at 8 months.',
+        'Allocation aligns with long-term goals.',
       ],
-      recommendation: null,
+      actions: ['Portfolio allocation', 'Goal impact view', 'Tax-efficient options'],
     },
   };
 
   const productStage = document.getElementById('productStage');
   const productDecisionType = document.getElementById('productDecisionType');
   const productScenario = document.getElementById('productScenario');
+  const productQuestion = document.getElementById('productQuestion');
   const productVerdict = document.getElementById('productVerdict');
   const productConfidence = document.getElementById('productConfidence');
-  const productDetail2Wrap = document.getElementById('productDetail2Wrap');
-  const productDetail2Label = document.getElementById('productDetail2Label');
-  const productDetail2 = document.getElementById('productDetail2');
-  const productDetail3Wrap = document.getElementById('productDetail3Wrap');
-  const productDetail3Label = document.getElementById('productDetail3Label');
-  const productDetail3 = document.getElementById('productDetail3');
-  const productDetail4Wrap = document.getElementById('productDetail4Wrap');
-  const productDetail4Label = document.getElementById('productDetail4Label');
-  const productDetail4 = document.getElementById('productDetail4');
-  const productReasoning = document.getElementById('productReasoning');
+  const productRisk = document.getElementById('productRisk');
+  const productReasoningList = document.getElementById('productReasoningList');
+  const productActionPills = document.getElementById('productActionPills');
   const productConfidenceBar = document.getElementById('productConfidenceBar');
   const productTabs = document.querySelectorAll('.product-tab');
+  const tabKeys = ['car', 'trip', 'invest'];
+  let activeScenario = 'car';
+  let autoRotateInterval = null;
+  let autoRotatePauseTimer = null;
+  const SWITCH_MS = 320;
 
   function animateVerdict() {
     if (!productVerdict) return;
@@ -287,95 +531,123 @@ document.addEventListener('DOMContentLoaded', () => {
     productVerdict.classList.add('verdict-pop');
   }
 
-  function renderScenario(key) {
+  function animateCardSections() {
+    if (!productStage) return;
+    productStage.classList.remove('card-sections-in');
+    void productStage.offsetWidth;
+    productStage.classList.add('card-sections-in');
+  }
+
+  function setActiveTab(key) {
+    productTabs.forEach((t) => {
+      const active = t.dataset.scenario === key;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', String(active));
+    });
+  }
+
+  function renderScenario(key, direction = 1, instant = false) {
     const s = scenarios[key];
-    if (!s || !productStage) return;
+    if (!s || !productStage || (key === activeScenario && !instant)) return;
 
-    productStage.classList.add('fading');
-
-    setTimeout(() => {
+    const applyContent = () => {
       if (productDecisionType) productDecisionType.textContent = s.decisionType;
       if (productScenario) productScenario.textContent = s.scenario;
+      if (productQuestion) productQuestion.textContent = s.question;
       if (productVerdict) {
         productVerdict.textContent = s.verdict;
         productVerdict.className = `product-verdict ${s.verdictClass}`;
       }
       if (productConfidence) productConfidence.textContent = s.confidence;
+      if (productRisk) productRisk.textContent = s.risk;
       if (productConfidenceBar) {
         productConfidenceBar.style.width = '0';
         requestAnimationFrame(() => {
           productConfidenceBar.style.width = `${s.confidenceNum || 0}%`;
         });
       }
+
+      if (productReasoningList) {
+        productReasoningList.innerHTML = (s.reasoning || [])
+          .map((r) => `<li>${r}</li>`)
+          .join('');
+      }
+
+      if (productActionPills) {
+        const pills = typeof generateSuggestionPills === 'function'
+          ? generateSuggestionPills({ verdict: s.verdict, reasons: s.reasoning, actions: s.actions })
+          : (s.actions || []);
+        productActionPills.innerHTML = pills
+          .map((pill) => `<span class="product-action-pill">${pill}</span>`)
+          .join('');
+      }
+
+      activeScenario = key;
       animateVerdict();
+      animateCardSections();
+    };
 
-      // Car scenario uses detail rows
-      const hasDetails = s.details && s.details.length > 0;
-      if (productDetail2Wrap) productDetail2Wrap.hidden = !hasDetails;
-      if (productDetail3Wrap) productDetail3Wrap.hidden = !hasDetails || s.details.length < 2;
-      if (productDetail4Wrap) productDetail4Wrap.hidden = !hasDetails || s.details.length < 3;
+    if (instant) {
+      productStage.classList.remove('is-exiting', 'is-entering', 'fading');
+      applyContent();
+      return;
+    }
 
-      if (hasDetails) {
-        if (productDetail2Label) productDetail2Label.textContent = s.details[0].label;
-        if (productDetail2) productDetail2.textContent = s.details[0].value;
-        if (s.details[1]) {
-          if (productDetail3Label) productDetail3Label.textContent = s.details[1].label;
-          if (productDetail3) productDetail3.textContent = s.details[1].value;
-        }
-        if (s.details[2]) {
-          if (productDetail4Label) productDetail4Label.textContent = s.details[2].label;
-          if (productDetail4) productDetail4.textContent = s.details[2].value;
-        }
-      }
+    productStage.dataset.direction = direction >= 0 ? 'forward' : 'back';
+    productStage.classList.remove('card-sections-in', 'is-entering');
+    productStage.classList.add('is-exiting');
 
-      // Reasoning block for trip/invest
-      if (productReasoning) {
-        if (s.reasoning && s.reasoning.length) {
-          productReasoning.hidden = false;
-          let html = '<span class="product-reasoning-label">Analysis signals</span><ul class="product-reasoning-list">';
-          s.reasoning.forEach((r) => { html += `<li>${r}</li>`; });
-          html += '</ul>';
-          if (s.recommendation) {
-            html += `<p class="product-recommendation">Engine recommendation: ${s.recommendation}</p>`;
-          }
-          productReasoning.innerHTML = html;
-        } else {
-          productReasoning.hidden = true;
-          productReasoning.innerHTML = '';
-        }
-      }
+    setTimeout(() => {
+      applyContent();
+      productStage.classList.remove('is-exiting', 'fading');
+      productStage.classList.add('is-entering');
 
-      productStage.classList.remove('fading');
-    }, 250);
+      setTimeout(() => {
+        productStage.classList.remove('is-entering');
+      }, 480);
+    }, SWITCH_MS);
+  }
+
+  function getTabIndex(key) {
+    return tabKeys.indexOf(key);
+  }
+
+  function pauseAutoRotate(ms = 12000) {
+    if (autoRotateInterval) clearInterval(autoRotateInterval);
+    autoRotateInterval = null;
+    if (autoRotatePauseTimer) clearTimeout(autoRotatePauseTimer);
+    autoRotatePauseTimer = setTimeout(startAutoRotate, ms);
+  }
+
+  function startAutoRotate() {
+    if (autoRotateInterval) clearInterval(autoRotateInterval);
+    if (autoRotatePauseTimer) clearTimeout(autoRotatePauseTimer);
+    autoRotatePauseTimer = null;
+    autoRotateInterval = setInterval(() => {
+      const currentIndex = getTabIndex(activeScenario);
+      const nextIndex = (currentIndex + 1) % tabKeys.length;
+      const nextKey = tabKeys[nextIndex];
+      setActiveTab(nextKey);
+      renderScenario(nextKey, 1);
+    }, 7000);
   }
 
   productTabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      productTabs.forEach((t) => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-      renderScenario(tab.dataset.scenario);
+      const key = tab.dataset.scenario;
+      const nextIndex = getTabIndex(key);
+      const prevIndex = getTabIndex(activeScenario);
+      const direction = nextIndex >= prevIndex ? 1 : -1;
+
+      setActiveTab(key);
+      renderScenario(key, direction);
+      pauseAutoRotate();
     });
   });
 
-  // Auto-rotate product demo
-  const tabKeys = ['car', 'trip', 'invest'];
-  let tabIndex = 0;
-
   if (productTabs.length) {
-    renderScenario('car');
-    setInterval(() => {
-      tabIndex = (tabIndex + 1) % tabKeys.length;
-      productTabs.forEach((t) => {
-        const active = t.dataset.scenario === tabKeys[tabIndex];
-        t.classList.toggle('active', active);
-        t.setAttribute('aria-selected', String(active));
-      });
-      renderScenario(tabKeys[tabIndex]);
-    }, 7000);
+    renderScenario('car', 1, true);
+    startAutoRotate();
   }
 
   // Waitlist form
@@ -453,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { markInvalid(emailInput); return; }
 
       btn.disabled = true;
-      btn.textContent = 'Joining...';
+      btn.textContent = 'Requesting...';
 
       try {
         await sendToInbox({ Name: name, Phone: phone, Email: email, _subject: 'New Arivo Waitlist Signup' });
@@ -463,7 +735,7 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMsg.classList.add('visible');
       } finally {
         btn.disabled = false;
-        btn.textContent = 'Join Waitlist';
+        btn.textContent = 'Request Access';
       }
     });
   }
