@@ -100,7 +100,7 @@
   gap: 6px;
   font-size: 11px;
   font-weight: 600;
-  color: #059669;
+  color: #2E9E6E;
   text-transform: uppercase;
 }
 
@@ -109,7 +109,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #059669;
+  background: #2E9E6E;
 }
 
 .decision-card-q {
@@ -305,7 +305,7 @@
 
 .compare-card-arivo {
   background: var(--surface);
-  border-color: rgba(0, 113, 227, 0.22);
+  border-color: rgba(46, 158, 110, 0.22);
   box-shadow: var(--shadow);
 }
 
@@ -396,7 +396,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #059669;
+  color: #2E9E6E;
 }
 
 .report-q {
@@ -503,7 +503,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #059669;
+  color: #2E9E6E;
   font-size: 11px;
 }
 
