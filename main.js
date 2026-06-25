@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       inputTitle: 'Tell me about the car',
       inputSub: 'Share the price and financing details to run affordability analysis.',
       fieldLabel: 'Car price',
-      inputValue: '80,000',
+      inputValue: '15,00,000',
       toastText: 'Can I buy a car?',
     },
     {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       risk: 'Medium Risk · 74% confidence',
       copy: 'Wait before proceeding with this vehicle purchase; the data shows trade-offs that should be improved first.',
       insight: 'Emergency fund covers 0.8 months',
-      banner: 'Estimated EMI is approximately ₹1,360 / month',
+      banner: 'Estimated EMI is approximately ₹28,500 / month',
     },
     {
       title: 'Review Before Booking Bali',

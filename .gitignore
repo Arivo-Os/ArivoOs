@@ -1,6 +1,9 @@
 node_modules/
 dist/
+.next/
+out/
 .wrangler/
 .wrangler-home/
 .dev.vars
+.env*.local
 .DS_Store

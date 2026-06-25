@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Arivo">
+  <defs>
+    <linearGradient id="arivo-grad" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2E9E6E"/>
+      <stop offset="100%" stop-color="#3cb88a"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="url(#arivo-grad)"/>
+  <path d="M10 24 L16 7 L22 24" fill="none" stroke="#fff" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="16" cy="17.5" r="3.35" fill="#fff"/>
+  <circle cx="16" cy="17.5" r="1.45" fill="#2E9E6E"/>
+</svg>

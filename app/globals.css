@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 20% 97%;
+    --foreground: 160 30% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 6%;
+    --primary: 152 65% 29%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 150 15% 93%;
+    --secondary-foreground: 160 20% 20%;
+    --muted: 150 10% 93%;
+    --muted-foreground: 160 10% 40%;
+    --accent: 152 100% 38%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 10% 88%;
+    --input: 160 10% 88%;
+    --ring: 152 65% 29%;
+    --radius: 0.75rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-arivo-surface text-arivo-text font-sans overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .section-label {
+    @apply inline-block text-xs font-bold uppercase tracking-widest text-arivo-muted mb-3;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger containers stay visible; only direct children animate */
+  .reveal.reveal-stagger {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-stagger.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+  .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; }
+  .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.19s; }
+  .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.26s; }
+  .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.33s; }
+
+  .statement-gradient {
+    @apply bg-gradient-to-br from-arivo-primary via-arivo-accent to-arivo-primary bg-clip-text text-transparent;
+  }
+
+  .verdict-approved {
+    @apply text-arivo-primary;
+  }
+
+  .verdict-review {
+    @apply text-arivo-warning;
+  }
+
+  .verdict-pop {
+    animation: verdict-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
