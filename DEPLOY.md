@@ -38,14 +38,33 @@ Create the token: Cloudflare Dashboard → My Profile → API Tokens → Create 
 3. **Custom domains** → Add `arivoai.in` and `www.arivoai.in`
 4. Remove old Workers route if it conflicts with the same domain
 
-### Build settings (if using Cloudflare Git integration instead of Actions)
+### Build settings (Cloudflare Git integration)
+
+Use **one** of these setups depending on how the project was created in the dashboard.
+
+#### Option A — Workers (deploy command: `npx wrangler versions upload`)
+
+| Setting | Value |
+|---------|--------|
+| Build command | `npm run pages:build` |
+| Deploy command | `npx wrangler versions upload` |
+| Root directory | `/` |
+
+`wrangler.jsonc` must include `assets.directory: "./out"` (already configured in this repo).
+
+#### Option B — Pages (recommended; no deploy command)
 
 | Setting | Value |
 |---------|--------|
 | Framework preset | None |
 | Build command | `npm run pages:build` |
 | Build output directory | `out` |
+| Deploy command | *(leave empty)* |
 | Node.js version | 22 |
+
+#### Option C — GitHub Actions only
+
+Push to `main` — `.github/workflows/deploy.yaml` runs `wrangler pages deploy out` automatically. Disable Cloudflare Git builds if you use this to avoid double deploys.
 
 ### Environment variables (Cloudflare Pages dashboard)
 

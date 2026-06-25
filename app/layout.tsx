@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   category: "finance",
   icons: {
     icon: [
-      { url: "/assets/favicon.svg", type: "image/svg+xml" },
+      { url: "/assets/icon.svg", type: "image/svg+xml" },
       { url: "/assets/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/assets/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
