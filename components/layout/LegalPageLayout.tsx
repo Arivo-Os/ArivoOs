@@ -3,10 +3,11 @@ import type { ReactNode } from "react";
 interface LegalPageLayoutProps {
   title: string;
   subtitle?: string;
+  label?: string;
   children: ReactNode;
 }
 
-export function LegalPageLayout({ title, subtitle, children }: LegalPageLayoutProps) {
+export function LegalPageLayout({ title, subtitle, label = "Legal", children }: LegalPageLayoutProps) {
   return (
     <main>
       <section
@@ -14,7 +15,7 @@ export function LegalPageLayout({ title, subtitle, children }: LegalPageLayoutPr
         className="border-b border-black/8 bg-arivo-surface pt-32 pb-12"
       >
         <div className="mx-auto max-w-[900px] px-7">
-          <span className="section-label">Legal</span>
+          <span className="section-label">{label}</span>
           <h1
             id="legal-page-heading"
             className="mb-3 font-display text-[clamp(2rem,5vw,2.75rem)] font-extrabold tracking-tight text-arivo-text"
