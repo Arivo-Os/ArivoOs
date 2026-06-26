@@ -39,7 +39,7 @@ export function ContactForm() {
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "New Arivo Contact Form Message",
+          subject: data.subject,
           from_name: "Arivo Website",
           name: data.name,
           email: data.email,
@@ -79,7 +79,7 @@ export function ContactForm() {
 
         <div>
           <label htmlFor="contactName" className="mb-1.5 block text-sm font-medium text-arivo-text">
-            Your name
+            Name
           </label>
           <Input
             id="contactName"
@@ -115,8 +115,25 @@ export function ContactForm() {
         </div>
 
         <div>
+          <label htmlFor="contactSubject" className="mb-1.5 block text-sm font-medium text-arivo-text">
+            Subject
+          </label>
+          <Input
+            id="contactSubject"
+            placeholder="How can we help?"
+            aria-invalid={!!errors.subject}
+            {...register("subject")}
+          />
+          {errors.subject && (
+            <p className="mt-1 text-xs text-arivo-risk" role="alert">
+              {errors.subject.message}
+            </p>
+          )}
+        </div>
+
+        <div>
           <label htmlFor="contactMessage" className="mb-1.5 block text-sm font-medium text-arivo-text">
-            Your message
+            Message
           </label>
           <Textarea
             id="contactMessage"
@@ -133,7 +150,7 @@ export function ContactForm() {
         </div>
 
         <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {isSubmitting ? "Sending..." : "Send"}
         </Button>
       </form>
 
@@ -158,8 +175,8 @@ export function ContactForm() {
         <strong className="block text-arivo-text">Something went wrong.</strong>
         <span className="text-arivo-muted">
           Please try again or email{" "}
-          <a href="mailto:akhileshgoswami@arivoai.in" className="text-arivo-primary underline">
-            akhileshgoswami@arivoai.in
+          <a href="mailto:support@arivoai.in" className="text-arivo-primary underline">
+            support@arivoai.in
           </a>{" "}
           directly.
         </span>

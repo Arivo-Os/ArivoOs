@@ -1,25 +1,123 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LegalPageLayout, LegalSection } from "@/components/layout/LegalPageLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Arivo",
-  description: "How Arivo handles your financial data — private, never sold, never shared.",
+  title: "Privacy Policy",
+  description:
+    "Learn how Arivo collects, uses, and protects your personal and financial information. Effective June 2026.",
   alternates: { canonical: "https://arivoai.in/privacy" },
+  openGraph: {
+    title: "Privacy Policy — Arivo",
+    description:
+      "How Arivo handles your data, AI-powered insights, and your privacy rights.",
+    url: "https://arivoai.in/privacy",
+  },
 };
 
 export default function PrivacyPage() {
   return (
-    <main className="mx-auto max-w-container px-7 py-32">
-      <span className="section-label">Legal</span>
-      <h1 className="mb-4 font-display text-4xl font-extrabold tracking-tight text-arivo-text">
-        Privacy Policy
-      </h1>
-      <p className="mb-8 max-w-xl text-lg text-arivo-muted">
-        Your financial data is private, never sold, and used solely to power your decision analysis. The full privacy policy will be published before public launch.
-      </p>
-      <Link href="/" className="text-sm font-semibold text-arivo-primary hover:underline">
-        ← Back to home
-      </Link>
-    </main>
+    <LegalPageLayout title="Privacy Policy" subtitle="Effective Date: June 2026">
+      <LegalSection title="Introduction">
+        <p>
+          Arivo values your privacy and is committed to protecting your personal
+          information. This Privacy Policy explains what information we collect,
+          how we use it, and the choices available to you.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Information We Collect">
+        <p>We may collect:</p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Name (if provided)</li>
+          <li>Mobile number</li>
+          <li>Email address</li>
+          <li>Financial information you choose to enter</li>
+          <li>Goals and financial preferences</li>
+          <li>Device information</li>
+          <li>Crash reports</li>
+          <li>Analytics information</li>
+          <li>App usage information</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="How We Use Your Information">
+        <p>We use information to:</p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Provide personalized financial insights</li>
+          <li>Generate AI-powered recommendations</li>
+          <li>Improve decision quality</li>
+          <li>Secure user accounts</li>
+          <li>Prevent fraud</li>
+          <li>Improve product performance</li>
+          <li>Provide customer support</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="AI & Financial Guidance">
+        <p>
+          Arivo uses artificial intelligence to provide financial insights and
+          recommendations.
+        </p>
+        <p>
+          AI-generated responses are informational only and should not be
+          considered financial, investment, tax, or legal advice.
+        </p>
+        <p>Users remain responsible for their financial decisions.</p>
+      </LegalSection>
+
+      <LegalSection title="Data Security">
+        <p>
+          We use industry-standard security practices including encryption during
+          transmission, secure authentication, and access controls designed to
+          protect your information.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Third-Party Services">
+        <p>Arivo may integrate with services including:</p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Firebase</li>
+          <li>Google Play Services</li>
+          <li>Razorpay</li>
+          <li>AI service providers</li>
+          <li>Cloud hosting providers</li>
+        </ul>
+        <p>
+          These providers process information according to their own privacy
+          policies.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Your Rights">
+        <p>You may request to:</p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Access your information</li>
+          <li>Update your information</li>
+          <li>Delete your account</li>
+          <li>Delete your stored data</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="Children's Privacy">
+        <p>Arivo is not intended for individuals under 18 years of age.</p>
+      </LegalSection>
+
+      <LegalSection title="Changes">
+        <p>This Privacy Policy may be updated periodically.</p>
+      </LegalSection>
+
+      <LegalSection title="Contact">
+        <p>
+          Email:{" "}
+          <Link
+            href="mailto:support@arivoai.in"
+            className="font-medium text-arivo-primary transition-colors hover:underline"
+          >
+            support@arivoai.in
+          </Link>
+        </p>
+      </LegalSection>
+    </LegalPageLayout>
   );
 }

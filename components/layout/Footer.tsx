@@ -10,8 +10,8 @@ const productLinks = [
 const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms & Conditions" },
 ];
 
 const connectLinks = [
