@@ -121,6 +121,13 @@ const config: Config = {
       maxWidth: {
         container: "1140px",
       },
+      transitionDuration: {
+        550: "550ms",
+        900: "900ms",
+      },
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

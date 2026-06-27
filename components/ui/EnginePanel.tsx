@@ -76,7 +76,7 @@ export function EnginePanel({
         aria-hidden="true"
       >
         <div
-          className="h-full rounded-full bg-gradient-to-r from-arivo-primary to-arivo-accent transition-[width] duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+          className="h-full rounded-full bg-gradient-to-r from-arivo-primary to-arivo-accent transition-[width] duration-900 ease-smooth"
           style={{ width: `${barWidth}%` }}
         />
       </div>

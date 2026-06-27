@@ -59,7 +59,7 @@ export function HeroEnginePanel() {
           <p
             key={decision.label}
             className={cn(
-              "absolute left-0 font-display text-xl font-extrabold tracking-tight transition-all duration-[550ms] ease-[cubic-bezier(0.16,1,0.3,1)] sm:text-2xl lg:left-0 lg:translate-x-0",
+              "absolute left-0 font-display text-xl font-extrabold tracking-tight transition-all duration-550 ease-smooth sm:text-2xl lg:left-0 lg:translate-x-0",
               i === activeIndex && fade
                 ? "translate-y-0 opacity-100 text-arivo-primary"
                 : "translate-y-3 opacity-0 text-arivo-muted"

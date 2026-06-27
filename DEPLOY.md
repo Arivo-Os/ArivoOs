@@ -1,87 +1,145 @@
-# Cloudflare Pages — Arivo landing site
+# Cloudflare Pages — Deployment Guide
 
-Static Next.js export deployed to Cloudflare Pages at **https://arivoai.in**.
+Static Next.js 14 export (`output: "export"`) → **Cloudflare Pages** (not Workers, not OpenNext).
 
-## Local preview
+Live site: **https://arivoai.in**
 
-```bash
-npm run pages:build
-npm run pages:preview
-```
+---
 
-## Manual deploy
+## Architecture (why this setup)
 
-```bash
-npm run pages:deploy
-```
+| Option | Use for this project? | Why |
+|--------|----------------------|-----|
+| **Cloudflare Pages (static)** | ✅ **Yes** | Site is fully static HTML/CSS/JS in `out/` |
+| `wrangler pages deploy out` | ✅ CI / manual upload | Correct command to push `out/` to Pages |
+| Cloudflare Git build (no deploy cmd) | ✅ Recommended | Pages auto-uploads `out/` after build |
+| `wrangler deploy` / Workers | ❌ No | Requires Worker entry-point or `assets` block |
+| OpenNext / `@cloudflare/next-on-pages` | ❌ No | For SSR/edge Next.js — not needed for static export |
+| Next.js adapter (Vercel) | ❌ No | Site targets Cloudflare Pages |
 
-Requires `wrangler login` or `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` env vars.
+No middleware, no SSR, no edge runtime. Images use `unoptimized: true` (required for static export).
 
-## GitHub Actions (recommended)
+---
 
-On push to `main`, `.github/workflows/deploy.yaml` builds and deploys automatically.
+## Root cause of deploy failures
 
-### Required GitHub secrets
+1. **Critical:** Cloudflare dashboard deploy command was `npx wrangler deploy` (Workers). This project has no Worker script → `Missing entry-point to Worker script or assets directory`.
+2. **Fixed:** `_redirects` had absolute URLs — Cloudflare Pages only allows relative paths.
+3. **Fixed:** `wrangler.jsonc` had an `assets` block — invalid for Pages projects.
 
-| Secret | Description |
-|--------|-------------|
-| `CLOUDFLARE_API_TOKEN` | API token with **Cloudflare Pages — Edit** permission |
-| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID |
-| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Web3Forms access key for waitlist/contact forms |
+---
 
-Create the token: Cloudflare Dashboard → My Profile → API Tokens → Create Token → Edit Cloudflare Workers template (includes Pages).
+## Cloudflare Dashboard (required one-time setup)
 
-### Cloudflare dashboard setup (one-time)
-
-1. **Workers & Pages** → **Create application** → **Pages** → **Connect to Git** (optional if using GitHub Actions only)
-2. Or create an empty project named `arivo-landing-page` — the workflow will deploy to it
-3. **Custom domains** → Add `arivoai.in` and `www.arivoai.in`
-4. Remove old Workers route if it conflicts with the same domain
-5. **SSL/TLS** → **Edge Certificates** → enable **Always Use HTTPS**
-6. **Rules** → **Redirect Rules** → redirect `www.arivoai.in/*` → `https://arivoai.in/$1` (301). Cloudflare `_redirects` only allows relative URLs, so HTTP/www must be set here.
-
-### Build settings (Cloudflare Git integration)
-
-Your build **succeeds** — the failure is only the **deploy command**. Cloudflare is currently running `npx wrangler deploy` (Workers). This site is a static Pages project.
-
-Go to **Workers & Pages** → your project → **Settings** → **Build** and set:
+**Workers & Pages** → **arivo-landing-page** → **Settings** → **Build**:
 
 | Setting | Value |
 |---------|--------|
+| Production branch | `main` |
 | Framework preset | None |
-| Build command | `npm run build` |
-| Build output directory | `out` |
-| Deploy command | *(leave empty — recommended)* |
+| **Build command** | `npm run build` |
+| **Build output directory** | `out` |
+| **Deploy command** | *(leave completely empty)* |
+| Root directory | `/` |
+| Node.js version | `22` (or use `.node-version` in repo) |
 
-Cloudflare Pages will upload the `out/` folder automatically after a successful build. **Do not** set deploy to `npx wrangler deploy` or `npx wrangler versions upload`.
+### If deploy command cannot be empty
 
-**Alternative** (if your dashboard requires a deploy command):
-
+Use only:
 ```
 npm run deploy
 ```
 
-Replace `arivo-landing-page` in `package.json` if your Pages project has a different name (check **Workers & Pages** in the dashboard).
+Never use `npx wrangler deploy` or `npx wrangler versions upload`.
 
-### Troubleshooting
+### Environment variables (Production)
 
-| Error | Fix |
-|-------|-----|
-| `Missing entry-point to Worker script` | Deploy command is `wrangler deploy` — clear it or use `npm run deploy` |
-| `Pages projects does not support "assets"` | Remove `assets` from `wrangler.jsonc` (already fixed in repo) |
-| `Only relative URLs are allowed` in `_redirects` | Remove absolute `http://` / `https://` rules (already fixed in repo) |
+| Variable | Value |
+|----------|--------|
+| `NEXT_PUBLIC_SITE_URL` | `https://arivoai.in` |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | your Web3Forms key |
+| `NODE_VERSION` | `22` (optional, `.node-version` is in repo) |
 
-Alternatively, disable Cloudflare Git builds and use **GitHub Actions only** (`.github/workflows/deploy.yaml` runs `pages deploy out` on push to `main`).
+### Custom domains & SSL
 
-### Environment variables (Cloudflare Pages dashboard)
+1. Add `arivoai.in` and `www.arivoai.in` under **Custom domains**
+2. **SSL/TLS** → **Always Use HTTPS** → ON
+3. **Rules** → **Redirect Rules** → `www.arivoai.in/*` → `https://arivoai.in/$1` (301)
 
-Set for **Production** (and Preview if needed):
+---
 
-- `NEXT_PUBLIC_SITE_URL` = `https://arivoai.in`
-- `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` = your Web3Forms key
+## Deployment options
 
-## Notes
+### Option A — Cloudflare Git (recommended)
 
-- The site uses `output: 'export'` — fully static HTML/JS/CSS in `out/`
-- Waitlist and contact forms call Web3Forms from the browser (no server required)
-- `trailingSlash: true` ensures clean routing on static hosting
+Push to `main` → Cloudflare builds → uploads `out/` automatically.
+
+Ensure deploy command is **empty**.
+
+### Option B — GitHub Actions
+
+`.github/workflows/deploy.yaml` runs on push to `main`:
+
+1. `npm ci`
+2. `npm run build`
+3. `wrangler pages deploy out --project-name=arivo-landing-page`
+
+Required GitHub secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`
+
+Disable Cloudflare Git builds if using Actions only (avoid double deploys).
+
+### Option C — Manual local deploy
+
+```bash
+npm ci
+npm run build
+npm run deploy
+```
+
+Requires `wrangler login` or `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`.
+
+### Local preview
+
+```bash
+npm run cf:preview
+# or: npm run build && npm run pages:preview
+```
+
+---
+
+## Files reference
+
+| File | Purpose |
+|------|---------|
+| `next.config.mjs` | `output: "export"`, `trailingSlash: true`, unoptimized images |
+| `wrangler.jsonc` | Pages config only (`pages_build_output_dir: out`) |
+| `public/_redirects` | Relative trailing-slash redirects |
+| `public/_headers` | Security headers + cache rules |
+| `.node-version` | Node 22 for Cloudflare + CI |
+| `.github/workflows/deploy.yaml` | GitHub Actions deploy pipeline |
+
+---
+
+## Troubleshooting
+
+| Symptom | Fix |
+|---------|-----|
+| `Missing entry-point to Worker script` | Remove `npx wrangler deploy` from deploy command |
+| `Pages does not support "assets"` | Remove `assets` from `wrangler.jsonc` |
+| `Only relative URLs allowed` in `_redirects` | No `http://` or `https://` in `_redirects` |
+| `wrangler deploy` on Pages project warning | Use empty deploy cmd or `npm run deploy` |
+| Build succeeds, deploy fails | Deploy command is wrong — see above |
+
+---
+
+## Production checklist
+
+- [ ] Build command: `npm run build`
+- [ ] Output directory: `out`
+- [ ] Deploy command: empty (or `npm run deploy`)
+- [ ] `NEXT_PUBLIC_*` env vars set in Cloudflare
+- [ ] Custom domain `arivoai.in` attached
+- [ ] Always Use HTTPS enabled
+- [ ] www → non-www redirect rule
+- [ ] Verify `https://arivoai.in/robots.txt` and `/sitemap.xml`
+- [ ] Test waitlist/contact forms (Web3Forms)

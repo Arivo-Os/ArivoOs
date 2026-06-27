@@ -1,5 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
+  // Cloudflare Pages project (static export in ./out). Do NOT add "assets" or "main" — those are Workers-only.
   "name": "arivo-landing-page",
   "compatibility_date": "2026-06-19",
   "pages_build_output_dir": "out"
