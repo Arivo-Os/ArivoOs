@@ -5,16 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const homeNav = [
+const navLinks = [
   { href: "/#features", label: "Features" },
   { href: "/#roadmap", label: "Roadmap" },
   { href: "/#early-access", label: "Early Access" },
-];
-
-const subNav = [
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 function Logo({ light }: { light?: boolean }) {
@@ -44,7 +41,6 @@ export function Header() {
   }, []);
 
   const onHero = isHome && !scrolled;
-  const navLinks = isHome ? homeNav : subNav;
 
   return (
     <header
@@ -64,7 +60,7 @@ export function Header() {
 
         <nav
           className={cn(
-            "hidden items-center gap-8 md:flex",
+            "hidden items-center gap-6 lg:gap-8 md:flex",
             menuOpen &&
               "max-md:absolute max-md:left-0 max-md:right-0 max-md:top-full max-md:flex max-md:flex-col max-md:gap-4 max-md:border-b max-md:p-6",
             menuOpen && (onHero ? "max-md:bg-[#08111A]/95" : "max-md:bg-white")
@@ -87,7 +83,7 @@ export function Header() {
         </nav>
 
         <Link
-          href={isHome ? "/#early-access" : "/#early-access"}
+          href="/#early-access"
           className={cn(
             "hidden rounded-full px-5 py-2.5 text-sm font-semibold transition-all md:inline-flex",
             onHero

@@ -4,6 +4,9 @@ import { SITE_URL, SOCIAL_LINKS } from "@/lib/constants/site";
 const centerLinks = [
   { href: "/#features", label: "Features" },
   { href: "/#roadmap", label: "Roadmap" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact Us" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
 ];
