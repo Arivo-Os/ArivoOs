@@ -1,9 +1,8 @@
-# HTTPS and www redirects (Cloudflare Pages / static hosts)
-http://arivoai.in/* https://arivoai.in/:splat 301
-http://www.arivoai.in/* https://arivoai.in/:splat 301
-https://www.arivoai.in/* https://arivoai.in/:splat 301
+# Trailing slash redirects (Cloudflare requires relative URLs only).
+# HTTPS and www → non-www are handled in Cloudflare Dashboard:
+#   SSL/TLS → Always Use HTTPS
+#   Rules → Redirect www.arivoai.in to arivoai.in
 
-# Legacy paths without trailing slash → trailing slash
 /about /about/ 301
 /blog /blog/ 301
 /contact /contact/ 301

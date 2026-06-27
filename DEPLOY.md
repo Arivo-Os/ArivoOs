@@ -37,34 +37,24 @@ Create the token: Cloudflare Dashboard → My Profile → API Tokens → Create 
 2. Or create an empty project named `arivo-landing-page` — the workflow will deploy to it
 3. **Custom domains** → Add `arivoai.in` and `www.arivoai.in`
 4. Remove old Workers route if it conflicts with the same domain
+5. **SSL/TLS** → **Edge Certificates** → enable **Always Use HTTPS**
+6. **Rules** → **Redirect Rules** → redirect `www.arivoai.in/*` → `https://arivoai.in/$1` (301). Cloudflare `_redirects` only allows relative URLs, so HTTP/www must be set here.
 
 ### Build settings (Cloudflare Git integration)
 
-Use **one** of these setups depending on how the project was created in the dashboard.
-
-#### Option A — Workers (deploy command: `npx wrangler versions upload`)
-
-| Setting | Value |
-|---------|--------|
-| Build command | `npm run pages:build` |
-| Deploy command | `npx wrangler versions upload` |
-| Root directory | `/` |
-
-`wrangler.jsonc` must include `assets.directory: "./out"` (already configured in this repo).
-
-#### Option B — Pages (recommended; no deploy command)
+Use **Cloudflare Pages** (not Workers). In the Cloudflare dashboard:
 
 | Setting | Value |
 |---------|--------|
 | Framework preset | None |
 | Build command | `npm run pages:build` |
 | Build output directory | `out` |
-| Deploy command | *(leave empty)* |
+| Deploy command | `npx wrangler pages deploy out --project-name=arivo-landing-page` |
 | Node.js version | 22 |
 
-#### Option C — GitHub Actions only
+Do **not** use `npx wrangler versions upload` or `wrangler deploy` — those are for Workers and will fail with this project.
 
-Push to `main` — `.github/workflows/deploy.yaml` runs `wrangler pages deploy out` automatically. Disable Cloudflare Git builds if you use this to avoid double deploys.
+Alternatively, leave deploy empty and use **GitHub Actions only** (`.github/workflows/deploy.yaml` runs `pages deploy out` on push to `main`).
 
 ### Environment variables (Cloudflare Pages dashboard)
 
