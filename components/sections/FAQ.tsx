@@ -26,7 +26,7 @@ export function FAQ() {
           </p>
         </MotionReveal>
 
-        <Accordion type="single" collapsible defaultValue="item-0" className="max-w-2xl">
+        <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
           {FAQ_ITEMS.map((item, i) => (
             <AccordionItem key={item.question} value={`item-${i}`}>
               <AccordionTrigger>{item.question}</AccordionTrigger>

@@ -74,8 +74,9 @@ export function Header() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={cn(
-                "text-sm font-medium transition-colors",
-                onHero ? "text-white/70 hover:text-white" : "text-ink-muted hover:text-ink"
+                "text-sm font-medium transition-colors hover:text-brand-green",
+                menuOpen && "w-full rounded-lg px-3 py-2.5 hover:bg-brand-green/10",
+                onHero ? "text-white/70" : "text-ink-muted"
               )}
             >
               {link.label}

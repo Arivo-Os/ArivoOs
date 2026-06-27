@@ -30,12 +30,15 @@ export function Footer() {
           </p>
         </div>
 
-        <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-8 gap-y-3 lg:justify-center">
+        <nav
+          aria-label="Footer navigation"
+          className="flex w-full flex-wrap gap-x-8 gap-y-3 lg:justify-center"
+        >
           {centerLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-white/55 transition-colors hover:text-white"
+              className="text-sm text-white/55 transition-colors hover:text-brand-green"
             >
               {link.label}
             </Link>
