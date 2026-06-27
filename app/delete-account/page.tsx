@@ -66,24 +66,24 @@ export default function DeleteAccountPage() {
 
         <AccountDeletionForm />
 
-        <div className="mt-6 rounded-xl border border-black/8 bg-arivo-surface p-5">
-          <p className="mb-2 text-sm font-semibold text-arivo-text">
+        <div className="mt-6 glass-card p-5">
+          <p className="mb-2 text-sm font-semibold text-white">
             Alternatively, email us at:
           </p>
           <Link
             href="mailto:support@arivoai.in?subject=Account%20Deletion%20Request"
-            className="text-base font-semibold text-arivo-primary transition-colors hover:underline"
+            className="link-accent text-base font-semibold"
           >
             support@arivoai.in
           </Link>
           <p className="mt-3 text-sm text-arivo-muted">
-            Subject: <strong className="text-arivo-text">Account Deletion Request</strong>
+            Subject: <strong className="text-white">Account Deletion Request</strong>
           </p>
         </div>
       </LegalSection>
 
       <LegalSection title="Confirmation">
-        <p className="rounded-xl border border-arivo-primary/15 bg-arivo-primary/6 px-5 py-4 text-arivo-text">
+        <p className="callout px-5 py-4">
           We will verify your identity and process eligible deletion requests within{" "}
           <strong>7 business days</strong>.
         </p>
@@ -91,13 +91,13 @@ export default function DeleteAccountPage() {
 
       <nav
         aria-label="Related pages"
-        className="flex flex-wrap gap-x-6 gap-y-2 border-t border-black/8 pt-8"
+        className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/[0.08] pt-8"
       >
         {pageLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className="text-sm font-medium text-arivo-muted transition-colors hover:text-arivo-primary"
+            className="text-sm font-medium text-arivo-muted transition-colors hover:text-[#22C55E]"
           >
             {link.label}
           </Link>

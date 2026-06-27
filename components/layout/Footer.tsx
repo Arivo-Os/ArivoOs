@@ -1,120 +1,60 @@
 import Link from "next/link";
-import Image from "next/image";
+import { SITE_URL, SOCIAL_LINKS } from "@/lib/constants/site";
 
-const productLinks = [
+const centerLinks = [
   { href: "/#features", label: "Features" },
-  { href: "/#screenshots", label: "App Preview" },
   { href: "/#roadmap", label: "Roadmap" },
-  { href: "/#early-access", label: "Closed Beta" },
-];
-
-const companyLinks = [
-  { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/privacy", label: "Privacy Policy" },
-  { href: "/terms", label: "Terms & Conditions" },
-];
-
-const connectLinks = [
-  { href: "/contact", label: "Contact" },
-  {
-    href: "https://www.linkedin.com/company/125614133/",
-    label: "LinkedIn",
-    external: true,
-  },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] bg-black">
-      <div className="mx-auto grid max-w-container gap-10 px-7 py-16 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-[#08111A] text-white">
+      <div className="mx-auto grid max-w-container gap-10 px-6 py-16 lg:grid-cols-3 lg:px-8">
         <div>
-          <span className="mb-3 flex items-center gap-2 font-display text-base font-extrabold text-white">
-            <Image
-              src="/assets/logo-mark.svg"
-              alt="Arivo logo mark"
-              width={22}
-              height={22}
-            />
-            Arivo
-          </span>
-          <p className="text-sm leading-relaxed text-arivo-muted">
+          <div className="mb-3 flex items-center gap-2.5">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-green text-sm font-extrabold text-[#08111A]">
+              A
+            </span>
+            <span className="text-lg font-bold">Arivo</span>
+          </div>
+          <p className="max-w-xs text-sm leading-relaxed text-white/55">
             Your financial life. One AI companion.
           </p>
         </div>
 
-        <div>
-          <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-arivo-muted">
-            Product
-          </span>
-          <div className="flex flex-col gap-2.5">
-            {productLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-arivo-muted transition-colors hover:text-white"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
+        <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-8 gap-y-3 lg:justify-center">
+          {centerLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm text-white/55 transition-colors hover:text-white"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
-        <div>
-          <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-arivo-muted">
-            Company
-          </span>
-          <div className="flex flex-col gap-2.5">
-            {companyLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-arivo-muted transition-colors hover:text-white"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-arivo-muted">
-            Connect
-          </span>
-          <div className="flex flex-col gap-2.5">
-            {connectLinks.map((link) =>
-              link.external ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-arivo-muted transition-colors hover:text-white"
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-arivo-muted transition-colors hover:text-white"
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
-          </div>
+        <div className="flex flex-col gap-2 text-sm lg:items-end">
+          <a href={SITE_URL} className="text-white/55 transition-colors hover:text-brand-green">
+            arivoai.in
+          </a>
+          <a
+            href={SOCIAL_LINKS.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/55 transition-colors hover:text-brand-green"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-container flex-col items-center justify-between gap-4 border-t border-white/[0.06] px-7 py-6 text-sm text-arivo-muted sm:flex-row">
-        <span>&copy; 2026 Arivo. All rights reserved.</span>
-        <a
-          href="mailto:akhileshgoswami@arivoai.in"
-          className="transition-colors hover:text-[#22C55E]"
-        >
-          akhileshgoswami@arivoai.in
-        </a>
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-container px-6 py-5 text-center text-sm text-white/40 lg:px-8">
+          © 2026 Arivo · Made with ♥ in India
+        </div>
       </div>
     </footer>
   );

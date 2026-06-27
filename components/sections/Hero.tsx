@@ -2,100 +2,113 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Wallet,
-  TrendingUp,
-  Sparkles,
-  Coins,
-  Target,
-  BarChart3,
-} from "lucide-react";
-import { GooglePlayButton } from "@/components/ui/GooglePlayButton";
-import { PhoneFrame } from "@/components/ui/PhoneFrame";
-import { Button } from "@/components/ui/button";
-import { MotionReveal } from "@/components/ui/MotionReveal";
-import { PLAY_STORE_LABEL } from "@/lib/constants/site";
+import { PhoneMockup } from "@/components/ui/PhoneMockup";
 
-const floatingElements = [
-  { Icon: Wallet, className: "left-[8%] top-[18%] animate-float", delay: 0 },
-  { Icon: TrendingUp, className: "right-[12%] top-[22%] animate-float-slow", delay: 0.5 },
-  { Icon: Sparkles, className: "left-[15%] bottom-[28%] animate-float-slow", delay: 1 },
-  { Icon: Coins, className: "right-[8%] bottom-[32%] animate-float", delay: 0.3 },
-  { Icon: Target, className: "left-[5%] top-[45%] animate-float", delay: 0.8 },
-  { Icon: BarChart3, className: "right-[5%] top-[50%] animate-float-slow", delay: 1.2 },
+const trustItems = [
+  { icon: "⭐", label: "AI Powered" },
+  { icon: "🔒", label: "Privacy First" },
+  { icon: "⚡", label: "Built for Speed" },
+  { icon: "📊", label: "Smart Insights" },
+];
+
+const floatCards = [
+  { label: "Goal: Europe Trip", value: "38%", className: "left-0 top-[12%] animate-float", delay: 0 },
+  { label: "Net Worth", value: "↑12.5%", className: "right-0 top-[8%] animate-float-delayed", delay: 0.2 },
+  { label: "Ask Arivo", value: "Ready", className: "left-[-8%] bottom-[28%] animate-float-delayed", delay: 0.4 },
+  { label: "Monthly Spend", value: "₹25,000", className: "right-[-6%] bottom-[22%] animate-float", delay: 0.6 },
 ];
 
 export function Hero() {
   return (
-    <section
-      id="hero"
-      aria-labelledby="hero-heading"
-      className="relative min-h-screen overflow-hidden pt-[100px] pb-20"
-    >
-      <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_60%,rgba(34,197,94,0.06),transparent)]"
-        aria-hidden="true"
-      />
-
-      <div className="relative mx-auto flex w-full max-w-container flex-col items-center gap-12 px-7 lg:flex-row lg:items-center lg:gap-16">
-        <MotionReveal className="flex-1 text-center lg:text-left">
-          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/10 px-4 py-2 text-[13px] font-semibold text-[#22C55E] backdrop-blur-sm">
-            <span aria-hidden="true">🚀</span>
-            Now on Google Play · {PLAY_STORE_LABEL}
-          </p>
-
-          <h1
-            id="hero-heading"
-            className="mb-5 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-extrabold leading-[1.08] tracking-tight text-white"
+    <section id="hero" aria-labelledby="hero-heading" className="hero-gradient overflow-hidden pt-28 pb-20 lg:pb-28 lg:pt-36">
+      <div className="mx-auto grid max-w-container items-center gap-14 px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+        <div>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur-sm"
           >
-            Your Financial Life.{" "}
-            <span className="text-gradient-green">One AI Companion.</span>
-          </h1>
+            🔒 Closed Beta · Now on Google Play
+          </motion.p>
 
-          <p className="mx-auto mb-8 max-w-[520px] text-[clamp(1rem,2.5vw,1.125rem)] leading-relaxed text-arivo-muted lg:mx-0">
-            Understand your money, track your financial goals, and make smarter
-            financial decisions with AI.
-          </p>
+          <motion.h1
+            id="hero-heading"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-6 font-display text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-white"
+          >
+            Your Financial Life.
+            <br />
+            One AI Companion.
+          </motion.h1>
 
-          <div className="mb-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-            <GooglePlayButton size="lg" />
-            <Button variant="ghost" asChild size="lg">
-              <Link href="#features">Learn More</Link>
-            </Button>
-          </div>
-        </MotionReveal>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-8 max-w-lg text-lg leading-relaxed text-white/60"
+          >
+            Understand your money, track goals, and make smarter decisions — all with one AI.
+          </motion.p>
 
-        <MotionReveal delay={0.15} className="relative flex w-full max-w-[340px] flex-shrink-0 justify-center lg:max-w-[360px]">
-          <div className="relative w-full">
-            {floatingElements.map(({ Icon, className, delay }, i) => (
-              <motion.div
-                key={i}
-                className={`pointer-events-none absolute z-10 hidden sm:flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-[#22C55E] backdrop-blur-md ${className}`}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4 + delay, duration: 0.5 }}
-                aria-hidden="true"
-              >
-                <Icon className="h-4 w-4" />
-              </motion.div>
-            ))}
-
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-[2]"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-10 flex flex-wrap gap-3"
+          >
+            <Link
+              href="#early-access"
+              className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
             >
-              <div className="pointer-events-none absolute -inset-8 rounded-full bg-[#22C55E]/10 blur-3xl" aria-hidden="true" />
-              <PhoneFrame
-                src="/assets/app-screenshot.png"
-                alt="Arivo app — AI financial decision engine showing vehicle purchase analysis"
-                priority
-                className="w-full"
-              />
-            </motion.div>
+              Join the Waitlist
+            </Link>
+            <Link
+              href="#showcase"
+              className="inline-flex h-12 items-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              See how it works ↓
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/50"
+          >
+            {trustItems.map((item) => (
+              <span key={item.label}>
+                {item.icon} {item.label}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+          className="relative mx-auto w-full max-w-[360px] lg:max-w-none"
+        >
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-green/20 blur-[80px]" aria-hidden="true" />
+
+          {floatCards.map((card) => (
+            <div
+              key={card.label}
+              className={`glass-dark pointer-events-none absolute z-10 hidden rounded-xl px-3 py-2 sm:block ${card.className}`}
+            >
+              <p className="text-[10px] text-white/50">{card.label}</p>
+              <p className="text-xs font-bold text-white">{card.value}</p>
+            </div>
+          ))}
+
+          <div className="relative z-[2] animate-bob">
+            <PhoneMockup screen="dashboard" />
           </div>
-        </MotionReveal>
+        </motion.div>
       </div>
     </section>
   );

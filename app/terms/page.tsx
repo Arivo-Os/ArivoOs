@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <LegalPageLayout title="Terms & Conditions" subtitle="Effective Date: June 2026">
-      <div className="rounded-xl border border-arivo-primary/15 bg-arivo-primary/6 p-5 sm:p-6">
-        <p className="text-sm leading-relaxed text-arivo-text">
+      <div className="callout p-5 sm:p-6">
+        <p className="text-sm leading-relaxed">
           <strong>Important:</strong> Arivo provides AI-powered financial guidance
           for informational purposes only and does not provide financial,
           investment, legal, or tax advice. Users should consult qualified
@@ -134,7 +134,7 @@ export default function TermsPage() {
           For questions about these Terms, contact us at{" "}
           <Link
             href="mailto:support@arivoai.in"
-            className="font-medium text-arivo-primary transition-colors hover:underline"
+            className="link-accent"
           >
             support@arivoai.in
           </Link>

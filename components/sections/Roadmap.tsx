@@ -2,59 +2,38 @@
 
 import { MotionReveal } from "@/components/ui/MotionReveal";
 
-const roadmapItems = [
-  "Bank Account Integration",
+const items = [
+  "Bank Integrations",
   "Investment Tracking",
-  "AI Budget Planning",
-  "Smart Recommendations",
-  "Subscription Management",
-  "Financial Reports",
+  "Budget Planning",
+  "Subscription Manager",
+  "Voice Financial Assistant",
 ];
 
 export function Roadmap() {
   return (
-    <section
-      id="roadmap"
-      aria-labelledby="roadmap-heading"
-      className="border-y border-white/[0.06] bg-arivo-surface/50 py-24 lg:py-32"
-    >
-      <div className="mx-auto max-w-container px-7">
+    <section id="roadmap" aria-labelledby="roadmap-heading" className="py-[120px]">
+      <div className="mx-auto max-w-container px-6 lg:px-8">
         <MotionReveal className="mb-14 text-center">
-          <span className="section-label">Roadmap</span>
           <h2
             id="roadmap-heading"
-            className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-extrabold leading-tight tracking-tight text-white"
+            className="font-display text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight text-ink"
           >
-            What&apos;s Coming Next
+            What&apos;s coming next.
           </h2>
         </MotionReveal>
 
-        <div className="relative mx-auto max-w-2xl">
-          <div
-            className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-[#22C55E]/50 via-[#22C55E]/20 to-transparent sm:block"
-            aria-hidden="true"
-          />
-
-          <div className="space-y-5">
-            {roadmapItems.map((item, i) => (
-              <MotionReveal key={item} delay={i * 0.07}>
-                <article className="glass-card-hover relative flex items-start gap-5 p-5 sm:pl-14">
-                  <div
-                    className="absolute left-5 top-1/2 hidden h-3 w-3 -translate-y-1/2 rounded-full border-2 border-[#22C55E] bg-black sm:block"
-                    aria-hidden="true"
-                  />
-                  <div>
-                    <span className="mb-1 block text-xs font-bold uppercase tracking-widest text-[#22C55E]">
-                      Coming Soon
-                    </span>
-                    <h3 className="font-display text-base font-bold text-white">
-                      {item}
-                    </h3>
-                  </div>
-                </article>
-              </MotionReveal>
-            ))}
-          </div>
+        <div className="mx-auto grid max-w-3xl gap-4">
+          {items.map((item, i) => (
+            <MotionReveal key={item} delay={i * 0.06}>
+              <article className="flex items-center justify-between rounded-2xl bg-white px-6 py-5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)]">
+                <h3 className="font-semibold text-ink">{item}</h3>
+                <span className="rounded-full bg-ink/5 px-3 py-1 text-xs font-semibold text-ink-muted">
+                  Coming Soon
+                </span>
+              </article>
+            </MotionReveal>
+          ))}
         </div>
       </div>
     </section>

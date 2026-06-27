@@ -6,10 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  contactSchema,
-  type ContactFormData,
-} from "@/lib/schemas/contact";
+import { contactSchema, type ContactFormData } from "@/lib/schemas/contact";
 import { WEB3FORMS_ACCESS_KEY, cn } from "@/lib/utils";
 
 export function ContactForm() {
@@ -27,16 +24,12 @@ export function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     if (data.botcheck) return;
-
     setStatus("idle");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: data.subject,
@@ -47,10 +40,8 @@ export function ContactForm() {
           botcheck: "",
         }),
       });
-
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error("Submit failed");
-
       reset();
       setStatus("success");
     } catch {
@@ -59,94 +50,39 @@ export function ContactForm() {
   };
 
   return (
-    <div className="rounded-[20px] border border-black/8 bg-arivo-surface p-6 sm:p-8">
+    <div className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
       <div className="mb-6 flex items-center justify-between">
-        <span className="text-sm font-bold text-arivo-text">Send a message</span>
-        <span className="rounded-full bg-arivo-primary/10 px-3 py-1 text-xs font-bold text-arivo-primary">
+        <span className="text-sm font-bold text-ink">Send a message</span>
+        <span className="rounded-full bg-brand-green/10 px-3 py-1 text-xs font-bold text-brand-green">
           We read every note
         </span>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
-        <input
-          type="checkbox"
-          {...register("botcheck")}
-          className="hidden"
-          tabIndex={-1}
-          autoComplete="off"
-          aria-hidden="true"
-        />
+        <input type="checkbox" {...register("botcheck")} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
         <div>
-          <label htmlFor="contactName" className="mb-1.5 block text-sm font-medium text-arivo-text">
-            Name
-          </label>
-          <Input
-            id="contactName"
-            placeholder="John Doe"
-            autoComplete="name"
-            aria-invalid={!!errors.name}
-            {...register("name")}
-          />
-          {errors.name && (
-            <p className="mt-1 text-xs text-arivo-risk" role="alert">
-              {errors.name.message}
-            </p>
-          )}
+          <label htmlFor="contactName" className="mb-1.5 block text-sm font-medium text-ink">Name</label>
+          <Input id="contactName" placeholder="John Doe" autoComplete="name" aria-invalid={!!errors.name} {...register("name")} />
+          {errors.name && <p className="mt-1 text-xs text-arivo-risk" role="alert">{errors.name.message}</p>}
         </div>
 
         <div>
-          <label htmlFor="contactEmail" className="mb-1.5 block text-sm font-medium text-arivo-text">
-            Email address
-          </label>
-          <Input
-            id="contactEmail"
-            type="email"
-            placeholder="you@example.com"
-            autoComplete="email"
-            aria-invalid={!!errors.email}
-            {...register("email")}
-          />
-          {errors.email && (
-            <p className="mt-1 text-xs text-arivo-risk" role="alert">
-              {errors.email.message}
-            </p>
-          )}
+          <label htmlFor="contactEmail" className="mb-1.5 block text-sm font-medium text-ink">Email address</label>
+          <Input id="contactEmail" type="email" placeholder="you@example.com" autoComplete="email" aria-invalid={!!errors.email} {...register("email")} />
+          {errors.email && <p className="mt-1 text-xs text-arivo-risk" role="alert">{errors.email.message}</p>}
         </div>
 
         <div>
-          <label htmlFor="contactSubject" className="mb-1.5 block text-sm font-medium text-arivo-text">
-            Subject
-          </label>
-          <Input
-            id="contactSubject"
-            placeholder="How can we help?"
-            aria-invalid={!!errors.subject}
-            {...register("subject")}
-          />
-          {errors.subject && (
-            <p className="mt-1 text-xs text-arivo-risk" role="alert">
-              {errors.subject.message}
-            </p>
-          )}
+          <label htmlFor="contactSubject" className="mb-1.5 block text-sm font-medium text-ink">Subject</label>
+          <Input id="contactSubject" placeholder="How can we help?" aria-invalid={!!errors.subject} {...register("subject")} />
+          {errors.subject && <p className="mt-1 text-xs text-arivo-risk" role="alert">{errors.subject.message}</p>}
         </div>
 
         <div>
-          <label htmlFor="contactMessage" className="mb-1.5 block text-sm font-medium text-arivo-text">
-            Message
-          </label>
-          <Textarea
-            id="contactMessage"
-            placeholder="Tell us how we can help…"
-            rows={5}
-            aria-invalid={!!errors.message}
-            {...register("message")}
-          />
-          {errors.message && (
-            <p className="mt-1 text-xs text-arivo-risk" role="alert">
-              {errors.message.message}
-            </p>
-          )}
+          <label htmlFor="contactMessage" className="mb-1.5 block text-sm font-medium text-ink">Message</label>
+          <Textarea id="contactMessage" placeholder="Tell us how we can help…" rows={5} aria-invalid={!!errors.message} {...register("message")} />
+          {errors.message && <p className="mt-1 text-xs text-arivo-risk" role="alert">{errors.message.message}</p>}
         </div>
 
         <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
@@ -154,31 +90,16 @@ export function ContactForm() {
         </Button>
       </form>
 
-      <div
-        role="status"
-        className={cn(
-          "mt-4 hidden rounded-xl border border-arivo-primary/20 bg-arivo-primary/8 p-4 text-sm",
-          status === "success" && "block"
-        )}
-      >
-        <strong className="block text-arivo-text">Message sent.</strong>
-        <span className="text-arivo-muted">Thanks for reaching out — we&apos;ll reply soon.</span>
+      <div role="status" className={cn("mt-4 hidden rounded-xl border border-brand-green/20 bg-brand-green/5 p-4 text-sm", status === "success" && "block")}>
+        <strong className="block text-ink">Message sent.</strong>
+        <span className="text-ink-muted">Thanks for reaching out — we&apos;ll reply soon.</span>
       </div>
 
-      <div
-        role="alert"
-        className={cn(
-          "mt-4 hidden rounded-xl border border-arivo-risk/20 bg-arivo-risk/8 p-4 text-sm",
-          status === "error" && "block"
-        )}
-      >
-        <strong className="block text-arivo-text">Something went wrong.</strong>
-        <span className="text-arivo-muted">
+      <div role="alert" className={cn("mt-4 hidden rounded-xl border border-arivo-risk/20 bg-arivo-risk/5 p-4 text-sm", status === "error" && "block")}>
+        <strong className="block text-ink">Something went wrong.</strong>
+        <span className="text-ink-muted">
           Please try again or email{" "}
-          <a href="mailto:support@arivoai.in" className="text-arivo-primary underline">
-            support@arivoai.in
-          </a>{" "}
-          directly.
+          <a href="mailto:support@arivoai.in" className="text-brand-green underline">support@arivoai.in</a> directly.
         </span>
       </div>
     </div>

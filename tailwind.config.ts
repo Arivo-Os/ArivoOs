@@ -10,15 +10,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        page: "#F8FAFC",
+        hero: {
+          from: "#08111A",
+          to: "#102A43",
+        },
+        brand: {
+          green: "#22C55E",
+          teal: "#14B8A6",
+          blue: "#3B82F6",
+        },
+        ink: {
+          DEFAULT: "#0F172A",
+          muted: "#475569",
+          subtle: "#64748B",
+        },
         arivo: {
           primary: "#22C55E",
-          accent: "#22C55E",
-          bg: "#000000",
-          surface: "#0A0A0A",
-          card: "#111111",
-          text: "#FAFAFA",
-          muted: "#A1A1AA",
-          border: "#27272A",
+          accent: "#14B8A6",
+          bg: "#08111A",
+          surface: "#F8FAFC",
+          text: "#0F172A",
+          muted: "#475569",
+          border: "#E2E8F0",
           risk: "#E05252",
           warning: "#D4880A",
         },
@@ -58,7 +72,12 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-manrope)", "system-ui", "sans-serif"],
+        display: ["var(--font-inter)", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        card: "0 10px 40px rgba(0,0,0,0.08)",
+        glow: "0 0 40px rgba(34,197,94,0.35)",
+        "glow-lg": "0 0 60px rgba(34,197,94,0.45)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -74,48 +93,33 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "fade-up": {
-          from: { opacity: "0", transform: "translateY(20px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
-        "live-pulse": {
-          "0%, 100%": { opacity: "0.45", transform: "scale(0.85)" },
-          "50%": { opacity: "1", transform: "scale(1.15)" },
-        },
-        "verdict-pop": {
-          "0%": { opacity: "0", transform: "scale(0.96) translateY(6px)" },
-          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
-        },
-        shimmer: {
-          "0%, 100%": { backgroundPosition: "0% center" },
-          "50%": { backgroundPosition: "100% center" },
+        bob: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
+          "50%": { transform: "translateY(-8px)" },
         },
-        "float-slow": {
-          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-          "50%": { transform: "translateY(-8px) rotate(2deg)" },
+        "float-delayed": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-6px)" },
         },
-        glow: {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 24px rgba(34,197,94,0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(34,197,94,0.55)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-up": "fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both",
-        "live-pulse": "live-pulse 1.4s ease-in-out infinite",
-        "verdict-pop": "verdict-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
-        shimmer: "shimmer 6s ease-in-out infinite",
-        float: "float 5s ease-in-out infinite",
-        "float-slow": "float-slow 7s ease-in-out infinite",
-        glow: "glow 3s ease-in-out infinite",
+        bob: "bob 5s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+        "float-delayed": "float-delayed 7s ease-in-out infinite 1s",
+        "glow-pulse": "glow-pulse 2.5s ease-in-out infinite",
       },
       maxWidth: {
-        container: "1080px",
+        container: "1140px",
       },
     },
   },

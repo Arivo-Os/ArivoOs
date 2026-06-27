@@ -1,42 +1,34 @@
 "use client";
 
 import { MotionReveal } from "@/components/ui/MotionReveal";
-import { GooglePlayButton } from "@/components/ui/GooglePlayButton";
+import { WaitlistForm } from "@/components/ui/WaitlistForm";
 
 export function EarlyAccess() {
   return (
-    <section
-      id="early-access"
-      aria-labelledby="early-access-heading"
-      className="py-24 lg:py-32"
-    >
-      <div className="mx-auto max-w-container px-7">
+    <section id="early-access" aria-labelledby="early-access-heading" className="py-[120px]">
+      <div className="mx-auto max-w-container px-6 lg:px-8">
         <MotionReveal>
-          <div className="relative overflow-hidden rounded-3xl border border-[#22C55E]/20 bg-gradient-to-br from-[#22C55E]/10 via-white/[0.03] to-transparent p-10 text-center sm:p-14">
-            <div
-              className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-[#22C55E]/10 blur-3xl"
-              aria-hidden="true"
-            />
-            <div
-              className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-[#22C55E]/5 blur-3xl"
-              aria-hidden="true"
-            />
+          <div className="relative overflow-hidden rounded-3xl hero-gradient p-10 sm:p-14 lg:p-16">
+            <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-green/30 shadow-[inset_0_0_60px_rgba(34,197,94,0.08)]" aria-hidden="true" />
+            <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand-green/15 blur-3xl" aria-hidden="true" />
 
-            <span className="section-label">Closed Beta</span>
-            <h2
-              id="early-access-heading"
-              className="mb-4 font-display text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold tracking-tight text-white"
-            >
-              Join the Closed Beta
-            </h2>
-            <p className="mx-auto mb-3 max-w-lg text-lg text-arivo-muted">
-              Be among the first testers shaping the future of Arivo.
-            </p>
-            <p className="mx-auto mb-8 max-w-lg text-arivo-muted">
-              Available on Google Play — invite required for closed testing.
-              Every piece of feedback helps us improve.
-            </p>
-            <GooglePlayButton size="lg" label="Join on Google Play" />
+            <div className="relative mx-auto max-w-xl text-center">
+              <h2
+                id="early-access-heading"
+                className="mb-4 font-display text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight text-white"
+              >
+                Be among the first.
+              </h2>
+              <p className="mb-8 text-lg leading-relaxed text-white/60">
+                Arivo is in closed beta. Drop your details and I&apos;ll send you a personal invite.
+              </p>
+
+              <WaitlistForm className="text-left" />
+
+              <p className="mt-6 text-sm text-white/40">
+                Limited spots · No spam · Cancel anytime
+              </p>
+            </div>
           </div>
         </MotionReveal>
       </div>

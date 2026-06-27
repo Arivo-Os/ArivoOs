@@ -68,7 +68,7 @@ export function AccountDeletionForm() {
   };
 
   return (
-    <div className="rounded-[20px] border border-black/8 bg-arivo-surface p-6 sm:p-8">
+    <div className="form-card">
       <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
         <input
           type="checkbox"
@@ -80,7 +80,7 @@ export function AccountDeletionForm() {
         />
 
         <div>
-          <label htmlFor="deletionFullName" className="mb-1.5 block text-sm font-medium text-arivo-text">
+          <label htmlFor="deletionFullName" className="mb-1.5 block text-sm font-medium text-white">
             Full Name
           </label>
           <Input
@@ -98,7 +98,7 @@ export function AccountDeletionForm() {
         </div>
 
         <div>
-          <label htmlFor="deletionMobile" className="mb-1.5 block text-sm font-medium text-arivo-text">
+          <label htmlFor="deletionMobile" className="mb-1.5 block text-sm font-medium text-white">
             Registered Mobile Number
           </label>
           <Input
@@ -118,7 +118,7 @@ export function AccountDeletionForm() {
         </div>
 
         <div>
-          <label htmlFor="deletionEmail" className="mb-1.5 block text-sm font-medium text-arivo-text">
+          <label htmlFor="deletionEmail" className="mb-1.5 block text-sm font-medium text-white">
             Email <span className="font-normal text-arivo-muted">(optional)</span>
           </label>
           <Input
@@ -137,7 +137,7 @@ export function AccountDeletionForm() {
         </div>
 
         <div>
-          <label htmlFor="deletionReason" className="mb-1.5 block text-sm font-medium text-arivo-text">
+          <label htmlFor="deletionReason" className="mb-1.5 block text-sm font-medium text-white">
             Reason <span className="font-normal text-arivo-muted">(optional)</span>
           </label>
           <Textarea
@@ -157,11 +157,11 @@ export function AccountDeletionForm() {
       <div
         role="status"
         className={cn(
-          "mt-4 hidden rounded-xl border border-arivo-primary/20 bg-arivo-primary/8 p-4 text-sm",
+          "mt-4 hidden rounded-xl border border-[#22C55E]/20 bg-[#22C55E]/10 p-4 text-sm",
           status === "success" && "block"
         )}
       >
-        <strong className="block text-arivo-text">Request submitted.</strong>
+        <strong className="block text-white">Request submitted.</strong>
         <span className="text-arivo-muted">
           We&apos;ll verify your identity and process eligible deletion requests within 7 business days.
         </span>
@@ -170,16 +170,16 @@ export function AccountDeletionForm() {
       <div
         role="alert"
         className={cn(
-          "mt-4 hidden rounded-xl border border-arivo-risk/20 bg-arivo-risk/8 p-4 text-sm",
+          "mt-4 hidden rounded-xl border border-arivo-risk/20 bg-arivo-risk/10 p-4 text-sm",
           status === "error" && "block"
         )}
       >
-        <strong className="block text-arivo-text">Something went wrong.</strong>
+        <strong className="block text-white">Something went wrong.</strong>
         <span className="text-arivo-muted">
           Please try again or email{" "}
           <a
             href="mailto:support@arivoai.in?subject=Account%20Deletion%20Request"
-            className="text-arivo-primary underline"
+            className="link-accent"
           >
             support@arivoai.in
           </a>{" "}

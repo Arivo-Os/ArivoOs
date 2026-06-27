@@ -112,7 +112,7 @@ export default function PrivacyPage() {
           Email:{" "}
           <Link
             href="mailto:support@arivoai.in"
-            className="font-medium text-arivo-primary transition-colors hover:underline"
+            className="link-accent"
           >
             support@arivoai.in
           </Link>
