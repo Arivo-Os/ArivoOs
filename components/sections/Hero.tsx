@@ -14,6 +14,7 @@ import { GooglePlayButton } from "@/components/ui/GooglePlayButton";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { Button } from "@/components/ui/button";
 import { MotionReveal } from "@/components/ui/MotionReveal";
+import { PLAY_STORE_LABEL } from "@/lib/constants/site";
 
 const floatingElements = [
   { Icon: Wallet, className: "left-[8%] top-[18%] animate-float", delay: 0 },
@@ -41,7 +42,7 @@ export function Hero() {
         <MotionReveal className="flex-1 text-center lg:text-left">
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/10 px-4 py-2 text-[13px] font-semibold text-[#22C55E] backdrop-blur-sm">
             <span aria-hidden="true">🚀</span>
-            Now Available on Google Play · Early Access
+            Now on Google Play · {PLAY_STORE_LABEL}
           </p>
 
           <h1

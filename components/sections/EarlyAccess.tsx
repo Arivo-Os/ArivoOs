@@ -22,20 +22,21 @@ export function EarlyAccess() {
               aria-hidden="true"
             />
 
-            <span className="section-label">Early Access</span>
+            <span className="section-label">Closed Beta</span>
             <h2
               id="early-access-heading"
               className="mb-4 font-display text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold tracking-tight text-white"
             >
-              Join Early Access
+              Join the Closed Beta
             </h2>
             <p className="mx-auto mb-3 max-w-lg text-lg text-arivo-muted">
-              Be among the first users shaping the future of Arivo.
+              Be among the first testers shaping the future of Arivo.
             </p>
             <p className="mx-auto mb-8 max-w-lg text-arivo-muted">
+              Available on Google Play — invite required for closed testing.
               Every piece of feedback helps us improve.
             </p>
-            <GooglePlayButton size="lg" label="Download Now" />
+            <GooglePlayButton size="lg" label="Join on Google Play" />
           </div>
         </MotionReveal>
       </div>

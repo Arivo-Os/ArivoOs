@@ -5,7 +5,7 @@ const productLinks = [
   { href: "/#features", label: "Features" },
   { href: "/#screenshots", label: "App Preview" },
   { href: "/#roadmap", label: "Roadmap" },
-  { href: "/#early-access", label: "Early Access" },
+  { href: "/#early-access", label: "Closed Beta" },
 ];
 
 const companyLinks = [

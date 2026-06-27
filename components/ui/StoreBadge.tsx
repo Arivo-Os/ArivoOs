@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { GOOGLE_PLAY_URL } from "@/lib/constants/site";
+import { GOOGLE_PLAY_URL, PLAY_STORE_LABEL } from "@/lib/constants/site";
 
 interface StoreBadgeProps {
   compact?: boolean;
@@ -17,7 +17,7 @@ export function StoreBadge({ compact = false, className }: StoreBadgeProps) {
         "inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm transition-all hover:border-[#22C55E]/30 hover:bg-[#22C55E]/10",
         className
       )}
-      aria-label="Download Arivo on Google Play — Early Access"
+      aria-label={`Download Arivo on Google Play — ${PLAY_STORE_LABEL}`}
     >
       <svg className="h-6 w-6 shrink-0 text-white" viewBox="0 0 24 24" aria-hidden="true">
         <path
@@ -33,10 +33,10 @@ export function StoreBadge({ compact = false, className }: StoreBadgeProps) {
         )}
         <span className="font-display text-sm font-bold text-white">Google Play</span>
         {!compact && (
-          <span className="text-[11px] font-semibold text-[#22C55E]">Early Access</span>
+          <span className="text-[11px] font-semibold text-[#22C55E]">{PLAY_STORE_LABEL}</span>
         )}
         {compact && (
-          <span className="text-[10px] font-semibold text-[#22C55E]">Early Access</span>
+          <span className="text-[10px] font-semibold text-[#22C55E]">{PLAY_STORE_LABEL}</span>
         )}
       </span>
     </Link>

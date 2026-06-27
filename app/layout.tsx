@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Arivo",
   },
   description:
-    "Understand your money, track your financial goals, and make smarter financial decisions with AI. Now available on Google Play in Early Access.",
+    "Understand your money, track your financial goals, and make smarter financial decisions with AI. Now in Closed Beta on Google Play.",
   keywords: [
     "financial decision engine",
     "AI financial advisor India",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Arivo",
     title: "Arivo — Your Financial Life. One AI Companion.",
     description:
-      "Understand your money, track your financial goals, and make smarter financial decisions with AI. Download on Google Play — Early Access.",
+      "Understand your money, track your financial goals, and make smarter financial decisions with AI. Join the Closed Beta on Google Play.",
     images: [
       {
         url: `${BASE_URL}/assets/og-image.png`,

@@ -98,7 +98,7 @@ export const homepageJsonLd = {
           name: "When does Arivo launch?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Arivo is now available on Google Play in Early Access. Download the app to start using your AI financial companion and help shape the product with your feedback.",
+            text: "Arivo is now in Closed Beta on Google Play (in.arivoai.app). Join the beta to start using your AI financial companion and help shape the product with your feedback.",
           },
         },
         {
