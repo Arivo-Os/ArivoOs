@@ -42,19 +42,36 @@ Create the token: Cloudflare Dashboard → My Profile → API Tokens → Create 
 
 ### Build settings (Cloudflare Git integration)
 
-Use **Cloudflare Pages** (not Workers). In the Cloudflare dashboard:
+Your build **succeeds** — the failure is only the **deploy command**. Cloudflare is currently running `npx wrangler deploy` (Workers). This site is a static Pages project.
+
+Go to **Workers & Pages** → your project → **Settings** → **Build** and set:
 
 | Setting | Value |
 |---------|--------|
 | Framework preset | None |
-| Build command | `npm run pages:build` |
+| Build command | `npm run build` |
 | Build output directory | `out` |
-| Deploy command | `npx wrangler pages deploy out --project-name=arivo-landing-page` |
-| Node.js version | 22 |
+| Deploy command | *(leave empty — recommended)* |
 
-Do **not** use `npx wrangler versions upload` or `wrangler deploy` — those are for Workers and will fail with this project.
+Cloudflare Pages will upload the `out/` folder automatically after a successful build. **Do not** set deploy to `npx wrangler deploy` or `npx wrangler versions upload`.
 
-Alternatively, leave deploy empty and use **GitHub Actions only** (`.github/workflows/deploy.yaml` runs `pages deploy out` on push to `main`).
+**Alternative** (if your dashboard requires a deploy command):
+
+```
+npm run deploy
+```
+
+Replace `arivo-landing-page` in `package.json` if your Pages project has a different name (check **Workers & Pages** in the dashboard).
+
+### Troubleshooting
+
+| Error | Fix |
+|-------|-----|
+| `Missing entry-point to Worker script` | Deploy command is `wrangler deploy` — clear it or use `npm run deploy` |
+| `Pages projects does not support "assets"` | Remove `assets` from `wrangler.jsonc` (already fixed in repo) |
+| `Only relative URLs are allowed` in `_redirects` | Remove absolute `http://` / `https://` rules (already fixed in repo) |
+
+Alternatively, disable Cloudflare Git builds and use **GitHub Actions only** (`.github/workflows/deploy.yaml` runs `pages deploy out` on push to `main`).
 
 ### Environment variables (Cloudflare Pages dashboard)
 

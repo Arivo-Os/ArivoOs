@@ -9,7 +9,8 @@
     "lint": "next lint",
     "pages:build": "next build",
     "pages:preview": "npx wrangler pages dev out",
-    "pages:deploy": "npm run pages:build && wrangler pages deploy out --project-name=arivo-landing-page"
+    "pages:deploy": "npm run pages:build && wrangler pages deploy out --project-name=arivo-landing-page",
+    "deploy": "wrangler pages deploy out --project-name=arivo-landing-page"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
