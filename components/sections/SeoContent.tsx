@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MotionReveal } from "@/components/ui/MotionReveal";
 
 const SEO_SECTIONS = [
   {
@@ -51,7 +50,7 @@ export function SeoContent() {
       className="border-t border-ink/5 bg-white py-[120px]"
     >
       <div className="mx-auto max-w-container px-6 lg:px-8">
-        <MotionReveal className="mx-auto mb-16 max-w-3xl text-center">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
           <span className="section-label">Learn More</span>
           <h2
             id="seo-content-heading"
@@ -63,54 +62,50 @@ export function SeoContent() {
             Arivo is an AI-powered personal finance app available in closed beta on Google Play.
             Join the waitlist to get early access and help shape the future of money management in India.
           </p>
-        </MotionReveal>
+        </div>
 
         <div className="mx-auto max-w-3xl space-y-14">
-          {SEO_SECTIONS.map((section, i) => (
-            <MotionReveal key={section.id} delay={i * 0.05}>
-              <article id={section.id}>
-                <h3 className="mb-4 font-display text-2xl font-bold tracking-tight text-ink">
-                  {section.title}
-                </h3>
-                {section.content.map((paragraph) => (
-                  <p key={paragraph.slice(0, 40)} className="mb-4 text-base leading-relaxed text-ink-muted">
-                    {paragraph}
-                    {section.id === "security-privacy" ? (
-                      <>
-                        {" "}
-                        <Link href="/delete-account/" className="font-medium text-brand-green hover:underline">
-                          Request account deletion
-                        </Link>
-                        .
-                      </>
-                    ) : null}
-                  </p>
-                ))}
-              </article>
-            </MotionReveal>
+          {SEO_SECTIONS.map((section) => (
+            <article key={section.id} id={section.id}>
+              <h3 className="mb-4 font-display text-2xl font-bold tracking-tight text-ink">
+                {section.title}
+              </h3>
+              {section.content.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className="mb-4 text-base leading-relaxed text-ink-muted">
+                  {paragraph}
+                  {section.id === "security-privacy" ? (
+                    <>
+                      {" "}
+                      <Link href="/delete-account/" className="font-medium text-brand-green hover:underline">
+                        Request account deletion
+                      </Link>
+                      .
+                    </>
+                  ) : null}
+                </p>
+              ))}
+            </article>
           ))}
 
-          <MotionReveal delay={0.2}>
-            <div className="rounded-2xl border border-brand-green/20 bg-brand-green/5 p-8">
-              <h3 className="mb-3 font-display text-xl font-bold text-ink">
-                Ready to take control of your finances?
-              </h3>
-              <p className="mb-4 text-base leading-relaxed text-ink-muted">
-                Join the Arivo waitlist for closed beta access on Google Play. Explore our{" "}
-                <Link href="/about/" className="font-medium text-brand-green hover:underline">About page</Link>, read the{" "}
-                <Link href="/blog/" className="font-medium text-brand-green hover:underline">blog</Link>, or{" "}
-                <Link href="/contact/" className="font-medium text-brand-green hover:underline">contact us</Link> with questions.
-                Review our <Link href="/privacy/" className="font-medium text-brand-green hover:underline">Privacy Policy</Link> and{" "}
-                <Link href="/terms/" className="font-medium text-brand-green hover:underline">Terms &amp; Conditions</Link>.
-              </p>
-              <Link
-                href="/#early-access"
-                className="inline-flex h-11 items-center rounded-full bg-brand-green px-6 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
-              >
-                Join the Waitlist
-              </Link>
-            </div>
-          </MotionReveal>
+          <div className="rounded-2xl border border-brand-green/20 bg-brand-green/5 p-8">
+            <h3 className="mb-3 font-display text-xl font-bold text-ink">
+              Ready to take control of your finances?
+            </h3>
+            <p className="mb-4 text-base leading-relaxed text-ink-muted">
+              Join the Arivo waitlist for closed beta access on Google Play. Explore our{" "}
+              <Link href="/about/" className="font-medium text-brand-green hover:underline">About page</Link>, read the{" "}
+              <Link href="/blog/" className="font-medium text-brand-green hover:underline">blog</Link>, or{" "}
+              <Link href="/contact/" className="font-medium text-brand-green hover:underline">contact us</Link> with questions.
+              Review our <Link href="/privacy/" className="font-medium text-brand-green hover:underline">Privacy Policy</Link> and{" "}
+              <Link href="/terms/" className="font-medium text-brand-green hover:underline">Terms &amp; Conditions</Link>.
+            </p>
+            <Link
+              href="/#early-access"
+              className="inline-flex h-11 items-center rounded-full bg-brand-green px-6 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
+            >
+              Join the Waitlist
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -82,11 +82,17 @@ export function Hero() {
               Join the Waitlist
             </Link>
             <Link
-              href="#showcase"
+              href="#learn-more"
               className="inline-flex h-12 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
-              See how it works
+              Learn More
               <ChevronDown className="h-4 w-4 opacity-70" aria-hidden="true" />
+            </Link>
+            <Link
+              href="#showcase"
+              className="inline-flex h-12 items-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              See how it works
             </Link>
           </motion.div>
 
