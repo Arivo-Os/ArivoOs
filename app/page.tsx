@@ -1,15 +1,12 @@
 import Script from "next/script";
 import { Hero } from "@/components/sections/Hero";
-import { TrustStrip } from "@/components/sections/TrustStrip";
-import { Problem } from "@/components/sections/Problem";
-import { Product } from "@/components/sections/Product";
+import { TrustedBanner } from "@/components/sections/TrustedBanner";
+import { Features } from "@/components/sections/Features";
+import { AppScreenshots } from "@/components/sections/AppScreenshots";
 import { WhyArivo } from "@/components/sections/WhyArivo";
-import { Statement } from "@/components/sections/Statement";
-import { AboutTeaser } from "@/components/sections/AboutTeaser";
-import { MobileSection } from "@/components/sections/MobileSection";
-import { TrustPrivacy } from "@/components/sections/TrustPrivacy";
-import { Waitlist } from "@/components/sections/Waitlist";
-import { FAQ } from "@/components/sections/FAQ";
+import { Roadmap } from "@/components/sections/Roadmap";
+import { EarlyAccess } from "@/components/sections/EarlyAccess";
+import { FooterCTA } from "@/components/sections/FooterCTA";
 import { homepageJsonLd } from "@/lib/seo/structured-data";
 
 export default function HomePage() {
@@ -22,16 +19,13 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageJsonLd) }}
       />
       <Hero />
-      <TrustStrip />
-      <Problem />
-      <Product />
+      <TrustedBanner />
+      <Features />
+      <AppScreenshots />
       <WhyArivo />
-      <Statement />
-      <AboutTeaser />
-      <MobileSection />
-      <TrustPrivacy />
-      <Waitlist />
-      <FAQ />
+      <Roadmap />
+      <EarlyAccess />
+      <FooterCTA />
     </main>
   );
 }

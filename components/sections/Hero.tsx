@@ -1,69 +1,100 @@
-import Link from "next/link";
-import dynamic from "next/dynamic";
-import { Button } from "@/components/ui/button";
-import { HeroEnginePanel } from "@/components/sections/HeroEnginePanel";
+"use client";
 
-const AppCarousel = dynamic(
-  () =>
-    import("@/components/ui/AppCarousel").then((m) => ({ default: m.AppCarousel })),
-  { ssr: false, loading: () => <div className="h-[540px] w-full max-w-[300px]" aria-hidden="true" /> }
-);
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Wallet,
+  TrendingUp,
+  Sparkles,
+  Coins,
+  Target,
+  BarChart3,
+} from "lucide-react";
+import { GooglePlayButton } from "@/components/ui/GooglePlayButton";
+import { PhoneFrame } from "@/components/ui/PhoneFrame";
+import { Button } from "@/components/ui/button";
+import { MotionReveal } from "@/components/ui/MotionReveal";
+
+const floatingElements = [
+  { Icon: Wallet, className: "left-[8%] top-[18%] animate-float", delay: 0 },
+  { Icon: TrendingUp, className: "right-[12%] top-[22%] animate-float-slow", delay: 0.5 },
+  { Icon: Sparkles, className: "left-[15%] bottom-[28%] animate-float-slow", delay: 1 },
+  { Icon: Coins, className: "right-[8%] bottom-[32%] animate-float", delay: 0.3 },
+  { Icon: Target, className: "left-[5%] top-[45%] animate-float", delay: 0.8 },
+  { Icon: BarChart3, className: "right-[5%] top-[50%] animate-float-slow", delay: 1.2 },
+];
 
 export function Hero() {
   return (
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative flex min-h-screen items-center justify-center overflow-visible bg-[radial-gradient(ellipse_90%_70%_at_50%_0%,rgba(0,194,124,0.14),transparent_55%),radial-gradient(ellipse_50%_40%_at_80%_20%,rgba(26,122,82,0.08),transparent),linear-gradient(180deg,#F5F7F5_0%,#ffffff_50%)] px-0 pb-16 pt-[100px]"
+      className="relative min-h-screen overflow-hidden pt-[100px] pb-20"
     >
-      <div className="mx-auto flex w-full max-w-container flex-col items-center gap-4 px-7 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:text-left">
-        <div className="flex-1 text-center lg:text-left">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-arivo-primary/15 bg-gradient-to-br from-arivo-primary/8 to-arivo-accent/8 px-[18px] py-2 text-[13px] font-bold uppercase tracking-wide text-arivo-primary">
-            <svg className="h-4 w-4 opacity-85" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                d="M12 3v3M12 18v3M3 12h3M18 12h3M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M17.7 6.3l-2.1 2.1M8.4 15.6l-2.1 2.1"
-              />
-            </svg>
-            Financial Decision Engine
+      <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_60%,rgba(34,197,94,0.06),transparent)]"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto flex w-full max-w-container flex-col items-center gap-12 px-7 lg:flex-row lg:items-center lg:gap-16">
+        <MotionReveal className="flex-1 text-center lg:text-left">
+          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/20 bg-[#22C55E]/10 px-4 py-2 text-[13px] font-semibold text-[#22C55E] backdrop-blur-sm">
+            <span aria-hidden="true">🚀</span>
+            Now Available on Google Play · Early Access
           </p>
 
           <h1
             id="hero-heading"
-            className="mb-4 font-display text-[clamp(2rem,6vw,4rem)] font-extrabold leading-[1.08] tracking-tight text-arivo-text"
+            className="mb-5 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-extrabold leading-[1.08] tracking-tight text-white"
           >
-            AI financial decision engine —{" "}
-            <span>make smarter money decisions in seconds, not months.</span>
+            Your Financial Life.{" "}
+            <span className="text-gradient-green">One AI Companion.</span>
           </h1>
 
-          <p className="mx-auto mb-6 max-w-[520px] text-[clamp(1rem,2.5vw,1.125rem)] font-medium leading-relaxed text-arivo-muted lg:mx-0">
-            Arivo is an AI-powered financial decision engine. Tell it your situation. Get a verdict, a confidence score, and a clear next step.
+          <p className="mx-auto mb-8 max-w-[520px] text-[clamp(1rem,2.5vw,1.125rem)] leading-relaxed text-arivo-muted lg:mx-0">
+            Understand your money, track your financial goals, and make smarter
+            financial decisions with AI.
           </p>
 
-          <div className="mb-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-            <Button asChild size="lg">
-              <Link href="#waitlist">Get Early Access</Link>
-            </Button>
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+            <GooglePlayButton size="lg" />
             <Button variant="ghost" asChild size="lg">
-              <Link href="#product">See Engine Demo</Link>
+              <Link href="#features">Learn More</Link>
             </Button>
           </div>
+        </MotionReveal>
 
-          <section aria-label="Examples of financial decisions Arivo evaluates">
-            <HeroEnginePanel />
-          </section>
+        <MotionReveal delay={0.15} className="relative flex w-full max-w-[340px] flex-shrink-0 justify-center lg:max-w-[360px]">
+          <div className="relative w-full">
+            {floatingElements.map(({ Icon, className, delay }, i) => (
+              <motion.div
+                key={i}
+                className={`pointer-events-none absolute z-10 hidden sm:flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-[#22C55E] backdrop-blur-md ${className}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 + delay, duration: 0.5 }}
+                aria-hidden="true"
+              >
+                <Icon className="h-4 w-4" />
+              </motion.div>
+            ))}
 
-          <p className="text-sm font-medium text-arivo-muted">
-            Launching soon · Limited early access
-          </p>
-        </div>
-
-        <div className="relative flex w-full flex-[0_0_min(360px,40%)] items-center justify-center lg:justify-end">
-          <AppCarousel />
-        </div>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-[2]"
+            >
+              <div className="pointer-events-none absolute -inset-8 rounded-full bg-[#22C55E]/10 blur-3xl" aria-hidden="true" />
+              <PhoneFrame
+                src="/assets/app-screenshot.png"
+                alt="Arivo app — AI financial decision engine showing vehicle purchase analysis"
+                priority
+                className="w-full"
+              />
+            </motion.div>
+          </div>
+        </MotionReveal>
       </div>
     </section>
   );

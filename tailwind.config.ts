@@ -11,12 +11,14 @@ const config: Config = {
     extend: {
       colors: {
         arivo: {
-          primary: "#1A7A52",
-          accent: "#00C27C",
-          bg: "#0D0F0E",
-          surface: "#F5F7F5",
-          text: "#0D1412",
-          muted: "#5C6E67",
+          primary: "#22C55E",
+          accent: "#22C55E",
+          bg: "#000000",
+          surface: "#0A0A0A",
+          card: "#111111",
+          text: "#FAFAFA",
+          muted: "#A1A1AA",
+          border: "#27272A",
           risk: "#E05252",
           warning: "#D4880A",
         },
@@ -88,6 +90,18 @@ const config: Config = {
           "0%, 100%": { backgroundPosition: "0% center" },
           "50%": { backgroundPosition: "100% center" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "50%": { transform: "translateY(-8px) rotate(2deg)" },
+        },
+        glow: {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -96,6 +110,9 @@ const config: Config = {
         "live-pulse": "live-pulse 1.4s ease-in-out infinite",
         "verdict-pop": "verdict-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
         shimmer: "shimmer 6s ease-in-out infinite",
+        float: "float 5s ease-in-out infinite",
+        "float-slow": "float-slow 7s ease-in-out infinite",
+        glow: "glow 3s ease-in-out infinite",
       },
       maxWidth: {
         container: "1080px",

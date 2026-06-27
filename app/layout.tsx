@@ -25,11 +25,11 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Arivo — AI Financial Decision Engine for India",
+    default: "Arivo — Your Financial Life. One AI Companion.",
     template: "%s | Arivo",
   },
   description:
-    "Arivo is an AI-powered financial decision engine. Get a clear verdict, confidence score, and next step for buying a car, home, or investment — built for India.",
+    "Understand your money, track your financial goals, and make smarter financial decisions with AI. Now available on Google Play in Early Access.",
   keywords: [
     "financial decision engine",
     "AI financial advisor India",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: BASE_URL,
     siteName: "Arivo",
-    title: "Arivo — AI Financial Decision Engine for India",
+    title: "Arivo — Your Financial Life. One AI Companion.",
     description:
-      "Tell Arivo your financial situation. Get a verdict, confidence score, and clear next step — for buying a car, home, investment, or any major money decision.",
+      "Understand your money, track your financial goals, and make smarter financial decisions with AI. Download on Google Play — Early Access.",
     images: [
       {
         url: `${BASE_URL}/assets/og-image.png`,
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arivo — AI Financial Decision Engine for India",
+    title: "Arivo — Your Financial Life. One AI Companion.",
     description:
-      "Tell Arivo your financial situation. Get a verdict, confidence score, and clear next step.",
+      "Understand your money, track your financial goals, and make smarter financial decisions with AI. Now on Google Play.",
     images: [`${BASE_URL}/assets/og-image.png`],
   },
   alternates: {
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
 
 export function generateViewport(): Viewport {
   return {
-    themeColor: "#1A7A52",
+    themeColor: "#000000",
   };
 }
 

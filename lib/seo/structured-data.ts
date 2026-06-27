@@ -40,14 +40,14 @@ export const organizationJsonLd = {
       "@id": `${BASE_URL}/#app`,
       name: "Arivo Financial Decision Engine",
       applicationCategory: "FinanceApplication",
-      operatingSystem: "Web, Android",
+      operatingSystem: "Android",
       description:
-        "Arivo analyzes your income, expenses, debt, savings, and goals to give a structured verdict on financial decisions like car purchases, home loans, and investments.",
+        "Arivo combines AI with personal finance to help users understand their finances, track goals, and make smarter decisions every day.",
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "INR",
-        availability: "https://schema.org/PreOrder",
+        availability: "https://schema.org/InStock",
       },
       featureList: [
         "AI-powered decision verdict",
@@ -98,7 +98,7 @@ export const homepageJsonLd = {
           name: "When does Arivo launch?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Arivo is currently in pre-launch. Early access is available by joining the waitlist at arivoai.in. The first batch of users will be notified at launch and will receive free access to the full financial decision engine.",
+            text: "Arivo is now available on Google Play in Early Access. Download the app to start using your AI financial companion and help shape the product with your feedback.",
           },
         },
         {
