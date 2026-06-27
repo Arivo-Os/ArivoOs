@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Heart, Linkedin, Globe } from "lucide-react";
 import { SITE_URL, SOCIAL_LINKS } from "@/lib/constants/site";
 
 const centerLinks = [
@@ -39,16 +40,21 @@ export function Footer() {
           ))}
         </nav>
 
-        <div className="flex flex-col gap-2 text-sm lg:items-end">
-          <a href={SITE_URL} className="text-white/55 transition-colors hover:text-brand-green">
+        <div className="flex flex-col gap-3 text-sm lg:items-end">
+          <a
+            href={SITE_URL}
+            className="inline-flex items-center gap-2 text-white/55 transition-colors hover:text-brand-green"
+          >
+            <Globe className="h-4 w-4" aria-hidden="true" />
             arivoai.in
           </a>
           <a
             href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/55 transition-colors hover:text-brand-green"
+            className="inline-flex items-center gap-2 text-white/55 transition-colors hover:text-brand-green"
           >
+            <Linkedin className="h-4 w-4" aria-hidden="true" />
             LinkedIn
           </a>
         </div>
@@ -56,7 +62,8 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-container px-6 py-5 text-center text-sm text-white/40 lg:px-8">
-          © 2026 Arivo · Made with ♥ in India
+          © 2026 Arivo · Made with{" "}
+          <Heart className="inline h-3.5 w-3.5 fill-brand-green text-brand-green" aria-hidden="true" /> in India
         </div>
       </div>
     </footer>
