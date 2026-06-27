@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPageLayout, LegalSection } from "@/components/layout/LegalPageLayout";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Terms & Conditions — Arivo",
   description:
-    "Terms governing your use of the Arivo AI-powered financial decision engine. Read our disclaimers, eligibility requirements, and user responsibilities.",
-  alternates: { canonical: "https://arivoai.in/terms" },
-  openGraph: {
-    title: "Terms & Conditions — Arivo",
-    description:
-      "Terms of use for Arivo — AI-powered financial guidance for informational purposes only.",
-    url: "https://arivoai.in/terms",
-  },
-};
+    "Terms governing your use of the Arivo AI-powered personal finance app. Read disclaimers, eligibility requirements, and user responsibilities.",
+  path: "/terms",
+  keywords: ["Arivo terms", "terms and conditions", "AI finance app terms India"],
+});
 
 export default function TermsPage() {
   return (
-    <LegalPageLayout title="Terms & Conditions" subtitle="Effective Date: June 2026">
+    <LegalPageLayout
+      title="Terms & Conditions"
+      subtitle="Effective Date: June 2026"
+      breadcrumbs={[{ label: "Home", href: "/" }, { label: "Terms & Conditions" }]}
+    >
       <div className="callout p-5 sm:p-6">
         <p className="text-sm leading-relaxed">
           <strong>Important:</strong> Arivo provides AI-powered financial guidance

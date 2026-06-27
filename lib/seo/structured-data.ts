@@ -1,4 +1,63 @@
-export const BASE_URL = "https://arivoai.in";
+import { GOOGLE_PLAY_URL, SITE_URL } from "@/lib/constants/site";
+import { FAQ_ITEMS } from "@/lib/seo/faq";
+import { canonicalUrl } from "@/lib/seo/metadata";
+
+export const BASE_URL = SITE_URL;
+
+export function breadcrumbGraphItem(
+  items: { name: string; href?: string }[]
+): Record<string, unknown> {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      ...(item.href ? { item: item.href.startsWith("http") ? item.href : canonicalUrl(item.href) } : {}),
+    })),
+  };
+}
+
+export function breadcrumbJsonLd(
+  items: { name: string; href?: string }[]
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    ...breadcrumbGraphItem(items),
+  };
+}
+
+export function webPageGraphItem({
+  path,
+  name,
+  description,
+}: {
+  path: string;
+  name: string;
+  description: string;
+}): Record<string, unknown> {
+  return {
+    "@type": "WebPage",
+    "@id": `${canonicalUrl(path)}#webpage`,
+    url: canonicalUrl(path),
+    name,
+    description,
+    isPartOf: { "@id": `${BASE_URL}/#website` },
+    about: { "@id": `${BASE_URL}/#organization` },
+    inLanguage: "en-IN",
+  };
+}
+
+export function webPageJsonLd(props: {
+  path: string;
+  name: string;
+  description: string;
+}): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    ...webPageGraphItem(props),
+  };
+}
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -7,19 +66,44 @@ export const organizationJsonLd = {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
       name: "Arivo",
+      legalName: "Arivo",
       url: BASE_URL,
-      logo: `${BASE_URL}/assets/logo-mark.svg`,
-      email: "akhileshgoswami@arivoai.in",
-      foundingDate: "2025",
-      founder: {
-        "@type": "Person",
-        name: "Akhilesh Goswami",
-        url: "https://www.linkedin.com/in/akhilesh-goswami/",
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE_URL}/assets/logo-mark.svg`,
+        width: 512,
+        height: 512,
       },
+      image: `${BASE_URL}/assets/og-image.png`,
+      email: "support@arivoai.in",
+      foundingDate: "2025",
+      description:
+        "Arivo is an AI-powered personal finance companion that helps Indians understand their money, track goals, and make smarter financial decisions.",
+      founder: { "@id": `${BASE_URL}/#founder` },
       sameAs: [
         "https://www.linkedin.com/company/125614133/",
         "https://medium.com/@akhileshgoswami_10630",
+        GOOGLE_PLAY_URL,
       ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "support@arivoai.in",
+        url: canonicalUrl("/contact"),
+        availableLanguage: ["English", "Hindi"],
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": `${BASE_URL}/#founder`,
+      name: "Akhilesh Goswami",
+      jobTitle: "Founder",
+      url: canonicalUrl("/about"),
+      sameAs: [
+        "https://www.linkedin.com/in/akhilesh-goswami/",
+        "https://medium.com/@akhileshgoswami_10630",
+      ],
+      worksFor: { "@id": `${BASE_URL}/#organization` },
     },
     {
       "@type": "WebSite",
@@ -27,35 +111,33 @@ export const organizationJsonLd = {
       url: BASE_URL,
       name: "Arivo",
       description:
-        "AI-powered financial decision engine that gives you a verdict, confidence score, and clear next step for major money decisions.",
+        "Your financial life. One AI companion. Understand your money, track goals, and make smarter decisions with AI.",
       publisher: { "@id": `${BASE_URL}/#organization` },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${BASE_URL}/?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
+      inLanguage: "en-IN",
     },
     {
       "@type": "SoftwareApplication",
       "@id": `${BASE_URL}/#app`,
-      name: "Arivo Financial Decision Engine",
+      name: "Arivo — AI Personal Finance Companion",
       applicationCategory: "FinanceApplication",
       operatingSystem: "Android",
-      description:
-        "Arivo combines AI with personal finance to help users understand their finances, track goals, and make smarter decisions every day.",
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "INR",
         availability: "https://schema.org/InStock",
       },
+      downloadUrl: GOOGLE_PLAY_URL,
+      installUrl: GOOGLE_PLAY_URL,
+      description:
+        "AI-powered personal finance app for India. Dashboard, goal tracking, smart insights, and an AI assistant for smarter money decisions.",
       featureList: [
-        "AI-powered decision verdict",
-        "Confidence score",
-        "Risk level analysis",
-        "EMI affordability check",
-        "Emergency fund assessment",
-        "Personalized next steps",
+        "AI Financial Assistant",
+        "Complete Financial Dashboard",
+        "Goal Tracking",
+        "Smart Spending Insights",
+        "Budget Planning",
+        "Secure by Design",
       ],
       screenshot: `${BASE_URL}/assets/app-screenshot.png`,
       author: { "@id": `${BASE_URL}/#organization` },
@@ -66,81 +148,43 @@ export const organizationJsonLd = {
 export const homepageJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    webPageGraphItem({
+      path: "/",
+      name: "Arivo — Your Financial Life. One AI Companion.",
+      description:
+        "Understand your money, track goals, and make smarter financial decisions with AI. Join closed beta on Google Play.",
+    }),
     {
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "What is Arivo?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Arivo is an AI-powered financial decision engine built for India. It analyzes your income, expenses, debt, savings, and financial goals to give you a clear verdict — proceed, wait, or review — along with a confidence score and specific next steps for major financial decisions like buying a car, a home, or making an investment.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is Arivo a financial advisor?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. Arivo is a financial decision intelligence tool, not a registered investment advisor or SEBI-regulated financial planner. It uses your financial data to generate structured analysis and recommendations. Always consult a certified financial advisor for regulated financial advice.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is my financial data safe with Arivo?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. Your financial data is private and never sold to third parties. Arivo does not sell financial products, earn commissions, or share your data with advertisers. All analysis is done solely to power your decision results.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "When does Arivo launch?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Arivo is now in Closed Beta on Google Play (in.arivoai.app). Join the beta to start using your AI financial companion and help shape the product with your feedback.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Is Arivo free to use?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Early access to Arivo is completely free. Users who join the waitlist before launch will receive free access at launch. Paid tiers will be introduced after the initial public release.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What kinds of financial decisions can Arivo evaluate?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Arivo evaluates major financial decisions including: vehicle purchases and car loans, home purchases and home loans, personal loan affordability, investment timing and lump-sum deployment, career changes and salary negotiations, and city relocations. Any decision where your financial health determines the right answer.",
-          },
-        },
-      ],
+      "@id": `${canonicalUrl("/")}#faq`,
+      mainEntity: FAQ_ITEMS.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
     },
     {
       "@type": "HowTo",
-      name: "How to get a financial decision verdict with Arivo",
-      description: "Use Arivo to evaluate a major financial decision in three steps.",
+      name: "How to start using Arivo",
+      description: "Join the Arivo closed beta and start managing your finances with AI in three steps.",
       step: [
         {
           "@type": "HowToStep",
-          name: "Connect your financial profile",
-          text: "Share your income, expenses, savings, and existing debts so Arivo can build your financial picture.",
           position: 1,
+          name: "Join the waitlist",
+          text: "Visit arivoai.in and submit your name, email, and phone to join the closed beta waitlist.",
         },
         {
           "@type": "HowToStep",
-          name: "Describe your decision",
-          text: "Tell Arivo what you want to do — buy a car, take a loan, invest a lump sum, or any other major money move.",
           position: 2,
+          name: "Get your invite",
+          text: "Receive a personal Google Play invite to download the Arivo Android app.",
         },
         {
           "@type": "HowToStep",
-          name: "Get your verdict",
-          text: "Arivo returns a clear verdict (proceed, wait, or review), a confidence score, risk level, and specific next steps — in seconds.",
           position: 3,
+          name: "Start with AI insights",
+          text: "Set up your profile, view your dashboard, track goals, and ask Arivo anything about your finances.",
         },
       ],
     },
@@ -152,25 +196,83 @@ export const aboutJsonLd = {
   "@graph": [
     {
       "@type": "AboutPage",
-      "@id": `${BASE_URL}/about#webpage`,
-      url: `${BASE_URL}/about`,
-      name: "About Arivo — Financial Decision Intelligence for India",
+      "@id": `${canonicalUrl("/about")}#webpage`,
+      url: canonicalUrl("/about"),
+      name: "About Arivo — AI Personal Finance for India",
       description:
-        "Learn about Arivo, the AI financial decision engine built to help Indians make confident decisions on cars, homes, investments, and major life expenses.",
+        "Learn about Arivo, the AI-powered personal finance companion helping Indians make smarter money decisions.",
       isPartOf: { "@id": `${BASE_URL}/#website` },
-    },
-    {
-      "@type": "Person",
-      "@id": `${BASE_URL}/about#founder`,
-      name: "Akhilesh Goswami",
-      jobTitle: "Founder, Arivo",
-      url: `${BASE_URL}/about#founder`,
-      sameAs: [
-        "https://www.linkedin.com/in/akhilesh-goswami/",
-        "https://medium.com/@akhileshgoswami_10630",
-      ],
-      worksFor: { "@id": `${BASE_URL}/#organization` },
-      email: "akhileshgoswami@arivoai.in",
+      about: { "@id": `${BASE_URL}/#organization` },
+      mainEntity: { "@id": `${BASE_URL}/#founder` },
     },
   ],
 };
+
+export function blogIndexJsonLd(): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      webPageGraphItem({
+        path: "/blog",
+        name: "Arivo Blog — Personal Finance & AI Insights",
+        description:
+          "Articles on AI personal finance, decision intelligence, and smarter money management for India.",
+      }),
+      {
+        "@type": "Blog",
+        "@id": `${canonicalUrl("/blog")}#blog`,
+        url: canonicalUrl("/blog"),
+        name: "Arivo Blog",
+        description: "Insights on AI-powered personal finance and financial decision-making.",
+        publisher: { "@id": `${BASE_URL}/#organization` },
+        inLanguage: "en-IN",
+      },
+    ],
+  };
+}
+
+export function articleJsonLd(post: {
+  slug: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  readingMinutes: number;
+}): Record<string, unknown> {
+  const url = canonicalUrl(`/blog/${post.slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${url}#article`,
+        headline: post.title,
+        description: post.description,
+        url,
+        datePublished: post.datePublished,
+        dateModified: post.dateModified,
+        author: { "@id": `${BASE_URL}/#founder` },
+        publisher: { "@id": `${BASE_URL}/#organization` },
+        image: `${BASE_URL}/assets/og-image.png`,
+        mainEntityOfPage: { "@id": `${url}#webpage` },
+        wordCount: post.readingMinutes * 200,
+        timeRequired: `PT${post.readingMinutes}M`,
+        inLanguage: "en-IN",
+      },
+      webPageGraphItem({ path: `/blog/${post.slug}`, name: post.title, description: post.description }),
+    ],
+  };
+}
+
+export function contactPageJsonLd(): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      webPageGraphItem({
+        path: "/contact",
+        name: "Contact Arivo",
+        description: "Contact the Arivo team for support, partnerships, or product questions.",
+      }),
+    ],
+  };
+}

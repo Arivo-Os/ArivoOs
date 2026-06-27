@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPageLayout, LegalSection } from "@/components/layout/LegalPageLayout";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Privacy Policy — Arivo AI Personal Finance App",
   description:
     "Learn how Arivo collects, uses, and protects your personal and financial information. Effective June 2026.",
-  alternates: { canonical: "https://arivoai.in/privacy" },
-  openGraph: {
-    title: "Privacy Policy — Arivo",
-    description:
-      "How Arivo handles your data, AI-powered insights, and your privacy rights.",
-    url: "https://arivoai.in/privacy",
-  },
-};
+  path: "/privacy",
+  keywords: ["Arivo privacy policy", "data protection", "financial app privacy India"],
+});
 
 export default function PrivacyPage() {
   return (
-    <LegalPageLayout title="Privacy Policy" subtitle="Effective Date: June 2026">
+    <LegalPageLayout
+      title="Privacy Policy"
+      subtitle="Effective Date: June 2026"
+      breadcrumbs={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]}
+    >
       <LegalSection title="Introduction">
         <p>
           Arivo values your privacy and is committed to protecting your personal

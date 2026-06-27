@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero } from "@/components/layout/PageHero";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { FounderSection } from "@/components/sections/FounderSection";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { aboutJsonLd } from "@/lib/seo/structured-data";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "About Arivo — Building Financial Decision Intelligence for India",
+export const metadata: Metadata = buildPageMetadata({
+  title: "About Arivo — AI Personal Finance Companion for India",
   description:
-    "Meet the team behind Arivo. We're building an AI-powered financial decision engine to help Indians make clear, confident decisions on cars, homes, investments, and major life expenses.",
-  alternates: { canonical: "https://arivoai.in/about" },
-  openGraph: {
-    title: "About Arivo — Financial Decision Intelligence",
-    description: "The mission, story, and founder behind Arivo.",
-    url: "https://arivoai.in/about",
-  },
-};
+    "Meet the team behind Arivo. We are building an AI-powered personal finance app to help Indians understand their money, track goals, and make smarter financial decisions.",
+  path: "/about",
+  keywords: ["about Arivo", "Arivo founder", "AI finance India", "personal finance app"],
+});
 
 const stats = [
   { value: "One engine", label: "Every major decision type" },
@@ -51,12 +49,7 @@ const pillars = [
 export default function AboutPage() {
   return (
     <main className="bg-page">
-      <Script
-        id="jsonld-about"
-        type="application/ld+json"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
-      />
+      <JsonLd id="jsonld-about" data={aboutJsonLd} />
 
       <PageHero
         label="About Arivo"
@@ -65,18 +58,19 @@ export default function AboutPage() {
       />
 
       <section aria-labelledby="mission-heading" className="page-section">
-        <div className="mx-auto max-w-container px-7">
+        <div className="mx-auto max-w-container px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
           <Reveal className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
             <div>
               <span className="section-label">Our mission</span>
               <h2 id="mission-heading" className="mb-4 font-display text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-ink">
                 Help people decide — not just track.
               </h2>
-              <p className="mb-4 text-lg leading-relaxed text-arivo-muted">
+              <p className="mb-4 text-lg leading-relaxed text-ink-muted">
                 Most financial tools show you where your money went. Arivo answers the question that actually matters:{" "}
                 <strong className="text-ink">what should I do next?</strong>
               </p>
-              <p className="text-base leading-relaxed text-arivo-muted">
+              <p className="text-base leading-relaxed text-ink-muted">
                 From buying a home to switching careers, people face high-stakes decisions with incomplete information and too many conflicting opinions. We built Arivo to turn that uncertainty into a clear, confident recommendation — backed by your real financial picture.
               </p>
             </div>
@@ -95,7 +89,7 @@ export default function AboutPage() {
       </section>
 
       <section aria-labelledby="beliefs-heading" className="page-section-alt">
-        <div className="mx-auto max-w-container px-7">
+        <div className="mx-auto max-w-container px-6 lg:px-8">
           <Reveal className="mb-12 max-w-2xl">
             <span className="section-label">What we believe</span>
             <h2 id="beliefs-heading" className="font-display text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-ink">
@@ -117,17 +111,17 @@ export default function AboutPage() {
       </section>
 
       <section aria-labelledby="story-heading" className="page-section">
-        <div className="mx-auto max-w-container px-7">
+        <div className="mx-auto max-w-container px-6 lg:px-8">
           <Reveal className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:gap-16">
             <div>
               <span className="section-label">Why we started</span>
               <h2 id="story-heading" className="mb-4 font-display text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-ink">
                 People research for months — and still guess.
               </h2>
-              <p className="mb-4 text-base leading-relaxed text-arivo-muted">
+              <p className="mb-4 text-base leading-relaxed text-ink-muted">
                 Spreadsheets, calculators, and finance blogs each give you a piece of the picture. None of them tell you, clearly and personally, whether now is the right time to buy that car, take that job, or invest that lump sum.
               </p>
-              <p className="text-base leading-relaxed text-arivo-muted">
+              <p className="text-base leading-relaxed text-ink-muted">
                 Arivo exists to close that gap. One intelligent answer, grounded in your finances and goals — before the decision becomes a regret.
               </p>
             </div>
@@ -143,7 +137,7 @@ export default function AboutPage() {
       <FounderSection />
 
       <section aria-labelledby="about-cta-heading" className="page-section-alt">
-        <div className="mx-auto max-w-container px-7">
+        <div className="mx-auto max-w-container px-6 lg:px-8">
           <Reveal className="text-center">
             <h2 id="about-cta-heading" className="mb-3 font-display text-[clamp(1.5rem,3vw,2rem)] font-bold tracking-tight text-ink">
               Ready to decide smarter?

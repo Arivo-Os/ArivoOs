@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/constants/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,14 +7,17 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/", "/_next/", "/404/"],
       },
+      { userAgent: "Googlebot", allow: "/" },
+      { userAgent: "Googlebot-Image", allow: "/" },
+      { userAgent: "Bingbot", allow: "/" },
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "ClaudeBot", allow: "/" },
       { userAgent: "PerplexityBot", allow: "/" },
-      { userAgent: "Googlebot", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
     ],
-    sitemap: "https://arivoai.in/sitemap.xml",
-    host: "https://arivoai.in",
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

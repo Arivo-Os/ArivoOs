@@ -2,19 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPageLayout, LegalSection } from "@/components/layout/LegalPageLayout";
 import { AccountDeletionForm } from "@/components/sections/AccountDeletionForm";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Delete Your Account",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Delete Your Arivo Account",
   description:
     "Request permanent deletion of your Arivo account and associated personal data. Submit a form or email support@arivoai.in.",
-  alternates: { canonical: "https://arivoai.in/delete-account" },
-  openGraph: {
-    title: "Delete Your Arivo Account",
-    description:
-      "Request deletion of your Arivo account, financial data, and personal information.",
-    url: "https://arivoai.in/delete-account",
-  },
-};
+  path: "/delete-account",
+  keywords: ["delete Arivo account", "account deletion", "data deletion request"],
+});
 
 const pageLinks = [
   { href: "/privacy", label: "Privacy Policy" },
@@ -28,6 +24,7 @@ export default function DeleteAccountPage() {
       label="Account"
       title="Delete Your Arivo Account"
       subtitle="You have the right to request deletion of your Arivo account and associated personal data."
+      breadcrumbs={[{ label: "Home", href: "/" }, { label: "Delete Account" }]}
     >
       <LegalSection title="Overview">
         <p>

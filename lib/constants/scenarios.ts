@@ -85,35 +85,4 @@ export const HERO_DECISIONS = [
   { label: "Career & relocation", confidence: 76, verdict: "Review", risk: "medium" as const },
 ];
 
-export const FAQ_ITEMS = [
-  {
-    question: "What is Arivo?",
-    answer:
-      "Arivo is an AI-powered financial decision engine built for India. It analyzes your income, expenses, existing debt, savings, and goals to give you a clear verdict — proceed, wait, or review — along with a confidence score and specific next steps. It is built for major money decisions like buying a car, a home, taking a loan, or deploying an investment.",
-  },
-  {
-    question: "Is Arivo a financial advisor?",
-    answer:
-      "No. Arivo is a decision intelligence tool, not a SEBI-registered investment advisor or certified financial planner. It uses your financial data to generate structured analysis. For regulated financial advice, consult a certified advisor. Arivo helps you understand your numbers before that conversation.",
-  },
-  {
-    question: "Is my financial data safe with Arivo?",
-    answer:
-      "Yes. Your financial data is private, never sold to third parties, and never used to serve ads. Arivo does not sell financial products or earn referral commissions. Your data is used solely to power your decision analysis.",
-  },
-  {
-    question: "When does Arivo launch?",
-    answer:
-      "Arivo is in pre-launch. Join the waitlist at arivoai.in to be in the first access batch. Waitlist members get free access at launch and are onboarded before the public release.",
-  },
-  {
-    question: "Is it free to use?",
-    answer:
-      "Early access is completely free. Users who join the waitlist receive free access at launch. Paid tiers will be introduced after the initial public launch — early users will be grandfathered into favorable pricing.",
-  },
-  {
-    question: "What kinds of decisions can Arivo evaluate?",
-    answer:
-      "Arivo evaluates: vehicle purchases and car loan affordability, home purchases and home loan readiness, personal loan decisions, investment timing and lump-sum deployment, career changes and relocation decisions. If the right answer depends on your financial health, Arivo can evaluate it.",
-  },
-];
+export { FAQ_ITEMS } from "@/lib/seo/faq";

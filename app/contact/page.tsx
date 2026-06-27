@@ -2,22 +2,34 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { PageHero } from "@/components/layout/PageHero";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { contactPageJsonLd } from "@/lib/seo/structured-data";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Contact Arivo — Support & Partnerships",
   description:
-    "Get in touch with the Arivo team. Reach us at support@arivoai.in or send a message through our contact form.",
-  alternates: { canonical: "https://arivoai.in/contact" },
-};
+    "Contact the Arivo team for support, partnerships, or product questions. Email support@arivoai.in or use our contact form.",
+  path: "/contact",
+  keywords: ["contact Arivo", "Arivo support", "arivoai.in contact"],
+});
 
 export default function ContactPage() {
   return (
     <main className="bg-page">
-      <PageHero label="Contact" title="Contact Us" description="Have a question about Arivo? We're here to help." />
+      <JsonLd id="jsonld-contact" data={contactPageJsonLd()} />
+
+      <PageHero
+        label="Contact"
+        title="Contact Us"
+        description="Have a question about Arivo? We're here to help."
+      />
 
       <section aria-label="Contact information and form" className="page-section">
         <div className="mx-auto max-w-[900px] px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact Us" }]} />
           <Reveal className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14">
             <aside className="space-y-6">
               <div className="rounded-2xl bg-white p-6 shadow-card sm:p-7">
