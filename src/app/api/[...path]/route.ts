@@ -7,7 +7,10 @@ async function handleProxy(
   { params }: { params: { path: string[] } }
 ) {
   try {
-    const pathStr = params.path.join("/");
+    let pathStr = params.path.join("/");
+    if (pathStr.endsWith("/")) {
+      pathStr = pathStr.slice(0, -1);
+    }
     
     // Normalize target URL (ensure it has the /api suffix)
     let targetBase = BACKEND_API_URL.replace(/\/$/, "");
@@ -65,6 +68,10 @@ async function handleProxy(
         responseHeaders.set(key, value);
       }
     });
+    
+    // Ensure Google Sign-In popups can communicate back to the opener window
+    responseHeaders.set("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+    responseHeaders.set("Cross-Origin-Embedder-Policy", "unsafe-none");
 
     const responseBody = await response.arrayBuffer();
 
