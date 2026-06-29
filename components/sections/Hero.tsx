@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useAuth } from "@/features/auth/context/auth-context";
 import {
   Sparkles,
   ShieldCheck,
@@ -33,6 +34,7 @@ const floatCards = [
 ];
 
 export function Hero() {
+  const { isAuthenticated, isLoading } = useAuth();
   return (
     <section id="hero" aria-labelledby="hero-heading" className="hero-gradient overflow-hidden pt-28 pb-20 lg:pb-28 lg:pt-36">
       <div className="mx-auto grid max-w-container items-center gap-14 px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
@@ -76,12 +78,21 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-10 flex flex-wrap gap-3"
           >
-            <Link
-              href="#get-started"
-              className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
-            >
-              Get Started
-            </Link>
+            {!isLoading && isAuthenticated ? (
+              <Link
+                href="/life/"
+                className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
+              >
+                Open Arivo
+              </Link>
+            ) : (
+              <Link
+                href="#get-started"
+                className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
+              >
+                Get Started
+              </Link>
+            )}
             <Link
               href="#meet-veris"
               className="inline-flex h-12 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"

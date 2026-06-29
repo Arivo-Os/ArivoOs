@@ -11,6 +11,7 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
+import { useAuth } from "@/features/auth/context/auth-context";
 import { MotionReveal } from "@/components/ui/MotionReveal";
 import { VerisPreview } from "@/components/marketing/VerisPreview";
 
@@ -30,6 +31,7 @@ const features = [
 ];
 
 export function MarketingLanding() {
+  const { isAuthenticated, isLoading } = useAuth();
   return (
     <main className="bg-app-bg">
       <section className="hero-gradient relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
@@ -51,26 +53,38 @@ export function MarketingLanding() {
             >
               Ask Arivo before every purchase, investment, loan, or major financial decision.
             </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-wrap gap-3"
-            >
-              <Link
-                href="/#get-started"
-                className="inline-flex h-12 items-center gap-2 rounded-full bg-app-accent px-7 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex flex-wrap gap-3"
               >
-                Get Started
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/login"
-                className="inline-flex h-12 items-center rounded-full border border-app-border bg-app-card px-7 text-sm font-semibold text-app-text transition-colors hover:border-app-accent/40"
-              >
-                Sign In
-              </Link>
-            </motion.div>
+                {!isLoading && isAuthenticated ? (
+                  <Link
+                    href="/life/"
+                    className="inline-flex h-12 items-center gap-2 rounded-full bg-app-accent px-7 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
+                  >
+                    Open Arivo
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                ) : (
+                  <>
+                    <Link
+                      href="/#get-started"
+                      className="inline-flex h-12 items-center gap-2 rounded-full bg-app-accent px-7 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
+                    >
+                      Get Started
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                    <Link
+                      href="/login"
+                      className="inline-flex h-12 items-center rounded-full border border-app-border bg-app-card px-7 text-sm font-semibold text-app-text transition-colors hover:border-app-accent/40"
+                    >
+                      Sign In
+                    </Link>
+                  </>
+                )}
+              </motion.div>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -133,9 +147,15 @@ export function MarketingLanding() {
             <p className="mb-8 text-app-muted">
               Your financial data is encrypted, never sold, and never used for advertising. Arivo exists to help you decide — not to sell products.
             </p>
-            <Link href="/#get-started" className="inline-flex h-12 items-center rounded-full bg-app-accent px-8 text-sm font-semibold text-app-bg">
-              Get Started
-            </Link>
+            {!isLoading && isAuthenticated ? (
+              <Link href="/life/" className="inline-flex h-12 items-center rounded-full bg-app-accent px-8 text-sm font-semibold text-app-bg">
+                Open Arivo
+              </Link>
+            ) : (
+              <Link href="/#get-started" className="inline-flex h-12 items-center rounded-full bg-app-accent px-8 text-sm font-semibold text-app-bg">
+                Get Started
+              </Link>
+            )}
           </MotionReveal>
         </div>
       </section>

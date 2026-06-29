@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { useTheme } from "@/features/theme/theme-context";
+import { useAuth } from "@/features/auth/context/auth-context";
 
 const navLinks = [
   { href: "/#meet-veris", label: "Meet Veris" },
@@ -32,6 +33,7 @@ function Logo({ light }: { light?: boolean }) {
 export function Header() {
   const pathname = usePathname();
   const { isDark } = useTheme();
+  const { isAuthenticated, isLoading } = useAuth();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -105,17 +107,31 @@ export function Header() {
               onHero && "border-white/20 bg-white/10 text-white hover:border-white/30 hover:text-white"
             )}
           />
-          <Link
-            href="/#get-started"
-            className={cn(
-              "inline-flex rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
-              onHero
-                ? "bg-brand-green text-[#08111A] shadow-glow hover:shadow-glow-lg"
-                : "bg-brand-green text-[#08111A] hover:shadow-glow"
-            )}
-          >
-            Get Started
-          </Link>
+          {!isLoading && isAuthenticated ? (
+            <Link
+              href="/life/"
+              className={cn(
+                "inline-flex rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
+                onHero
+                  ? "bg-brand-green text-[#08111A] shadow-glow hover:shadow-glow-lg"
+                  : "bg-brand-green text-[#08111A] hover:shadow-glow"
+              )}
+            >
+              Open Arivo
+            </Link>
+          ) : (
+            <Link
+              href="/#get-started"
+              className={cn(
+                "inline-flex rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
+                onHero
+                  ? "bg-brand-green text-[#08111A] shadow-glow hover:shadow-glow-lg"
+                  : "bg-brand-green text-[#08111A] hover:shadow-glow"
+              )}
+            >
+              Get Started
+            </Link>
+          )}
         </div>
 
         <button

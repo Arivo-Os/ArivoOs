@@ -49,7 +49,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await logoutApi();
     setUser(null);
     queryClient.clear();
-    router.push("/login/");
+    router.push("/");
   }, [router, queryClient]);
 
   const value = useMemo(

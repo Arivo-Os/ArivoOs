@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/features/auth/context/auth-context";
 
 const navLinks = [
   { href: "/#features", label: "Features" },
@@ -13,6 +14,7 @@ const navLinks = [
 
 export function MarketingNav() {
   const pathname = usePathname();
+  const { isAuthenticated, isLoading } = useAuth();
   const onLanding = pathname === "/";
 
   return (
@@ -44,18 +46,29 @@ export function MarketingNav() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Link
-            href="/login"
-            className="hidden text-sm font-medium text-app-muted transition-colors hover:text-app-text sm:inline-flex"
-          >
-            Sign In
-          </Link>
-          <Link
-            href="/#get-started"
-            className="inline-flex h-10 items-center rounded-full bg-app-accent px-5 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
-          >
-            Get Started
-          </Link>
+          {!isLoading && isAuthenticated ? (
+            <Link
+              href="/life/"
+              className="inline-flex h-10 items-center rounded-full bg-app-accent px-5 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
+            >
+              Open Arivo
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="hidden text-sm font-medium text-app-muted transition-colors hover:text-app-text sm:inline-flex"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/#get-started"
+                className="inline-flex h-10 items-center rounded-full bg-app-accent px-5 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
+              >
+                Get Started
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>
