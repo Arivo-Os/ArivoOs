@@ -9,7 +9,7 @@ import { loginWithGoogle, getApiErrorMessage } from "@/lib/api/auth.service";
 import { isGoogleSignInEnabled } from "@/lib/auth/google-config";
 import { useAuth } from "@/features/auth/context/auth-context";
 import { getPostLoginPath } from "@/lib/auth/routes";
-import { AlertTriangle, ArrowLeft, Lock } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Lock, Loader2 } from "lucide-react";
 
 function LoginForm() {
   const router = useRouter();
@@ -59,6 +59,15 @@ function LoginForm() {
 
       {/* Card */}
       <div className="relative z-10 w-full max-w-[420px] animate-fade-in rounded-2xl border border-[#e4e6ed] dark:border-[#2a2e3a] bg-white dark:bg-[#1c1f26] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.07)] transition-all duration-300">
+        
+        {/* Loading overlay */}
+        {loading && (
+          <div className="absolute inset-0 z-50 flex flex-col items-center justify-center rounded-2xl bg-white/80 backdrop-blur-sm dark:bg-[#1c1f26]/80">
+            <Loader2 className="h-8 w-8 animate-spin text-[#00a67e]" />
+            <p className="mt-3 text-sm font-semibold text-[#111318] dark:text-[#e8eaf0]">Signing in...</p>
+          </div>
+        )}
+
         {/* Logo */}
         <div className="mb-5 flex justify-center">
           <div className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl bg-gradient-to-br from-[#00c896] to-[#00a67e] text-2xl font-black text-white shadow-[0_8px_20px_rgba(0,200,150,0.25)] dark:shadow-[0_0_0_6px_rgba(0,200,150,0.08)] transition-transform duration-300 hover:scale-105">
@@ -143,8 +152,12 @@ export default function LoginPage() {
   return (
     <Suspense
       fallback={
-        <div className="bg-[#f4f5f7] dark:bg-[#16181d] flex min-h-screen items-center justify-center">
-          <p className="text-sm text-[#9aa0b0] dark:text-[#4a5168]">Loading...</p>
+        <div className="relative flex min-h-screen flex-col items-center justify-center bg-[#f4f5f7] dark:bg-[#16181d] px-4 py-12">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[350px] bg-[radial-gradient(ellipse_at_top,rgba(0,166,126,0.06),transparent_50%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(0,200,150,0.08),transparent_50%)]" />
+          <div className="relative z-10 flex w-full max-w-[420px] animate-pulse flex-col items-center justify-center rounded-2xl border border-[#e4e6ed] dark:border-[#2a2e3a] bg-white dark:bg-[#1c1f26] p-12 shadow-[0_4px_24px_rgba(0,0,0,0.07)]">
+            <Loader2 className="mb-4 h-8 w-8 animate-spin text-[#00a67e]" />
+            <p className="text-sm font-semibold text-[#111318] dark:text-[#e8eaf0]">Preparing Arivo...</p>
+          </div>
         </div>
       }
     >
