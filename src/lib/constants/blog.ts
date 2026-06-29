@@ -133,6 +133,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "That is how AI augments personal finance: faster clarity, better questions, smarter timing.",
         ],
       },
+    ],
   },
   {
     slug: "ai-personal-finance-india",
