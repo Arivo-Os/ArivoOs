@@ -21,6 +21,8 @@ async function handleProxy(
     const searchParams = request.nextUrl.search;
     const targetUrl = `${targetBase}/${pathStr}${searchParams}`;
 
+    console.log(`[BFF Proxy] Forwarding: ${request.method} ${request.nextUrl.pathname} -> ${targetUrl}`);
+
     // Prepare headers to forward
     const headers = new Headers();
     request.headers.forEach((value, key) => {
