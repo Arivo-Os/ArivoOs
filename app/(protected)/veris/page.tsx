@@ -700,7 +700,7 @@ export default function VerisPage() {
           {messages.map((m) =>
             m.role === "user" ? (
               <div key={m.id} className="flex justify-end animate-message">
-                <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-emerald-950/30 border border-emerald-500/20 px-4 py-3 text-sm leading-relaxed text-white font-medium">
+                <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-emerald-500/[0.08] dark:bg-emerald-950/30 border border-emerald-500/20 px-4 py-3 text-sm leading-relaxed text-emerald-950 dark:text-white font-medium">
                   {m.content}
                 </div>
               </div>
