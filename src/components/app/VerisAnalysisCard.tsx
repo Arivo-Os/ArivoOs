@@ -47,7 +47,7 @@ export function VerisAnalysisCard({ analysis, className }: VerisAnalysisCardProp
       </div>
 
       {analysis.metrics.length > 0 && (
-        <div className="grid grid-cols-2 gap-px bg-app-border">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-app-border">
           {analysis.metrics.map((m) => (
             <div key={m.label} className="bg-app-card px-4 py-3">
               <p className="text-[11px] font-medium uppercase tracking-wide text-app-muted">{m.label}</p>

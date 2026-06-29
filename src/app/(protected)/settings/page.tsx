@@ -155,7 +155,7 @@ export default function SettingsPage() {
                 <p className="text-xs text-app-muted">HDFC Bank •••• 9876</p>
               </div>
             </div>
-            <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold text-emerald-400 border border-emerald-500/20">
+            <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold text-app-success border border-emerald-500/20">
               Connected
             </span>
           </div>
@@ -208,14 +208,14 @@ export default function SettingsPage() {
 
         {feedbackStatus === "success" && (
           <div className="mt-4 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-xs sm:text-sm">
-            <strong className="block text-emerald-400">Feedback submitted.</strong>
+            <strong className="block text-app-success">Feedback submitted.</strong>
             <span className="text-app-muted">Thank you for helping us improve Arivo!</span>
           </div>
         )}
 
         {feedbackStatus === "error" && (
           <div className="mt-4 rounded-xl border border-red-500/20 bg-red-500/5 p-4 text-xs sm:text-sm">
-            <strong className="block text-red-400">Something went wrong.</strong>
+            <strong className="block text-app-danger">Something went wrong.</strong>
             <span className="text-app-muted">Please try again or email us directly at hello@arivoai.in.</span>
           </div>
         )}
@@ -224,8 +224,8 @@ export default function SettingsPage() {
       {/* Danger Zone Section */}
       <AppCard className="border border-red-500/20 bg-red-500/[0.02]">
         <div className="flex items-center gap-2 mb-3">
-          <ShieldAlert className="h-4 w-4 text-red-400" />
-          <h2 className="text-sm font-bold text-red-400 tracking-wide uppercase">Danger zone</h2>
+          <ShieldAlert className="h-4 w-4 text-app-danger" />
+          <h2 className="text-sm font-bold text-app-danger tracking-wide uppercase">Danger zone</h2>
         </div>
         <p className="text-xs text-app-muted mb-4 leading-relaxed">
           Permanently delete your Arivo account and erase all associated bank links, vaults, and goals data. This action is irreversible.
@@ -233,7 +233,7 @@ export default function SettingsPage() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/delete-account/"
-            className="rounded-lg bg-red-500/10 px-4 py-2 text-xs font-bold text-red-400 hover:bg-red-500/20 transition-all border border-red-500/20"
+            className="rounded-lg bg-red-500/10 px-4 py-2 text-xs font-bold text-app-danger hover:bg-red-500/20 transition-all border border-red-500/20"
           >
             Delete account
           </Link>
