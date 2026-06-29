@@ -28,7 +28,7 @@ const pillars = [
   {
     num: "01",
     title: "Not another finance app",
-    body: "Arivo isn't a budget tracker, bank, or chatbot. It's a Financial Decision Engine — built specifically for the choices that change your life.",
+    body: "Arivo isn't an expense tracker, bank, or chatbot. It's a Financial Decision Engine — built specifically for the choices that change your life.",
   },
   {
     num: "02",

@@ -18,11 +18,11 @@ const SEO_SECTIONS = [
     ],
   },
   {
-    id: "budget-planning",
-    title: "Budget Planning That Adapts to Your Life",
+    id: "financial-planning",
+    title: "Financial Planning That Adapts to Your Life",
     content: [
-      "Static budgets fail because life changes. Arivo uses smart analytics to show where your money goes, identify spending patterns, and help you plan budgets around real goals — not arbitrary category limits.",
-      "Whether you are saving for a Europe trip, building an emergency fund, or planning a major purchase, Arivo connects daily spending to long-term outcomes so every rupee has purpose.",
+      "Static spreadsheets fail because life changes. Arivo uses smart analytics to show where your money goes, identify spending patterns, and help you plan strategically around real goals.",
+      "With Arivo's decision engine, your financial strategy adjusts to your reality. If you overspend one month, the AI helps you re-align your goals for the next, ensuring you're always on track.",
     ],
   },
   {

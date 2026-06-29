@@ -7,7 +7,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is Arivo?",
     answer:
-      "Arivo is an AI-powered personal finance platform built for India. It acts as your AI Financial Assistant, helping you understand your financial health, track spending automatically, build budgets, and get personalized advice.",
+      "Arivo is an AI-powered personal finance platform built for India. It acts as your AI Financial Assistant, helping you understand your financial health, track spending automatically, and get personalized advice.",
   },
   {
     question: "Is Arivo a bank?",
@@ -37,7 +37,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What features does Arivo offer?",
     answer:
-      "Arivo offers a complete financial dashboard, AI financial assistant, goal tracking, smart spending insights, budget planning tools, and secure-by-design privacy.",
+      "Arivo offers a complete financial dashboard, AI financial assistant, goal tracking, smart spending insights, strategic financial planning tools, and secure-by-design privacy.",
   },
   {
     question: "Is Arivo available on mobile and web?",
@@ -45,8 +45,8 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Yes. Arivo is available on the web from any desktop or mobile browser. It is also available as a closed beta Android app on Google Play.",
   },
   {
-    question: "Can Arivo help with credit score and budgeting?",
+    question: "Can Arivo help with credit score and financial planning?",
     answer:
-      "Arivo provides smart analytics to understand spending patterns and plan budgets around your goals. Credit score analysis and deeper insights are planned for upcoming releases.",
+      "Arivo provides smart analytics to understand spending patterns and plan your finances around your goals. Credit score analysis and deeper insights are planned for upcoming releases.",
   },
 ];

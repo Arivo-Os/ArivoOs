@@ -5,7 +5,7 @@ export function EverythingConnected() {
     <FlowShowcase
       id="everything-connected"
       label="Everything Connected"
-      title="A Smart Budgeting App That Adapts to You."
+      title="A Financial Decision Engine That Adapts to You."
       body="Income, spending, savings goals, and decisions — connected into a single view. No more switching apps or guessing how one choice affects the rest."
       screen="goals"
       reverse

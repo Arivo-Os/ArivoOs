@@ -79,7 +79,7 @@ export const DEFAULT_KEYWORDS = [
   "AI Financial Advisor",
   "Personal Finance AI",
   "Money Management AI",
-  "Smart Budgeting App",
+  "Financial Decision Engine",
   "Financial Health Score",
   "AI Investment Assistant",
   "Personal Finance Dashboard",

@@ -55,7 +55,7 @@ export default function PrivacyPage() {
         </p>
         <ul className="list-disc space-y-2 pl-5">
           <li><strong>Authentication:</strong> Logging you in securely using your Google Credentials.</li>
-          <li><strong>AI Analysis:</strong> Generating custom budgeting, saving, and scenario insights based on your financial inputs and questions.</li>
+          <li><strong>AI Analysis:</strong> Generating custom financial planning, saving, and scenario insights based on your financial inputs and questions.</li>
           <li><strong>Product Improvements:</strong> Analyzing aggregated usage metrics to find bugs, optimize page speeds, and improve AI model outputs.</li>
           <li><strong>Security & Support:</strong> Monitoring for malicious activities, maintaining uptime, and responding to support tickets.</li>
         </ul>
