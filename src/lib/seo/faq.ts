@@ -22,26 +22,26 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How do I get access to Arivo?",
     answer:
-      "Arivo is currently in closed beta on Google Play. Join the waitlist at arivoai.in to receive a personal invite. Early users help shape the product and get priority access.",
+      "Arivo is available directly on the web. You can sign in using Google to start tracking goals and planning your finances immediately. We are also running a closed beta on Google Play for our Android app.",
   },
   {
     question: "Is Arivo free to use?",
     answer:
-      "Closed beta and waitlist access are free. Early users who join during beta receive free access at launch. Paid tiers may be introduced after the public release.",
+      "Waitlist and direct web access are currently free. Early users help shape the product and get priority access. Premium tiers may be introduced in the future.",
   },
   {
     question: "What features does Arivo offer?",
     answer:
-      "Arivo offers a complete financial dashboard, AI financial assistant, goal tracking, smart spending insights, budget planning tools, and secure-by-design privacy. Bank integrations and investment tracking are on the roadmap.",
+      "Arivo offers a complete financial dashboard, AI financial assistant, goal tracking, smart spending insights, budget planning tools, and secure-by-design privacy.",
   },
   {
-    question: "Does Arivo work on Android?",
+    question: "Is Arivo available on mobile and web?",
     answer:
-      "Yes. Arivo is available on Google Play in closed beta for Android devices in India. Join the waitlist at arivoai.in for an invite link.",
+      "Yes. Arivo is available on the web from any desktop or mobile browser. It is also available as a closed beta Android app on Google Play.",
   },
   {
     question: "Can Arivo help with credit score and budgeting?",
     answer:
-      "Arivo provides smart analytics to understand spending patterns and plan budgets around your goals. Credit score analysis and deeper credit insights are planned for upcoming releases as part of the product roadmap.",
+      "Arivo provides smart analytics to understand spending patterns and plan budgets around your goals. Credit score analysis and deeper insights are planned for upcoming releases.",
   },
 ];
