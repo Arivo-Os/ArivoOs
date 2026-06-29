@@ -5,7 +5,6 @@ import { Features } from "@/components/sections/Features";
 import { ProductShowcase } from "@/components/sections/ProductShowcase";
 import { WhyArivo } from "@/components/sections/WhyArivo";
 import { SeoContent } from "@/components/sections/SeoContent";
-import { Roadmap } from "@/components/sections/Roadmap";
 import { FAQ } from "@/components/sections/FAQ";
 import { EarlyAccess } from "@/components/sections/EarlyAccess";
 import { homepageJsonLd } from "@/lib/seo/structured-data";
@@ -20,7 +19,6 @@ export default function HomePage() {
       <ProductShowcase />
       <WhyArivo />
       <SeoContent />
-      <Roadmap />
       <FAQ />
       <EarlyAccess />
     </main>
