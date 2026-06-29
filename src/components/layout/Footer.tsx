@@ -8,6 +8,7 @@ const centerLinks = [
   { href: "/#get-started", label: "Use Arivo" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
+  { href: "/glossary", label: "Glossary" },
   { href: "/contact", label: "Contact Us" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
