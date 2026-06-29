@@ -75,7 +75,7 @@ export const organizationJsonLd = {
         height: 512,
       },
       image: `${BASE_URL}/assets/og-image.png`,
-      email: "support@arivoai.in",
+      email: "hello@arivoai.in",
       foundingDate: "2025",
       description:
         "Arivo is an AI-powered personal finance companion that helps Indians understand their money, track goals, and make smarter financial decisions.",
@@ -88,7 +88,7 @@ export const organizationJsonLd = {
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "customer support",
-        email: "support@arivoai.in",
+        email: "hello@arivoai.in",
         url: canonicalUrl("/contact"),
         availableLanguage: ["English", "Hindi"],
       },

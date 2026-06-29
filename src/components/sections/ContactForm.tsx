@@ -99,7 +99,7 @@ export function ContactForm() {
         <strong className="block text-ink">Something went wrong.</strong>
         <span className="text-ink-muted">
           Please try again or email{" "}
-          <a href="mailto:support@arivoai.in" className="text-brand-green underline">support@arivoai.in</a> directly.
+          <a href="mailto:hello@arivoai.in" className="text-brand-green underline">hello@arivoai.in</a> directly.
         </span>
       </div>
     </div>

@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Arivo — Support & Partnerships",
   description:
-    "Contact the Arivo team for support, partnerships, or product questions. Email support@arivoai.in or use our contact form.",
+    "Contact the Arivo team for support, partnerships, or product questions. Email hello@arivoai.in or use our contact form.",
   path: "/contact",
   keywords: ["contact Arivo", "Arivo support", "arivoai.in contact"],
 });
@@ -37,7 +37,7 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div>
                     <span className="mb-1 block text-xs font-bold uppercase tracking-widest text-ink-muted">Support Email</span>
-                    <Link href="mailto:support@arivoai.in" className="text-base font-semibold text-brand-green hover:underline">support@arivoai.in</Link>
+                    <Link href="mailto:hello@arivoai.in" className="text-base font-semibold text-brand-green hover:underline">hello@arivoai.in</Link>
                   </div>
                   <div>
                     <span className="mb-1 block text-xs font-bold uppercase tracking-widest text-ink-muted">Website</span>

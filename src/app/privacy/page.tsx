@@ -34,7 +34,7 @@ export default function PrivacyPage() {
         <p>
           To provide you with personalized financial insights and tracking capabilities, we collect different types of data:
         </p>
-        
+
         <h3 className="text-sm font-semibold mt-4 mb-2 text-app-foreground">a. Information You Provide Directly</h3>
         <ul className="list-disc space-y-2 pl-5">
           <li><strong>Google Account Information:</strong> When signing in, we collect your name, email address, profile picture URL, and a unique Google identifier to create and manage your secure account.</li>
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
 
       <LegalSection title="4. AI Data & Conversation Quality">
         <p>
-          Your conversation logs are securely stored to enable chat continuity and history tracking in your account. 
+          Your conversation logs are securely stored to enable chat continuity and history tracking in your account.
         </p>
         <p className="font-medium text-brand-green bg-brand-green/[0.02] p-4 rounded border border-brand-green/10">
           <strong>Privacy Tip:</strong> Because Arivo is currently in Beta, conversation logs are monitored and analyzed strictly for the purpose of improving AI accuracy. Please do not share highly sensitive personally identifiable details (such as account passwords, credit card numbers, or PINs) in your chat threads.
@@ -140,10 +140,10 @@ export default function PrivacyPage() {
           If you have questions about this policy, want to request manual account deletion, or wish to report security issues, contact our support team at:
           {" "}
           <Link
-            href="mailto:support@arivoai.in"
+            href="mailto:hello@arivoai.in"
             className="link-accent font-medium text-brand-green hover:underline"
           >
-            support@arivoai.in
+            hello@arivoai.in
           </Link>
         </p>
       </LegalSection>

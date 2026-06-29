@@ -178,10 +178,10 @@ export function AccountDeletionForm() {
         <span className="text-arivo-muted">
           Please try again or email{" "}
           <a
-            href="mailto:support@arivoai.in?subject=Account%20Deletion%20Request"
+            href="mailto:hello@arivoai.in?subject=Account%20Deletion%20Request"
             className="link-accent"
           >
-            support@arivoai.in
+            hello@arivoai.in
           </a>{" "}
           with the subject &quot;Account Deletion Request&quot;.
         </span>

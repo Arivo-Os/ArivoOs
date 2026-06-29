@@ -152,10 +152,10 @@ export default function TermsPage() {
           If you have questions or concerns about these Terms, you can contact the Arivo team at:
           {" "}
           <Link
-            href="mailto:support@arivoai.in"
+            href="mailto:hello@arivoai.in"
             className="link-accent font-medium text-brand-green hover:underline"
           >
-            support@arivoai.in
+            hello@arivoai.in
           </Link>
         </p>
       </LegalSection>

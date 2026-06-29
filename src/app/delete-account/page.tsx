@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Delete Your Arivo Account",
   description:
-    "Request permanent deletion of your Arivo account and associated personal data. Submit a form or email support@arivoai.in.",
+    "Request permanent deletion of your Arivo account and associated personal data. Submit a form or email hello@arivoai.in.",
   path: "/delete-account",
   keywords: ["delete Arivo account", "account deletion", "data deletion request"],
 });
@@ -68,10 +68,10 @@ export default function DeleteAccountPage() {
             Alternatively, email us at:
           </p>
           <Link
-            href="mailto:support@arivoai.in?subject=Account%20Deletion%20Request"
+            href="mailto:hello@arivoai.in?subject=Account%20Deletion%20Request"
             className="link-accent text-base font-semibold"
           >
-            support@arivoai.in
+            hello@arivoai.in
           </Link>
           <p className="mt-3 text-sm text-arivo-muted">
             Subject: <strong className="text-white">Account Deletion Request</strong>
