@@ -78,7 +78,7 @@ export const organizationJsonLd = {
       email: "hello@arivoai.in",
       foundingDate: "2025",
       description:
-        "Arivo is an AI-powered personal finance companion that helps Indians understand their money, track goals, and make smarter financial decisions.",
+        "Arivo is an AI-powered personal finance platform that helps users understand their financial health, track spending, build budgets, plan savings, and learn about investing.",
       founder: { "@id": `${BASE_URL}/#founder` },
       sameAs: [
         "https://www.linkedin.com/company/125614133/",
@@ -111,14 +111,14 @@ export const organizationJsonLd = {
       url: BASE_URL,
       name: "Arivo",
       description:
-        "Your financial life. One AI companion. Understand your money, track goals, and make smarter decisions with AI.",
+        "Arivo is an AI-powered personal finance platform that helps users understand their financial health, track spending, build budgets, plan savings, and learn about investing.",
       publisher: { "@id": `${BASE_URL}/#organization` },
       inLanguage: "en-IN",
     },
     {
       "@type": "SoftwareApplication",
       "@id": `${BASE_URL}/#app`,
-      name: "Arivo — AI Personal Finance Companion",
+      name: "Arivo",
       applicationCategory: "FinanceApplication",
       operatingSystem: "Android",
       offers: {
@@ -130,7 +130,7 @@ export const organizationJsonLd = {
       downloadUrl: GOOGLE_PLAY_URL,
       installUrl: GOOGLE_PLAY_URL,
       description:
-        "AI-powered personal finance app for India. Dashboard, goal tracking, smart insights, and an AI assistant for smarter money decisions.",
+        "AI-powered personal finance platform for India. Track spending, build budgets, plan savings, get personalized financial recommendations and ask AI financial questions.",
       featureList: [
         "AI Financial Assistant",
         "Complete Financial Dashboard",
@@ -150,9 +150,9 @@ export const homepageJsonLd = {
   "@graph": [
     webPageGraphItem({
       path: "/",
-      name: "Arivo — Your Financial Life. One AI Companion.",
+      name: "Arivo: AI Personal Finance Assistant & Budget Planner",
       description:
-        "Understand your money, track goals, and make smarter financial decisions with AI. Join closed beta on Google Play.",
+        "Master your money with Arivo. Track spending, build budgets, and get personalized advice from your AI financial advisor. Start improving your financial health.",
     }),
     {
       "@type": "FAQPage",

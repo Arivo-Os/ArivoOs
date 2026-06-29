@@ -14,7 +14,7 @@ export function MeetVeris() {
             id="meet-veris-heading"
             className="mb-6 font-display text-[clamp(2rem,5vw,3rem)] font-bold tracking-tight text-ink"
           >
-            Your AI for clearer money decisions.
+            Stop Guessing. Start Knowing with AI-Powered Insights.
           </h2>
           <p className="mb-10 text-lg leading-relaxed text-ink-muted">
             Veris is the intelligence inside Arivo. It reads your real financial picture — income,

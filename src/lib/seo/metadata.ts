@@ -76,13 +76,15 @@ export function buildPageMetadata({
 }
 
 export const DEFAULT_KEYWORDS = [
-  "AI personal finance app India",
-  "financial decision engine",
-  "AI financial assistant",
-  "personal finance AI",
-  "budget planning app India",
-  "goal tracking app",
-  "money management AI",
+  "AI Financial Advisor",
+  "Personal Finance AI",
+  "Money Management AI",
+  "Smart Budgeting App",
+  "Financial Health Score",
+  "AI Investment Assistant",
+  "Personal Finance Dashboard",
+  "Automated Expense Tracker",
+  "AI financial planning app India",
   "Arivo app",
   "arivoai.in",
 ];

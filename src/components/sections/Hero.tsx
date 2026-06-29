@@ -57,9 +57,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-6 font-display text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-white"
           >
-            Your Money Deserves
+            Your Personal
             <br />
-            Better Decisions.
+            AI Financial Advisor.
           </motion.h1>
 
           <motion.p
@@ -68,8 +68,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8 max-w-lg text-lg leading-relaxed text-white/60"
           >
-            Meet Veris — the AI inside Arivo that helps you understand your finances and decide with
-            confidence before you spend, borrow, or invest.
+            Understand your financial health, track spending automatically, and get personalized advice—all powered by AI. Not a bank, just brilliant financial clarity.
           </motion.p>
 
           <motion.div

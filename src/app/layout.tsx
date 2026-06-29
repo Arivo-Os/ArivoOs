@@ -18,15 +18,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
-    title: "Arivo — Your Financial Life. One AI Companion.",
+    title: "Arivo: AI Personal Finance Assistant & Budget Planner",
     description:
-      "Arivo is an AI-powered personal finance app for India. Understand your money, track goals, get smart insights, and make smarter decisions.",
+      "Master your money with Arivo. Track spending, build budgets, and get personalized advice from your AI financial advisor. Start improving your financial health.",
     path: "/",
     keywords: DEFAULT_KEYWORDS,
   }),
   metadataBase: new URL("https://arivoai.in"),
   title: {
-    default: "Arivo — Your Financial Life. One AI Companion.",
+    default: "Arivo: AI Personal Finance Assistant & Budget Planner",
     template: "%s | Arivo",
   },
   applicationName: "Arivo",

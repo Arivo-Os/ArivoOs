@@ -7,12 +7,17 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is Arivo?",
     answer:
-      "Arivo is an AI-powered personal finance companion built for India. It helps you understand your money, track financial goals, and make smarter decisions with AI. Arivo analyzes your income, expenses, savings, and goals to deliver clear insights — not just dashboards.",
+      "Arivo is an AI-powered personal finance platform built for India. It acts as your AI Financial Assistant, helping you understand your financial health, track spending automatically, build budgets, and get personalized advice.",
   },
   {
-    question: "Is Arivo a financial advisor?",
+    question: "Is Arivo a bank?",
     answer:
-      "No. Arivo is a financial decision intelligence tool, not a SEBI-registered investment advisor or certified financial planner. It provides structured AI-powered insights based on your data. Always consult a certified advisor for regulated financial advice.",
+      "No. Arivo is an AI Financial Assistant, not a bank. We connect to your accounts to provide insights and help you manage your money, but we do not hold, move, or invest your money.",
+  },
+  {
+    question: "How does the AI Financial Advisor work?",
+    answer:
+      "The AI Financial Advisor, Veris, analyzes your connected financial data—including income, expenses, and savings goals—to answer your questions in plain language and provide objective guidance before you spend, borrow, or invest.",
   },
   {
     question: "Is my financial data safe with Arivo?",
