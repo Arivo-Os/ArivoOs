@@ -451,10 +451,10 @@ export default function VerisPage() {
     }
   }, [activeSessionId, conversationId, queryClient, startNewChat]);
 
-  const queryConversations = conversationsQuery.data ?? [];
+  const queryConversations = conversationsQuery.data;
 
   useEffect(() => {
-    setConversations(queryConversations);
+    setConversations(queryConversations ?? []);
   }, [queryConversations, setConversations]);
 
   useEffect(() => {
