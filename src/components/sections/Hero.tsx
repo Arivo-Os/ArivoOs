@@ -90,7 +90,7 @@ export function Hero() {
                 href="#get-started"
                 className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
               >
-                Get Started
+                Use Arivo
               </Link>
             )}
             <Link

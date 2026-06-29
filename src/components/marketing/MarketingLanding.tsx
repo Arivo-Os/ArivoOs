@@ -73,7 +73,7 @@ export function MarketingLanding() {
                     href="/#get-started"
                     className="inline-flex h-12 items-center gap-2 rounded-full bg-app-accent px-7 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
                   >
-                    Get Started
+                    Use Arivo
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
@@ -153,7 +153,7 @@ export function MarketingLanding() {
               </Link>
             ) : (
               <Link href="/#get-started" className="inline-flex h-12 items-center rounded-full bg-app-accent px-8 text-sm font-semibold text-app-bg">
-                Get Started
+                Use Arivo
               </Link>
             )}
           </MotionReveal>

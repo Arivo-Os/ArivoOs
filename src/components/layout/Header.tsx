@@ -11,7 +11,7 @@ import { useAuth } from "@/features/auth/context/auth-context";
 const navLinks = [
   { href: "/#meet-veris", label: "Meet Veris" },
   { href: "/#financial-profile", label: "How It Works" },
-  { href: "/#get-started", label: "Get Started" },
+  { href: "/#get-started", label: "Use Arivo" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact Us" },
@@ -129,7 +129,7 @@ export function Header() {
                   : "bg-brand-green text-[#08111A] hover:shadow-glow"
               )}
             >
-              Get Started
+              Use Arivo
             </Link>
           )}
         </div>

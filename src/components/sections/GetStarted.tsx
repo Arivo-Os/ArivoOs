@@ -32,7 +32,7 @@ export function GetStarted() {
             <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand-green/15 blur-3xl" aria-hidden="true" />
 
             <div className="relative mx-auto max-w-2xl text-center">
-              <span className="section-label text-brand-green">Get Started</span>
+              <span className="section-label text-brand-green">Use Arivo</span>
               {!isLoading && isAuthenticated ? (
                 <>
                   <h2

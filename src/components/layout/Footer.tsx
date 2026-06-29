@@ -5,7 +5,7 @@ import { SITE_URL, SOCIAL_LINKS } from "@/lib/constants/site";
 const centerLinks = [
   { href: "/#meet-veris", label: "Meet Veris" },
   { href: "/#financial-profile", label: "How It Works" },
-  { href: "/#get-started", label: "Get Started" },
+  { href: "/#get-started", label: "Use Arivo" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact Us" },

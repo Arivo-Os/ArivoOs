@@ -65,7 +65,7 @@ export function MarketingNav() {
                 href="/#get-started"
                 className="inline-flex h-10 items-center rounded-full bg-app-accent px-5 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
               >
-                Get Started
+                Use Arivo
               </Link>
             </>
           )}
