@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
   const mockupTemplates = {
     chat: document.getElementById('tpl-app-chat'),
     verdict: document.getElementById('tpl-app-verdict'),
@@ -782,4 +782,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}

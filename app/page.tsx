@@ -1,12 +1,11 @@
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Hero } from "@/components/sections/Hero";
-import { SocialProofBar } from "@/components/sections/SocialProofBar";
-import { Features } from "@/components/sections/Features";
-import { ProductShowcase } from "@/components/sections/ProductShowcase";
-import { WhyArivo } from "@/components/sections/WhyArivo";
-import { SeoContent } from "@/components/sections/SeoContent";
+import { MeetVeris } from "@/components/sections/MeetVeris";
+import { FinancialProfile } from "@/components/sections/FinancialProfile";
+import { EverythingConnected } from "@/components/sections/EverythingConnected";
+import { AskBeforeYouSpend } from "@/components/sections/AskBeforeYouSpend";
+import { GetStarted } from "@/components/sections/GetStarted";
 import { FAQ } from "@/components/sections/FAQ";
-import { EarlyAccess } from "@/components/sections/EarlyAccess";
 import { homepageJsonLd } from "@/lib/seo/structured-data";
 
 export default function HomePage() {
@@ -14,13 +13,12 @@ export default function HomePage() {
     <main className="bg-page">
       <JsonLd id="jsonld-homepage" data={homepageJsonLd} />
       <Hero />
-      <SocialProofBar />
-      <Features />
-      <ProductShowcase />
-      <WhyArivo />
-      <SeoContent />
+      <MeetVeris />
+      <FinancialProfile />
+      <EverythingConnected />
+      <AskBeforeYouSpend />
+      <GetStarted />
       <FAQ />
-      <EarlyAccess />
     </main>
   );
 }

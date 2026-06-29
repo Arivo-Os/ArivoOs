@@ -24,15 +24,129 @@
     --input: 214 32% 91%;
     --ring: 142 71% 45%;
     --radius: 0.75rem;
+
+    /* App theme — light (default) */
+    --app-bg: #f8fafc;
+    --app-surface: #ffffff;
+    --app-card: #ffffff;
+    --app-card-hover: #f1f5f9;
+    --app-border: rgba(15, 23, 42, 0.08);
+    --app-border-strong: rgba(15, 23, 42, 0.14);
+    --app-text: #0f172a;
+    --app-muted: #64748b;
+    --app-accent: #14b8a6;
+    --app-accent-muted: rgba(20, 184, 166, 0.12);
+    --app-success: #16a34a;
+    --app-warning: #d97706;
+    --app-danger: #dc2626;
+    --app-info: #2563eb;
+    --app-shell-gradient: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.08), transparent);
+    --app-hero-gradient: linear-gradient(145deg, #f0fdf9 0%, #ecfeff 50%, #f8fafc 100%);
+
+    /* Marketing / landing */
+    --marketing-bg: #f8fafc;
+    --marketing-surface: #ffffff;
+    --marketing-text: #0f172a;
+    --marketing-muted: #475569;
+    --marketing-subtle: #64748b;
+    --marketing-border: rgba(15, 23, 42, 0.08);
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 35% 12%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 35% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 162 66% 52%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 222 35% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 35% 15%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 162 66% 52%;
+    --accent-foreground: 222 47% 5%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 162 66% 52%;
+
+    /* App theme — dark */
+    --app-bg: #0d0f12;
+    --app-surface: #111418;
+    --app-card: #141920;
+    --app-card-hover: #1c232d;
+    --app-border: rgba(255, 255, 255, 0.06);
+    --app-border-strong: rgba(255, 255, 255, 0.12);
+    --app-text: #f1f5f9;
+    --app-muted: #8b9cb3;
+    --app-accent: #00c896;
+    --app-accent-muted: rgba(0, 200, 150, 0.12);
+    --app-success: #00c896;
+    --app-warning: #fbbf24;
+    --app-danger: #f87171;
+    --app-info: #3b82f6;
+    --app-shell-gradient: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 200, 150, 0.08), transparent);
+    --app-hero-gradient: linear-gradient(145deg, #0d1520 0%, #131f2e 50%, #0a1018 100%);
+
+    /* Marketing / landing */
+    --marketing-bg: #080b12;
+    --marketing-surface: #131a24;
+    --marketing-text: #f1f5f9;
+    --marketing-muted: #8b9cb3;
+    --marketing-subtle: #64748b;
+    --marketing-border: rgba(148, 163, 184, 0.12);
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-page text-ink font-sans overflow-x-hidden;
+    background-color: var(--marketing-bg);
+    color: var(--marketing-text);
+    @apply font-sans overflow-x-hidden transition-colors duration-200;
+  }
+
+  *:focus-visible {
+    @apply outline-none;
+  }
+
+  .dark .bg-white {
+    background-color: var(--marketing-surface);
+  }
+}
+
+@layer components {
+  .app-shell-bg {
+    background: var(--app-shell-gradient), var(--app-bg);
+  }
+
+  .app-stat-value {
+    @apply font-display text-4xl font-extrabold tracking-tight text-app-accent sm:text-5xl;
+  }
+
+  .app-card-interactive {
+    @apply transition-all duration-200 hover:border-app-border-strong hover:bg-app-card-hover hover:shadow-app-md;
+  }
+
+  .marketing-card {
+    border: 1px solid var(--marketing-border);
+    background-color: var(--marketing-surface);
+    @apply rounded-2xl shadow-card transition-all duration-200 hover:shadow-card-hover;
+  }
+
+  .dark .marketing-card,
+  .dark .shadow-card {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24), 0 8px 24px rgba(0, 0, 0, 0.28);
+  }
+
+  .app-hero-gradient {
+    background: var(--app-hero-gradient);
   }
 }
 
@@ -41,8 +155,26 @@
     @apply mb-4 inline-block text-xs font-semibold uppercase tracking-[0.15em] text-brand-green;
   }
 
+  .dark .section-label {
+    @apply text-app-accent;
+  }
+
   .hero-gradient {
     background: linear-gradient(160deg, #08111a 0%, #102a43 100%);
+  }
+
+  .dark .hero-gradient {
+    background: linear-gradient(160deg, #05080f 0%, #0c1a2e 55%, #08111a 100%);
+  }
+
+  .page-section {
+    @apply py-16 lg:py-24;
+  }
+
+  .page-section-alt {
+    border-color: var(--marketing-border);
+    background-color: var(--marketing-surface);
+    @apply border-y py-16 lg:py-24;
   }
 
   .glass-dark {
@@ -55,12 +187,14 @@
     text-wrap: balance;
   }
 
-  .page-section {
-    @apply py-16 lg:py-20;
-  }
-
-  .page-section-alt {
-    @apply border-y border-ink/5 bg-white py-16 lg:py-20;
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.06) 0%,
+      rgba(148, 163, 184, 0.12) 50%,
+      rgba(148, 163, 184, 0.06) 100%
+    );
+    background-size: 200% 100%;
   }
 }
 

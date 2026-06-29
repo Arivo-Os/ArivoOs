@@ -3,8 +3,9 @@ import { Heart, Linkedin, Globe } from "lucide-react";
 import { SITE_URL, SOCIAL_LINKS } from "@/lib/constants/site";
 
 const centerLinks = [
-  { href: "/#features", label: "Features" },
-  { href: "/#learn-more", label: "Learn More" },
+  { href: "/#meet-veris", label: "Meet Veris" },
+  { href: "/#financial-profile", label: "How It Works" },
+  { href: "/#get-started", label: "Get Started" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact Us" },
@@ -65,9 +66,14 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-container px-6 py-5 text-center text-sm text-white/40 lg:px-8">
-          © 2026 Arivo · Made with{" "}
-          <Heart className="inline h-3.5 w-3.5 fill-brand-green text-brand-green" aria-hidden="true" /> in India
+        <div className="mx-auto max-w-container px-6 py-5 text-center text-sm text-white/40 lg:px-8 space-y-3">
+          <p className="text-xs text-white/35 max-w-3xl mx-auto leading-relaxed">
+            Disclaimer: Arivo is in Beta and could produce incorrect outputs. Please consult with your finance advisor. We are not a SEBI registered entity.
+          </p>
+          <div>
+            © 2026 Arivo · Made with{" "}
+            <Heart className="inline h-3.5 w-3.5 fill-brand-green text-brand-green" aria-hidden="true" /> in India
+          </div>
         </div>
       </div>
     </footer>
