@@ -7,9 +7,14 @@ export type PhoneScreen = "dashboard" | "chat" | "goals";
 interface PhoneMockupProps {
   screen?: PhoneScreen;
   className?: string;
+  assistantName?: string;
 }
 
-export function PhoneMockup({ screen = "dashboard", className }: PhoneMockupProps) {
+export function PhoneMockup({
+  screen = "dashboard",
+  className,
+  assistantName = "Arivo",
+}: PhoneMockupProps) {
   return (
     <div
       className={cn(
@@ -19,15 +24,15 @@ export function PhoneMockup({ screen = "dashboard", className }: PhoneMockupProp
     >
       <div className="absolute left-1/2 top-3 z-10 h-5 w-[72px] -translate-x-1/2 rounded-full bg-black/60" aria-hidden="true" />
       <div className="px-4 pb-5 pt-10 text-white">
-        {screen === "dashboard" && <DashboardScreen />}
-        {screen === "chat" && <ChatScreen />}
+        {screen === "dashboard" && <DashboardScreen assistantName={assistantName} />}
+        {screen === "chat" && <ChatScreen assistantName={assistantName} />}
         {screen === "goals" && <GoalsScreen />}
       </div>
     </div>
   );
 }
 
-function DashboardScreen() {
+function DashboardScreen({ assistantName }: { assistantName: string }) {
   return (
     <>
       <div className="mb-4 flex items-center justify-between">
@@ -47,7 +52,7 @@ function DashboardScreen() {
         </div>
       </div>
       <div className="mb-4 rounded-xl border border-brand-green/25 bg-brand-green/10 p-3">
-        <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-brand-green">Ask Arivo</p>
+        <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-brand-green">Ask {assistantName}</p>
         <p className="text-xs leading-relaxed text-white/75">Can I afford a Europe trip this year?</p>
       </div>
       <div>
@@ -73,12 +78,14 @@ function DashboardScreen() {
   );
 }
 
-function ChatScreen() {
+function ChatScreen({ assistantName }: { assistantName: string }) {
   return (
     <>
       <div className="mb-4 flex items-center gap-2">
-        <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-brand-green/20 text-[10px] font-bold text-brand-green">A</span>
-        <span className="text-sm font-semibold">Ask Arivo</span>
+        <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-brand-green/20 text-[10px] font-bold text-brand-green">
+          {assistantName.charAt(0)}
+        </span>
+        <span className="text-sm font-semibold">Ask {assistantName}</span>
       </div>
       <div className="mb-3 flex justify-end">
         <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-brand-green px-3 py-2 text-[11px] font-medium text-[#08111A]">

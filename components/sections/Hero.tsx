@@ -28,7 +28,7 @@ const trustItems = [
 const floatCards = [
   { icon: Target, label: "Goal: Europe Trip", value: "38%", className: "left-0 top-[12%] animate-float" },
   { icon: TrendingUp, label: "Net Worth", value: "↑12.5%", className: "right-0 top-[8%] animate-float-delayed" },
-  { icon: MessageCircle, label: "Ask Arivo", value: "Ready", className: "left-[-8%] bottom-[28%] animate-float-delayed" },
+  { icon: MessageCircle, label: "Ask Veris", value: "Ready", className: "left-[-8%] bottom-[28%] animate-float-delayed" },
   { icon: Wallet, label: "Monthly Spend", value: "₹25,000", className: "right-[-6%] bottom-[22%] animate-float" },
 ];
 
@@ -55,9 +55,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-6 font-display text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.03em] text-white"
           >
-            Your Financial Life.
+            Your Money Deserves
             <br />
-            One AI Companion.
+            Better Decisions.
           </motion.h1>
 
           <motion.p
@@ -66,7 +66,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8 max-w-lg text-lg leading-relaxed text-white/60"
           >
-            Understand your money, track goals, and make smarter decisions — all with one AI.
+            Meet Veris — the AI inside Arivo that helps you understand your finances and decide with
+            confidence before you spend, borrow, or invest.
           </motion.p>
 
           <motion.div
@@ -76,20 +77,20 @@ export function Hero() {
             className="mb-10 flex flex-wrap gap-3"
           >
             <Link
-              href="#early-access"
+              href="#get-started"
               className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
             >
-              Join the Waitlist
+              Get Started
             </Link>
             <Link
-              href="#learn-more"
+              href="#meet-veris"
               className="inline-flex h-12 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Learn More
+              Meet Veris
               <ChevronDown className="h-4 w-4 opacity-70" aria-hidden="true" />
             </Link>
             <Link
-              href="#showcase"
+              href="#ask-before-you-spend"
               className="inline-flex h-12 items-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               See how it works
@@ -135,7 +136,7 @@ export function Hero() {
           })}
 
           <div className="relative z-[2] animate-bob">
-            <PhoneMockup screen="dashboard" />
+            <PhoneMockup screen="dashboard" assistantName="Veris" />
           </div>
         </motion.div>
       </div>

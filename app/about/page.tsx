@@ -4,6 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { PageHero } from "@/components/layout/PageHero";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Button } from "@/components/ui/button";
+import { AlertTriangle } from "lucide-react";
 import { FounderSection } from "@/components/sections/FounderSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { aboutJsonLd } from "@/lib/seo/structured-data";
@@ -152,6 +153,11 @@ export default function AboutPage() {
               <Button variant="ghost" asChild size="lg">
                 <Link href="/contact">Contact Us</Link>
               </Button>
+            </div>
+
+            <div className="mt-12 mx-auto max-w-2xl rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-left text-xs leading-relaxed text-[#475569] flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
+              <span><strong>Disclaimer:</strong> Arivo is currently in Beta and may occasionally generate inaccurate or incomplete information. Always verify important financial decisions with a qualified financial advisor. Arivo is not a SEBI-registered investment advisor and does not provide investment advice.</span>
             </div>
           </Reveal>
         </div>

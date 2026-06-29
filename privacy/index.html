@@ -17,9 +17,11 @@
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </noscript>
 
   <link rel="stylesheet" href="/arivo.css" />
   <style>
@@ -80,7 +82,18 @@
   <header class="site-header">
     <div class="container nav-inner">
       <a href="/" class="logo" aria-label="Arivo home">
-        <img src="/assets/logo-mark.svg" alt="" class="logo-mark" width="28" height="28" />
+        <svg class="logo-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="arivo-grad-header" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#1A7A52"/>
+              <stop offset="100%" stop-color="#00C27C"/>
+            </linearGradient>
+          </defs>
+          <rect width="32" height="32" rx="7" fill="url(#arivo-grad-header)"/>
+          <path d="M10 24 L16 7 L22 24" fill="none" stroke="#fff" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="17.5" r="3.35" fill="#fff"/>
+          <circle cx="16" cy="17.5" r="1.45" fill="#1A7A52"/>
+        </svg>
         <span>Arivo</span>
       </a>
       <nav class="nav-links" id="navMenu">
@@ -152,7 +165,18 @@
     <div class="container footer-top">
       <div class="footer-brand-col">
         <span class="footer-logo">
-          <img src="/assets/logo-mark.svg" alt="" class="footer-logo-mark" width="22" height="22" />
+          <svg class="footer-logo-mark" width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="arivo-grad-footer" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#1A7A52"/>
+                <stop offset="100%" stop-color="#00C27C"/>
+              </linearGradient>
+            </defs>
+            <rect width="32" height="32" rx="7" fill="url(#arivo-grad-footer)"/>
+            <path d="M10 24 L16 7 L22 24" fill="none" stroke="#fff" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="17.5" r="3.35" fill="#fff"/>
+            <circle cx="16" cy="17.5" r="1.45" fill="#1A7A52"/>
+          </svg>
           Arivo
         </span>
         <p class="footer-tagline">Every major financial decision. One intelligent answer.</p>
@@ -177,12 +201,15 @@
         <a href="https://medium.com/@akhileshgoswami_10630" target="_blank" rel="noopener noreferrer">Medium</a>
       </div>
     </div>
-    <div class="container footer-bottom">
+    <div class="container footer-bottom" style="flex-direction: column; gap: 1rem; align-items: flex-start;">
+      <p style="font-size: 11px; line-height: 1.6; color: var(--color-muted, #7c8ba1); opacity: 0.8; max-width: 800px; margin: 0;">
+        Disclaimer: Arivo is in Beta and could produce incorrect outputs. Please consult with your finance advisor. We are not a SEBI registered entity.
+      </p>
       <span>&copy; 2026 Arivo. All rights reserved.</span>
     </div>
   </footer>
 
-  <script src="/main.js"></script>
+  <script src="/main.js" defer></script>
 </body>
 
 </html>

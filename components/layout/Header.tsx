@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { useTheme } from "@/features/theme/theme-context";
 
 const navLinks = [
-  { href: "/#features", label: "Features" },
-  { href: "/#learn-more", label: "Learn More" },
-  { href: "/#early-access", label: "Early Access" },
+  { href: "/#meet-veris", label: "Meet Veris" },
+  { href: "/#financial-profile", label: "How It Works" },
+  { href: "/#get-started", label: "Get Started" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact Us" },
@@ -17,7 +19,7 @@ const navLinks = [
 function Logo({ light }: { light?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2.5" aria-label="Arivo home">
-      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-green text-sm font-extrabold text-[#08111A]">
+      <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand-green text-sm font-extrabold text-[#08111A] shadow-glow">
         A
       </span>
       <span className={cn("text-lg font-bold tracking-tight", light ? "text-white" : "text-ink")}>
@@ -29,6 +31,7 @@ function Logo({ light }: { light?: boolean }) {
 
 export function Header() {
   const pathname = usePathname();
+  const { isDark } = useTheme();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,8 +52,16 @@ export function Header() {
         onHero
           ? "border-b border-white/0 bg-transparent py-5"
           : scrolled
-            ? "border-b border-ink/5 bg-white/80 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.06)] backdrop-blur-xl"
-            : "border-b border-ink/5 bg-page/90 py-4 backdrop-blur-md"
+            ? cn(
+                "border-b py-3 shadow-card backdrop-blur-xl",
+                isDark
+                  ? "border-app-border bg-app-surface/90"
+                  : "border-ink/5 bg-surface/85"
+              )
+            : cn(
+                "border-b py-4 backdrop-blur-md",
+                isDark ? "border-app-border bg-app-bg/90" : "border-ink/5 bg-page/90"
+              )
       )}
     >
       <div className="mx-auto flex max-w-container items-center gap-6 px-6 lg:px-8">
@@ -63,7 +74,12 @@ export function Header() {
             "hidden items-center gap-6 lg:gap-8 md:flex",
             menuOpen &&
               "max-md:absolute max-md:left-0 max-md:right-0 max-md:top-full max-md:flex max-md:flex-col max-md:gap-4 max-md:border-b max-md:p-6",
-            menuOpen && (onHero ? "max-md:bg-[#08111A]/95" : "max-md:bg-white")
+            menuOpen &&
+              (onHero
+                ? "max-md:bg-[#08111A]/95"
+                : isDark
+                  ? "max-md:border-app-border max-md:bg-app-surface"
+                  : "max-md:bg-surface")
           )}
           aria-label="Main navigation"
         >
@@ -83,17 +99,24 @@ export function Header() {
           ))}
         </nav>
 
-        <Link
-          href="/#early-access"
-          className={cn(
-            "hidden rounded-full px-5 py-2.5 text-sm font-semibold transition-all md:inline-flex",
-            onHero
-              ? "bg-brand-green text-[#08111A] shadow-glow hover:shadow-glow-lg"
-              : "bg-brand-green text-[#08111A] hover:shadow-glow"
-          )}
-        >
-          Join Waitlist
-        </Link>
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle
+            className={cn(
+              onHero && "border-white/20 bg-white/10 text-white hover:border-white/30 hover:text-white"
+            )}
+          />
+          <Link
+            href="/#get-started"
+            className={cn(
+              "inline-flex rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
+              onHero
+                ? "bg-brand-green text-[#08111A] shadow-glow hover:shadow-glow-lg"
+                : "bg-brand-green text-[#08111A] hover:shadow-glow"
+            )}
+          >
+            Get Started
+          </Link>
+        </div>
 
         <button
           type="button"
