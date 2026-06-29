@@ -4,141 +4,159 @@ import { LegalPageLayout, LegalSection } from "@/components/layout/LegalPageLayo
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Terms & Conditions — Arivo",
+  title: "Terms of Service — Arivo",
   description:
-    "Terms governing your use of the Arivo AI-powered personal finance app. Read disclaimers, eligibility requirements, and user responsibilities.",
+    "Terms governing your use of the Arivo AI-powered personal finance platform. Read disclaimers, eligibility requirements, and user responsibilities.",
   path: "/terms",
-  keywords: ["Arivo terms", "terms and conditions", "AI finance app terms India"],
+  keywords: ["Arivo terms", "terms of service", "AI finance app terms India"],
 });
 
 export default function TermsPage() {
   return (
     <LegalPageLayout
-      title="Terms & Conditions"
+      title="Terms of Service"
       subtitle="Effective Date: June 2026"
-      breadcrumbs={[{ label: "Home", href: "/" }, { label: "Terms & Conditions" }]}
+      breadcrumbs={[{ label: "Home", href: "/" }, { label: "Terms of Service" }]}
     >
-      <div className="callout p-5 sm:p-6">
-        <p className="text-sm leading-relaxed">
-          <strong>Important:</strong> Arivo provides AI-powered financial guidance
-          for informational purposes only and does not provide financial,
-          investment, legal, or tax advice. Users should consult qualified
-          professionals before making significant financial decisions.
+      <div className="callout p-5 sm:p-6 mb-8 border-l-4 border-brand-green/70 bg-brand-green/[0.03]">
+        <p className="text-sm leading-relaxed text-app-muted">
+          <strong>Important Disclaimers:</strong> Arivo is an AI-powered personal finance companion in Beta. Arivo is not a bank, brokerage, insurance company, or SEBI-registered investment adviser or research analyst. All insights are for informational and educational purposes only.
         </p>
       </div>
 
-      <LegalSection title="Acceptance of Terms">
+      <LegalSection title="1. Acceptance of Terms">
         <p>
-          By accessing or using Arivo&apos;s website, mobile application, or
-          related services (collectively, the &quot;Services&quot;), you agree to
-          be bound by these Terms &amp; Conditions. If you do not agree, please do
-          not use the Services.
+          By accessing or using the website, mobile applications, API services, and associated platform resources provided by Arivo (collectively, the &quot;Services&quot;), you agree to comply with and be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, you must not access or use the Services.
         </p>
       </LegalSection>
 
-      <LegalSection title="Eligibility">
+      <LegalSection title="2. Eligibility">
         <p>
-          You must be at least 18 years of age and capable of entering into a
-          legally binding agreement under applicable law to use Arivo. By using the
-          Services, you represent that you meet these requirements.
+          To use Arivo, you must be at least 18 years of age (or the age of majority in your jurisdiction) and possess the legal capacity to enter into a binding contract under the laws of India. By registering for or using our Services, you warrant and represent that you meet these eligibility requirements.
         </p>
       </LegalSection>
 
-      <LegalSection title="User Responsibilities">
-        <p>When using Arivo, you agree to:</p>
+      <LegalSection title="3. User Accounts & Google Authentication">
+        <p>
+          To access the full features of the platform, you must sign in. We utilize Google Authentication to manage access safely and securely. You are responsible for maintaining the confidentiality of your Google account credentials and are fully responsible for all activities that occur under your Arivo profile. You must notify us immediately of any unauthorized access to your account.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="4. Beta Software Disclaimer">
+        <p>
+          Arivo is currently in Beta. You acknowledge and agree that:
+        </p>
         <ul className="list-disc space-y-2 pl-5">
-          <li>Provide accurate and complete information where requested</li>
-          <li>Use the Services only for lawful, personal purposes</li>
-          <li>Keep your account credentials secure and confidential</li>
-          <li>Not misuse, reverse engineer, or attempt to disrupt the Services</li>
-          <li>Make your own informed decisions based on your unique circumstances</li>
+          <li>The Services are under active development and may contain bugs, errors, or inaccuracies.</li>
+          <li>Features, user interfaces, and functionality may change or be removed at any time without prior notice.</li>
+          <li>We do not guarantee that the Services will be uninterrupted, error-free, or constantly available.</li>
         </ul>
       </LegalSection>
 
-      <LegalSection title="AI-Generated Financial Guidance">
+      <LegalSection title="5. AI-Generated Content & Disclaimers">
         <p>
-          Arivo uses artificial intelligence to analyze information you provide and
-          generate financial insights, recommendations, and scenario outcomes.
+          Arivo employs advanced artificial intelligence algorithms to process financial metrics and generate projections, scenario outcomes, and recommendations. You acknowledge that:
         </p>
+        <ul className="list-disc space-y-2 pl-5 font-medium">
+          <li>AI can make mistakes, hallucinate, or produce incomplete or inaccurate responses.</li>
+          <li>AI-generated content is for educational and informational purposes only.</li>
+          <li>Arivo does not provide personalized investment, tax, legal, or financial advice.</li>
+          <li>You must independently verify any critical financial details before acting on them.</li>
+          <li>Arivo shall not be liable for any financial losses, investment losses, or damages resulting from reliance on AI-generated responses.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="6. Financial & Professional Services Disclaimer">
         <p>
-          All AI-generated content is provided for informational and educational
-          purposes only. It does not constitute financial, investment, tax, legal,
-          or professional advice. Arivo is not a registered investment advisor,
-          broker-dealer, or financial planner.
+          Arivo is not a bank, brokerage, insurance carrier, SEBI-registered investment adviser (RIA), or research analyst. We:
         </p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Do not execute or place financial trades.</li>
+          <li>Do not recommend specific financial products, stocks, mutual funds, or insurance policies.</li>
+          <li>Do not guarantee financial outcomes, returns, or success of any budget/savings strategy.</li>
+          <li>Are not a substitute for professional legal, tax, investment, or estate planning advice. Always consult a qualified professional before making major financial commitments.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="7. Acceptable Use Policy">
         <p>
-          You are solely responsible for evaluating any guidance and for the
-          financial decisions you make.
+          You agree not to misuse the Services. Specifically, you will not:
+        </p>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Use the Services for any illegal or fraudulent activities.</li>
+          <li>Attempt to reverse engineer, decompile, crawl, scrape, or extract source code from Arivo.</li>
+          <li>Upload malicious code, viruses, or run automated scripts to scrape or overload our infrastructure.</li>
+          <li>Transmit sensitive information unless explicitly requested by the platform&apos;s profile fields.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="8. Accuracy of Information">
+        <p>
+          The quality of Arivo&apos;s insights depends on the accuracy of the financial parameters you voluntarily input. You are solely responsible for ensuring that all data inputs (income, expenses, assets, liabilities) are accurate and kept up to date.
         </p>
       </LegalSection>
 
-      <LegalSection title="No Investment Guarantee">
+      <LegalSection title="9. Third-Party Services">
         <p>
-          Arivo does not guarantee any specific financial outcome, return on
-          investment, or result from following its recommendations. Past
-          performance, projections, or simulations do not guarantee future
-          results. Financial markets and personal circumstances involve risk, and
-          you may lose money.
+          The Services may contain integrations or links to third-party providers (such as AI models, authentication portals, and analytics engines). We do not control, endorse, or assume responsibility for any third-party websites, terms, or services.
         </p>
       </LegalSection>
 
-      <LegalSection title="Intellectual Property">
+      <LegalSection title="10. Intellectual Property">
         <p>
-          All content, software, branding, designs, and technology underlying
-          Arivo are owned by Arivo or its licensors and are protected by
-          applicable intellectual property laws. You may not copy, modify,
-          distribute, or create derivative works without prior written consent.
+          All trademarks, logo designs, graphics, source code, UI elements, copy, and database structures are the exclusive intellectual property of Arivo or its licensors. No license, transfer, or right is granted to you except the limited, non-exclusive right to access and use the Services under these Terms.
         </p>
       </LegalSection>
 
-      <LegalSection title="Limitation of Liability">
+      <LegalSection title="11. Account Suspension & Termination">
         <p>
-          To the fullest extent permitted by law, Arivo and its founders,
-          employees, and affiliates shall not be liable for any indirect,
-          incidental, special, consequential, or punitive damages arising from
-          your use of the Services or reliance on AI-generated guidance.
-        </p>
-        <p>
-          Our total liability for any claim related to the Services shall not
-          exceed the amount you paid to Arivo in the twelve months preceding the
-          claim, or INR 1,000, whichever is greater.
+          We reserve the right to suspend, restrict, or terminate your access to the Services at our sole discretion, without liability, if we believe you are in breach of these Terms, or if we discontinue the beta platform. You can stop using the Services at any time and request data erasure or account deletion through our profile settings.
         </p>
       </LegalSection>
 
-      <LegalSection title="Termination">
-        <p>
-          We may suspend or terminate your access to the Services at any time if
-          you violate these Terms or if we discontinue the Services. You may stop
-          using Arivo at any time and request account deletion by contacting us.
+      <LegalSection title="12. Disclaimer of Warranties">
+        <p className="uppercase text-xs font-semibold tracking-wider text-app-muted">
+          The services are provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, accuracy, security, and non-infringement.
         </p>
       </LegalSection>
 
-      <LegalSection title="Changes to Terms">
+      <LegalSection title="13. Limitation of Liability">
         <p>
-          We may update these Terms &amp; Conditions from time to time. Continued
-          use of the Services after changes are posted constitutes acceptance of
-          the revised Terms. We encourage you to review this page periodically.
+          To the maximum extent permitted by applicable law, in no event shall Arivo, its founders, directors, employees, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages (including loss of profits, data, savings, or investments) arising out of or related to your use of the Services.
+        </p>
+        <p>
+          Our total aggregate liability for any claims relating to these Terms or the Services shall not exceed INR 1,000.
         </p>
       </LegalSection>
 
-      <LegalSection title="Governing Law">
+      <LegalSection title="14. Indemnification">
         <p>
-          These Terms &amp; Conditions are governed by and construed in accordance
-          with the laws of India. Any disputes arising under these Terms shall be
-          subject to the exclusive jurisdiction of the courts located in India.
+          You agree to indemnify, defend, and hold harmless Arivo and its officers, founders, and employees from and against any third-party claims, liabilities, losses, costs, or expenses (including legal fees) arising from your breach of these Terms, misuse of the Services, or violation of applicable laws.
         </p>
       </LegalSection>
 
-      <LegalSection title="Contact">
+      <LegalSection title="15. Governing Law & Jurisdiction">
         <p>
-          For questions about these Terms, contact us at{" "}
+          These Terms shall be governed by, and construed in accordance with, the laws of India. Any disputes arising from or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in India.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="16. Changes to these Terms">
+        <p>
+          We may update these Terms from time to time. If we make material modifications, we will notify you by updating the &quot;Effective Date&quot; at the top of this page or via in-app alerts. Continued use of the Services after changes are posted constitutes acceptance of the new Terms.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="17. Contact Information">
+        <p>
+          If you have questions or concerns about these Terms, you can contact the Arivo team at:
+          {" "}
           <Link
             href="mailto:support@arivoai.in"
-            className="link-accent"
+            className="link-accent font-medium text-brand-green hover:underline"
           >
             support@arivoai.in
           </Link>
-          .
         </p>
       </LegalSection>
     </LegalPageLayout>
