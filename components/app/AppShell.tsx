@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -17,6 +18,7 @@ import {
   Loader2,
   Menu,
   ChevronLeft,
+  ChevronDown,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
@@ -206,8 +208,9 @@ export function AppSidebar() {
 }
 
 export function AppTopBar() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const { isCollapsed, toggleSidebar } = useSidebar();
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b border-app-border bg-app-bg/80 px-4 backdrop-blur-xl sm:px-6">
@@ -228,21 +231,53 @@ export function AppTopBar() {
       <div className="hidden lg:block" />
       <div className="flex items-center gap-2 sm:gap-3">
         <ThemeToggle />
-        <button
-          type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-app-border bg-app-card text-app-muted transition-all duration-200 hover:border-app-border-strong hover:text-app-text"
-          aria-label="Notifications"
-        >
-          <Bell className="h-[18px] w-[18px]" />
-        </button>
-        <div className="flex items-center gap-3 rounded-xl border border-app-border bg-app-card px-2.5 py-2 sm:px-3">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-app-accent-muted text-sm font-bold text-app-accent">
-            {user?.name ? user.name.charAt(0) : "AG"}
-          </span>
-          <div className="hidden sm:block">
-            <p className="text-sm font-semibold leading-none text-app-text">{user?.name ?? "Akhilesh Goswami"}</p>
-            <p className="mt-1 text-xs text-app-muted">{user?.email ?? "agiri5375@gmail.com"}</p>
-          </div>
+        {/* Profile Dropdown Container */}
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => setProfileMenuOpen((prev) => !prev)}
+            className="flex items-center gap-2 sm:gap-2.5 rounded-xl border border-app-border bg-app-card p-1.5 sm:px-3 sm:py-2 text-left transition-all hover:border-app-border-strong hover:bg-app-card/65 focus:outline-none"
+          >
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-app-accent-muted text-sm font-bold text-app-accent">
+              {user?.name ? user.name.charAt(0) : "AG"}
+            </span>
+            <div className="hidden sm:block">
+              <p className="text-sm font-semibold leading-none text-app-text">{user?.name ?? "Akhilesh Goswami"}</p>
+              <p className="mt-1 text-xs text-app-muted">{user?.email ?? "agiri5375@gmail.com"}</p>
+            </div>
+            <ChevronDown className="h-4 w-4 text-app-muted shrink-0" />
+          </button>
+
+          {profileMenuOpen && (
+            <>
+              {/* Click-away overlay */}
+              <div
+                className="fixed inset-0 z-40 bg-transparent"
+                onClick={() => setProfileMenuOpen(false)}
+              />
+              <div className="absolute right-0 mt-2 z-50 w-48 rounded-xl border border-app-border bg-app-surface p-1.5 shadow-app-lg animate-fade-in">
+                <Link
+                  href="/"
+                  className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-app-muted transition-all duration-150 hover:bg-app-card hover:text-app-text"
+                  onClick={() => setProfileMenuOpen(false)}
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Exit to Website
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setProfileMenuOpen(false);
+                    logout();
+                  }}
+                  className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-app-muted transition-all duration-150 hover:bg-app-danger/10 hover:text-app-danger"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Logout
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </header>
