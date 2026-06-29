@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { AppCard } from "@/components/app/AppCard";
 import { AppPageHeader } from "@/components/app/AppPageHeader";
@@ -15,6 +16,39 @@ export default function SettingsPage() {
     name: user?.name ?? "Akhilesh Goswami",
     email: user?.email ?? "agiri5375@gmail.com",
     initials: (user?.name ? user.name.split(" ").map(n => n[0]).join("") : "AG").toUpperCase()
+  };
+
+  const [feedbackCategory, setFeedbackCategory] = useState("general");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+  const [feedbackStatus, setFeedbackStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const handleFeedbackSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!feedbackMessage.trim()) return;
+    setFeedbackStatus("submitting");
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "8720f665-cae0-4d29-bcc3-24f50ef18586";
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `[Arivo Feedback] - ${feedbackCategory.toUpperCase()}`,
+          from_name: "Arivo App",
+          name: activeUser.name,
+          email: activeUser.email,
+          message: feedbackMessage,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error("Submit failed");
+      setFeedbackMessage("");
+      setFeedbackStatus("success");
+    } catch {
+      setFeedbackStatus("error");
+    }
   };
 
   return (
@@ -126,6 +160,65 @@ export default function SettingsPage() {
             </span>
           </div>
         </div>
+      </AppCard>
+
+      {/* Feedback Section */}
+      <AppCard>
+        <h2 className="mb-4 text-sm font-bold text-app-text tracking-wide uppercase">Share Feedback</h2>
+        <form onSubmit={handleFeedbackSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="feedbackCategory" className="mb-1.5 block text-xs font-semibold text-app-muted uppercase tracking-wider">
+              Category
+            </label>
+            <select
+              id="feedbackCategory"
+              value={feedbackCategory}
+              onChange={(e) => setFeedbackCategory(e.target.value)}
+              className="w-full rounded-xl border border-app-border bg-app-surface px-4 py-2.5 text-sm text-app-text outline-none focus:border-app-accent transition-all"
+            >
+              <option value="general">General Feedback</option>
+              <option value="bug">Report a Bug</option>
+              <option value="feature">Feature Request</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="feedbackMessage" className="mb-1.5 block text-xs font-semibold text-app-muted uppercase tracking-wider">
+              Feedback details
+            </label>
+            <textarea
+              id="feedbackMessage"
+              value={feedbackMessage}
+              onChange={(e) => setFeedbackMessage(e.target.value)}
+              placeholder="Tell us what you think or report a bug..."
+              rows={4}
+              required
+              className="w-full rounded-xl border border-app-border bg-app-surface px-4 py-3 text-sm text-app-text placeholder-app-muted outline-none focus:border-app-accent resize-none transition-all"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={feedbackStatus === "submitting" || !feedbackMessage.trim()}
+            className="rounded-xl bg-app-accent text-app-bg px-5 py-2.5 text-xs sm:text-sm font-semibold hover:bg-app-accent/90 disabled:opacity-50 transition-all cursor-pointer"
+          >
+            {feedbackStatus === "submitting" ? "Sending..." : "Submit Feedback"}
+          </button>
+        </form>
+
+        {feedbackStatus === "success" && (
+          <div className="mt-4 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-xs sm:text-sm">
+            <strong className="block text-emerald-400">Feedback submitted.</strong>
+            <span className="text-app-muted">Thank you for helping us improve Arivo!</span>
+          </div>
+        )}
+
+        {feedbackStatus === "error" && (
+          <div className="mt-4 rounded-xl border border-red-500/20 bg-red-500/5 p-4 text-xs sm:text-sm">
+            <strong className="block text-red-400">Something went wrong.</strong>
+            <span className="text-app-muted">Please try again or email us directly at hello@arivoai.in.</span>
+          </div>
+        )}
       </AppCard>
 
       {/* Danger Zone Section */}

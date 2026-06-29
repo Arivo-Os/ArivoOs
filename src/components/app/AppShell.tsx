@@ -287,7 +287,6 @@ export function AppTopBar() {
 
 export function AppMobileNav() {
   const pathname = usePathname();
-  const { logout } = useAuth();
 
   return (
     <nav
@@ -315,15 +314,6 @@ export function AppMobileNav() {
             </Link>
           );
         })}
-        <button
-          type="button"
-          onClick={logout}
-          className="relative flex flex-1 flex-col items-center gap-1 py-2.5 text-[10px] font-medium text-app-muted transition-colors duration-200 hover:text-app-danger"
-          aria-label="Logout"
-        >
-          <LogOut className="h-5 w-5" aria-hidden="true" />
-          Logout
-        </button>
       </div>
     </nav>
   );
