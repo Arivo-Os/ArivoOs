@@ -140,28 +140,27 @@ function StructuredMessage({ content }: { content: string }) {
           <div>
             <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider mb-2.5">Financial Snapshot</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="rounded-xl bg-app-bg/50 hover:bg-app-bg/85 p-3 border border-app-border transition-colors">
+              <div className="rounded-xl bg-app-surface hover:bg-app-card-hover p-3 border border-app-border transition-colors">
                 <span className="text-[10px] text-app-muted block font-medium">Cash Available</span>
                 <strong className="text-sm text-app-text font-mono font-semibold block mt-1">{cashAvailable || "—"}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/50 hover:bg-app-bg/85 p-3 border border-app-border transition-colors">
+              <div className="rounded-xl bg-app-surface hover:bg-app-card-hover p-3 border border-app-border transition-colors">
                 <span className="text-[10px] text-app-muted block font-medium">Bills Due</span>
                 <strong className="text-sm text-app-text font-mono font-semibold block mt-1">{billsDue || "—"}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/50 hover:bg-app-bg/85 p-3 border border-app-border transition-colors">
+              <div className="rounded-xl bg-app-surface hover:bg-app-card-hover p-3 border border-app-border transition-colors">
                 <span className="text-[10px] text-app-muted block font-medium">Monthly EMI</span>
                 <strong className="text-sm text-app-text font-mono font-semibold block mt-1">{monthlyEmi || "—"}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/50 hover:bg-app-bg/85 p-3 border border-app-border transition-colors">
+              <div className="rounded-xl bg-app-surface hover:bg-app-card-hover p-3 border border-app-border transition-colors">
                 <span className="text-[10px] text-app-muted block font-medium">Cash After Bills</span>
                 <strong className="text-sm text-app-text font-mono font-semibold block mt-1">{cashAfterBills || "—"}</strong>
               </div>
             </div>
           </div>
 
-          {/* Calculation Section */}
           {calcSec && (
-            <div className="rounded-xl bg-app-bg/50 p-4 border border-app-border space-y-3">
+            <div className="rounded-xl bg-app-surface p-4 border border-app-border space-y-3">
               <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider">Affordability Calculation</h4>
               {formula && <p className="text-xs text-app-muted italic leading-relaxed">{formula}</p>}
               {equation && (
@@ -196,7 +195,7 @@ function StructuredMessage({ content }: { content: string }) {
             </div>
           )}
 
-          <div className="rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-3 text-[10px] leading-relaxed text-[#475569] mt-4 flex items-start gap-1.5">
+          <div className="rounded-xl border border-app-border bg-app-surface p-3 text-[10px] leading-relaxed text-app-muted mt-4 flex items-start gap-1.5">
             <AlertTriangle className="h-3.5 w-3.5 text-amber-500 shrink-0 mt-0.5" />
             <span><strong>Disclaimer:</strong> Arivo is currently in Beta and may occasionally generate inaccurate or incomplete information. Always verify important financial decisions with a qualified financial advisor. Arivo is not a SEBI-registered investment advisor and does not provide investment advice.</span>
           </div>
@@ -261,28 +260,28 @@ function StructuredMessage({ content }: { content: string }) {
           <div>
             <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider mb-2.5">Snapshot</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="rounded-xl bg-app-bg/5 p-3 border border-app-border">
+              <div className="rounded-xl bg-app-surface p-3 border border-app-border">
                 <span className="text-[10px] text-app-muted block font-medium">Target Emergency Fund</span>
                 <strong className="text-xs text-app-text font-mono font-semibold block mt-1">{targetFund}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/5 p-3 border border-app-border">
+              <div className="rounded-xl bg-app-surface p-3 border border-app-border">
                 <span className="text-[10px] text-app-muted block font-medium">Current Emergency Fund</span>
                 <strong className="text-xs text-app-text font-mono font-semibold block mt-1">{currentFund}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/5 p-3 border border-app-border">
+              <div className="rounded-xl bg-app-surface p-3 border border-app-border">
                 <span className="text-[10px] text-app-muted block font-medium">Monthly Savings Cap.</span>
                 <strong className="text-sm text-app-text font-mono font-semibold block mt-1">{monthlySavings}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/5 p-3 border border-app-border">
+              <div className="rounded-xl bg-app-surface p-3 border border-app-border">
                 <span className="text-[10px] text-app-muted block font-medium">Time to Full Cushion</span>
-                <strong className="text-sm text-emerald-400 font-mono font-bold block mt-1">{timeToCushion}</strong>
+                <strong className="text-sm text-app-success font-mono font-bold block mt-1">{timeToCushion}</strong>
               </div>
             </div>
           </div>
 
           {/* Milestones timeline list */}
           {milestones.length > 0 && (
-            <div className="rounded-xl bg-app-bg/5 p-4 border border-app-border space-y-4">
+            <div className="rounded-xl bg-app-surface p-4 border border-app-border space-y-4">
               <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider">Milestones progress</h4>
               <div className="relative pl-6 border-l border-app-border space-y-4 ml-1">
                 {milestones.map((m, idx) => (
@@ -295,7 +294,7 @@ function StructuredMessage({ content }: { content: string }) {
                         <span className="text-sm font-bold text-app-text font-mono">{m.percent}</span>
                         <span className="text-xs text-app-muted ml-2">({m.amount})</span>
                       </div>
-                      <span className="text-xs text-emerald-400 font-mono font-semibold">{m.duration}</span>
+                      <span className="text-xs text-app-success font-mono font-semibold">{m.duration}</span>
                     </div>
                   </div>
                 ))}
@@ -353,25 +352,24 @@ function StructuredMessage({ content }: { content: string }) {
           <div>
             <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider mb-2.5">Snapshot</h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <div className="rounded-xl bg-app-bg/5 p-2.5 border border-app-border text-center">
+              <div className="rounded-xl bg-app-surface p-2.5 border border-app-border text-center">
                 <span className="text-[9px] text-app-muted block font-medium">Emergency Gap</span>
                 <strong className="text-xs text-app-text font-mono font-semibold block mt-1">{emergencyGap}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/5 p-2.5 border border-app-border text-center">
+              <div className="rounded-xl bg-app-surface p-2.5 border border-app-border text-center">
                 <span className="text-[9px] text-app-muted block font-medium">Add. Down Payment</span>
                 <strong className="text-xs text-app-text font-mono font-semibold block mt-1">{downPayment}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/5 p-2.5 border border-app-border text-center">
+              <div className="rounded-xl bg-app-surface p-2.5 border border-app-border text-center">
                 <span className="text-[9px] text-app-muted block font-medium">Combined Goal</span>
                 <strong className="text-xs text-app-text font-mono font-semibold block mt-1">{combinedGoal}</strong>
               </div>
             </div>
           </div>
 
-          {/* Highlight Target box */}
-          <div className="rounded-xl bg-app-bg/5 p-4 border border-app-border space-y-2 text-center">
+          <div className="rounded-xl bg-app-surface p-4 border border-app-border space-y-2 text-center">
             <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider">Suggested monthly savings</h4>
-            <div className="text-lg font-bold text-emerald-400 font-mono tracking-tight">
+            <div className="text-lg font-bold text-app-success font-mono tracking-tight">
               {suggestedSavings}
             </div>
           </div>
@@ -441,39 +439,38 @@ function StructuredMessage({ content }: { content: string }) {
           <div>
             <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider mb-2.5">Financial Summary</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="rounded-xl bg-app-bg/5 p-3 border border-app-border">
+              <div className="rounded-xl bg-app-surface p-3 border border-app-border">
                 <span className="text-[10px] text-app-muted block font-medium">Monthly Income</span>
                 <strong className="text-sm text-app-text font-mono font-semibold block mt-1">{monthlyIncome}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/5 p-3 border border-app-border">
+              <div className="rounded-xl bg-app-surface p-3 border border-app-border">
                 <span className="text-[10px] text-app-muted block font-medium">Monthly Expenses</span>
                 <strong className="text-sm text-app-text font-mono font-semibold block mt-1">{monthlyExpenses}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/5 p-3 border border-app-border">
+              <div className="rounded-xl bg-app-surface p-3 border border-app-border">
                 <span className="text-[10px] text-app-muted block font-medium">Cash Available</span>
                 <strong className="text-sm text-app-text font-mono font-semibold block mt-1">{cashAvailable}</strong>
               </div>
-              <div className="rounded-xl bg-app-bg/5 p-3 border border-app-border">
+              <div className="rounded-xl bg-app-surface p-3 border border-app-border">
                 <span className="text-[10px] text-app-muted block font-medium">Savings Rate</span>
-                <strong className="text-sm text-emerald-400 font-mono font-bold block mt-1">{savingsRate}</strong>
+                <strong className="text-sm text-app-success font-mono font-bold block mt-1">{savingsRate}</strong>
               </div>
             </div>
           </div>
 
-          {/* Formula calculation box */}
           {calcSec && (
-            <div className="rounded-xl bg-app-bg/5 p-4 border border-app-border space-y-3">
+            <div className="rounded-xl bg-app-surface p-4 border border-app-border space-y-3">
               <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider">Formula & Calculation</h4>
               {formula && <p className="text-xs text-app-muted italic leading-relaxed">{formula}</p>}
               {equation && (
-                <div className="font-mono text-xs bg-black/40 px-3 py-2 rounded-lg border border-white/[0.04] text-center text-emerald-400 font-semibold tracking-tight">
+                <div className="font-mono text-xs bg-app-bg px-3 py-2 rounded-lg border border-app-border text-center text-app-success font-semibold tracking-tight">
                   {equation}
                 </div>
               )}
             </div>
           )}
 
-          <div className="rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-3 text-[10px] leading-relaxed text-[#475569] mt-4 flex items-start gap-1.5">
+          <div className="rounded-xl border border-app-border bg-app-surface p-3 text-[10px] leading-relaxed text-app-muted mt-4 flex items-start gap-1.5">
             <AlertTriangle className="h-3.5 w-3.5 text-amber-500 shrink-0 mt-0.5" />
             <span><strong>Disclaimer:</strong> Arivo is currently in Beta and may occasionally generate inaccurate or incomplete information. Always verify important financial decisions with a qualified financial advisor. Arivo is not a SEBI-registered investment advisor and does not provide investment advice.</span>
           </div>
@@ -709,148 +706,212 @@ export default function VerisPage() {
   const loadingThread = conversationQuery.isFetching && Boolean(activeSessionId);
 
   return (
-    <div className="mx-auto grid max-w-7xl gap-6 grid-cols-1 xl:grid-cols-[1fr_300px]">
+    <div className="flex h-full gap-0 lg:gap-4 p-4">
       <style>{`
         @keyframes slideUpFade {
-          from {
-            opacity: 0;
-            transform: translateY(12px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-        .animate-message {
-          animation: slideUpFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        .animate-message { animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .typing-dot { animation: blink 1.4s ease-in-out infinite; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
       `}</style>
 
-      <div className="flex h-[calc(100vh-8rem)] flex-col overflow-hidden rounded-2xl border border-app-border bg-app-card shadow-app-sm">
-        <div className="border-b border-app-border bg-app-surface/50 px-5 py-4">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-app-accent-muted text-sm font-bold text-app-accent">
-                V
-              </span>
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <h1 className="font-bold text-app-text">Veris</h1>
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                </div>
-                <p className="text-xs text-app-muted">AI Financial Decision Engine</p>
-              </div>
+      {/* Main Chat Column - Full Height */}
+      <div className="flex flex-col min-w-0 flex-1 bg-app-card border border-app-border rounded-2xl overflow-hidden h-full shadow-sm">
+
+        {/* ── Top bar ── */}
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-app-border bg-app-surface shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-app-accent text-white text-sm font-bold">
+              V
             </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <h1 className="text-sm font-bold text-app-text tracking-tight">Veris</h1>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-app-success opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-app-success" />
+                </span>
+              </div>
+              <p className="text-[11px] text-app-muted leading-tight">AI Financial Decision Engine</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            {/* AI credits — compact display */}
+            {aiCredits && (
+              <span className="hidden sm:block text-[10px] text-app-muted font-medium">
+                {aiCredits.remaining} questions left
+              </span>
+            )}
             <button
               type="button"
               onClick={startNewChat}
-              className="rounded-lg border border-app-border px-3 py-1.5 text-xs font-medium text-app-muted lg:hidden"
+              className="rounded-lg border border-app-border px-3 py-1.5 text-xs font-medium text-app-muted hover:text-app-text hover:bg-app-surface transition-colors"
             >
               New chat
             </button>
           </div>
-
-          <AiCreditsBar credits={aiCredits} className="hidden lg:flex mt-3" />
-          <VerisQuickPrompts
-            className="mt-3"
-            disabled={loading}
-            onSelect={(message) => sendMessage(message)}
-          />
-
-          {conversations.length > 0 && (
-            <div className="mt-3 flex gap-2 overflow-x-auto pb-1 lg:hidden">
-              {conversations.slice(0, 8).map((c) => (
-                <button
-                  key={c.sessionId}
-                  type="button"
-                  onClick={() => {
-                    hydratedSession.current = null;
-                    setActiveSessionId(c.sessionId);
-                  }}
-                  className={cn(
-                    "shrink-0 rounded-full border px-3 py-1 text-xs transition-colors",
-                    (activeSessionId ?? conversationId) === c.sessionId
-                      ? "border-app-accent bg-app-accent-muted text-app-accent"
-                      : "border-app-border text-app-muted"
-                  )}
-                >
-                  {c.title.length > 28 ? `${c.title.slice(0, 28)}…` : c.title}
-                </button>
-              ))}
-            </div>
-          )}
         </div>
 
-        <div className="relative flex-1 space-y-4 overflow-y-auto p-5">
-          {loadingThread && (
-            <p className="text-center text-xs text-app-muted">Loading conversation…</p>
-          )}
-          {messages.length === 0 && !loading && !loadingThread && (
-            <p className="text-center text-sm text-app-muted">
-              Ask before you spend — e.g. &quot;Can I buy a car worth ₹8L?&quot;
-            </p>
-          )}
-          {messages.map((m) =>
-            m.role === "user" ? (
-              <div key={m.id} className="flex justify-end animate-message">
-                <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-emerald-500/[0.08] dark:bg-emerald-950/30 border border-emerald-500/20 px-4 py-3 text-sm leading-relaxed text-emerald-950 dark:text-white font-medium">
-                  {m.content}
+        {/* Prompt pills - desktop */}
+        {messages.length === 0 && (
+          <div className="px-5 pt-4 pb-0 hidden lg:block shrink-0">
+            <VerisQuickPrompts
+              className="flex-wrap"
+              disabled={loading}
+              onSelect={(message) => sendMessage(message)}
+            />
+          </div>
+        )}
+
+        {/* Mobile: recent convos */}
+        {conversations.length > 0 && (
+          <div className="flex gap-2 overflow-x-auto px-4 pt-3 pb-0 lg:hidden shrink-0">
+            {conversations.slice(0, 6).map((c) => (
+              <button
+                key={c.sessionId}
+                type="button"
+                onClick={() => {
+                  hydratedSession.current = null;
+                  setActiveSessionId(c.sessionId);
+                }}
+                className={cn(
+                  "shrink-0 rounded-full border px-3 py-1 text-xs transition-colors",
+                  (activeSessionId ?? conversationId) === c.sessionId
+                    ? "border-app-accent bg-app-accent-muted text-app-accent"
+                    : "border-app-border text-app-muted"
+                )}
+              >
+                {c.title.length > 24 ? `${c.title.slice(0, 24)}…` : c.title}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* ── Messages scroll area ── */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="max-w-3xl mx-auto px-4 py-6 space-y-6">
+            {loadingThread && (
+              <p className="text-center text-xs text-app-muted py-4">Loading conversation…</p>
+            )}
+
+            {/* Empty state */}
+            {messages.length === 0 && !loading && !loadingThread && (
+              <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
+                <div className="w-16 h-16 rounded-2xl bg-app-accent-muted flex items-center justify-center">
+                  <span className="text-2xl font-black text-app-accent">V</span>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-app-text mb-1">How can I help you today?</h2>
+                  <p className="text-sm text-app-muted max-w-sm">
+                    Ask me anything about your finances — purchases, loans, investments, goals.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 w-full max-w-md">
+                  {["Can I afford a ₹8L car?", "Should I invest in index funds?", "How much emergency fund do I need?", "Is my rent too high?"].map((q) => (
+                    <button
+                      key={q}
+                      onClick={() => sendMessage(q)}
+                      disabled={loading}
+                      className="rounded-xl border border-app-border bg-app-surface px-4 py-3 text-left text-xs text-app-muted hover:border-app-accent/40 hover:text-app-text hover:bg-app-card transition-all disabled:opacity-50"
+                    >
+                      {q}
+                    </button>
+                  ))}
                 </div>
               </div>
-            ) : (
-              <div key={m.id} className="flex gap-2 animate-message">
-                <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-app-accent text-xs font-bold text-white">
-                  A
-                </span>
-                <div className="max-w-[85%] space-y-2">
-                  {m.analysis && <VerisAnalysisCard analysis={m.analysis} />}
-                  {m.content && (
-                    <StructuredMessage content={m.content} />
-                  )}
+            )}
+
+            {/* Message thread */}
+            {messages.map((m) =>
+              m.role === "user" ? (
+                /* User bubble — right aligned */
+                <div key={m.id} className="flex justify-end animate-message">
+                  <div className="max-w-[75%] sm:max-w-[65%] rounded-2xl rounded-br-sm bg-app-accent text-white px-4 py-3 text-sm leading-relaxed font-medium shadow-sm">
+                    {m.content}
+                  </div>
+                </div>
+              ) : (
+                /* Assistant bubble — left aligned, no background */
+                <div key={m.id} className="flex gap-3 animate-message">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-app-accent-muted text-app-accent text-xs font-bold mt-0.5">
+                    V
+                  </div>
+                  <div className="flex-1 min-w-0 space-y-3">
+                    {m.analysis && <VerisAnalysisCard analysis={m.analysis} />}
+                    {m.content && (
+                      <StructuredMessage content={m.content} />
+                    )}
+                  </div>
+                </div>
+              )
+            )}
+
+            {/* Workflow thinking indicator */}
+            {workflowStep >= 0 && (
+              <div className="flex gap-3 animate-message">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-app-accent-muted text-app-accent text-xs font-bold">
+                  V
+                </div>
+                <div className="flex items-center gap-3 rounded-2xl rounded-bl-sm border border-app-border bg-app-surface px-4 py-3">
+                  <div className="flex gap-1">
+                    <span className="typing-dot h-1.5 w-1.5 rounded-full bg-app-muted" />
+                    <span className="typing-dot h-1.5 w-1.5 rounded-full bg-app-muted" />
+                    <span className="typing-dot h-1.5 w-1.5 rounded-full bg-app-muted" />
+                  </div>
+                  <span className="text-xs text-app-muted">{WORKFLOW_LABELS[workflowStep]}</span>
                 </div>
               </div>
-            )
-          )}
-          {workflowStep >= 0 && (
-            <div className="rounded-xl border border-app-border bg-app-bg px-4 py-3 text-sm text-app-muted animate-message">
-              {WORKFLOW_LABELS[workflowStep]}
-            </div>
-          )}
-          {inputRequest?.label && (
-            <div className="rounded-xl border border-app-accent/30 bg-app-accent/10 px-4 py-3 text-sm text-app-text animate-message">
-              Veris needs: <strong>{inputRequest.label}</strong>
-            </div>
-          )}
-          {error && (
-            <p className="rounded-xl border border-app-danger/30 bg-app-danger/10 px-4 py-3 text-sm text-app-danger animate-message">
-              {error}
-            </p>
-          )}
-          <div ref={bottomRef} />
+            )}
+
+            {/* Input request */}
+            {inputRequest?.label && (
+              <div className="flex gap-3 animate-message">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-app-accent-muted text-app-accent text-xs font-bold">
+                  V
+                </div>
+                <div className="rounded-2xl rounded-bl-sm border border-app-accent/30 bg-app-accent-muted px-4 py-3 text-sm text-app-text">
+                  Veris needs: <strong>{inputRequest.label}</strong>
+                </div>
+              </div>
+            )}
+
+            {/* Error */}
+            {error && (
+              <p className="rounded-xl border border-app-danger/30 bg-app-danger/10 px-4 py-3 text-sm text-app-danger animate-message">
+                {error}
+              </p>
+            )}
+
+            <div ref={bottomRef} />
+          </div>
         </div>
 
-        <div className="border-t border-app-border p-4">
+        {/* ── Input bar ── */}
+        <div className="border-t border-app-border bg-app-surface shrink-0">
+          {/* Suggestion pills (shown above input after a response) */}
           {aiCredits !== null && aiCredits.remaining <= 0 ? (
-            <div className="mb-3 rounded-xl border border-red-500/20 bg-red-500/[0.02] p-3.5 text-center text-xs text-app-danger font-medium">
-              {"You've reached today's limit of 20 Arivo questions."}
-              <br />
-              <span className="text-[10px] opacity-80 font-normal mt-0.5 block">
-                {"Please come back tomorrow—your question limit will reset automatically."}
-              </span>
+            <div className="px-4 pt-3">
+              <div className="rounded-xl border border-app-danger/20 bg-app-danger/5 p-3 text-center text-xs text-app-danger font-medium">
+                You&apos;ve reached today&apos;s limit of 20 Arivo questions.
+                <span className="block text-[10px] opacity-75 font-normal mt-0.5">
+                  Please come back tomorrow — your limit resets automatically.
+                </span>
+              </div>
             </div>
           ) : (
             suggestionPills.length > 0 && (
-              <div className="hidden lg:flex mb-3 flex-wrap gap-2">
+              <div className="hidden lg:flex flex-wrap gap-1.5 px-4 pt-3">
                 {suggestionPills.map((q, i) => (
                   <button
                     key={q}
                     type="button"
                     onClick={() => sendMessage(q, pillKeys[i])}
                     disabled={loading}
-                    className="rounded-full border border-app-border bg-app-bg px-3 py-1.5 text-xs text-app-muted transition-colors hover:border-app-accent/40 hover:text-app-accent disabled:opacity-50"
+                    className="rounded-full border border-app-border bg-app-card px-3 py-1 text-xs text-app-muted transition-colors hover:border-app-accent/40 hover:text-app-accent hover:bg-app-accent-muted disabled:opacity-50"
                   >
                     {q}
                   </button>
@@ -858,56 +919,81 @@ export default function VerisPage() {
               </div>
             )
           )}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              sendMessage(input);
-            }}
-            className="flex gap-2"
-          >
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder={
-                aiCredits !== null && aiCredits.remaining <= 0
-                  ? "Question limit reached"
-                  : inputRequest?.label
-                  ? `Enter ${inputRequest.label.toLowerCase()}...`
-                  : "Ask Veris anything..."
-              }
-              className="flex-1 rounded-xl border border-app-border bg-app-bg px-4 py-3 text-sm text-app-text placeholder:text-app-muted focus:border-app-accent/50 focus:outline-none disabled:opacity-50"
-              disabled={loading || (aiCredits !== null && aiCredits.remaining <= 0)}
-            />
-            <button
-              type="submit"
-              disabled={loading || (aiCredits !== null && aiCredits.remaining <= 0)}
-              className="rounded-xl bg-app-accent px-5 py-3 text-sm font-semibold text-app-bg shadow-app-sm transition-all duration-200 hover:brightness-110 active:scale-[0.98] disabled:opacity-50"
+
+          {/* Text input + send */}
+          <div className="px-4 py-3">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMessage(input);
+              }}
+              className="relative flex items-end gap-2 rounded-2xl border border-app-border bg-app-card focus-within:border-app-accent/50 focus-within:ring-1 focus-within:ring-app-accent/20 transition-all"
             >
-              {loading ? "..." : "Send"}
-            </button>
-          </form>
-          <p className="mt-2.5 text-center text-[10px] leading-relaxed text-app-muted opacity-75 max-w-lg mx-auto flex items-start justify-center gap-1.5">
-            <AlertTriangle className="h-3 w-3 text-amber-500 shrink-0 mt-0.5" />
-            <span><strong>Disclaimer:</strong> Arivo is currently in Beta and may occasionally generate inaccurate or incomplete information. Always verify important financial decisions with a qualified financial advisor. Arivo is not a SEBI-registered investment advisor and does not provide investment advice.</span>
-          </p>
+              <textarea
+                rows={1}
+                value={input}
+                onChange={(e) => {
+                  setInput(e.target.value);
+                  e.target.style.height = "auto";
+                  e.target.style.height = Math.min(e.target.scrollHeight, 160) + "px";
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage(input);
+                  }
+                }}
+                placeholder={
+                  aiCredits !== null && aiCredits.remaining <= 0
+                    ? "Question limit reached"
+                    : inputRequest?.label
+                    ? `Enter ${inputRequest.label.toLowerCase()}...`
+                    : "Message Veris..."
+                }
+                className="flex-1 resize-none bg-transparent px-4 py-3 text-sm text-app-text placeholder:text-app-muted focus:outline-none disabled:opacity-50 min-h-[48px] max-h-40"
+                disabled={loading || (aiCredits !== null && aiCredits.remaining <= 0)}
+              />
+              <button
+                type="submit"
+                disabled={loading || !input.trim() || (aiCredits !== null && aiCredits.remaining <= 0)}
+                className="mb-2 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-app-accent text-white transition-all hover:brightness-110 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                ) : (
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 2L11 13" />
+                    <path d="M22 2L15 22l-4-9-9-4 19-7z" />
+                  </svg>
+                )}
+              </button>
+            </form>
+            <p className={`mt-2 text-center text-[10px] text-app-muted transition-all duration-300 overflow-hidden ${input.trim() ? "opacity-0 max-h-0 mt-0" : "opacity-60 max-h-8"}`}>
+              Veris may be inaccurate. Not a SEBI-registered advisor. Verify financial decisions with a qualified advisor.
+            </p>
+          </div>
         </div>
       </div>
 
-      <aside className="hidden space-y-4 xl:block">
-        <AppCard>
-          <h2 className="mb-2 font-bold text-app-text">How Veris works</h2>
-          <p className="text-sm leading-relaxed text-app-muted">
+      {/* ── Right sidebar (xl screens) ── */}
+      <aside className="hidden xl:flex xl:flex-col gap-4 w-[280px] shrink-0 overflow-y-auto">
+        <AppCard className="shrink-0">
+          <h2 className="mb-1 text-sm font-bold text-app-text">How Veris works</h2>
+          <p className="text-xs leading-relaxed text-app-muted">
             Veris analyses your income, expenses, goals, and risk profile using the Arivo engine — not generic rules.
           </p>
-          <div className="mt-4 pt-4 border-t border-app-border/40 space-y-4">
+          <div className="mt-4 pt-3 border-t border-app-border space-y-3">
             <div>
-              <div className="flex justify-between items-baseline mb-1">
+              <div className="flex justify-between items-baseline mb-1.5">
                 <span className="text-xs text-app-muted">Confidence</span>
                 <span className="text-sm font-bold text-app-success font-mono">{decision?.confidence ?? 87}%</span>
               </div>
               <div className="w-full h-1.5 bg-app-bg rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-app-accent rounded-full transition-all duration-500 ease-out" 
+                <div
+                  className="h-full bg-app-accent rounded-full transition-all duration-500"
                   style={{ width: `${decision?.confidence ?? 87}%` }}
                 />
               </div>
@@ -928,13 +1014,13 @@ export default function VerisPage() {
           </div>
         </AppCard>
 
-        <AppCard>
-          <h2 className="mb-3 font-bold text-app-text">Smart tips</h2>
-          <div className="space-y-3">
+        <AppCard className="shrink-0">
+          <h2 className="mb-3 text-sm font-bold text-app-text">Smart tips</h2>
+          <div className="space-y-2">
             {quickInsights.map((insight) => (
-              <div 
-                key={insight.id} 
-                className="rounded-xl border border-app-border bg-white/[0.01] p-3 hover:bg-white/[0.02] transition-colors"
+              <div
+                key={insight.id}
+                className="rounded-xl border border-app-border bg-app-bg p-3 hover:bg-app-surface transition-colors"
               >
                 <p className="text-xs font-semibold text-app-text leading-relaxed">
                   {insight.title} <span className="text-app-muted font-normal">— {insight.description}</span>
@@ -944,21 +1030,17 @@ export default function VerisPage() {
           </div>
         </AppCard>
 
-        <AppCard>
-          <h2 className="mb-3 font-bold text-app-text">Recent questions</h2>
-          <div className="space-y-2 text-xs">
+        <AppCard className="shrink-0">
+          <h2 className="mb-3 text-sm font-bold text-app-text">Recent questions</h2>
+          <div className="space-y-1.5">
             {(suggestionPills.length > 0
               ? suggestionPills.slice(0, 3)
-              : [
-                  "Can I afford a ₹8L car?",
-                  "Should I invest in index funds?",
-                  "Is my rent too high for my income?",
-                ]
+              : ["Can I afford a ₹8L car?", "Should I invest in index funds?", "Is my rent too high for my income?"]
             ).map((q) => (
               <button
                 key={q}
                 onClick={() => sendMessage(q)}
-                className="block text-left text-app-muted hover:text-app-accent hover:underline transition-colors w-full"
+                className="block w-full text-left rounded-lg px-3 py-2 text-xs text-app-muted hover:text-app-text hover:bg-app-bg transition-colors"
               >
                 {q}
               </button>

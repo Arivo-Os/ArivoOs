@@ -22,7 +22,7 @@ interface SidebarContextType {
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: React.ReactNode }) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [conversations, setConversations] = useState<ConversationSummary[]>([]);
   const [activeSessionId, setActiveSessionId] = useState<string | undefined>();
   const [loadingHistory, setLoadingHistory] = useState(false);
