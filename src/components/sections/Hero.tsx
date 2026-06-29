@@ -83,7 +83,7 @@ export function Hero() {
                 href="/life/"
                 className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
               >
-                Open Arivo
+                Use Arivo
               </Link>
             ) : (
               <Link

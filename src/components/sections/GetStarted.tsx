@@ -49,7 +49,7 @@ export function GetStarted() {
                       href="/life/"
                       className="inline-flex h-14 items-center gap-2 rounded-full bg-brand-green px-8 text-base font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
                     >
-                      Open Arivo
+                      Use Arivo
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
@@ -66,7 +66,7 @@ export function GetStarted() {
                     Pick a question Veris can help with. We&apos;ll take you to sign in, then straight into
                     your answer.
                   </p>
-    
+
                   <div className="rounded-2xl border border-white/10 bg-[#08111A]/40 p-6 text-left backdrop-blur-sm">
                     <FlowQuestionPicker
                       value={question}
@@ -74,7 +74,7 @@ export function GetStarted() {
                       variant="marketing"
                     />
                   </div>
-    
+
                   <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                     <button
                       type="button"
@@ -86,7 +86,7 @@ export function GetStarted() {
                     </button>
                     <GooglePlayButton size="lg" label="Get on Google Play" />
                   </div>
-    
+
                   <p className="mt-6 text-sm text-white/40">
                     Already have an account?{" "}
                     <Link href="/login/" className="text-brand-green hover:underline">

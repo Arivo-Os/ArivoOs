@@ -53,38 +53,38 @@ export function MarketingLanding() {
             >
               Ask Arivo before every purchase, investment, loan, or major financial decision.
             </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="flex flex-wrap gap-3"
-              >
-                {!isLoading && isAuthenticated ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-wrap gap-3"
+            >
+              {!isLoading && isAuthenticated ? (
+                <Link
+                  href="/life/"
+                  className="inline-flex h-12 items-center gap-2 rounded-full bg-app-accent px-7 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
+                >
+                  Use Arivo
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ) : (
+                <>
                   <Link
-                    href="/life/"
+                    href="/#get-started"
                     className="inline-flex h-12 items-center gap-2 rounded-full bg-app-accent px-7 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
                   >
-                    Open Arivo
+                    Get Started
                     <ArrowRight className="h-4 w-4" />
                   </Link>
-                ) : (
-                  <>
-                    <Link
-                      href="/#get-started"
-                      className="inline-flex h-12 items-center gap-2 rounded-full bg-app-accent px-7 text-sm font-semibold text-app-bg transition-all hover:brightness-110"
-                    >
-                      Get Started
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    <Link
-                      href="/login"
-                      className="inline-flex h-12 items-center rounded-full border border-app-border bg-app-card px-7 text-sm font-semibold text-app-text transition-colors hover:border-app-accent/40"
-                    >
-                      Sign In
-                    </Link>
-                  </>
-                )}
-              </motion.div>
+                  <Link
+                    href="/login"
+                    className="inline-flex h-12 items-center rounded-full border border-app-border bg-app-card px-7 text-sm font-semibold text-app-text transition-colors hover:border-app-accent/40"
+                  >
+                    Sign In
+                  </Link>
+                </>
+              )}
+            </motion.div>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -149,7 +149,7 @@ export function MarketingLanding() {
             </p>
             {!isLoading && isAuthenticated ? (
               <Link href="/life/" className="inline-flex h-12 items-center rounded-full bg-app-accent px-8 text-sm font-semibold text-app-bg">
-                Open Arivo
+                Use Arivo
               </Link>
             ) : (
               <Link href="/#get-started" className="inline-flex h-12 items-center rounded-full bg-app-accent px-8 text-sm font-semibold text-app-bg">

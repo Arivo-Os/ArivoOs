@@ -55,15 +55,15 @@ export function Header() {
           ? "border-b border-white/0 bg-transparent py-5"
           : scrolled
             ? cn(
-                "border-b py-3 shadow-card backdrop-blur-xl",
-                isDark
-                  ? "border-app-border bg-app-surface/90"
-                  : "border-ink/5 bg-surface/85"
-              )
+              "border-b py-3 shadow-card backdrop-blur-xl",
+              isDark
+                ? "border-app-border bg-app-surface/90"
+                : "border-ink/5 bg-surface/85"
+            )
             : cn(
-                "border-b py-4 backdrop-blur-md",
-                isDark ? "border-app-border bg-app-bg/90" : "border-ink/5 bg-page/90"
-              )
+              "border-b py-4 backdrop-blur-md",
+              isDark ? "border-app-border bg-app-bg/90" : "border-ink/5 bg-page/90"
+            )
       )}
     >
       <div className="mx-auto flex max-w-container items-center gap-6 px-6 lg:px-8">
@@ -75,13 +75,13 @@ export function Header() {
           className={cn(
             "hidden items-center gap-6 lg:gap-8 md:flex",
             menuOpen &&
-              "max-md:absolute max-md:left-0 max-md:right-0 max-md:top-full max-md:flex max-md:flex-col max-md:gap-4 max-md:border-b max-md:p-6",
+            "max-md:absolute max-md:left-0 max-md:right-0 max-md:top-full max-md:flex max-md:flex-col max-md:gap-4 max-md:border-b max-md:p-6",
             menuOpen &&
-              (onHero
-                ? "max-md:bg-[#08111A]/95"
-                : isDark
-                  ? "max-md:border-app-border max-md:bg-app-surface"
-                  : "max-md:bg-surface")
+            (onHero
+              ? "max-md:bg-[#08111A]/95"
+              : isDark
+                ? "max-md:border-app-border max-md:bg-app-surface"
+                : "max-md:bg-surface")
           )}
           aria-label="Main navigation"
         >
@@ -117,7 +117,7 @@ export function Header() {
                   : "bg-brand-green text-[#08111A] hover:shadow-glow"
               )}
             >
-              Open Arivo
+              Use Arivo
             </Link>
           ) : (
             <Link
