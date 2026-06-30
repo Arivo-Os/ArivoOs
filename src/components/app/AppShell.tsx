@@ -262,7 +262,6 @@ export function AppTopBar() {
       </div>
       <div className="hidden lg:block" />
       <div className="flex items-center gap-2 sm:gap-3">
-        <ThemeToggle />
         {/* Profile Dropdown Container */}
         <div className="relative">
           <button
