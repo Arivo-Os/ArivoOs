@@ -17,7 +17,9 @@ import {
   Info,
   DollarSign,
   TrendingDown,
-  Percent
+  Percent,
+  ArrowRight,
+  MessageSquare
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -71,394 +73,146 @@ export const ProductPreview: React.FC = () => {
   }, [activeTab]);
 
   // Render content depending on active tab
+  // Render content depending on active tab
   const renderMockup = () => {
-    switch (activeTab) {
-      case "net-worth":
-        return (
-          <div className="w-full bg-[#0a111e] text-slate-100 rounded-2xl border border-slate-800 p-6 font-sans shadow-2xl relative overflow-hidden animate-fade-in">
-            {/* Glowing gradient backdrops */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-85 h-85 bg-[#14b8a6]/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
+    return (
+      <div className="w-full bg-[#08111A] text-white rounded-3xl border border-white/5 p-6 font-sans shadow-2xl relative overflow-hidden animate-fade-in text-left">
+        {/* Ambient glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Dashboard Header */}
-            <div className="flex justify-between items-center mb-6 relative z-10">
-              <div>
-                <Caption className="text-slate-400 block uppercase tracking-wider text-xs font-semibold">Total Wealth</Caption>
-                <div className="flex items-baseline gap-2 mt-1">
-                  <span className="text-3xl font-bold tracking-tight text-white">₹24,82,450</span>
-                  <span className="text-emerald-400 text-xs font-medium bg-emerald-500/10 px-2 py-0.5 rounded-full flex items-center gap-0.5">
-                    <ArrowUpRight className="w-3.5 h-3.5" /> +4.2% this month
-                  </span>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <span className="bg-slate-800 text-slate-200 text-xs font-medium px-3 py-1.5 rounded-full border border-slate-700">
-                  Monthly View
-                </span>
-              </div>
-            </div>
-
-            {/* Asset vs Liabilities Split Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 relative z-10">
-              <div className="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
-                <div className="flex justify-between items-center mb-2">
-                  <Caption className="text-slate-400 text-xs font-semibold">ASSETS</Caption>
-                  <span className="text-emerald-400 text-sm font-semibold">₹27,32,450</span>
-                </div>
-                <div className="space-y-2 mt-3">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-300">Investments</span>
-                    <span className="text-white font-medium">₹18,50,000</span>
-                  </div>
-                  <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                    <div className="bg-emerald-500 h-full rounded-full" style={{ width: "67%" }} />
-                  </div>
-                  <div className="flex justify-between items-center text-xs pt-1">
-                    <span className="text-slate-300">Bank Accounts</span>
-                    <span className="text-white font-medium">₹6,82,450</span>
-                  </div>
-                  <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                    <div className="bg-[#14b8a6] h-full rounded-full" style={{ width: "25%" }} />
-                  </div>
-                  <div className="flex justify-between items-center text-xs pt-1">
-                    <span className="text-slate-300">EPF & Others</span>
-                    <span className="text-white font-medium">₹2,00,000</span>
-                  </div>
-                  <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                    <div className="bg-blue-500 h-full rounded-full" style={{ width: "8%" }} />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-slate-900/60 border border-slate-800 p-4 rounded-xl">
-                <div className="flex justify-between items-center mb-2">
-                  <Caption className="text-slate-400 text-xs font-semibold">LIABILITIES</Caption>
-                  <span className="text-rose-400 text-sm font-semibold">₹2,50,000</span>
-                </div>
-                <div className="space-y-2 mt-3">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-300">HDFC Credit Card</span>
-                    <span className="text-white font-medium">₹65,000</span>
-                  </div>
-                  <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                    <div className="bg-rose-500 h-full rounded-full" style={{ width: "26%" }} />
-                  </div>
-                  <div className="flex justify-between items-center text-xs pt-1">
-                    <span className="text-slate-300">Car Loan</span>
-                    <span className="text-white font-medium">₹1,85,000</span>
-                  </div>
-                  <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                    <div className="bg-amber-500 h-full rounded-full" style={{ width: "74%" }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Simulated interactive line chart */}
-            <div className="bg-slate-900/40 border border-slate-800 p-4 rounded-xl relative z-10">
-              <div className="flex justify-between items-center mb-3">
-                <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Net Worth Growth</span>
-                <span className="text-slate-400 text-xs">Past 6 months</span>
-              </div>
-              <div className="h-32 flex items-end justify-between px-2 pt-4 relative">
-                {/* SVG Line representation */}
-                <svg className="absolute inset-0 w-full h-full p-2 overflow-visible" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="chart-glow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.2" />
-                      <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
-                    </linearGradient>
-                  </defs>
-                  {/* Fill Area */}
-                  <path
-                    d="M 0 90 Q 75 75 150 60 T 300 45 T 450 30 T 600 15 L 600 120 L 0 120 Z"
-                    fill="url(#chart-glow)"
-                    className="w-full"
-                  />
-                  {/* Line */}
-                  <path
-                    d="M 0 90 Q 75 75 150 60 T 300 45 T 450 30 T 600 15"
-                    fill="none"
-                    stroke="#10b981"
-                    strokeWidth="3.5"
-                    className="w-full"
-                  />
-                  {/* Highlight dots */}
-                  <circle cx="300" cy="45" r="5" fill="#10b981" stroke="#0a111e" strokeWidth="2" />
-                  <circle cx="600" cy="15" r="5" fill="#10b981" stroke="#0a111e" strokeWidth="2" />
-                </svg>
-
-                {/* Grid Lines */}
-                <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-10">
-                  <div className="border-b border-white w-full" />
-                  <div className="border-b border-white w-full" />
-                  <div className="border-b border-white w-full" />
-                </div>
-
-                <div className="text-slate-500 text-[10px] z-10">Jan</div>
-                <div className="text-slate-500 text-[10px] z-10">Feb</div>
-                <div className="text-slate-500 text-[10px] z-10">Mar</div>
-                <div className="text-slate-500 text-[10px] z-10">Apr</div>
-                <div className="text-slate-500 text-[10px] z-10">May</div>
-                <div className="text-slate-500 text-[10px] z-10">Jun</div>
-              </div>
-            </div>
+        {/* Top Header */}
+        <div className="flex justify-between items-center pb-5 border-b border-white/5 mb-5">
+          <div className={cn(
+            "transition-all duration-300 rounded-xl p-2 -m-2",
+            activeTab === "net-worth" && "bg-white/5 border border-white/10"
+          )}>
+            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest block">TOTAL VALUATION</span>
+            <h3 className="text-2xl font-black text-white mt-0.5 tracking-tight">₹2,000</h3>
           </div>
-        );
+          <span className={cn(
+            "inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold border transition-all duration-300",
+            activeTab === "advisory"
+              ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-400 scale-105"
+              : "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
+          )}>
+            <Sparkles className="w-3 h-3" /> Diagnostics Active
+          </span>
+        </div>
 
-      case "spending":
-        return (
-          <div className="w-full bg-[#0a111e] text-slate-100 rounded-2xl border border-slate-800 p-6 font-sans shadow-2xl relative overflow-hidden animate-fade-in">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-85 h-85 bg-indigo-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
+        {/* Quick Info Grid */}
+        <div className="grid grid-cols-3 gap-3 mb-5">
+          {/* Card 1 */}
+          <div className="bg-white/5 border border-white/5 p-4 rounded-xl flex flex-col justify-between">
+            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">MONTHLY INCOME</span>
+            <span className="text-base font-bold text-white mt-1 block">₹75,000</span>
+          </div>
+          {/* Card 2 */}
+          <div className="bg-white/5 border border-white/5 p-4 rounded-xl flex flex-col justify-between">
+            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">SAVINGS RATE</span>
+            <span className="text-base font-bold text-[#22c55e] mt-1 block">67%</span>
+          </div>
+          {/* Card 3 */}
+          <div className={cn(
+            "border p-4 rounded-xl flex flex-col justify-between transition-all duration-300",
+            activeTab === "spending"
+              ? "bg-white/10 border-white/20 scale-[1.02]"
+              : "bg-white/5 border-white/5"
+          )}>
+            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">MONTHLY EXPENSES</span>
+            <span className="text-base font-bold text-slate-300 mt-1 block">₹25,000</span>
+          </div>
+        </div>
 
-            <div className="flex justify-between items-center mb-6 relative z-10">
-              <div>
-                <Caption className="text-slate-400 block uppercase tracking-wider text-xs font-semibold">Spending Insight</Caption>
-                <div className="flex items-baseline gap-2 mt-1">
-                  <span className="text-3xl font-bold tracking-tight text-white">₹42,850</span>
-                  <span className="text-slate-400 text-xs">spent this month</span>
-                </div>
-              </div>
-              <span className="bg-rose-500/15 text-rose-400 text-xs font-medium px-3 py-1 rounded-full flex items-center gap-1 border border-rose-500/20">
-                <TrendingUp className="w-3 h-3" /> 8% below forecast
+        {/* Graph Card */}
+        <div className={cn(
+          "border p-4 rounded-xl flex flex-col justify-between h-40 mb-5 transition-all duration-300",
+          activeTab === "investments"
+            ? "bg-white/10 border-white/20 scale-[1.01]"
+            : "bg-white/5 border-white/5"
+        )}>
+          <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest block">ASSETS GROWTH DIAGNOSTICS</span>
+          <div className="h-24 flex items-end justify-between px-1 pt-3 relative">
+            <div className="absolute inset-0 flex flex-col justify-between opacity-[0.02] pointer-events-none">
+              <div className="border-b border-white w-full" />
+              <div className="border-b border-white w-full" />
+              <div className="border-b border-white w-full" />
+            </div>
+            <svg className="absolute inset-0 w-full h-full p-1 overflow-visible" preserveAspectRatio="none">
+              <path d="M 0 65 Q 120 55 240 45 T 480 30 T 720 15 L 720 100 L 0 100 Z" fill="rgba(34, 197, 94, 0.03)" />
+              <path d="M 0 65 Q 120 55 240 45 T 480 30 T 720 15" fill="none" stroke="#22c55e" strokeWidth="2" />
+              <circle cx="480" cy="30" r="3" fill="#22c55e" />
+              <circle cx="720" cy="15" r="3" fill="#22c55e" />
+            </svg>
+            <div className="text-[8px] text-slate-500 font-medium z-10">M1</div>
+            <div className="text-[8px] text-slate-500 font-medium z-10">M2</div>
+            <div className="text-[8px] text-slate-500 font-medium z-10">M3</div>
+            <div className="text-[8px] text-slate-500 font-medium z-10">M4</div>
+            <div className="text-[8px] text-slate-500 font-medium z-10">M5</div>
+          </div>
+        </div>
+
+        {/* Lower Grid */}
+        <div className="grid grid-cols-2 gap-4">
+          {/* Goals */}
+          <div className="bg-white/5 border border-white/5 p-4 rounded-xl flex flex-col justify-between">
+            <div className="flex justify-between items-center mb-4">
+              <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">GOALS</h4>
+              <span className="text-[9px] text-slate-400 font-semibold flex items-center gap-0.5">
+                <Plus className="w-2.5 h-2.5" /> Add Goal
               </span>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-              {/* Category Breakdown */}
-              <div className="space-y-3">
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Top Categories</span>
-                
-                <div className="bg-slate-900/60 p-3 rounded-lg border border-slate-800/80 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 bg-blue-500 rounded-full" />
-                    <span className="text-xs text-slate-200">Rent & Bills</span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs font-bold text-white block">₹18,000</span>
-                    <span className="text-[10px] text-slate-400">42% of total</span>
-                  </div>
-                </div>
-
-                <div className="bg-slate-900/60 p-3 rounded-lg border border-slate-800/80 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 bg-purple-500 rounded-full" />
-                    <span className="text-xs text-slate-200">Food & Dining</span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs font-bold text-white block">₹9,450</span>
-                    <span className="text-[10px] text-slate-400">22% of total</span>
-                  </div>
-                </div>
-
-                <div className="bg-slate-900/60 p-3 rounded-lg border border-slate-800/80 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 bg-[#14b8a6] rounded-full" />
-                    <span className="text-xs text-slate-200">Travel & Fuel</span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs font-bold text-white block">₹6,200</span>
-                    <span className="text-[10px] text-slate-400">14% of total</span>
-                  </div>
-                </div>
+            <div className="rounded-lg bg-white/5 p-3 border border-white/5">
+              <div className="mb-1 flex justify-between text-[10px] font-semibold">
+                <span className="text-slate-300">Europe Trip</span>
+                <span className="text-[#22c55e]">38%</span>
               </div>
-
-              {/* Live Feeds of Autocategorization */}
-              <div>
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-3">Linked Accounts Live Feed</span>
-                <div className="space-y-2">
-                  <div className="p-3 bg-slate-900/40 rounded-xl border border-slate-800/60 flex justify-between items-center">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs text-[#14b8a6]">
-                        Z
-                      </div>
-                      <div>
-                        <span className="text-xs font-semibold text-white block">Zomato</span>
-                        <span className="text-[9px] text-slate-400">Swiped Credit Card • Food & Dining</span>
-                      </div>
-                    </div>
-                    <span className="text-xs font-bold text-white">-₹640</span>
-                  </div>
-
-                  <div className="p-3 bg-slate-900/40 rounded-xl border border-slate-800/60 flex justify-between items-center">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs text-blue-500">
-                        U
-                      </div>
-                      <div>
-                        <span className="text-xs font-semibold text-white block">Uber India</span>
-                        <span className="text-[9px] text-slate-400">UPI Auto-pay • Transport</span>
-                      </div>
-                    </div>
-                    <span className="text-xs font-bold text-white">-₹340</span>
-                  </div>
-
-                  <div className="p-3 bg-slate-900/40 rounded-xl border border-slate-800/60 flex justify-between items-center">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-xs text-amber-500">
-                        A
-                      </div>
-                      <div>
-                        <span className="text-xs font-semibold text-white block">Amazon Pay</span>
-                        <span className="text-[9px] text-slate-400">ICICI Bank Account • Shopping</span>
-                      </div>
-                    </div>
-                    <span className="text-xs font-bold text-white">-₹2,150</span>
-                  </div>
-                </div>
+              <div className="h-1 overflow-hidden rounded-full bg-white/10">
+                <div className="h-full rounded-full bg-[#22c55e]" style={{ width: "38%" }} />
               </div>
             </div>
           </div>
-        );
 
-      case "investments":
-        return (
-          <div className="w-full bg-[#0a111e] text-slate-100 rounded-2xl border border-slate-800 p-6 font-sans shadow-2xl relative overflow-hidden animate-fade-in">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-85 h-85 bg-emerald-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
-
-            <div className="flex justify-between items-center mb-6 relative z-10">
-              <div>
-                <Caption className="text-slate-400 block uppercase tracking-wider text-xs font-semibold">Investments Valuation</Caption>
-                <div className="flex items-baseline gap-2 mt-1">
-                  <span className="text-3xl font-bold tracking-tight text-white">₹18,50,000</span>
-                  <span className="text-emerald-400 text-xs font-semibold flex items-center gap-0.5">
-                    <ArrowUpRight className="w-3.5 h-3.5" /> +18.4% (All-time gain)
-                  </span>
-                </div>
+          {/* Ask Veris */}
+          <div className={cn(
+            "border p-4 rounded-xl flex flex-col justify-between transition-all duration-300",
+            activeTab === "advisory"
+              ? "bg-white/10 border-white/20 scale-[1.02]"
+              : "bg-white/5 border-white/5"
+          )}>
+            <div className="flex items-center gap-1 mb-2">
+              <div className="p-1 bg-emerald-500/10 text-emerald-400 rounded-md">
+                <MessageSquare className="w-3 h-3" />
               </div>
-              <div className="bg-slate-900 border border-slate-800 p-1 rounded-lg flex gap-1 text-[11px] font-medium text-slate-400">
-                <span className="bg-slate-800 text-white px-2 py-0.5 rounded">Current Value</span>
-                <span className="px-2 py-0.5">XIRR: 14.8%</span>
-              </div>
+              <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">ASK VERIS</h4>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 relative z-10">
-              <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold">MUTUAL FUNDS</span>
-                <span className="text-lg font-bold text-white block mt-1">₹12,45,000</span>
-                <span className="text-emerald-400 text-[10px] flex items-center mt-1">
-                  <ArrowUpRight className="w-3 h-3 mr-0.5" /> +16.2%
-                </span>
-              </div>
-              <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold">DIRECT STOCKS</span>
-                <span className="text-lg font-bold text-white block mt-1">₹4,20,000</span>
-                <span className="text-emerald-400 text-[10px] flex items-center mt-1">
-                  <ArrowUpRight className="w-3 h-3 mr-0.5" /> +28.5%
-                </span>
-              </div>
-              <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold">FIXED DEPOSITS</span>
-                <span className="text-lg font-bold text-white block mt-1">₹1,85,000</span>
-                <span className="text-slate-400 text-[10px] block mt-1">
-                  Avg Yield: 7.1%
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-4 relative z-10">
-              <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider block mb-3">Linked Portfolios Status</span>
-              <div className="flex flex-col md:flex-row justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
-                  <div>
-                    <span className="text-xs text-white font-semibold block">Zerodha Coin (Mutual Funds)</span>
-                    <span className="text-[10px] text-slate-400">Synced 4 mins ago • Auto-Fetch ON</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
-                  <div>
-                    <span className="text-xs text-white font-semibold block">Groww (Stocks Portfolio)</span>
-                    <span className="text-[10px] text-slate-400">Synced 12 mins ago • Live tracking</span>
-                  </div>
-                </div>
-              </div>
+            <p className="text-[9px] text-slate-400 mb-3 leading-tight">
+              Get an instant simulated decision recommendation before your next large expenditure.
+            </p>
+            <div className="flex gap-1.5">
+              <input
+                type="text"
+                disabled
+                placeholder="Can I afford a Europe trip this year?"
+                className="flex-1 bg-white/5 border border-white/10 rounded-lg px-2.5 py-1.5 text-[10px] text-white placeholder-slate-500 focus:outline-none"
+              />
+              <button
+                type="button"
+                disabled
+                className="bg-[#22c55e] text-[#08111A] font-bold px-2.5 py-1.5 rounded-lg text-[10px] shrink-0 flex items-center gap-0.5"
+              >
+                Ask <ArrowRight className="w-2.5 h-2.5" />
+              </button>
             </div>
           </div>
-        );
+        </div>
 
-      case "advisory":
-        return (
-          <div className="w-full bg-[#0a111e] text-slate-100 rounded-2xl border border-slate-800 p-6 font-sans shadow-2xl relative overflow-hidden animate-fade-in">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-85 h-85 bg-teal-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
-
-            <div className="flex justify-between items-center mb-6 relative z-10">
-              <div>
-                <Caption className="text-slate-400 block uppercase tracking-wider text-xs font-semibold">AI Assistant Insights</Caption>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="text-2xl font-bold tracking-tight text-white">Intelligent Optimization</span>
-                  <span className="bg-emerald-500/10 text-emerald-400 text-xs px-2.5 py-0.5 rounded-full font-medium border border-emerald-500/20 flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5" /> 3 Recommendations Active
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4 relative z-10">
-              {/* Rec 1 */}
-              <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 hover:border-emerald-500/30 transition-all duration-200">
-                <div className="flex justify-between items-start gap-3">
-                  <div className="bg-emerald-500/10 p-2 rounded-lg text-emerald-400">
-                    <Percent className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white">Optimize High-Cost Liabilities</span>
-                      <span className="text-emerald-400 text-xs font-bold font-mono">Save ~₹14,500/yr</span>
-                    </div>
-                    <p className="text-[11px] text-slate-400 mt-1">
-                      You carry a rollover balance of ₹35,000 on your Credit Card charging 42% APR. Arivo can help you refinance this with a low-cost personal credit line at 13.5% APR.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Rec 2 */}
-              <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 hover:border-amber-500/30 transition-all duration-200">
-                <div className="flex justify-between items-start gap-3">
-                  <div className="bg-amber-500/10 p-2 rounded-lg text-amber-400">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white">Unutilized Emergency Cash Alert</span>
-                      <span className="text-amber-400 text-xs font-bold font-mono">Earn +₹6,800/yr</span>
-                    </div>
-                    <p className="text-[11px] text-slate-400 mt-1">
-                      You have ₹2,40,000 sitting in your low-interest (2.7%) savings account for over 90 days. Move it to a sweep-in FD or low-duration liquid fund yielding 6.8%.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Rec 3 */}
-              <div className="bg-slate-900/70 border border-slate-800 rounded-xl p-4 hover:border-blue-500/30 transition-all duration-200">
-                <div className="flex justify-between items-start gap-3">
-                  <div className="bg-blue-500/10 p-2 rounded-lg text-blue-400">
-                    <Zap className="w-4 h-4" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white">Underperforming ELSS Fund Swap</span>
-                      <span className="text-blue-400 text-xs font-bold font-mono">Improve CAGR by 3.2%</span>
-                    </div>
-                    <p className="text-[11px] text-slate-400 mt-1">
-                      Your current ELSS tax saver fund has underperformed its benchmark by 4.1% over 3 years. Consider swapping future SIP allocations to a top-tier peer fund.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-
-      default:
-        return null;
-    }
+        {/* Footer */}
+        <div className="text-[8px] text-slate-500 flex items-center gap-1 pt-3 border-t border-white/5 mt-4">
+          <Info className="w-2.5 h-2.5 shrink-0" />
+          All recommendations are educational decision support insights based on self-reported inputs. We are not a SEBI-registered entity.
+        </div>
+      </div>
+    );
   };
 
   return (

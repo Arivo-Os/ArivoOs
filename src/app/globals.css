@@ -47,15 +47,15 @@
     --app-card-hover: #f1f5f9;
     --app-border: rgba(15, 23, 42, 0.08);
     --app-border-strong: rgba(15, 23, 42, 0.14);
-    --app-text: #0f172a;
-    --app-muted: #64748b;
-    --app-accent: #14b8a6;
-    --app-accent-muted: rgba(20, 184, 166, 0.12);
-    --app-success: #16a34a;
+    --app-text: #08111A;
+    --app-muted: #5e6e82;
+    --app-accent: #059669;
+    --app-accent-muted: rgba(5, 150, 105, 0.12);
+    --app-success: #059669;
     --app-warning: #d97706;
     --app-danger: #dc2626;
     --app-info: #2563eb;
-    --app-shell-gradient: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.08), transparent);
+    --app-shell-gradient: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(5, 150, 105, 0.04), transparent);
     --app-hero-gradient: linear-gradient(145deg, #f0fdf9 0%, #ecfeff 50%, #f8fafc 100%);
 
     /* Marketing / landing */
@@ -89,21 +89,21 @@
     --ring: 162 66% 52%;
 
     /* App theme — dark */
-    --app-bg: #0d0f12;
-    --app-surface: #111418;
-    --app-card: #141920;
-    --app-card-hover: #1c232d;
-    --app-border: rgba(255, 255, 255, 0.06);
-    --app-border-strong: rgba(255, 255, 255, 0.12);
-    --app-text: #f1f5f9;
+    --app-bg: #080c10;
+    --app-surface: #0d1520;
+    --app-card: #0d1520;
+    --app-card-hover: #142232;
+    --app-border: rgba(255, 255, 255, 0.05);
+    --app-border-strong: rgba(255, 255, 255, 0.1);
+    --app-text: #f8fafc;
     --app-muted: #8b9cb3;
-    --app-accent: #00c896;
-    --app-accent-muted: rgba(0, 200, 150, 0.12);
-    --app-success: #00c896;
+    --app-accent: #22c55e;
+    --app-accent-muted: rgba(34, 197, 94, 0.12);
+    --app-success: #22c55e;
     --app-warning: #fbbf24;
     --app-danger: #f87171;
     --app-info: #3b82f6;
-    --app-shell-gradient: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 200, 150, 0.08), transparent);
+    --app-shell-gradient: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 197, 94, 0.04), transparent);
     --app-hero-gradient: linear-gradient(145deg, #0d1520 0%, #131f2e 50%, #0a1018 100%);
 
     /* Marketing / landing */
