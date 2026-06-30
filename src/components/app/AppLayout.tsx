@@ -23,7 +23,7 @@ function AppLayoutInner({ children }: { children: React.ReactNode }) {
     <div className="app-shell-bg flex h-screen overflow-hidden text-app-text">
       <AppSidebar />
       <div className="flex flex-1 flex-col overflow-hidden">
-        <div className={isVeris ? "lg:hidden" : ""}>
+        <div>
           <AppTopBar />
         </div>
         {isVeris ? (

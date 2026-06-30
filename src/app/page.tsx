@@ -1,14 +1,16 @@
 import { JsonLd } from "@/components/seo/JsonLd";
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ProductPreview } from "@/components/sections/ProductPreview";
-import { BenefitsSection } from "@/components/sections/BenefitsSection";
-import { ComparisonSection } from "@/components/sections/ComparisonSection";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { TrustDetails } from "@/components/sections/TrustDetails";
-import { RoadmapSection } from "@/components/sections/RoadmapSection";
-import { GetStarted } from "@/components/sections/GetStarted";
-import { FAQ } from "@/components/sections/FAQ";
+
+const BenefitsSection = dynamic(() => import("@/components/sections/BenefitsSection").then(mod => mod.BenefitsSection));
+const ComparisonSection = dynamic(() => import("@/components/sections/ComparisonSection").then(mod => mod.ComparisonSection));
+const HowItWorks = dynamic(() => import("@/components/sections/HowItWorks").then(mod => mod.HowItWorks));
+const TrustDetails = dynamic(() => import("@/components/sections/TrustDetails").then(mod => mod.TrustDetails));
+const RoadmapSection = dynamic(() => import("@/components/sections/RoadmapSection").then(mod => mod.RoadmapSection));
+const GetStarted = dynamic(() => import("@/components/sections/GetStarted").then(mod => mod.GetStarted));
+const FAQ = dynamic(() => import("@/components/sections/FAQ").then(mod => mod.FAQ));
 import { homepageJsonLd } from "@/lib/seo/structured-data";
 
 export default function HomePage() {
