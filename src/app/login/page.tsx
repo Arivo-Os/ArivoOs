@@ -53,7 +53,7 @@ function LoginForm() {
       </div>
 
       {/* Card */}
-      <div className="relative z-10 w-full max-w-[420px] animate-fade-in rounded-2xl border border-[#2a2e3a] bg-[#1c1f26] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.07)] transition-all duration-300">
+      <div className="relative z-10 w-full max-w-[420px] animate-fade-in rounded-2xl border border-app-border bg-app-surface p-8 shadow-card transition-all duration-300">
 
         {/* Loading overlay */}
         {loading && (
