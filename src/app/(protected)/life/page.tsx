@@ -135,15 +135,18 @@ export default function LifePage() {
                 </Link>
               ))
             ) : (
-              <div className="rounded-xl bg-app-bg p-4 border border-app-border">
-                <div className="mb-2 flex justify-between text-xs font-semibold">
-                  <span className="text-app-text">Europe Trip</span>
-                  <span className="text-app-accent">38%</span>
-                </div>
-                <div className="h-1.5 overflow-hidden rounded-full bg-app-border">
-                  <div className="h-full rounded-full bg-app-accent" style={{ width: "38%" }} />
-                </div>
-              </div>
+              <AppEmptyState
+                title="No active goals"
+                description="You haven't set any financial goals yet."
+                action={
+                  <Link href="/journey/goals/new/">
+                    <AppButton size="sm" className="gap-2">
+                      <Plus className="h-4 w-4" />
+                      Add a Goal
+                    </AppButton>
+                  </Link>
+                }
+              />
             )}
           </div>
         </div>
