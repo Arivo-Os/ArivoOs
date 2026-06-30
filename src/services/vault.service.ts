@@ -15,15 +15,15 @@ function buildMockVault(): VaultData {
     totalDebt: mockVaultOverrides.totalDebt ?? mockProfile.debt,
     currentSavings: mockVaultOverrides.currentSavings ?? mockProfile.savings,
     monthlyDebtPayment: mockVaultOverrides.monthlyDebtPayment,
-    riskPreference: mockVaultOverrides.riskPreference ?? mockProfile.riskProfile,
+    riskPreference: mockVaultOverrides.riskPreference ?? "aggressive",
   };
   const income = mockVaultOverrides.monthlyIncome ?? mockProfile.income;
 
   return {
     profile: {
       id: "1",
-      fullName: mockVaultOverrides.fullName ?? "Akhilesh",
-      email: "akhilesh@arivoai.in",
+      fullName: mockVaultOverrides.fullName ?? "Akhilesh Goswami",
+      email: "agiri5375@gmail.com",
       monthlyIncome: income,
       financialInputs: inputs,
     },

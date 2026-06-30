@@ -17,6 +17,8 @@ export function PhoneMockup({
 }: PhoneMockupProps) {
   return (
     <div
+      role="img"
+      aria-label="Interactive Arivo mobile app simulator mockup showing account balances, advisory companion prompts, and goal progress bars"
       className={cn(
         "relative mx-auto w-[280px] overflow-hidden rounded-[2.5rem] border-[3px] border-white/10 bg-[#0B1520] shadow-[0_32px_80px_rgba(0,0,0,0.45)] sm:w-[300px]",
         className

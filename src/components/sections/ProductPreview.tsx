@@ -475,16 +475,24 @@ export const ProductPreview: React.FC = () => {
 
       <div className="flex flex-col lg:flex-row gap-8 items-start">
         {/* Tab Controls (Left side on desktop, top on mobile) */}
-        <div className="w-full lg:w-1/3 flex flex-row lg:flex-col gap-2 overflow-x-auto pb-4 lg:pb-0 scrollbar-none snap-x lg:snap-none">
+        <div 
+          role="tablist"
+          aria-label="Product feature previews"
+          className="w-full lg:w-1/3 flex flex-row lg:flex-col gap-2 overflow-x-auto pb-4 lg:pb-0 scrollbar-none snap-x lg:snap-none"
+        >
           {tabs.map((tab) => {
             const IconComponent = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
+                role="tab"
+                aria-selected={isActive}
+                aria-controls={`tabpanel-${tab.id}`}
+                id={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "flex-shrink-0 snap-center w-64 lg:w-full text-left p-4 rounded-xl border transition-all duration-200 outline-none",
+                  "flex-shrink-0 snap-center w-64 lg:w-full text-left p-4 rounded-xl border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green dark:focus-visible:ring-brand-green focus-visible:ring-offset-2",
                   isActive
                     ? "bg-white dark:bg-slate-900 border-brand-green shadow-md dark:shadow-slate-950/40 text-brand-green"
                     : "bg-transparent border-transparent hover:bg-slate-200/50 dark:hover:bg-slate-900/40 text-slate-600 dark:text-slate-400"
@@ -512,7 +520,12 @@ export const ProductPreview: React.FC = () => {
         </div>
 
         {/* Tab Preview Viewport (Right side) */}
-        <div className="w-full lg:w-2/3 min-h-[420px] flex items-center justify-center">
+        <div 
+          role="tabpanel"
+          id={`tabpanel-${activeTab}`}
+          aria-labelledby={`tab-${activeTab}`}
+          className="w-full lg:w-2/3 min-h-[420px] flex items-center justify-center focus-visible:outline-none"
+        >
           {renderMockup()}
         </div>
       </div>

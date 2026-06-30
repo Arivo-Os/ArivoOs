@@ -55,11 +55,11 @@ export const BenefitsSection: React.FC = () => {
           return (
             <Card key={index} className="flex flex-col h-full bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-green/30">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-xl bg-brand-green/10 text-brand-green">
+                <div className="p-2.5 rounded-xl bg-brand-green/10 text-emerald-700 dark:text-brand-green">
                   <IconComponent className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold text-brand-green uppercase tracking-wider block">
+                  <span className="text-xs font-semibold text-emerald-700 dark:text-brand-green uppercase tracking-wider block">
                     {benefit.tagline}
                   </span>
                   <H3 className="text-slate-900 dark:text-white text-lg font-bold mt-0.5">

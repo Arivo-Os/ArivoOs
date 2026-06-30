@@ -41,7 +41,7 @@ export const HeroSection: React.FC = () => {
         {/* Visual Dashboard Mockups (Visually Dominate the Hero) */}
         <div className="relative mx-auto max-w-4xl mt-6">
           {/* Simulated Web App Browser Mockup */}
-          <div className="rounded-2xl border border-white/10 bg-slate-950/60 shadow-2xl backdrop-blur-md overflow-hidden aspect-[16/9] w-full p-4 text-left font-sans flex flex-col pointer-events-none">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/60 shadow-2xl backdrop-blur-md overflow-hidden aspect-[16/9] w-full p-4 text-left font-sans flex flex-col pointer-events-none" role="img" aria-label="Desktop application interface mockup of the Arivo Dashboard showing net worth statistics and diagnostic status.">
             {/* Browser Header Bar */}
             <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4">
               <div className="flex gap-1.5">

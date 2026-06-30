@@ -1,5 +1,5 @@
 import React from "react";
-import { H2, H3, Body } from "@/components/ui/Typography";
+import { H2, H3, H4, Body } from "@/components/ui/Typography";
 import { 
   Building2, 
   TrendingUp, 
@@ -15,7 +15,7 @@ export const RoadmapSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="section-label font-bold text-brand-green">Our Roadmap</span>
+          <span className="section-label font-bold text-emerald-700 dark:text-brand-green">Our Roadmap</span>
           <H2 className="text-[#08111A] dark:text-white font-extrabold tracking-tight mb-4 text-balance">
             We&apos;re building Arivo step by step.
           </H2>
@@ -44,9 +44,9 @@ export const RoadmapSection: React.FC = () => {
               <div className="p-2.5 rounded-xl bg-brand-green/10 text-brand-green w-fit mb-4">
                 <Building2 className="w-5 h-5" />
               </div>
-              <H3 className="text-slate-900 dark:text-white text-base font-bold mb-2">
+              <H4 className="text-slate-900 dark:text-white text-base font-bold mb-2">
                 Account Aggregator Integration
-              </H3>
+              </H4>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 Connect supported accounts securely through India&apos;s RBI-regulated Account Aggregator ecosystem to view balances in one place without sharing credentials.
               </p>
@@ -57,9 +57,9 @@ export const RoadmapSection: React.FC = () => {
               <div className="p-2.5 rounded-xl bg-brand-green/10 text-brand-green w-fit mb-4">
                 <TrendingUp className="w-5 h-5" />
               </div>
-              <H3 className="text-slate-900 dark:text-white text-base font-bold mb-2">
+              <H4 className="text-slate-900 dark:text-white text-base font-bold mb-2">
                 Investment Portfolio Tracking
-              </H3>
+              </H4>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 Connect holdings from supported brokerage platforms to monitor portfolio returns and long-term asset value in one workspace.
               </p>
@@ -83,9 +83,9 @@ export const RoadmapSection: React.FC = () => {
               <div className="p-2.5 rounded-xl bg-teal-500/10 text-teal-500 w-fit mb-4">
                 <Sparkles className="w-5 h-5" />
               </div>
-              <H3 className="text-slate-900 dark:text-white text-base font-bold mb-2">
+              <H4 className="text-slate-900 dark:text-white text-base font-bold mb-2">
                 Proactive Financial Insights
-              </H3>
+              </H4>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 Receive metrics identifying high-interest liabilities, optimization targets, or under-utilized cash buffers.
               </p>
@@ -96,9 +96,9 @@ export const RoadmapSection: React.FC = () => {
               <div className="p-2.5 rounded-xl bg-teal-500/10 text-teal-500 w-fit mb-4">
                 <LineChart className="w-5 h-5" />
               </div>
-              <H3 className="text-slate-900 dark:text-white text-base font-bold mb-2">
+              <H4 className="text-slate-900 dark:text-white text-base font-bold mb-2">
                 Goal-Based Financial Planning
-              </H3>
+              </H4>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 Set savings targets and view customized forecasts showing how allocation adjustments affect timeline outcomes.
               </p>

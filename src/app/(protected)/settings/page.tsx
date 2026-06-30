@@ -53,19 +53,6 @@ export default function SettingsPage() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-8 pb-12">
-      <style>{`
-        .dark {
-          --app-bg: #16181d;
-          --app-surface: #1c1f26;
-          --app-card: #21242d;
-          --app-border: #2a2e3a;
-          --app-accent: #00c896;
-          --app-text: #e2e4ea;
-          --app-muted: #808796;
-          --app-card-hover: #262a35;
-        }
-      `}</style>
-
       <AppPageHeader title="Settings" description="Manage your account and preferences" />
 
       {/* Profile Section */}

@@ -17,6 +17,10 @@ export const H3: React.FC<Props> = ({ children, className }) => (
   <h3 className={`font-sans font-medium text-2xl md:text-3xl ${className}`}>{children}</h3>
 );
 
+export const H4: React.FC<Props> = ({ children, className }) => (
+  <h4 className={`font-sans font-medium text-lg md:text-xl ${className}`}>{children}</h4>
+);
+
 export const Body: React.FC<Props> = ({ children, className }) => (
   <p className={`font-sans text-base md:text-lg leading-relaxed ${className}`}>{children}</p>
 );

@@ -81,7 +81,9 @@ export default function VaultPage() {
               <AppCard>
                 <h2 className="mb-4 font-bold text-app-text">Financial Health</h2>
                 <div className="flex items-end gap-2">
-                  <span className="font-display text-5xl font-extrabold text-app-accent">{healthScore}</span>
+                  <span className="font-display text-5xl font-extrabold text-app-accent">
+                    {typeof healthScore === "number" ? Number(healthScore.toFixed(2)) : healthScore}
+                  </span>
                   <span className="mb-2 text-app-muted">/ 100</span>
                 </div>
                 <div className="mt-4 h-2 overflow-hidden rounded-full bg-app-bg">

@@ -44,7 +44,7 @@ export const TrustDetails: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-12 items-center">
         {/* Visual/Text Column */}
         <div className="w-full lg:w-1/2">
-          <span className="section-label font-bold text-emerald-500">Security First</span>
+          <span className="section-label font-bold text-emerald-700 dark:text-emerald-400">Security First</span>
           <H2 className="text-[#08111A] dark:text-white font-extrabold tracking-tight mb-6 text-balance text-3xl md:text-4xl">
             Your trust is our ultimate benchmark.
           </H2>
