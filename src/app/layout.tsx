@@ -1,20 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google"; // removed Inter font import
+// import { Geist } from "next/font/google"; // removed
 import { AppProviders } from "@/components/providers/app-providers";
 import { ThemeScript } from "@/components/theme/ThemeProvider";
 import { RootChrome } from "@/components/layout/RootChrome";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { organizationJsonLd } from "@/lib/seo/structured-data";
 import { buildPageMetadata, DEFAULT_KEYWORDS } from "@/lib/seo/metadata";
+import "@fontsource/geist";
+import "@fontsource/geist/500.css";
+import "@fontsource/geist/600.css";
+import "@fontsource/geist/700.css";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
+// Font loaded via @fontsource/geist package
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
@@ -45,7 +44,7 @@ export function generateViewport(): Viewport {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" className={inter.variable} suppressHydrationWarning>
+    <html lang="en-IN" suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>

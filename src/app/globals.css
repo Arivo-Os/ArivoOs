@@ -109,7 +109,8 @@
   body {
     background-color: var(--marketing-bg);
     color: var(--marketing-text);
-    @apply font-sans overflow-x-hidden transition-colors duration-200;
+    font-family: "Geist", system-ui, sans-serif;
+    @apply overflow-x-hidden transition-colors duration-200;
   }
 
   *:focus-visible {

@@ -89,8 +89,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["Geist", "system-ui", "sans-serif"],
+        display: ["Geist", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display-lg": ["3rem", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "800" }],
