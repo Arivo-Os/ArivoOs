@@ -76,12 +76,12 @@ export const ProductPreview: React.FC = () => {
   // Render content depending on active tab
   const renderMockup = () => {
     return (
-      <div className="w-full bg-[#08111A] text-white rounded-3xl border border-white/5 p-6 font-sans shadow-2xl relative overflow-hidden animate-fade-in text-left">
+      <div className="w-full bg-[#08111A] text-white rounded-3xl border border-white/5 p-4 sm:p-6 font-sans shadow-2xl relative overflow-hidden animate-fade-in text-left">
         {/* Ambient glow */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
         {/* Top Header */}
-        <div className="flex justify-between items-center pb-5 border-b border-white/5 mb-5">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 pb-5 border-b border-white/5 mb-5">
           <div className={cn(
             "transition-all duration-300 rounded-xl p-2 -m-2",
             activeTab === "net-worth" && "bg-white/5 border border-white/10"
@@ -100,7 +100,7 @@ export const ProductPreview: React.FC = () => {
         </div>
 
         {/* Quick Info Grid */}
-        <div className="grid grid-cols-3 gap-3 mb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
           {/* Card 1 */}
           <div className="bg-white/5 border border-white/5 p-4 rounded-xl flex flex-col justify-between">
             <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">MONTHLY INCOME</span>
@@ -152,7 +152,7 @@ export const ProductPreview: React.FC = () => {
         </div>
 
         {/* Lower Grid */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Goals */}
           <div className="bg-white/5 border border-white/5 p-4 rounded-xl flex flex-col justify-between">
             <div className="flex justify-between items-center mb-4">

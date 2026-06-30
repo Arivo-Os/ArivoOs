@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { 
   TrendingUp, 
   ArrowRight, 
@@ -19,9 +20,11 @@ import { useAuth } from "@/features/auth/context/auth-context";
 import { useDashboard, useGoals, useVault } from "@/features/app/hooks/use-app-data";
 import { formatINR } from "@/lib/utils/app";
 import { getApiErrorMessage } from "@/services/errors";
+import { setFlowQuestion } from "@/lib/onboarding/flow-questions";
 
 export default function LifePage() {
   const { user } = useAuth();
+  const router = useRouter();
   const dashboard = useDashboard();
   const goals = useGoals();
   const vault = useVault();
@@ -161,7 +164,8 @@ export default function LifePage() {
             onSubmit={(e) => {
               e.preventDefault();
               if (askInput.trim()) {
-                window.location.href = `/veris/?q=${encodeURIComponent(askInput)}`;
+                setFlowQuestion(askInput);
+                router.push("/veris");
               }
             }}
             className="flex gap-2"

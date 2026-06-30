@@ -23,7 +23,9 @@ function AppLayoutInner({ children }: { children: React.ReactNode }) {
     <div className="app-shell-bg flex h-screen overflow-hidden text-app-text">
       <AppSidebar />
       <div className="flex flex-1 flex-col overflow-hidden">
-        <AppTopBar />
+        <div className={isVeris ? "lg:hidden" : ""}>
+          <AppTopBar />
+        </div>
         {isVeris ? (
           /* Veris gets full-screen, no padding, no max-width */
           <main className="flex-1 overflow-hidden">
