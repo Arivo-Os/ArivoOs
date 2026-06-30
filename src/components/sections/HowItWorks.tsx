@@ -55,10 +55,10 @@ export const HowItWorks: React.FC = () => {
         {steps.map((step, index) => {
           const IconComponent = step.icon;
           return (
-            <div key={index} className="flex flex-col items-center md:items-start text-center md:text-left bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl relative shadow-sm hover:shadow-md transition-shadow">
+            <div key={index} className="flex flex-col items-center md:items-start text-center md:text-left bg-surface border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl relative shadow-sm hover:shadow-md transition-shadow">
               {/* Number and Icon Header */}
               <div className="flex justify-between items-center w-full mb-6">
-                <div className="p-3 bg-brand-green/10 text-brand-green rounded-xl">
+                <div className="p-3 bg-accent-primary/10 text-accent-primary rounded-xl">
                   <IconComponent className="w-6 h-6" />
                 </div>
                 <span className="text-4xl font-extrabold text-slate-200 dark:text-slate-800 font-mono">

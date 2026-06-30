@@ -9,13 +9,13 @@ export const HeroSection: React.FC = () => {
   return (
     <section id="hero" className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-32 bg-[#08111A] text-white">
       {/* Dynamic ambient gradients */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-green/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-accent-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-20 right-[10%] w-[350px] h-[350px] bg-teal-500/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 text-center max-w-5xl relative z-10">
         {/* Release Pill Tag */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300 font-semibold mb-6">
-          <span className="w-1.5 h-1.5 bg-brand-green rounded-full animate-pulse" />
+          <span className="w-1.5 h-1.5 bg-accent-positive rounded-full animate-pulse" />
           Closed Beta now on Google Play
         </div>
 
@@ -32,7 +32,7 @@ export const HeroSection: React.FC = () => {
         <div className="flex justify-center mb-16">
           <Link
             href="/login/"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-green text-[#08111A] font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-emerald-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent-primary text-[#08111A] font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
           >
             Try Arivo Free <ArrowRight className="w-4 h-4" />
           </Link>
@@ -60,7 +60,7 @@ export const HeroSection: React.FC = () => {
               {/* Sidebar navigation */}
               <div className="w-1/5 border-r border-white/5 pr-4 flex flex-col justify-between py-2 text-[11px] text-slate-400">
                 <div className="space-y-3">
-                  <div className="bg-brand-green/10 text-brand-green font-bold px-2 py-1 rounded-md">Dashboard</div>
+                  <div className="bg-accent-primary/10 text-accent-primary font-bold px-2 py-1 rounded-md">Dashboard</div>
                   <div className="px-2">Profile</div>
                   <div className="px-2">Goals & Activity</div>
                   <div className="px-2">Settings</div>
@@ -78,7 +78,7 @@ export const HeroSection: React.FC = () => {
                     <span className="text-[10px] text-slate-400 font-semibold block uppercase tracking-wider">Net Worth</span>
                     <span className="text-2xl font-bold text-white block mt-0.5">₹2,96,650</span>
                   </div>
-                  <span className="text-[10px] bg-brand-green/15 text-brand-green px-2 py-0.5 rounded-full border border-brand-green/20">
+                  <span className="text-[10px] bg-accent-primary/15 text-accent-primary px-2 py-0.5 rounded-full border border-accent-primary/20">
                     Insights Ready
                   </span>
                 </div>
@@ -91,7 +91,7 @@ export const HeroSection: React.FC = () => {
                   </div>
                   <div className="bg-white/5 border border-white/5 p-3 rounded-xl">
                     <span className="text-[9px] text-slate-400 block font-medium">SAVINGS RATE</span>
-                    <span className="text-sm font-bold text-brand-green mt-1 block">67%</span>
+                    <span className="text-sm font-bold text-accent-positive mt-1 block">67%</span>
                   </div>
                   <div className="bg-white/5 border border-white/5 p-3 rounded-xl">
                     <span className="text-[9px] text-slate-400 block font-medium">MONTHLY SPENDING</span>
@@ -110,8 +110,8 @@ export const HeroSection: React.FC = () => {
                     {/* Simulated vector line graph */}
                     <svg className="absolute inset-0 w-full h-full p-2 overflow-visible" preserveAspectRatio="none">
                       <path d="M 0 50 Q 80 40 160 35 T 320 20 T 480 10 L 480 60 L 0 60 Z" fill="rgba(34, 197, 94, 0.04)" />
-                      <path d="M 0 50 Q 80 40 160 35 T 320 20 T 480 10" fill="none" stroke="#22c55e" strokeWidth="2.5" />
-                      <circle cx="320" cy="20" r="3.5" fill="#22c55e" />
+                      <path d="M 0 50 Q 80 40 160 35 T 320 20 T 480 10" fill="none" stroke="#4ADE80" strokeWidth="2.5" />
+                      <circle cx="320" cy="20" r="3.5" fill="#4ADE80" />
                     </svg>
                     <div className="text-[8px] text-slate-500 z-10">M1</div>
                     <div className="text-[8px] text-slate-500 z-10">M2</div>

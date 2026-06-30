@@ -3,13 +3,7 @@ export type Theme = "light" | "dark";
 export const THEME_STORAGE_KEY = "arivo-theme";
 
 export function getStoredTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-  try {
-    const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    return stored === "dark" ? "dark" : "light";
-  } catch {
-    return "light";
-  }
+  return "dark";
 }
 
 export function setStoredTheme(theme: Theme) {
@@ -17,6 +11,6 @@ export function setStoredTheme(theme: Theme) {
 }
 
 export function applyTheme(theme: Theme) {
-  document.documentElement.classList.toggle("dark", theme === "dark");
-  document.documentElement.style.colorScheme = theme;
+  document.documentElement.classList.add("dark");
+  document.documentElement.style.colorScheme = "dark";
 }

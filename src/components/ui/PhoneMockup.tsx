@@ -46,15 +46,15 @@ function DashboardScreen({ assistantName }: { assistantName: string }) {
       <div className="mb-4 grid grid-cols-2 gap-2">
         <div className="rounded-xl bg-white/5 p-3">
           <p className="text-[10px] text-white/45">Income</p>
-          <p className="text-sm font-bold text-brand-green">₹75,000</p>
+          <p className="text-sm font-bold text-accent-primary">₹75,000</p>
         </div>
         <div className="rounded-xl bg-white/5 p-3">
           <p className="text-[10px] text-white/45">Expenses</p>
           <p className="text-sm font-bold text-white/90">₹25,000</p>
         </div>
       </div>
-      <div className="mb-4 rounded-xl border border-brand-green/25 bg-brand-green/10 p-3">
-        <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-brand-green">Ask {assistantName}</p>
+      <div className="mb-4 rounded-xl border border-accent-primary/25 bg-accent-primary/10 p-3">
+        <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-accent-primary">Ask {assistantName}</p>
         <p className="text-xs leading-relaxed text-white/75">Can I afford a Europe trip this year?</p>
       </div>
       <div>
@@ -67,10 +67,10 @@ function DashboardScreen({ assistantName }: { assistantName: string }) {
             <div key={g.name} className="rounded-lg bg-white/5 p-2.5">
               <div className="mb-1.5 flex justify-between text-[10px]">
                 <span className="text-white/75">{g.name}</span>
-                <span className="font-semibold text-brand-green">{g.pct}%</span>
+                <span className="font-semibold text-accent-primary">{g.pct}%</span>
               </div>
               <div className="h-1 overflow-hidden rounded-full bg-white/10">
-                <div className="h-full rounded-full bg-brand-green" style={{ width: `${g.pct}%` }} />
+                <div className="h-full rounded-full bg-accent-primary" style={{ width: `${g.pct}%` }} />
               </div>
             </div>
           ))}
@@ -84,13 +84,13 @@ function ChatScreen({ assistantName }: { assistantName: string }) {
   return (
     <>
       <div className="mb-4 flex items-center gap-2">
-        <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-brand-green/20 text-[10px] font-bold text-brand-green">
+        <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-accent-primary/20 text-[10px] font-bold text-accent-primary">
           {assistantName.charAt(0)}
         </span>
         <span className="text-sm font-semibold">Ask {assistantName}</span>
       </div>
       <div className="mb-3 flex justify-end">
-        <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-brand-green px-3 py-2 text-[11px] font-medium text-[#08111A]">
+        <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-accent-primary px-3 py-2 text-[11px] font-medium text-[#08111A]">
           Should I buy a car worth ₹8L right now?
         </div>
       </div>
@@ -98,7 +98,7 @@ function ChatScreen({ assistantName }: { assistantName: string }) {
         <p className="mb-2 text-[11px] leading-relaxed text-white/80">
           Based on your savings and EMI capacity, I&apos;d recommend waiting 3 months to strengthen your emergency fund first.
         </p>
-        <p className="text-[10px] font-semibold text-brand-green">Medium risk · 74% confidence</p>
+        <p className="text-[10px] font-semibold text-accent-primary">Medium risk · 74% confidence</p>
       </div>
       <div className="rounded-xl border border-white/10 bg-white/5 p-3">
         <p className="mb-2 text-[10px] text-white/45">Suggested questions</p>
@@ -128,10 +128,10 @@ function GoalsScreen() {
               <p className="text-xs font-semibold">{g.name}</p>
               <p className="text-[10px] text-white/45">Target {g.target}</p>
             </div>
-            <span className="rounded-full bg-brand-green/15 px-2 py-0.5 text-[9px] font-semibold text-brand-green">{g.pct}%</span>
+            <span className="rounded-full bg-accent-primary/15 px-2 py-0.5 text-[9px] font-semibold text-accent-primary">{g.pct}%</span>
           </div>
           <div className="mb-2 h-1.5 overflow-hidden rounded-full bg-white/10">
-            <div className="h-full rounded-full bg-gradient-to-r from-brand-green to-brand-teal" style={{ width: `${g.pct}%` }} />
+            <div className="h-full rounded-full bg-gradient-to-r from-accent-primary to-brand-teal" style={{ width: `${g.pct}%` }} />
           </div>
           <div className="flex justify-between text-[10px] text-white/45">
             <span>Saved {g.saved}</span>

@@ -9,6 +9,7 @@ import { PageError, PageLoading } from "@/components/app/PageStates";
 import { Badge } from "@/components/ui/badge";
 import { useVault } from "@/features/app/hooks/use-app-data";
 import { formatINR } from "@/lib/utils/app";
+import { getHealthScoreTextColor, getHealthScoreBgColor } from "@/lib/utils";
 import { getApiErrorMessage } from "@/services/errors";
 
 export default function VaultPage() {
@@ -81,13 +82,13 @@ export default function VaultPage() {
               <div className="bg-app-surface border border-app-border rounded-2xl p-6 shadow-sm">
                 <h2 className="mb-4 font-bold text-app-text">Financial Health</h2>
                 <div className="flex items-end gap-2">
-                  <span className="font-display text-5xl font-extrabold text-app-accent">
+                  <span className={`font-display text-5xl font-extrabold ${getHealthScoreTextColor(healthScore)}`}>
                     {typeof healthScore === "number" ? Number(healthScore.toFixed(2)) : healthScore}
                   </span>
                   <span className="mb-2 text-app-muted">/ 100</span>
                 </div>
                 <div className="mt-4 h-2 overflow-hidden rounded-full bg-app-bg">
-                  <div className="h-full rounded-full bg-app-accent" style={{ width: `${healthScore}%` }} />
+                  <div className={`h-full rounded-full ${getHealthScoreBgColor(healthScore)}`} style={{ width: `${healthScore}%` }} />
                 </div>
               </div>
             )}

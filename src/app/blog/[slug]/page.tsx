@@ -47,7 +47,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     <main className="bg-page">
       <JsonLd id={`jsonld-article-${post.slug}`} data={articleJsonLd(post)} />
 
-      <article className="border-b border-ink/5 bg-white pt-32 pb-12">
+      <article className="border-b border-ink/5 bg-page pt-32 pb-12">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -57,7 +57,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             ]}
           />
 
-          <span className="mb-4 inline-block rounded-full bg-brand-green/10 px-3 py-1 text-xs font-semibold text-brand-green">
+          <span className="mb-4 inline-block rounded-full bg-accent-primary/10 px-3 py-1 text-xs font-semibold text-accent-primary">
             {post.tag}
           </span>
 
@@ -81,13 +81,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           <nav aria-label="Table of contents" className="mb-10 rounded-2xl border border-ink/10 bg-page p-6">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-brand-green">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-accent-primary">
               In this article
             </p>
             <ol className="space-y-2 text-sm">
               {post.sections.map((s) => (
                 <li key={s.id}>
-                  <a href={`#${s.id}`} className="text-ink-muted transition-colors hover:text-brand-green">
+                  <a href={`#${s.id}`} className="text-ink-muted transition-colors hover:text-accent-primary">
                     {s.heading}
                   </a>
                 </li>
@@ -112,10 +112,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
 
-          <div className="mt-12 rounded-2xl border border-brand-green/20 bg-brand-green/5 p-6">
+          <div className="mt-12 rounded-2xl border border-accent-primary/20 bg-accent-primary/5 p-6">
             <p className="mb-4 text-sm text-ink-muted">
               Read the full article on Medium or explore more on the{" "}
-              <Link href="/blog/" className="font-medium text-brand-green hover:underline">Arivo blog</Link>.
+              <Link href="/blog/" className="font-medium text-accent-primary hover:underline">Arivo blog</Link>.
             </p>
             <Button asChild>
               <a href={post.href} target="_blank" rel="noopener noreferrer">
@@ -128,12 +128,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             {prev ? (
               <Link
                 href={`/blog/${prev.slug}/`}
-                className="group flex items-start gap-3 rounded-2xl bg-white p-5 shadow-card transition-all hover:-translate-y-0.5"
+                className="group flex items-start gap-3 rounded-2xl bg-page p-5 shadow-card transition-all hover:-translate-y-0.5"
               >
-                <ArrowLeft className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" aria-hidden="true" />
+                <ArrowLeft className="mt-0.5 h-4 w-4 shrink-0 text-accent-primary" aria-hidden="true" />
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Previous</span>
-                  <p className="text-sm font-semibold text-ink group-hover:text-brand-green">{prev.title}</p>
+                  <p className="text-sm font-semibold text-ink group-hover:text-accent-primary">{prev.title}</p>
                 </div>
               </Link>
             ) : (
@@ -142,13 +142,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             {next ? (
               <Link
                 href={`/blog/${next.slug}/`}
-                className="group flex items-start justify-end gap-3 rounded-2xl bg-white p-5 text-right shadow-card transition-all hover:-translate-y-0.5 sm:col-start-2"
+                className="group flex items-start justify-end gap-3 rounded-2xl bg-page p-5 text-right shadow-card transition-all hover:-translate-y-0.5 sm:col-start-2"
               >
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-wider text-ink-muted">Next</span>
-                  <p className="text-sm font-semibold text-ink group-hover:text-brand-green">{next.title}</p>
+                  <p className="text-sm font-semibold text-ink group-hover:text-accent-primary">{next.title}</p>
                 </div>
-                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" aria-hidden="true" />
+                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-accent-primary" aria-hidden="true" />
               </Link>
             ) : null}
           </nav>
@@ -164,9 +164,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   <Link
                     key={related.slug}
                     href={`/blog/${related.slug}/`}
-                    className="rounded-2xl bg-white p-5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)]"
+                    className="rounded-2xl bg-page p-5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)]"
                   >
-                    <span className="mb-2 block text-xs font-semibold text-brand-green">{related.tag}</span>
+                    <span className="mb-2 block text-xs font-semibold text-accent-primary">{related.tag}</span>
                     <p className="font-semibold text-ink">{related.title}</p>
                   </Link>
                 ))}

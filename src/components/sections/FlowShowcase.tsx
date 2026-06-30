@@ -58,7 +58,7 @@ export function FlowShowcase({
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className={reverse ? "lg:order-1" : ""}
         >
-          {label && <span className={cn("section-label", dark && "text-brand-green")}>{label}</span>}
+          {label && <span className={cn("section-label", dark && "text-accent-primary")}>{label}</span>}
           <h2
             id={id ? `${id}-heading` : undefined}
             className={cn(

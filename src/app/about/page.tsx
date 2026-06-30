@@ -77,8 +77,8 @@ export default function AboutPage() {
             </div>
             <div className="grid gap-4">
               {stats.map((stat) => (
-                <div key={stat.value} className="rounded-2xl bg-white p-6 shadow-card">
-                  <span className="mb-1 block font-display text-lg font-extrabold text-brand-green">
+                <div key={stat.value} className="rounded-2xl bg-surface p-6 shadow-card">
+                  <span className="mb-1 block font-display text-lg font-extrabold text-accent-primary">
                     {stat.value}
                   </span>
                   <span className="text-sm text-ink-muted">{stat.label}</span>
@@ -99,8 +99,8 @@ export default function AboutPage() {
           </Reveal>
           <Reveal stagger className="grid gap-5 sm:grid-cols-2">
             {pillars.map((pillar) => (
-              <article key={pillar.num} className="rounded-2xl bg-white p-7 shadow-card transition-all hover:-translate-y-0.5">
-                <span className="mb-3 block font-display text-sm font-extrabold text-brand-green">
+              <article key={pillar.num} className="rounded-2xl bg-surface p-7 shadow-card transition-all hover:-translate-y-0.5">
+                <span className="mb-3 block font-display text-sm font-extrabold text-accent-primary">
                   {pillar.num}
                 </span>
                 <h3 className="mb-2 font-display text-lg font-bold text-ink">{pillar.title}</h3>
@@ -126,7 +126,7 @@ export default function AboutPage() {
                 Arivo exists to close that gap. One intelligent answer, grounded in your finances and goals — before the decision becomes a regret.
               </p>
             </div>
-            <blockquote className="rounded-2xl border border-brand-green/20 bg-brand-green/5 p-8">
+            <blockquote className="rounded-2xl border border-accent-primary/20 bg-accent-primary/5 p-8">
               <p className="font-display text-xl font-bold leading-snug text-ink">
                 Think of Arivo as the <strong>operating system for money choices</strong> that actually matter.
               </p>
@@ -155,7 +155,7 @@ export default function AboutPage() {
               </Button>
             </div>
 
-            <div className="mt-12 mx-auto max-w-2xl rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-left text-xs leading-relaxed text-[#475569] flex items-start gap-2">
+            <div className="mt-12 mx-auto max-w-2xl rounded-xl border border-app-border bg-app-bg p-4 text-left text-xs leading-relaxed text-app-muted flex items-start gap-2">
               <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0 mt-0.5" />
               <span><strong>Disclaimer:</strong> Arivo is currently in Beta and may occasionally generate inaccurate or incomplete information. Always verify important financial decisions with a qualified financial advisor. Arivo is not a SEBI-registered investment advisor and does not provide investment advice.</span>
             </div>

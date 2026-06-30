@@ -21,9 +21,6 @@ export function Footer() {
       <div className="mx-auto grid max-w-container gap-10 px-6 py-16 lg:grid-cols-3 lg:px-8">
         <div>
           <div className="mb-3 flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-green text-sm font-extrabold text-[#08111A]">
-              A
-            </span>
             <span className="text-lg font-bold">Arivo</span>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-white/55">
@@ -39,7 +36,7 @@ export function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-white/55 transition-colors hover:text-brand-green"
+              className="text-sm text-white/55 transition-colors hover:text-accent-primary"
             >
               {link.label}
             </Link>
@@ -49,7 +46,7 @@ export function Footer() {
         <div className="flex flex-col gap-3 text-sm lg:items-end">
           <a
             href={SITE_URL}
-            className="inline-flex items-center gap-2 text-white/55 transition-colors hover:text-brand-green"
+            className="inline-flex items-center gap-2 text-white/55 transition-colors hover:text-accent-primary"
           >
             <Globe className="h-4 w-4" aria-hidden="true" />
             arivoai.in
@@ -58,7 +55,7 @@ export function Footer() {
             href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-white/55 transition-colors hover:text-brand-green"
+            className="inline-flex items-center gap-2 text-white/55 transition-colors hover:text-accent-primary"
           >
             <Linkedin className="h-4 w-4" aria-hidden="true" />
             LinkedIn
@@ -73,7 +70,7 @@ export function Footer() {
           </p>
           <div>
             © 2026 Arivo · Made with{" "}
-            <Heart className="inline h-3.5 w-3.5 fill-brand-green text-brand-green" aria-hidden="true" /> in India
+            <Heart className="inline h-3.5 w-3.5 fill-accent-positive text-accent-positive" aria-hidden="true" /> in India
           </div>
         </div>
       </div>

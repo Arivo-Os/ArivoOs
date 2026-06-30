@@ -55,7 +55,7 @@ export function Product() {
   };
 
   return (
-    <section id="product" aria-labelledby="product-heading" className="bg-white py-24 lg:py-28">
+    <section id="product" aria-labelledby="product-heading" className="bg-surface py-24 lg:py-28">
       <div className="mx-auto max-w-container px-7">
         <Reveal className="mb-12 max-w-2xl">
           <span className="section-label">Decision Engine</span>

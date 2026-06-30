@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       subtitle="Effective Date: June 2026"
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]}
     >
-      <div className="callout p-5 sm:p-6 mb-8 border-l-4 border-brand-green/70 bg-brand-green/[0.03]">
+      <div className="callout p-5 sm:p-6 mb-8 border-l-4 border-accent-primary/70 bg-accent-primary/[0.03]">
         <p className="text-sm leading-relaxed text-app-muted">
           <strong>Privacy Commitment:</strong> Arivo values the privacy of your financial data. We do not sell your personal or financial information, and we utilize encryption in transit and secure databases to protect your profile.
         </p>
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
         <p>
           Your conversation logs are securely stored to enable chat continuity and history tracking in your account.
         </p>
-        <p className="font-medium text-brand-green bg-brand-green/[0.02] p-4 rounded border border-brand-green/10">
+        <p className="font-medium text-accent-primary bg-accent-primary/[0.02] p-4 rounded border border-accent-primary/10">
           <strong>Privacy Tip:</strong> Because Arivo is currently in Beta, conversation logs are monitored and analyzed strictly for the purpose of improving AI accuracy. Please do not share highly sensitive personally identifiable details (such as account passwords, credit card numbers, or PINs) in your chat threads.
         </p>
       </LegalSection>
@@ -141,7 +141,7 @@ export default function PrivacyPage() {
           {" "}
           <Link
             href="mailto:hello@arivoai.in"
-            className="link-accent font-medium text-brand-green hover:underline"
+            className="link-accent font-medium text-accent-primary hover:underline"
           >
             hello@arivoai.in
           </Link>

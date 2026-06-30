@@ -64,15 +64,15 @@ export const ComparisonSection: React.FC = () => {
         </Card>
 
         {/* Value props card */}
-        <Card className="bg-white dark:bg-slate-900 border-brand-green/30 dark:border-brand-green/20 p-8 rounded-2xl flex flex-col justify-between shadow-lg relative overflow-hidden">
+        <Card className="bg-surface border-accent-primary/30 dark:border-accent-primary/20 p-8 rounded-2xl flex flex-col justify-between shadow-lg relative overflow-hidden">
           {/* Subtle top decoration badge */}
-          <div className="absolute top-0 right-0 bg-brand-green text-[#08111A] text-[10px] font-bold px-3 py-1 rounded-bl-xl tracking-wider uppercase">
+          <div className="absolute top-0 right-0 bg-accent-primary text-[#08111A] text-[10px] font-bold px-3 py-1 rounded-bl-xl tracking-wider uppercase">
             Recommended
           </div>
           
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center font-bold">
+              <div className="w-8 h-8 rounded-full bg-accent-primary/10 text-accent-primary flex items-center justify-center font-bold">
                 <Check className="w-5 h-5" />
               </div>
               <H3 className="text-slate-900 dark:text-white text-xl font-bold">
@@ -82,7 +82,7 @@ export const ComparisonSection: React.FC = () => {
             <ul className="space-y-4">
               {valueProps.map((prop, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <span className="mt-1 text-brand-green font-semibold flex-shrink-0">
+                  <span className="mt-1 text-accent-primary font-semibold flex-shrink-0">
                     <Check className="w-4 h-4" />
                   </span>
                   <span className="text-sm text-slate-800 dark:text-slate-300 font-medium leading-relaxed">
@@ -92,7 +92,7 @@ export const ComparisonSection: React.FC = () => {
               ))}
             </ul>
           </div>
-          <div className="mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800/50 text-xs text-brand-green/90 font-medium">
+          <div className="mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800/50 text-xs text-accent-primary/90 font-medium">
             Automated, secure, and easy to use.
           </div>
         </Card>

@@ -59,13 +59,13 @@ export default function ComparePage({ params }: ComparePageProps) {
             </p>
           </div>
 
-          <div className="mb-16 overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-card">
+          <div className="mb-16 overflow-hidden rounded-2xl border border-ink/10 bg-surface shadow-card">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead className="bg-ink/5">
                   <tr>
                     <th className="p-4 font-semibold text-ink sm:p-6">Feature</th>
-                    <th className="p-4 font-semibold text-brand-green sm:p-6">Arivo</th>
+                    <th className="p-4 font-semibold text-accent-primary sm:p-6">Arivo</th>
                     <th className="p-4 font-semibold text-ink-muted sm:p-6">{competitor.name}</th>
                   </tr>
                 </thead>
@@ -76,7 +76,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                       <td className="p-4 font-semibold text-ink sm:p-6">
                         {typeof feature.arivo === "boolean" ? (
                           feature.arivo ? (
-                            <Check className="h-5 w-5 text-brand-green" />
+                            <Check className="h-5 w-5 text-accent-primary" />
                           ) : (
                             <X className="h-5 w-5 text-red-500" />
                           )
@@ -87,7 +87,7 @@ export default function ComparePage({ params }: ComparePageProps) {
                       <td className="p-4 text-ink-muted sm:p-6">
                         {typeof feature.competitor === "boolean" ? (
                           feature.competitor ? (
-                            <Check className="h-5 w-5 text-brand-green" />
+                            <Check className="h-5 w-5 text-accent-primary" />
                           ) : (
                             <X className="h-5 w-5 text-red-500" />
                           )

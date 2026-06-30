@@ -42,7 +42,7 @@ export default function GlossaryTermPage({ params }: GlossaryTermPageProps) {
             ]}
           />
 
-          <Link href="/glossary" className="mt-8 mb-6 inline-flex items-center text-sm font-semibold text-brand-green hover:underline">
+          <Link href="/glossary" className="mt-8 mb-6 inline-flex items-center text-sm font-semibold text-accent-primary hover:underline">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Glossary
           </Link>
 
@@ -58,8 +58,8 @@ export default function GlossaryTermPage({ params }: GlossaryTermPageProps) {
               </p>
             </section>
 
-            <section className="mt-12 rounded-2xl border border-brand-green/20 bg-brand-green/5 p-8">
-              <div className="mb-4 flex items-center gap-2 text-brand-green">
+            <section className="mt-12 rounded-2xl border border-accent-primary/20 bg-accent-primary/5 p-8">
+              <div className="mb-4 flex items-center gap-2 text-accent-primary">
                 <Sparkles className="h-5 w-5" />
                 <h2 className="font-display text-lg font-bold">The Arivo Context</h2>
               </div>

@@ -71,7 +71,7 @@ export default function LifePage() {
         {/* Card 2 */}
         <div className="bg-app-surface border border-app-border p-5 rounded-2xl flex flex-col justify-between">
           <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider block">SAVINGS RATE</span>
-          <span className="text-lg font-bold text-app-accent mt-2 block">{savingsRate}%</span>
+          <span className="text-lg font-bold text-app-success mt-2 block">{savingsRate}%</span>
         </div>
         {/* Card 3 */}
         <div className="bg-app-surface border border-app-border p-5 rounded-2xl flex flex-col justify-between">
@@ -90,11 +90,11 @@ export default function LifePage() {
             <div className="border-b border-app-text w-full" />
           </div>
           {/* Simulated premium vector curve */}
-          <svg className="absolute inset-0 w-full h-full p-2 overflow-visible" preserveAspectRatio="none">
-            <path d="M 0 80 Q 150 70 300 60 T 600 40 T 900 20 L 900 120 L 0 120 Z" fill="var(--app-accent-muted)" />
-            <path d="M 0 80 Q 150 70 300 60 T 600 40 T 900 20" fill="none" stroke="var(--app-accent)" strokeWidth="2.5" />
-            <circle cx="600" cy="40" r="4" fill="var(--app-accent)" />
-            <circle cx="900" cy="20" r="4" fill="var(--app-accent)" />
+          <svg className="absolute inset-0 w-full h-full p-2 overflow-visible" preserveAspectRatio="none" viewBox="0 0 900 120">
+            <path d="M 0 80 Q 150 70 300 60 T 600 40 T 900 20 L 900 120 L 0 120 Z" fill="var(--app-success)" fillOpacity="0.1" />
+            <path d="M 0 80 Q 150 70 300 60 T 600 40 T 900 20" fill="none" stroke="var(--app-success)" strokeWidth="2.5" />
+            <circle cx="600" cy="40" r="4" fill="var(--app-success)" />
+            <circle cx="900" cy="20" r="4" fill="var(--app-success)" />
           </svg>
           <div className="text-[9px] text-app-muted font-semibold z-10">M1</div>
           <div className="text-[9px] text-app-muted font-semibold z-10">M2</div>
@@ -128,7 +128,7 @@ export default function LifePage() {
                   </div>
                   <div className="h-1.5 overflow-hidden rounded-full bg-app-border">
                     <div
-                      className="h-full rounded-full bg-app-accent"
+                      className="h-full rounded-full bg-app-success"
                       style={{ width: `${g.percentComplete}%` }}
                     />
                   </div>

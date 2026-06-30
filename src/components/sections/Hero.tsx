@@ -80,14 +80,14 @@ export function Hero() {
             {!isLoading && isAuthenticated ? (
               <Link
                 href="/life/"
-                className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
+                className="inline-flex h-12 items-center rounded-full bg-accent-primary px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
               >
                 Use Arivo
               </Link>
             ) : (
               <Link
                 href="#get-started"
-                className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
+                className="inline-flex h-12 items-center rounded-full bg-accent-primary px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg hover:animate-glow-pulse"
               >
                 Use Arivo
               </Link>
@@ -125,7 +125,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="relative mx-auto w-full max-w-[360px] lg:max-w-none"
         >
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-green/20 blur-[80px]" aria-hidden="true" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-primary/20 blur-[80px]" aria-hidden="true" />
 
           {floatCards.map((card) => {
             const Icon = card.icon;
@@ -134,7 +134,7 @@ export function Hero() {
                 key={card.label}
                 className={`glass-dark pointer-events-none absolute z-10 hidden rounded-xl px-3 py-2.5 sm:flex sm:items-center sm:gap-2.5 ${card.className}`}
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-brand-green/15 text-brand-green">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-accent-primary/15 text-accent-primary">
                   <Icon className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
                 </span>
                 <div>

@@ -25,13 +25,13 @@ export function GetStarted() {
         <MotionReveal>
           <div className="relative overflow-hidden rounded-3xl hero-gradient p-10 sm:p-14 lg:p-16">
             <div
-              className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-green/30 shadow-[inset_0_0_60px_rgba(34,197,94,0.08)]"
+              className="pointer-events-none absolute inset-0 rounded-3xl border border-accent-primary/30 shadow-[inset_0_0_60px_rgba(245,166,35,0.08)]"
               aria-hidden="true"
             />
-            <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand-green/15 blur-3xl" aria-hidden="true" />
+            <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-accent-primary/15 blur-3xl" aria-hidden="true" />
 
             <div className="relative mx-auto max-w-2xl text-center">
-              <span className="section-label text-brand-green">Use Arivo</span>
+              <span className="section-label text-accent-primary">Use Arivo</span>
               {!isLoading && isAuthenticated ? (
                 <>
                   <h2
@@ -46,7 +46,7 @@ export function GetStarted() {
                   <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                     <Link
                       href="/life/"
-                      className="inline-flex h-14 items-center gap-2 rounded-full bg-brand-green px-8 text-base font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
+                      className="inline-flex h-14 items-center gap-2 rounded-full bg-accent-primary px-8 text-base font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
                     >
                       Use Arivo
                       <ArrowRight className="h-4 w-4" />
@@ -77,7 +77,7 @@ export function GetStarted() {
                     <button
                       type="button"
                       onClick={continueToSignIn}
-                      className="inline-flex h-14 items-center gap-2 rounded-full bg-brand-green px-8 text-base font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
+                      className="inline-flex h-14 items-center gap-2 rounded-full bg-accent-primary px-8 text-base font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
                     >
                       Try Arivo Free
                       <ArrowRight className="h-4 w-4" />
@@ -86,7 +86,7 @@ export function GetStarted() {
 
                   <p className="mt-6 text-sm text-white/40">
                     Already have an account?{" "}
-                    <Link href="/login/" className="text-brand-green hover:underline">
+                    <Link href="/login/" className="text-accent-primary hover:underline">
                       Sign in
                     </Link>
                   </p>

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/features/auth/context/auth-context";
 
@@ -45,7 +44,6 @@ export function MarketingNav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
           {!isLoading && isAuthenticated ? (
             <Link
               href="/life/"

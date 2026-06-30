@@ -56,7 +56,7 @@ export const SocialProof: React.FC = () => {
           {brandLogos.map((brand, idx) => (
             <span 
               key={idx} 
-              className="text-lg md:text-xl font-bold font-mono tracking-tight text-slate-700 dark:text-slate-300 hover:text-brand-green hover:opacity-100 transition-all duration-200 cursor-default"
+              className="text-lg md:text-xl font-bold font-mono tracking-tight text-slate-700 dark:text-slate-300 hover:text-accent-primary hover:opacity-100 transition-all duration-200 cursor-default"
             >
               {brand.text}
             </span>
@@ -78,7 +78,7 @@ export const SocialProof: React.FC = () => {
       {/* Testimonials Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {testimonials.map((t, idx) => (
-          <Card key={idx} className="bg-white dark:bg-slate-900 border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl flex flex-col justify-between hover:border-brand-green/30">
+          <Card key={idx} className="bg-surface border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl flex flex-col justify-between hover:border-accent-primary/30">
             <div>
               <div className="flex gap-1 text-amber-500 mb-4">
                 {[...Array(t.rating)].map((_, i) => (

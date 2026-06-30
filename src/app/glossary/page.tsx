@@ -34,17 +34,17 @@ export default function GlossaryIndexPage() {
               <Link
                 key={item.slug}
                 href={`/glossary/${item.slug}`}
-                className="group flex flex-col justify-between rounded-2xl bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-glow"
+                className="group flex flex-col justify-between rounded-2xl bg-surface p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-glow"
               >
                 <div>
-                  <h2 className="mb-3 font-display text-xl font-bold text-ink group-hover:text-brand-green transition-colors">
+                  <h2 className="mb-3 font-display text-xl font-bold text-ink group-hover:text-accent-primary transition-colors">
                     {item.term}
                   </h2>
                   <p className="line-clamp-3 text-sm leading-relaxed text-ink-muted">
                     {item.definition}
                   </p>
                 </div>
-                <div className="mt-6 flex items-center font-semibold text-brand-green text-sm">
+                <div className="mt-6 flex items-center font-semibold text-accent-primary text-sm">
                   Read more <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </Link>

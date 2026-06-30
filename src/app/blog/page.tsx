@@ -37,12 +37,12 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}/`}
-                className="group flex flex-col rounded-2xl bg-white p-7 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)]"
+                className="group flex flex-col rounded-2xl bg-surface p-7 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)]"
               >
-                <span className="mb-3 inline-block w-fit rounded-full bg-brand-green/10 px-3 py-1 text-[11px] font-semibold text-brand-green">
+                <span className="mb-3 inline-block w-fit rounded-full bg-accent-primary/10 px-3 py-1 text-[11px] font-semibold text-accent-primary">
                   {post.tag}
                 </span>
-                <h2 className="mb-2 font-display text-lg font-bold leading-snug text-ink group-hover:text-brand-green">
+                <h2 className="mb-2 font-display text-lg font-bold leading-snug text-ink group-hover:text-accent-primary">
                   {post.title}
                 </h2>
                 <p className="mb-4 flex-1 text-sm leading-relaxed text-ink-muted">{post.excerpt}</p>

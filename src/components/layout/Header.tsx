@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { useTheme } from "@/features/theme/theme-context";
 import { useAuth } from "@/features/auth/context/auth-context";
 
@@ -19,9 +18,6 @@ const navLinks = [
 function Logo({ light }: { light?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2.5" aria-label="Arivo home">
-      <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand-green text-sm font-extrabold text-[#08111A] shadow-glow">
-        A
-      </span>
       <span className={cn("text-lg font-bold tracking-tight", light ? "text-white" : "text-ink")}>
         Arivo
       </span>
@@ -90,8 +86,8 @@ export function Header() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-brand-green",
-                menuOpen && "w-full rounded-lg px-3 py-2.5 hover:bg-brand-green/10",
+                "text-sm font-medium transition-colors hover:text-accent-primary",
+                menuOpen && "w-full rounded-lg px-3 py-2.5 hover:bg-accent-primary-muted",
                 onHero ? "text-white/70" : "text-ink-muted"
               )}
             >
@@ -101,19 +97,14 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle
-            className={cn(
-              onHero && "border-white/20 bg-white/10 text-white hover:border-white/30 hover:text-white"
-            )}
-          />
           {!isLoading && isAuthenticated ? (
             <Link
               href="/life/"
               className={cn(
                 "inline-flex rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
                 onHero
-                  ? "bg-brand-green text-[#08111A] shadow-glow hover:shadow-glow-lg"
-                  : "bg-brand-green text-[#08111A] hover:shadow-glow"
+                  ? "bg-accent-primary text-text-on-accent shadow-glow hover:shadow-glow-lg"
+                  : "bg-accent-primary text-text-on-accent hover:shadow-glow"
               )}
             >
               Try Arivo Free
@@ -124,8 +115,8 @@ export function Header() {
               className={cn(
                 "inline-flex rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
                 onHero
-                  ? "bg-brand-green text-[#08111A] shadow-glow hover:shadow-glow-lg"
-                  : "bg-brand-green text-[#08111A] hover:shadow-glow"
+                  ? "bg-accent-primary text-text-on-accent shadow-glow hover:shadow-glow-lg"
+                  : "bg-accent-primary text-text-on-accent hover:shadow-glow"
               )}
             >
               Try Arivo Free

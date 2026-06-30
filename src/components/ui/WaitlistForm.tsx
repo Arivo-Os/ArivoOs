@@ -51,7 +51,7 @@ export function WaitlistForm({ className }: WaitlistFormProps) {
   };
 
   const inputClass =
-    "h-12 w-full rounded-xl border border-white/15 bg-white/10 px-4 text-sm text-white placeholder:text-white/40 focus:border-brand-green/50 focus:outline-none focus:ring-2 focus:ring-brand-green/25";
+    "h-12 w-full rounded-xl border border-white/15 bg-white/10 px-4 text-sm text-white placeholder:text-white/40 focus:border-accent-primary/50 focus:outline-none focus:ring-2 focus:ring-accent-primary/25";
 
   return (
     <div className={className}>
@@ -70,14 +70,14 @@ export function WaitlistForm({ className }: WaitlistFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="h-12 w-full rounded-full bg-brand-green px-8 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg disabled:opacity-60 sm:w-auto"
+          className="h-12 w-full rounded-full bg-accent-primary px-8 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg disabled:opacity-60 sm:w-auto"
         >
           {isSubmitting ? "Joining..." : "Join the Waitlist"}
         </button>
       </form>
 
       {status === "success" && (
-        <p role="status" className="mt-4 text-center text-sm text-brand-green">
+        <p role="status" className="mt-4 text-center text-sm text-accent-primary">
           You&apos;re on the list — we&apos;ll send your invite soon.
         </p>
       )}

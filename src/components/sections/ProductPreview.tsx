@@ -92,8 +92,8 @@ export const ProductPreview: React.FC = () => {
           <span className={cn(
             "inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold border transition-all duration-300",
             activeTab === "advisory"
-              ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-400 scale-105"
-              : "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
+              ? "bg-accent-primary/20 border-accent-primary/40 text-accent-primary scale-105"
+              : "bg-accent-primary/10 border-accent-primary/20 text-accent-primary"
           )}>
             <Sparkles className="w-3 h-3" /> Insights Ready
           </span>
@@ -109,7 +109,7 @@ export const ProductPreview: React.FC = () => {
           {/* Card 2 */}
           <div className="bg-white/5 border border-white/5 p-4 rounded-xl flex flex-col justify-between">
             <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">SAVINGS RATE</span>
-            <span className="text-base font-bold text-[#22c55e] mt-1 block">67%</span>
+            <span className="text-base font-bold text-accent-positive mt-1 block">67%</span>
           </div>
           {/* Card 3 */}
           <div className={cn(
@@ -137,11 +137,11 @@ export const ProductPreview: React.FC = () => {
               <div className="border-b border-white w-full" />
               <div className="border-b border-white w-full" />
             </div>
-            <svg className="absolute inset-0 w-full h-full p-1 overflow-visible" preserveAspectRatio="none">
+            <svg className="absolute inset-0 w-full h-full p-1 overflow-visible" preserveAspectRatio="none" viewBox="0 0 900 120">
               <path d="M 0 65 Q 120 55 240 45 T 480 30 T 720 15 L 720 100 L 0 100 Z" fill="rgba(34, 197, 94, 0.03)" />
-              <path d="M 0 65 Q 120 55 240 45 T 480 30 T 720 15" fill="none" stroke="#22c55e" strokeWidth="2" />
-              <circle cx="480" cy="30" r="3" fill="#22c55e" />
-              <circle cx="720" cy="15" r="3" fill="#22c55e" />
+              <path d="M 0 65 Q 120 55 240 45 T 480 30 T 720 15" fill="none" stroke="#4ADE80" strokeWidth="2" />
+              <circle cx="480" cy="30" r="3" fill="#4ADE80" />
+              <circle cx="720" cy="15" r="3" fill="#4ADE80" />
             </svg>
             <div className="text-[8px] text-slate-500 font-medium z-10">M1</div>
             <div className="text-[8px] text-slate-500 font-medium z-10">M2</div>
@@ -164,10 +164,10 @@ export const ProductPreview: React.FC = () => {
             <div className="rounded-lg bg-white/5 p-3 border border-white/5">
               <div className="mb-1 flex justify-between text-[10px] font-semibold">
                 <span className="text-slate-300">Europe Trip</span>
-                <span className="text-[#22c55e]">38%</span>
+                <span className="text-accent-positive">38%</span>
               </div>
               <div className="h-1 overflow-hidden rounded-full bg-white/10">
-                <div className="h-full rounded-full bg-[#22c55e]" style={{ width: "38%" }} />
+                <div className="h-full rounded-full bg-accent-positive" style={{ width: "38%" }} />
               </div>
             </div>
           </div>
@@ -180,7 +180,7 @@ export const ProductPreview: React.FC = () => {
               : "bg-white/5 border-white/5"
           )}>
             <div className="flex items-center gap-1 mb-2">
-              <div className="p-1 bg-emerald-500/10 text-emerald-400 rounded-md">
+              <div className="p-1 bg-accent-primary/10 text-accent-primary rounded-md">
                 <MessageSquare className="w-3 h-3" />
               </div>
               <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">ASK VERIS</h4>
@@ -198,7 +198,7 @@ export const ProductPreview: React.FC = () => {
               <button
                 type="button"
                 disabled
-                className="bg-[#22c55e] text-[#08111A] font-bold px-2.5 py-1.5 rounded-lg text-[10px] shrink-0 flex items-center gap-0.5"
+                className="bg-accent-primary text-[#08111A] font-bold px-2.5 py-1.5 rounded-lg text-[10px] shrink-0 flex items-center gap-0.5"
               >
                 Ask <ArrowRight className="w-2.5 h-2.5" />
               </button>
@@ -246,16 +246,16 @@ export const ProductPreview: React.FC = () => {
                 id={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "flex-shrink-0 snap-center w-64 lg:w-full text-left p-4 rounded-xl border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green dark:focus-visible:ring-brand-green focus-visible:ring-offset-2",
+                  "flex-shrink-0 snap-center w-64 lg:w-full text-left p-4 rounded-xl border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary dark:focus-visible:ring-accent-primary focus-visible:ring-offset-2",
                   isActive
-                    ? "bg-white dark:bg-slate-900 border-brand-green shadow-md dark:shadow-slate-950/40 text-brand-green"
+                    ? "bg-surface border-accent-primary shadow-md dark:shadow-slate-950/40 text-accent-primary"
                     : "bg-transparent border-transparent hover:bg-slate-200/50 dark:hover:bg-slate-900/40 text-slate-600 dark:text-slate-400"
                 )}
               >
                 <div className="flex items-center gap-3">
                   <div className={cn(
                     "p-2 rounded-lg transition-colors",
-                    isActive ? "bg-brand-green/10 text-brand-green" : "bg-slate-100 dark:bg-slate-800 text-slate-500"
+                    isActive ? "bg-accent-primary/10 text-accent-primary" : "bg-slate-100 dark:bg-slate-800 text-slate-500"
                   )}>
                     <IconComponent className="w-5 h-5" />
                   </div>

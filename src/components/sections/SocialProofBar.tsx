@@ -13,7 +13,7 @@ const pillars = [
 
 export function SocialProofBar() {
   return (
-    <section aria-label="Trust pillars" className="border-b border-ink/5 bg-white py-10">
+    <section aria-label="Trust pillars" className="border-b border-ink/5 bg-page py-10">
       <div className="mx-auto max-w-container px-6 lg:px-8">
         <MotionReveal>
           <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">

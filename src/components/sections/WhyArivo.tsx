@@ -29,10 +29,10 @@ export function WhyArivo() {
             return (
               <MotionReveal key={stat.value} delay={i * 0.08}>
                 <article className="glass-dark rounded-2xl p-8 text-center">
-                  <span className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-brand-green/15 text-brand-green">
+                  <span className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-accent-primary/15 text-accent-primary">
                     <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
                   </span>
-                  <p className="mb-2 font-display text-2xl font-bold text-brand-green">{stat.value}</p>
+                  <p className="mb-2 font-display text-2xl font-bold text-accent-primary">{stat.value}</p>
                   <p className="text-sm leading-relaxed text-white/55">{stat.label}</p>
                 </article>
               </MotionReveal>

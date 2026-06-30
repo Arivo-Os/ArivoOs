@@ -50,10 +50,10 @@ export function ContactForm() {
   };
 
   return (
-    <div className="rounded-2xl bg-white p-6 shadow-card sm:p-8">
+    <div className="rounded-2xl bg-surface p-6 shadow-card sm:p-8">
       <div className="mb-6 flex items-center justify-between">
         <span className="text-sm font-bold text-ink">Send a message</span>
-        <span className="rounded-full bg-brand-green/10 px-3 py-1 text-xs font-bold text-brand-green">
+        <span className="rounded-full bg-accent-primary/10 px-3 py-1 text-xs font-bold text-accent-primary">
           We read every note
         </span>
       </div>
@@ -90,7 +90,7 @@ export function ContactForm() {
         </Button>
       </form>
 
-      <div role="status" className={cn("mt-4 hidden rounded-xl border border-brand-green/20 bg-brand-green/5 p-4 text-sm", status === "success" && "block")}>
+      <div role="status" className={cn("mt-4 hidden rounded-xl border border-accent-primary/20 bg-accent-primary/5 p-4 text-sm", status === "success" && "block")}>
         <strong className="block text-ink">Message sent.</strong>
         <span className="text-ink-muted">Thanks for reaching out — we&apos;ll reply soon.</span>
       </div>
@@ -99,7 +99,7 @@ export function ContactForm() {
         <strong className="block text-ink">Something went wrong.</strong>
         <span className="text-ink-muted">
           Please try again or email{" "}
-          <a href="mailto:hello@arivoai.in" className="text-brand-green underline">hello@arivoai.in</a> directly.
+          <a href="mailto:hello@arivoai.in" className="text-accent-primary underline">hello@arivoai.in</a> directly.
         </span>
       </div>
     </div>

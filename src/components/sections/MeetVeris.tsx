@@ -35,7 +35,7 @@ export function MeetVeris() {
               },
             ].map((item) => (
               <div key={item.title} className="marketing-card p-6 text-left">
-                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-brand-green/10 text-brand-green">
+                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-accent-primary/10 text-accent-primary">
                   <item.icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <h3 className="mb-2 text-base font-bold text-ink">{item.title}</h3>
@@ -46,7 +46,7 @@ export function MeetVeris() {
 
           <Link
             href="#financial-profile"
-            className="inline-flex h-12 items-center rounded-full bg-brand-green px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
+            className="inline-flex h-12 items-center rounded-full bg-accent-primary px-7 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
           >
             See how it works
           </Link>

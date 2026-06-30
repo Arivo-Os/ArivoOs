@@ -61,7 +61,7 @@ export function Waitlist() {
   };
 
   return (
-    <section id="waitlist" aria-labelledby="waitlist-heading" className="bg-white py-24 lg:py-28">
+    <section id="waitlist" aria-labelledby="waitlist-heading" className="bg-surface py-24 lg:py-28">
       <div className="mx-auto max-w-container px-7">
         <Reveal className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>

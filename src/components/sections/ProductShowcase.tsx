@@ -70,7 +70,7 @@ function ShowcaseRow({
 
 export function ProductShowcase() {
   return (
-    <section id="showcase" aria-labelledby="showcase-heading" className="bg-white py-[120px]">
+    <section id="showcase" aria-labelledby="showcase-heading" className="bg-page py-[120px]">
       <div className="mx-auto max-w-container space-y-24 px-6 lg:px-8">
         {rows.map((row) => (
           <ShowcaseRow key={row.title} row={row} reverse={row.reverse} />

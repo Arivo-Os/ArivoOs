@@ -32,20 +32,20 @@ export default function ContactPage() {
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact Us" }]} />
           <Reveal className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14">
             <aside className="space-y-6">
-              <div className="rounded-2xl bg-white p-6 shadow-card sm:p-7">
+              <div className="rounded-2xl bg-surface p-6 shadow-card sm:p-7">
                 <h2 className="mb-5 font-display text-lg font-bold text-ink">Get in touch</h2>
                 <div className="space-y-4">
                   <div>
                     <span className="mb-1 block text-xs font-bold uppercase tracking-widest text-ink-muted">Support Email</span>
-                    <Link href="mailto:hello@arivoai.in" className="text-base font-semibold text-brand-green hover:underline">hello@arivoai.in</Link>
+                    <Link href="mailto:hello@arivoai.in" className="text-base font-semibold text-accent-primary hover:underline">hello@arivoai.in</Link>
                   </div>
                   <div>
                     <span className="mb-1 block text-xs font-bold uppercase tracking-widest text-ink-muted">Website</span>
-                    <Link href="https://arivoai.in" className="text-base font-semibold text-brand-green hover:underline">https://arivoai.in</Link>
+                    <Link href="https://arivoai.in" className="text-base font-semibold text-accent-primary hover:underline">https://arivoai.in</Link>
                   </div>
                 </div>
               </div>
-              <p className="rounded-xl border border-brand-green/20 bg-brand-green/5 px-5 py-4 text-sm leading-relaxed text-ink">
+              <p className="rounded-xl border border-accent-primary/20 bg-accent-primary/5 px-5 py-4 text-sm leading-relaxed text-ink">
                 Our team typically responds within <strong>1–2 business days</strong>.
               </p>
             </aside>

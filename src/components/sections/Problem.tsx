@@ -117,7 +117,7 @@ export function Problem() {
             <Reveal className="flex justify-center" aria-hidden="true">
               <div className="flex flex-col items-center gap-1">
                 <div className="h-8 w-px bg-arivo-accent/30" />
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-arivo-accent/20 bg-white text-arivo-accent">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-arivo-accent/20 bg-surface text-arivo-accent">
                   <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
                     <path fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M12 5v14M5 12l7 7 7-7" />
                   </svg>

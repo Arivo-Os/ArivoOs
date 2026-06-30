@@ -122,7 +122,7 @@ export default function JourneyPage() {
               </div>
               <div className="h-2 overflow-hidden rounded-full bg-app-bg">
                 <div
-                  className="h-full rounded-full bg-app-accent"
+                  className="h-full rounded-full bg-app-success"
                   style={{ width: `${g.percentComplete}%` }}
                 />
               </div>

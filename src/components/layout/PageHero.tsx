@@ -6,7 +6,7 @@ interface PageHeroProps {
 
 export function PageHero({ label, title, description }: PageHeroProps) {
   return (
-    <section aria-labelledby="page-hero-heading" className="border-b border-ink/5 bg-white pt-32 pb-12">
+    <section aria-labelledby="page-hero-heading" className="border-b border-ink/5 bg-page pt-32 pb-12">
       <div className="mx-auto max-w-container px-6 lg:px-8">
         <span className="section-label">{label}</span>
         <h1

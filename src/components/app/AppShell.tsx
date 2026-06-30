@@ -22,7 +22,6 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { useAuth } from "@/features/auth/context/auth-context";
 import { useSidebar } from "@/components/app/SidebarContext";
 
@@ -34,18 +33,7 @@ const navItems = [
   { href: "/settings/", label: "Settings", icon: Settings },
 ];
 
-function LogoMark({ size = "md" }: { size?: "sm" | "md" }) {
-  return (
-    <span
-      className={cn(
-        "flex items-center justify-center rounded-xl bg-gradient-to-br from-app-accent to-emerald-400 font-extrabold text-white shadow-app-sm",
-        size === "sm" ? "h-8 w-8 text-xs" : "h-9 w-9 text-sm"
-      )}
-    >
-      A
-    </span>
-  );
-}
+
 
 function formatWhen(iso?: string) {
   if (!iso) return "";
@@ -85,7 +73,6 @@ export function AppSidebar() {
       >
         {!isCollapsed && (
           <div className="flex items-center gap-2.5">
-            <LogoMark />
             <div>
               <span className="block text-base font-bold tracking-tight text-app-text">Arivo</span>
               <span className="text-[11px] text-app-muted">Your Money, Organized.</span>
@@ -270,7 +257,6 @@ export function AppTopBar() {
     <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b border-app-border bg-app-bg/80 px-4 backdrop-blur-xl sm:px-6">
       <div className="flex items-center gap-2.5">
         <div className="flex items-center gap-2.5 lg:hidden">
-          <LogoMark size="sm" />
           <span className="font-bold tracking-tight text-app-text">Arivo</span>
         </div>
       </div>

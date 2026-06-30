@@ -11,7 +11,7 @@ const trustItems = [
 
 export const TrustBar: React.FC = () => {
   return (
-    <section id="trust-bar" className="bg-gray-50 dark:bg-gray-800 py-6">
+    <section id="trust-bar" className="bg-app-bg border-y border-app-border/40 py-6">
       <div className="container mx-auto flex flex-wrap justify-center items-center gap-8">
         {trustItems.map((item, idx) => (
           <div key={idx} className="flex items-center space-x-2">

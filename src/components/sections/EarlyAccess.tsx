@@ -9,8 +9,8 @@ export function EarlyAccess() {
       <div className="mx-auto max-w-container px-6 lg:px-8">
         <MotionReveal>
           <div className="relative overflow-hidden rounded-3xl hero-gradient p-10 sm:p-14 lg:p-16">
-            <div className="pointer-events-none absolute inset-0 rounded-3xl border border-brand-green/30 shadow-[inset_0_0_60px_rgba(34,197,94,0.08)]" aria-hidden="true" />
-            <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-brand-green/15 blur-3xl" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 rounded-3xl border border-accent-primary/30 shadow-[inset_0_0_60px_rgba(34,197,94,0.08)]" aria-hidden="true" />
+            <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-accent-primary/15 blur-3xl" aria-hidden="true" />
 
             <div className="relative mx-auto max-w-xl text-center">
               <h2

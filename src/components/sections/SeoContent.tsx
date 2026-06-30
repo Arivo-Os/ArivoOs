@@ -47,7 +47,7 @@ export function SeoContent() {
     <section
       id="learn-more"
       aria-labelledby="seo-content-heading"
-      className="border-t border-ink/5 bg-white py-[120px]"
+      className="border-t border-ink/5 bg-page py-[120px]"
     >
       <div className="mx-auto max-w-container px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-3xl text-center">
@@ -76,7 +76,7 @@ export function SeoContent() {
                   {section.id === "security-privacy" ? (
                     <>
                       {" "}
-                      <Link href="/delete-account/" className="font-medium text-brand-green hover:underline">
+                      <Link href="/delete-account/" className="font-medium text-accent-primary hover:underline">
                         Request account deletion
                       </Link>
                       .
@@ -87,21 +87,21 @@ export function SeoContent() {
             </article>
           ))}
 
-          <div className="rounded-2xl border border-brand-green/20 bg-brand-green/5 p-8">
+          <div className="rounded-2xl border border-accent-primary/20 bg-accent-primary/5 p-8">
             <h3 className="mb-3 font-display text-xl font-bold text-ink">
               Ready to take control of your finances?
             </h3>
             <p className="mb-4 text-base leading-relaxed text-ink-muted">
               Join the Arivo waitlist for closed beta access on Google Play. Explore our{" "}
-              <Link href="/about/" className="font-medium text-brand-green hover:underline">About page</Link>, read the{" "}
-              <Link href="/blog/" className="font-medium text-brand-green hover:underline">blog</Link>, or{" "}
-              <Link href="/contact/" className="font-medium text-brand-green hover:underline">contact us</Link> with questions.
-              Review our <Link href="/privacy/" className="font-medium text-brand-green hover:underline">Privacy Policy</Link> and{" "}
-              <Link href="/terms/" className="font-medium text-brand-green hover:underline">Terms &amp; Conditions</Link>.
+              <Link href="/about/" className="font-medium text-accent-primary hover:underline">About page</Link>, read the{" "}
+              <Link href="/blog/" className="font-medium text-accent-primary hover:underline">blog</Link>, or{" "}
+              <Link href="/contact/" className="font-medium text-accent-primary hover:underline">contact us</Link> with questions.
+              Review our <Link href="/privacy/" className="font-medium text-accent-primary hover:underline">Privacy Policy</Link> and{" "}
+              <Link href="/terms/" className="font-medium text-accent-primary hover:underline">Terms &amp; Conditions</Link>.
             </p>
             <Link
               href="/#early-access"
-              className="inline-flex h-11 items-center rounded-full bg-brand-green px-6 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
+              className="inline-flex h-11 items-center rounded-full bg-accent-primary px-6 text-sm font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
             >
               Join the Waitlist
             </Link>

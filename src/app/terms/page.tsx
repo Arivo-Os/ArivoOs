@@ -18,7 +18,7 @@ export default function TermsPage() {
       subtitle="Effective Date: June 2026"
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Terms of Service" }]}
     >
-      <div className="callout p-5 sm:p-6 mb-8 border-l-4 border-brand-green/70 bg-brand-green/[0.03]">
+      <div className="callout p-5 sm:p-6 mb-8 border-l-4 border-accent-primary/70 bg-accent-primary/[0.03]">
         <p className="text-sm leading-relaxed text-app-muted">
           <strong>Important Disclaimers:</strong> Arivo is an AI-powered personal finance companion in Beta. Arivo is not a bank, brokerage, insurance company, or SEBI-registered investment adviser or research analyst. All insights are for informational and educational purposes only.
         </p>
@@ -153,7 +153,7 @@ export default function TermsPage() {
           {" "}
           <Link
             href="mailto:hello@arivoai.in"
-            className="link-accent font-medium text-brand-green hover:underline"
+            className="link-accent font-medium text-accent-primary hover:underline"
           >
             hello@arivoai.in
           </Link>

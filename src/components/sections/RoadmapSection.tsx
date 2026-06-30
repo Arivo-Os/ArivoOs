@@ -15,7 +15,7 @@ export const RoadmapSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="section-label font-bold text-emerald-700 dark:text-brand-green">Our Roadmap</span>
+          <span className="section-label font-bold text-accent-primary dark:text-accent-primary">Our Roadmap</span>
           <H2 className="text-[#08111A] dark:text-white font-extrabold tracking-tight mb-4 text-balance">
             We&apos;re building Arivo step by step.
           </H2>
@@ -30,7 +30,7 @@ export const RoadmapSection: React.FC = () => {
           {/* Column 1: Coming Next */}
           <div className="space-y-6">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
-              <span className="w-2.5 h-2.5 bg-brand-green rounded-full" />
+              <span className="w-2.5 h-2.5 bg-accent-primary rounded-full" />
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                 Coming Next
               </h3>
@@ -40,8 +40,8 @@ export const RoadmapSection: React.FC = () => {
             </p>
 
             {/* AA Integration */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-green/30 transition-all duration-200">
-              <div className="p-2.5 rounded-xl bg-brand-green/10 text-brand-green w-fit mb-4">
+            <div className="bg-surface border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-accent-primary/30 transition-all duration-200">
+              <div className="p-2.5 rounded-xl bg-accent-primary/10 text-accent-primary w-fit mb-4">
                 <Building2 className="w-5 h-5" />
               </div>
               <H4 className="text-slate-900 dark:text-white text-base font-bold mb-2">
@@ -53,8 +53,8 @@ export const RoadmapSection: React.FC = () => {
             </div>
 
             {/* Portfolio Tracking */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-green/30 transition-all duration-200">
-              <div className="p-2.5 rounded-xl bg-brand-green/10 text-brand-green w-fit mb-4">
+            <div className="bg-surface border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-accent-primary/30 transition-all duration-200">
+              <div className="p-2.5 rounded-xl bg-accent-primary/10 text-accent-primary w-fit mb-4">
                 <TrendingUp className="w-5 h-5" />
               </div>
               <H4 className="text-slate-900 dark:text-white text-base font-bold mb-2">
@@ -79,7 +79,7 @@ export const RoadmapSection: React.FC = () => {
             </p>
 
             {/* Proactive Insights */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-green/30 transition-all duration-200">
+            <div className="bg-surface border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-accent-primary/30 transition-all duration-200">
               <div className="p-2.5 rounded-xl bg-teal-500/10 text-teal-500 w-fit mb-4">
                 <Sparkles className="w-5 h-5" />
               </div>
@@ -92,7 +92,7 @@ export const RoadmapSection: React.FC = () => {
             </div>
 
             {/* Goal-Based Planning */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-green/30 transition-all duration-200">
+            <div className="bg-surface border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-accent-primary/30 transition-all duration-200">
               <div className="p-2.5 rounded-xl bg-teal-500/10 text-teal-500 w-fit mb-4">
                 <LineChart className="w-5 h-5" />
               </div>
@@ -108,7 +108,7 @@ export const RoadmapSection: React.FC = () => {
 
         {/* Building in Public Summary Card */}
         <div className="bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 p-6 sm:p-8 rounded-2xl flex flex-col md:flex-row gap-6 items-center max-w-4xl mx-auto mt-12">
-          <div className="p-3 bg-brand-green/10 text-brand-green rounded-xl shrink-0">
+          <div className="p-3 bg-accent-primary/10 text-accent-primary rounded-xl shrink-0">
             <Users className="w-6 h-6" />
           </div>
           <div>

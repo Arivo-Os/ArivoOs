@@ -60,8 +60,8 @@ export function Features() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => (
             <MotionReveal key={feature.title} delay={i * 0.06}>
-              <article className="group h-full rounded-2xl bg-white p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)]">
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-brand-green/10 text-brand-green transition-colors group-hover:bg-brand-green group-hover:text-[#08111A]">
+              <article className="group h-full rounded-2xl bg-surface p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1)]">
+                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-accent-primary/10 text-accent-primary transition-colors group-hover:bg-accent-primary group-hover:text-[#08111A]">
                   <feature.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mb-2 text-lg font-bold text-ink">{feature.title}</h3>

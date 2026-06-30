@@ -44,7 +44,7 @@ export const TrustDetails: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-12 items-center">
         {/* Visual/Text Column */}
         <div className="w-full lg:w-1/2">
-          <span className="section-label font-bold text-emerald-700 dark:text-emerald-400">Security First</span>
+          <span className="section-label font-bold text-accent-primary dark:text-emerald-400">Security First</span>
           <H2 className="text-[#08111A] dark:text-white font-extrabold tracking-tight mb-6 text-balance text-3xl md:text-4xl">
             Your trust is our top priority.
           </H2>
@@ -67,9 +67,9 @@ export const TrustDetails: React.FC = () => {
           {trustDetails.map((detail, index) => {
             const IconComponent = detail.icon;
             return (
-              <Card key={index} className="bg-white dark:bg-slate-900 border-slate-200/60 dark:border-slate-800/40 p-5 rounded-2xl flex flex-col justify-between hover:border-brand-green/30">
+              <Card key={index} className="bg-surface border-slate-200/60 dark:border-slate-800/40 p-5 rounded-2xl flex flex-col justify-between hover:border-accent-primary/30">
                 <div>
-                  <div className="p-2 bg-brand-green/10 text-brand-green rounded-lg w-fit mb-4">
+                  <div className="p-2 bg-accent-primary/10 text-accent-primary rounded-lg w-fit mb-4">
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <H3 className="text-slate-900 dark:text-white text-base font-bold mb-2">

@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export function Statement() {
   return (
     <>
-      <section aria-labelledby="statement-diff-heading" className="bg-white py-24 lg:py-28">
+      <section aria-labelledby="statement-diff-heading" className="bg-page py-24 lg:py-28">
         <div className="mx-auto max-w-container px-7">
           <Reveal>
             <span className="section-label">The difference</span>
@@ -17,7 +17,7 @@ export function Statement() {
                 </p>
                 <div className="flex flex-wrap gap-2" aria-hidden="true">
                   {["Past spending", "Balances", "Receipts"].map((chip) => (
-                    <span key={chip} className="rounded-full bg-white/60 px-3 py-1 text-xs font-medium text-arivo-muted">
+                    <span key={chip} className="rounded-full bg-page/60 px-3 py-1 text-xs font-medium text-arivo-muted">
                       {chip}
                     </span>
                   ))}
@@ -42,7 +42,7 @@ export function Statement() {
                 </p>
                 <div className="flex flex-wrap gap-2" aria-hidden="true">
                   {["Clear verdict", "Confidence", "Next step"].map((chip) => (
-                    <span key={chip} className="rounded-full border border-arivo-primary/15 bg-white/70 px-3 py-1 text-xs font-semibold text-arivo-primary">
+                    <span key={chip} className="rounded-full border border-arivo-primary/15 bg-page/70 px-3 py-1 text-xs font-semibold text-arivo-primary">
                       {chip}
                     </span>
                   ))}
@@ -58,7 +58,7 @@ export function Statement() {
           <Reveal>
             <span className="section-label">The shift</span>
             <div className="grid items-center gap-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-8">
-              <div className="rounded-[20px] border border-black/8 bg-white p-8">
+              <div className="rounded-[20px] border border-black/8 bg-page p-8">
                 <span className="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-arivo-muted">
                   The old paradigm
                 </span>
@@ -92,7 +92,7 @@ export function Statement() {
                 </p>
                 <div className="flex flex-wrap gap-2" aria-hidden="true">
                   {["Verdict", "Confidence", "Impact"].map((chip) => (
-                    <span key={chip} className="rounded-full border border-arivo-primary/15 bg-white/70 px-3 py-1 text-xs font-semibold text-arivo-primary">
+                    <span key={chip} className="rounded-full border border-arivo-primary/15 bg-page/70 px-3 py-1 text-xs font-semibold text-arivo-primary">
                       {chip}
                     </span>
                   ))}

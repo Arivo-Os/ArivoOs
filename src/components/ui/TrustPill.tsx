@@ -21,8 +21,8 @@ export function TrustPill({ icon: Icon, label, variant = "light", className }: T
         className={cn(
           "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
           variant === "dark"
-            ? "bg-white/[0.08] text-brand-green"
-            : "bg-brand-green/10 text-brand-green"
+            ? "bg-white/[0.08] text-accent-primary"
+            : "bg-accent-primary/10 text-accent-primary"
         )}
         aria-hidden="true"
       >
@@ -47,7 +47,7 @@ export function IconBadge({ icon: Icon, children, variant = "dark", className }:
         "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold backdrop-blur-sm",
         variant === "dark" && "border border-white/10 bg-white/5 text-white/80",
         variant === "light" && "border border-ink/10 bg-white text-ink-muted",
-        variant === "green" && "border border-brand-green/20 bg-brand-green/10 text-brand-green",
+        variant === "green" && "border border-accent-primary/20 bg-accent-primary/10 text-accent-primary",
         className
       )}
     >
