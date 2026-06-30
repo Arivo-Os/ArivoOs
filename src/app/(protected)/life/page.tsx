@@ -121,9 +121,9 @@ export default function LifePage() {
           <div className="space-y-4">
             {goalList.length > 0 ? (
               goalList.slice(0, 3).map((g) => (
-                <div key={g.id} className="rounded-xl bg-app-bg p-4 border border-app-border">
+                <Link key={g.id} href={`/journey/goals/edit?id=${g.id}`} className="block group cursor-pointer hover:border-app-accent/30 transition-colors rounded-xl bg-app-bg p-4 border border-app-border">
                   <div className="mb-2 flex justify-between text-xs font-semibold">
-                    <span className="text-app-text">{g.goalName}</span>
+                    <span className="text-app-text group-hover:text-app-accent transition-colors">{g.goalName}</span>
                     <span className="text-app-accent">{g.percentComplete}%</span>
                   </div>
                   <div className="h-1.5 overflow-hidden rounded-full bg-app-border">
@@ -132,7 +132,7 @@ export default function LifePage() {
                       style={{ width: `${g.percentComplete}%` }}
                     />
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <div className="rounded-xl bg-app-bg p-4 border border-app-border">

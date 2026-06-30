@@ -112,7 +112,7 @@ export default function JourneyPage() {
         </div>
         <div className="space-y-5">
           {goalList.map((g) => (
-            <div key={g.id}>
+            <Link key={g.id} href={`/journey/goals/edit?id=${g.id}`} className="block group cursor-pointer hover:bg-app-card transition-colors rounded-xl p-2 -mx-2">
               <div className="mb-2 flex items-center justify-between">
                 <div>
                   <p className="font-medium text-app-text">{g.goalName}</p>
@@ -126,7 +126,7 @@ export default function JourneyPage() {
                   style={{ width: `${g.percentComplete}%` }}
                 />
               </div>
-            </div>
+            </Link>
           ))}
           {goalList.length === 0 && (
             <AppEmptyState

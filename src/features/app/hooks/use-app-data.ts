@@ -2,7 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getDashboard } from "@/services/dashboard.service";
-import { createGoal, getGoals } from "@/services/goals.service";
+import { createGoal, deleteGoal, getGoals, updateGoal } from "@/services/goals.service";
 import { getVaultData, updateFinancialInputs } from "@/services/vault.service";
 import { getRecommendationCenter } from "@/services/recommendations.service";
 import { filterJourneyOutcomes, getOutcomes } from "@/services/outcomes.service";
@@ -98,6 +98,31 @@ export function useCreateGoal() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (payload: CreateGoalPayload) => createGoal(payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["goals"] });
+      queryClient.invalidateQueries({ queryKey: ["dashboard"] });
+      queryClient.invalidateQueries({ queryKey: ["journey-timeline"] });
+    },
+  });
+}
+
+export function useUpdateGoal() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, payload }: { id: string; payload: Partial<CreateGoalPayload> }) =>
+      updateGoal(id, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["goals"] });
+      queryClient.invalidateQueries({ queryKey: ["dashboard"] });
+      queryClient.invalidateQueries({ queryKey: ["journey-timeline"] });
+    },
+  });
+}
+
+export function useDeleteGoal() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => deleteGoal(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["goals"] });
       queryClient.invalidateQueries({ queryKey: ["dashboard"] });

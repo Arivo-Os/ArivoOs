@@ -856,17 +856,22 @@ export default function VerisPage() {
 
             {/* Workflow thinking indicator */}
             {workflowStep >= 0 && (
-              <div className="flex gap-3 animate-message">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-app-accent-muted text-app-accent text-xs font-bold">
-                  V
+              <div className="flex gap-3 animate-fade-in">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-app-accent-muted text-app-accent text-xs font-bold shadow-glow relative overflow-hidden">
+                  <div className="absolute inset-0 bg-app-accent/20 animate-pulse"></div>
+                  <span className="relative z-10">V</span>
                 </div>
-                <div className="flex items-center gap-3 rounded-2xl rounded-bl-sm border border-app-border bg-app-surface px-4 py-3">
-                  <div className="flex gap-1">
-                    <span className="typing-dot h-1.5 w-1.5 rounded-full bg-app-muted" />
-                    <span className="typing-dot h-1.5 w-1.5 rounded-full bg-app-muted" />
-                    <span className="typing-dot h-1.5 w-1.5 rounded-full bg-app-muted" />
+                <div className="flex items-center gap-3 rounded-2xl rounded-bl-sm border border-app-accent/30 bg-app-accent-muted/30 px-4 py-3 relative overflow-hidden">
+                  <div className="absolute inset-0 skeleton-shimmer opacity-20"></div>
+                  <div className="flex items-center gap-2 relative z-10">
+                    <svg className="w-4 h-4 text-app-accent animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span className="text-xs font-medium text-app-text animate-pulse">
+                      {WORKFLOW_LABELS[workflowStep]}
+                    </span>
                   </div>
-                  <span className="text-xs text-app-muted">{WORKFLOW_LABELS[workflowStep]}</span>
                 </div>
               </div>
             )}

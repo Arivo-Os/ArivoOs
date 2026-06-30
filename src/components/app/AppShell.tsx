@@ -30,6 +30,7 @@ const navItems = [
   { href: "/life/", label: "Dashboard", icon: Home },
   { href: "/vault/", label: "Profile", icon: Vault },
   { href: "/journey/", label: "Goals & Activity", icon: Route },
+  { href: "/veris/", label: "Veris AI", icon: MessageSquare },
   { href: "/settings/", label: "Settings", icon: Settings },
 ];
 
@@ -129,7 +130,7 @@ export function AppSidebar() {
               {!isCollapsed && (
                 <>
                   {item.label}
-                  {item.label === "Veris" && (
+                  {item.label === "Veris AI" && (
                     <span className="ml-auto rounded-full bg-app-accent px-1.5 py-0.5 text-[9px] font-extrabold text-app-bg uppercase tracking-wide">
                       AI
                     </span>
@@ -147,26 +148,6 @@ export function AppSidebar() {
         })}
       </nav>
 
-      {/* Feedback Button */}
-      <div className={cn("px-2 mt-4", isCollapsed && "flex justify-center")}>
-        <a
-          href="mailto:feedback@arivo.com?subject=Arivo%20Beta%20Feedback"
-          title="Share Feedback"
-          className={cn(
-            "group relative flex items-center justify-center gap-2 rounded-xl border border-app-accent/20 bg-app-accent/10 text-app-accent transition-all hover:bg-app-accent/20 hover:border-app-accent/40",
-            isCollapsed ? "h-10 w-10 px-0" : "px-3 py-2.5"
-          )}
-        >
-          <MessageSquare className="h-[18px] w-[18px] shrink-0" />
-          {!isCollapsed && <span className="text-sm font-bold">Feedback</span>}
-          
-          {isCollapsed && (
-            <span className="pointer-events-none absolute left-full ml-2 z-50 whitespace-nowrap rounded-lg border border-app-border bg-app-surface px-2.5 py-1 text-xs font-medium text-app-text shadow-app-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              Feedback
-            </span>
-          )}
-        </a>
-      </div>
 
       {/* Veris history — only when expanded */}
       {isVeris && !isCollapsed && (
@@ -247,18 +228,31 @@ export function AppSidebar() {
         </div>
       )}
 
-      {/* Collapsed Veris icon with new chat */}
-      {isVeris && isCollapsed && onNewChat && (
+      {/* Collapsed Veris icons */}
+      {isVeris && isCollapsed && (
         <div className="flex flex-col items-center gap-2 p-2 border-t border-app-border/45">
+          {onNewChat && (
+            <button
+              type="button"
+              onClick={onNewChat}
+              title="New chat"
+              className="group relative flex h-10 w-10 items-center justify-center rounded-xl text-app-muted hover:bg-app-accent-muted hover:text-app-accent transition-colors"
+            >
+              <Plus className="h-[18px] w-[18px]" />
+              <span className="pointer-events-none absolute left-full ml-2 z-50 whitespace-nowrap rounded-lg border border-app-border bg-app-surface px-2.5 py-1 text-xs font-medium text-app-text shadow-app-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                New chat
+              </span>
+            </button>
+          )}
           <button
             type="button"
-            onClick={onNewChat}
-            title="New chat"
+            onClick={toggleSidebar}
+            title="History"
             className="group relative flex h-10 w-10 items-center justify-center rounded-xl text-app-muted hover:bg-app-accent-muted hover:text-app-accent transition-colors"
           >
-            <Plus className="h-[18px] w-[18px]" />
+            <History className="h-[18px] w-[18px]" />
             <span className="pointer-events-none absolute left-full ml-2 z-50 whitespace-nowrap rounded-lg border border-app-border bg-app-surface px-2.5 py-1 text-xs font-medium text-app-text shadow-app-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              New chat
+              History
             </span>
           </button>
         </div>
