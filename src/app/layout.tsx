@@ -44,7 +44,7 @@ export function generateViewport(): Viewport {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" suppressHydrationWarning className="dark">
+    <html lang="en-IN" suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>

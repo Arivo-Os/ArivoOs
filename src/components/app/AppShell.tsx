@@ -24,6 +24,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/features/auth/context/auth-context";
 import { useSidebar } from "@/components/app/SidebarContext";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const navItems = [
   { href: "/life/", label: "Dashboard", icon: Home },
@@ -262,6 +263,7 @@ export function AppTopBar() {
       </div>
       <div className="hidden lg:block" />
       <div className="flex items-center gap-2 sm:gap-3">
+        <ThemeToggle />
         {/* Profile Dropdown Container */}
         <div className="relative">
           <button

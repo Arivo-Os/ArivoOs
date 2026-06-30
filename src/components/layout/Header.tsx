@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/features/theme/theme-context";
 import { useAuth } from "@/features/auth/context/auth-context";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const navLinks = [
   { href: "/#product-preview", label: "Features" },
@@ -97,6 +98,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
           {!isLoading && isAuthenticated ? (
             <Link
               href="/life/"

@@ -5,37 +5,37 @@
 @layer base {
   :root {
     /* Backgrounds */
-    --bg-primary: #0B0F17;
-    --bg-surface: #0F1420;
-    --bg-surface-raised: #161C2C;
+    --bg-primary: #FFFFFF;
+    --bg-surface: #F8FAFC;
+    --bg-surface-raised: #F1F5F9;
 
     /* Accent — Action / AI / Brand */
-    --accent-primary: #E8A33D;
-    --accent-primary-hover: #F5B45A;
-    --accent-primary-muted: #3A2E18;
+    --accent-primary: #0D9488;
+    --accent-primary-hover: #0F766E;
+    --accent-primary-muted: #CCFBF1;
 
     /* Accent — Positive data only */
-    --accent-positive: #4ADE80;
-    --accent-positive-muted: #16321F;
+    --accent-positive: #10B981;
+    --accent-positive-muted: #D1FAE5;
 
     /* Accent — Negative / risk data */
-    --accent-negative: #F0654A;
-    --accent-negative-muted: #321B16;
+    --accent-negative: #EF4444;
+    --accent-negative-muted: #FEE2E2;
 
     /* Accent — Caution / below target */
-    --accent-caution: #E8A33D;
-    --accent-caution-muted: #3A2E18;
+    --accent-caution: #F59E0B;
+    --accent-caution-muted: #FEF3C7;
 
     /* Text */
-    --text-primary: #F5F5F0;
-    --text-secondary: #9CA3AF;
-    --text-muted: #6B7280;
-    --text-on-accent: #1A1300;
-    --text-on-positive: #07210F;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --text-on-accent: #FFFFFF;
+    --text-on-positive: #FFFFFF;
 
     /* Borders / dividers */
-    --border-default: #1F2533;
-    --border-strong: #2C3344;
+    --border-default: #E2E8F0;
+    --border-strong: #CBD5E1;
 
     /* Map shadcn/radix vars to new tokens */
     --background: 222 47% 5%;
@@ -98,6 +98,62 @@
     --marketing-muted: var(--text-secondary);
     --marketing-subtle: var(--text-muted);
     --marketing-border: var(--border-default);
+  }
+
+  .dark {
+    /* Backgrounds */
+    --bg-primary: #0F172A;
+    --bg-surface: #1E293B;
+    --bg-surface-raised: #334155;
+
+    /* Accent — Action / AI / Brand */
+    --accent-primary: #14B8A6;
+    --accent-primary-hover: #2DD4BF;
+    --accent-primary-muted: #042F2E;
+
+    /* Accent — Positive data only */
+    --accent-positive: #34D399;
+    --accent-positive-muted: #064E3B;
+
+    /* Accent — Negative / risk data */
+    --accent-negative: #F87171;
+    --accent-negative-muted: #7F1D1D;
+
+    /* Accent — Caution / below target */
+    --accent-caution: #FBBF24;
+    --accent-caution-muted: #78350F;
+
+    /* Text */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --text-on-accent: #042F2E;
+    --text-on-positive: #064E3B;
+
+    /* Borders / dividers */
+    --border-default: #334155;
+    --border-strong: #475569;
+
+    /* shadcn dark mode map */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 35% 12%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 35% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 162 66% 52%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 222 35% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 35% 15%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 162 66% 52%;
+    --accent-foreground: 222 47% 5%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 162 66% 52%;
   }
 
   html {
