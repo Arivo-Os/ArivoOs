@@ -219,7 +219,7 @@
   .font-mono { font-family: var(--font-mono); }
 
   .section-label {
-    @apply mb-4 inline-block text-xs font-semibold uppercase tracking-[0.15em] text-brand-green;
+    @apply mb-4 inline-block text-xs font-semibold uppercase tracking-[0.15em] text-accent-primary;
   }
 
   .dark .section-label {

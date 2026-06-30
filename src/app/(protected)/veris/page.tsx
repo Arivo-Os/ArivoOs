@@ -42,7 +42,7 @@ function StructuredMessage({ content }: { content: string }) {
 
   if (!isVerdict && !isCushion && !isSavings && !isCalculationReport) {
     return (
-      <div className="rounded-2xl rounded-bl-sm border border-app-border bg-app-bg px-4 py-3 text-sm leading-relaxed text-app-text whitespace-pre-line">
+      <div className="rounded-2xl rounded-bl-sm border border-app-border bg-app-surface px-4 py-3 text-sm leading-relaxed text-app-text whitespace-pre-line shadow-sm">
         {content}
       </div>
     );
@@ -116,7 +116,7 @@ function StructuredMessage({ content }: { content: string }) {
           "px-5 py-4 border-b border-app-border flex items-center gap-3 font-semibold border-l-4",
           isDoNotProceed 
             ? "bg-gradient-to-r from-red-500/10 to-transparent text-red-600 dark:text-red-400 border-l-red-500 border-b-app-border" 
-            : "bg-gradient-to-r from-emerald-500/10 to-transparent text-emerald-600 dark:text-emerald-400 border-l-emerald-500 border-b-app-border"
+            : "bg-gradient-to-r from-accent-primary/10 to-transparent text-accent-primary dark:text-accent-primary border-l-accent-primary border-b-app-border"
         )}>
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-current/10 shrink-0">
             {isDoNotProceed ? (
@@ -124,7 +124,7 @@ function StructuredMessage({ content }: { content: string }) {
                 <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
             ) : (
-              <svg className="h-4.5 w-4.5 text-emerald-550 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+              <svg className="h-4.5 w-4.5 text-accent-primary dark:text-accent-primary" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
             )}
@@ -164,7 +164,7 @@ function StructuredMessage({ content }: { content: string }) {
               <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider">Can You Afford This?</h4>
               {formula && <p className="text-xs text-app-muted italic leading-relaxed">{formula}</p>}
               {equation && (
-                <div className="font-mono text-xs bg-black/40 px-3 py-2 rounded-lg border border-white/[0.04] text-center text-emerald-400 font-semibold tracking-tight">
+                <div className="font-mono text-xs bg-black/40 px-3 py-2 rounded-lg border border-white/[0.04] text-center text-accent-primary font-semibold tracking-tight">
                   {equation}
                 </div>
               )}
@@ -422,9 +422,9 @@ function StructuredMessage({ content }: { content: string }) {
     return (
       <div className="rounded-2xl border border-app-border bg-app-card overflow-hidden shadow-app-lg max-w-xl w-full">
         {/* Banner */}
-        <div className="px-5 py-4 border-b border-app-border flex items-center gap-3 font-semibold border-l-4 bg-gradient-to-r from-emerald-500/10 to-transparent text-emerald-600 dark:text-emerald-400 border-l-emerald-500">
+        <div className="px-5 py-4 border-b border-app-border flex items-center gap-3 font-semibold border-l-4 bg-gradient-to-r from-accent-primary/10 to-transparent text-accent-primary dark:text-accent-primary border-l-accent-primary">
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-current/10 shrink-0">
-            <svg className="h-4.5 w-4.5 text-emerald-600 dark:text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+            <svg className="h-4.5 w-4.5 text-accent-primary dark:text-accent-primary" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
           </span>
@@ -834,7 +834,7 @@ export default function VerisPage() {
               m.role === "user" ? (
                 /* User bubble — right aligned */
                 <div key={m.id} className="flex justify-end animate-message">
-                  <div className="max-w-[75%] sm:max-w-[65%] rounded-2xl rounded-br-sm bg-app-accent text-white px-4 py-3 text-sm leading-relaxed font-medium shadow-sm">
+                  <div className="max-w-[75%] sm:max-w-[65%] rounded-2xl rounded-br-sm bg-app-accent text-[var(--text-on-accent)] px-4 py-3 text-sm leading-relaxed font-medium shadow-sm">
                     {m.content}
                   </div>
                 </div>
@@ -1012,7 +1012,7 @@ export default function VerisPage() {
               <span className={cn(
                 "px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase tracking-wider border",
                 (decision?.riskLevel === "low" || !decision)
-                  ? "bg-emerald-500/10 text-app-success border-emerald-500/20"
+                  ? "bg-accent-primary/10 text-app-success border-accent-primary/20"
                   : decision.riskLevel === "medium"
                   ? "bg-yellow-500/10 text-app-warning border-yellow-500/20"
                   : "bg-red-500/10 text-app-danger border-red-500/20"

@@ -33,10 +33,10 @@ export function StoreBadge({ compact = false, className }: StoreBadgeProps) {
         )}
         <span className="font-display text-sm font-bold text-white">Google Play</span>
         {!compact && (
-          <span className="text-[11px] font-semibold text-[#22C55E]">{PLAY_STORE_LABEL}</span>
+          <span className="text-[11px] font-semibold text-accent-primary">{PLAY_STORE_LABEL}</span>
         )}
         {compact && (
-          <span className="text-[10px] font-semibold text-[#22C55E]">{PLAY_STORE_LABEL}</span>
+          <span className="text-[10px] font-semibold text-accent-primary">{PLAY_STORE_LABEL}</span>
         )}
       </span>
     </Link>

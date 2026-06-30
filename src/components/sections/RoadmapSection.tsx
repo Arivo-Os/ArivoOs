@@ -69,7 +69,7 @@ export const RoadmapSection: React.FC = () => {
           {/* Column 2: Future Vision */}
           <div className="space-y-6">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
-              <span className="w-2.5 h-2.5 bg-teal-500 rounded-full" />
+              <span className="w-2.5 h-2.5 bg-accent-primary rounded-full" />
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                 Future Vision
               </h3>
@@ -80,7 +80,7 @@ export const RoadmapSection: React.FC = () => {
 
             {/* Proactive Insights */}
             <div className="bg-surface border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-accent-primary/30 transition-all duration-200">
-              <div className="p-2.5 rounded-xl bg-teal-500/10 text-teal-500 w-fit mb-4">
+              <div className="p-2.5 rounded-xl bg-accent-primary/10 text-accent-primary w-fit mb-4">
                 <Sparkles className="w-5 h-5" />
               </div>
               <H4 className="text-slate-900 dark:text-white text-base font-bold mb-2">
@@ -93,7 +93,7 @@ export const RoadmapSection: React.FC = () => {
 
             {/* Goal-Based Planning */}
             <div className="bg-surface border border-slate-200/60 dark:border-slate-800/40 p-6 rounded-2xl shadow-sm hover:shadow-md hover:border-accent-primary/30 transition-all duration-200">
-              <div className="p-2.5 rounded-xl bg-teal-500/10 text-teal-500 w-fit mb-4">
+              <div className="p-2.5 rounded-xl bg-accent-primary/10 text-accent-primary w-fit mb-4">
                 <LineChart className="w-5 h-5" />
               </div>
               <H4 className="text-slate-900 dark:text-white text-base font-bold mb-2">

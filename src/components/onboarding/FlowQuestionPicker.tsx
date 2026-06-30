@@ -41,7 +41,7 @@ export function FlowQuestionPicker({
       "rounded-full border px-4 py-2 text-sm transition-colors",
       isMarketing
         ? selected
-          ? "border-brand-green bg-brand-green/15 text-brand-green"
+          ? "border-accent-primary bg-accent-primary/15 text-accent-primary"
           : "border-white/15 bg-white/5 text-white/80 hover:text-white"
         : selected
           ? "border-app-accent bg-app-accent/15 text-app-accent"
@@ -51,7 +51,7 @@ export function FlowQuestionPicker({
   const inputClass = cn(
     "w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2",
     isMarketing
-      ? "border-white/15 bg-white/5 text-white placeholder:text-white/40 focus:border-brand-green/50 focus:ring-brand-green/20"
+      ? "border-white/15 bg-white/5 text-white placeholder:text-white/40 focus:border-accent-primary/50 focus:ring-accent-primary/20"
       : "border-app-border bg-app-bg text-app-text placeholder:text-app-muted focus:border-app-accent/50 focus:ring-app-accent/20"
   );
 

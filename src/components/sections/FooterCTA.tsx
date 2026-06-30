@@ -37,7 +37,7 @@ export function FooterCTA() {
             Website{" "}
             <Link
               href={SITE_URL}
-              className="font-medium text-[#22C55E] transition-colors hover:text-[#4ADE80]"
+              className="font-medium text-accent-primary transition-colors hover:text-accent-primary"
             >
               arivoai.in
             </Link>
@@ -51,7 +51,7 @@ export function FooterCTA() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-arivo-muted transition-all hover:border-[#22C55E]/30 hover:bg-[#22C55E]/10 hover:text-[#22C55E]"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-arivo-muted transition-all hover:border-[#22C55E]/30 hover:bg-[#22C55E]/10 hover:text-accent-primary"
               >
                 <Icon className="h-4 w-4" />
               </a>

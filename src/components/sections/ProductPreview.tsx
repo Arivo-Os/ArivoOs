@@ -78,7 +78,7 @@ export const ProductPreview: React.FC = () => {
     return (
       <div className="w-full bg-[#08111A] text-white rounded-3xl border border-white/5 p-4 sm:p-6 font-sans shadow-2xl relative overflow-hidden animate-fade-in text-left">
         {/* Ambient glow */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent-primary/5 rounded-full blur-3xl pointer-events-none" />
 
         {/* Top Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0 pb-5 border-b border-white/5 mb-5">
@@ -139,9 +139,9 @@ export const ProductPreview: React.FC = () => {
             </div>
             <svg className="absolute inset-0 w-full h-full p-1 overflow-visible" preserveAspectRatio="none" viewBox="0 0 900 120">
               <path d="M 0 65 Q 120 55 240 45 T 480 30 T 720 15 L 720 100 L 0 100 Z" fill="rgba(34, 197, 94, 0.03)" />
-              <path d="M 0 65 Q 120 55 240 45 T 480 30 T 720 15" fill="none" stroke="#4ADE80" strokeWidth="2" />
-              <circle cx="480" cy="30" r="3" fill="#4ADE80" />
-              <circle cx="720" cy="15" r="3" fill="#4ADE80" />
+              <path d="M 0 65 Q 120 55 240 45 T 480 30 T 720 15" fill="none" stroke="var(--accent-primary)" strokeWidth="2" />
+              <circle cx="480" cy="30" r="3" fill="var(--accent-primary)" />
+              <circle cx="720" cy="15" r="3" fill="var(--accent-primary)" />
             </svg>
             <div className="text-[8px] text-slate-500 font-medium z-10">M1</div>
             <div className="text-[8px] text-slate-500 font-medium z-10">M2</div>

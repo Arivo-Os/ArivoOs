@@ -142,7 +142,7 @@ export default function SettingsPage() {
                 <p className="text-xs text-app-muted">HDFC Bank •••• 9876</p>
               </div>
             </div>
-            <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold text-app-success border border-emerald-500/20">
+            <span className="rounded-full bg-accent-primary/10 px-2.5 py-0.5 text-[10px] font-bold text-app-success border border-accent-primary/20">
               Connected
             </span>
           </div>
@@ -194,7 +194,7 @@ export default function SettingsPage() {
         </form>
 
         {feedbackStatus === "success" && (
-          <div className="mt-4 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-xs sm:text-sm">
+          <div className="mt-4 rounded-xl border border-accent-primary/20 bg-accent-primary/5 p-4 text-xs sm:text-sm">
             <strong className="block text-app-success">Feedback submitted.</strong>
             <span className="text-app-muted">Thank you for helping us improve Arivo!</span>
           </div>

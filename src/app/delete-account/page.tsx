@@ -94,7 +94,7 @@ export default function DeleteAccountPage() {
           <Link
             key={link.href}
             href={link.href}
-            className="text-sm font-medium text-arivo-muted transition-colors hover:text-[#22C55E]"
+            className="text-sm font-medium text-arivo-muted transition-colors hover:text-accent-primary"
           >
             {link.label}
           </Link>

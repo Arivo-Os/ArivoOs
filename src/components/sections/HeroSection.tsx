@@ -10,7 +10,7 @@ export const HeroSection: React.FC = () => {
     <section id="hero" className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-32 bg-[#08111A] text-white">
       {/* Dynamic ambient gradients */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-accent-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-20 right-[10%] w-[350px] h-[350px] bg-teal-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-20 right-[10%] w-[350px] h-[350px] bg-accent-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 text-center max-w-5xl relative z-10">
         {/* Release Pill Tag */}
@@ -47,7 +47,7 @@ export const HeroSection: React.FC = () => {
               <div className="flex gap-1.5">
                 <span className="w-3 h-3 rounded-full bg-rose-500/80" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-                <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                <span className="w-3 h-3 rounded-full bg-accent-primary/80" />
               </div>
               <div className="bg-white/5 text-[10px] text-slate-400 py-1 px-8 rounded-md border border-white/5 font-mono">
                 arivo.in/dashboard
@@ -110,8 +110,8 @@ export const HeroSection: React.FC = () => {
                     {/* Simulated vector line graph */}
                     <svg className="absolute inset-0 w-full h-full p-2 overflow-visible" preserveAspectRatio="none">
                       <path d="M 0 50 Q 80 40 160 35 T 320 20 T 480 10 L 480 60 L 0 60 Z" fill="rgba(34, 197, 94, 0.04)" />
-                      <path d="M 0 50 Q 80 40 160 35 T 320 20 T 480 10" fill="none" stroke="#4ADE80" strokeWidth="2.5" />
-                      <circle cx="320" cy="20" r="3.5" fill="#4ADE80" />
+                      <path d="M 0 50 Q 80 40 160 35 T 320 20 T 480 10" fill="none" stroke="var(--accent-primary)" strokeWidth="2.5" />
+                      <circle cx="320" cy="20" r="3.5" fill="var(--accent-primary)" />
                     </svg>
                     <div className="text-[8px] text-slate-500 z-10">M1</div>
                     <div className="text-[8px] text-slate-500 z-10">M2</div>

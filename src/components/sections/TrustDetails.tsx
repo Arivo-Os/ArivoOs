@@ -44,7 +44,7 @@ export const TrustDetails: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-12 items-center">
         {/* Visual/Text Column */}
         <div className="w-full lg:w-1/2">
-          <span className="section-label font-bold text-accent-primary dark:text-emerald-400">Security First</span>
+          <span className="section-label font-bold text-accent-primary dark:text-accent-primary">Security First</span>
           <H2 className="text-[#08111A] dark:text-white font-extrabold tracking-tight mb-6 text-balance text-3xl md:text-4xl">
             Your trust is our top priority.
           </H2>
@@ -52,8 +52,8 @@ export const TrustDetails: React.FC = () => {
             We built Arivo with safety first, so you can plan your financial future with complete peace of mind.
           </Body>
           
-          <div className="mt-8 p-4 bg-emerald-500/5 border border-emerald-500/10 rounded-xl flex items-center gap-3">
-            <div className="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg">
+          <div className="mt-8 p-4 bg-accent-primary/5 border border-accent-primary/10 rounded-xl flex items-center gap-3">
+            <div className="p-2 bg-accent-primary/10 text-accent-primary rounded-lg">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <span className="text-xs font-semibold text-[#08111A] dark:text-emerald-300">
