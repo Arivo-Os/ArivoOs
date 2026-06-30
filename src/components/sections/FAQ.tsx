@@ -22,7 +22,7 @@ export function FAQ() {
             Common questions about Arivo
           </h2>
           <p className="mt-3 text-base text-ink-muted">
-            Everything you need to know about Arivo, closed beta access, and AI personal finance in India.
+            Everything you need to know about Arivo and how it helps you manage your money.
           </p>
         </MotionReveal>
 

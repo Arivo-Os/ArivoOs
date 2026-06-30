@@ -161,7 +161,7 @@ function StructuredMessage({ content }: { content: string }) {
 
           {calcSec && (
             <div className="rounded-xl bg-app-surface p-4 border border-app-border space-y-3">
-              <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider">Affordability Calculation</h4>
+              <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider">Can You Afford This?</h4>
               {formula && <p className="text-xs text-app-muted italic leading-relaxed">{formula}</p>}
               {equation && (
                 <div className="font-mono text-xs bg-black/40 px-3 py-2 rounded-lg border border-white/[0.04] text-center text-emerald-400 font-semibold tracking-tight">
@@ -182,13 +182,13 @@ function StructuredMessage({ content }: { content: string }) {
             <div className="space-y-4 pt-4 border-t border-app-border">
               {impactSec && (
                 <div className="border-l-2 border-app-border-strong pl-3">
-                  <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider mb-1">Impact Analysis</h4>
+                  <h4 className="text-[10px] font-bold text-app-muted uppercase tracking-wider mb-1">What This Means For You</h4>
                   <p className="text-app-text text-xs leading-relaxed">{impactSec}</p>
                 </div>
               )}
               {risksSec && (
                 <div className="rounded-xl bg-red-500/5 border border-red-500/10 p-3">
-                  <h4 className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase tracking-wider mb-1">Risk Factors</h4>
+                  <h4 className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase tracking-wider mb-1">Things to Watch Out For</h4>
                   <p className="text-red-700 dark:text-red-300/90 text-xs leading-relaxed">{risksSec}</p>
                 </div>
               )}
@@ -534,15 +534,19 @@ export default function VerisPage() {
 
   const handleDeleteConversation = useCallback(async (sessionId: string) => {
     try {
-      await deleteConversation(sessionId);
+      // Optimistic UI update: instantly remove from the sidebar
+      setConversations(conversations.filter((c) => c.sessionId !== sessionId));
+
       if (sessionId === activeSessionId || sessionId === conversationId) {
         startNewChat();
       }
+
+      await deleteConversation(sessionId);
       void queryClient.invalidateQueries({ queryKey: ["veris-conversations"] });
     } catch (e) {
       setError("Failed to delete conversation");
     }
-  }, [activeSessionId, conversationId, queryClient, startNewChat]);
+  }, [activeSessionId, conversationId, queryClient, startNewChat, setConversations, conversations]);
 
   const queryConversations = conversationsQuery.data;
 

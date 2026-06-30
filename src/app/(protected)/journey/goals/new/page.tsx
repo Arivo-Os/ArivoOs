@@ -11,11 +11,17 @@ import { useCreateGoal } from "@/features/app/hooks/use-app-data";
 import { getApiErrorMessage } from "@/services/errors";
 
 const goalTypes = [
-  { value: "CUSTOM", label: "Custom goal" },
+  { value: "OTHER", label: "Custom goal" },
   { value: "EMERGENCY_FUND", label: "Emergency fund" },
-  { value: "TRAVEL", label: "Travel" },
-  { value: "HOME", label: "Home" },
-  { value: "VEHICLE", label: "Vehicle" },
+  { value: "DEBT_PAYOFF", label: "Debt payoff" },
+  { value: "INVESTING", label: "Investing" },
+  { value: "HOUSE", label: "House" },
+  { value: "CAR", label: "Car" },
+  { value: "VACATION", label: "Vacation" },
+  { value: "WEDDING", label: "Wedding" },
+  { value: "EDUCATION", label: "Education" },
+  { value: "LAPTOP", label: "Laptop" },
+  { value: "PHONE", label: "Phone" },
   { value: "RETIREMENT", label: "Retirement" },
 ];
 
@@ -26,7 +32,7 @@ export default function CreateGoalPage() {
 
   const [form, setForm] = useState({
     goalName: "",
-    goalType: "CUSTOM",
+    goalType: "OTHER",
     targetAmount: "",
     currentAmount: "",
     targetDate: "",

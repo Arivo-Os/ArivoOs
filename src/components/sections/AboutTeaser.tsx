@@ -25,7 +25,7 @@ export function AboutTeaser() {
                 Learn why we&apos;re building a new category — and how Arivo helps you decide with clarity before life&apos;s biggest money moments.
               </p>
               <p className="sr-only">
-                Arivo is a financial decision intelligence company founded in India.
+                Arivo is a financial smart suggestions company founded in India.
                 Its core product is an AI-powered decision engine that evaluates major financial
                 decisions — vehicle purchases, home loans, investments, and career moves —
                 and returns a structured verdict with confidence score, risk level, and

@@ -216,7 +216,7 @@ export function blogIndexJsonLd(): Record<string, unknown> {
         path: "/blog",
         name: "Arivo Blog — Personal Finance & AI Insights",
         description:
-          "Articles on AI personal finance, decision intelligence, and smarter money management for India.",
+          "Articles on AI personal finance, smart suggestions, and smarter money management for India.",
       }),
       {
         "@type": "Blog",

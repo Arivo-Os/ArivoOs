@@ -36,8 +36,8 @@ export default function VaultPage() {
     <>
       <div className="space-y-8">
         <AppPageHeader
-          title="Vault"
-          description="Your secure financial profile from the backend."
+          title="Vault Profile"
+          description="Your financial details in one place."
           action={
             <AppButton size="sm" onClick={() => setEditOpen(true)}>
               Edit Profile
@@ -46,8 +46,8 @@ export default function VaultPage() {
         />
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <AppCard>
-            <h2 className="mb-6 font-bold text-app-text">Profile</h2>
+          <div className="bg-app-surface border border-app-border rounded-2xl p-6 shadow-sm">
+            <h2 className="mb-6 font-bold text-app-text">Profile Overview</h2>
             <div className="mb-4 space-y-2 border-b border-app-border pb-4">
               <p className="font-semibold text-app-text">{profile.fullName}</p>
               <p className="text-sm text-app-muted">{profile.email}</p>
@@ -64,21 +64,21 @@ export default function VaultPage() {
                 </div>
               ))}
             </div>
-          </AppCard>
+          </div>
 
           <div className="space-y-6">
-            <AppCard>
+            <div className="bg-app-surface border border-app-border rounded-2xl p-6 shadow-sm">
               <h2 className="mb-4 font-bold text-app-text">Risk Profile</h2>
               <Badge variant="warning" className="mb-3 capitalize">
                 {risk}
               </Badge>
               <p className="text-sm leading-relaxed text-app-muted">
-                Set via financial inputs. Backend uses this for decision context.
+                Based on your answers. We use this to give you better advice.
               </p>
-            </AppCard>
+            </div>
 
             {healthScore != null && (
-              <AppCard>
+              <div className="bg-app-surface border border-app-border rounded-2xl p-6 shadow-sm">
                 <h2 className="mb-4 font-bold text-app-text">Financial Health</h2>
                 <div className="flex items-end gap-2">
                   <span className="font-display text-5xl font-extrabold text-app-accent">
@@ -89,7 +89,7 @@ export default function VaultPage() {
                 <div className="mt-4 h-2 overflow-hidden rounded-full bg-app-bg">
                   <div className="h-full rounded-full bg-app-accent" style={{ width: `${healthScore}%` }} />
                 </div>
-              </AppCard>
+              </div>
             )}
           </div>
         </div>

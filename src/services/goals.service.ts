@@ -8,7 +8,7 @@ function baseMockGoals(): ApiGoal[] {
   return mockGoals.map((g) => ({
     id: g.id,
     goalName: g.name,
-    goalType: "CUSTOM",
+    goalType: "OTHER",
     targetAmount: g.target,
     currentAmount: g.saved,
     percentComplete: g.progress,

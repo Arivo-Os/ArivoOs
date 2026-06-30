@@ -7,17 +7,17 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is Arivo?",
     answer:
-      "Arivo is a personal finance companion built for India. It acts as your intelligent workspace, helping you calculate net worth, visualize asset distributions, and receive personalized decision diagnostics based on self-reported inputs.",
+      "Arivo is a simple app that helps you manage your money. It brings all your financial details into one place so you can see your net worth and get personalized advice.",
   },
   {
     question: "Is Arivo a bank?",
     answer:
-      "No. Arivo is a financial decision companion, not a bank. We help you analyze your financial profile and simulate choices, but we do not hold, move, or invest your money.",
+      "No. Arivo is a tool to help you make better money decisions. We don't hold, move, or invest your money for you.",
   },
   {
     question: "How does the AI Companion work?",
     answer:
-      "Our AI assistant, Veris, analyzes the variables in your secure financial profile—including self-reported income, expenses, and savings goals—to answer your questions in plain language and provide educational decision support.",
+      "Our assistant, Veris, looks at your income, expenses, and goals to answer your money questions and give you helpful, personalized advice.",
   },
   {
     question: "Is my financial data safe with Arivo?",
@@ -37,7 +37,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What features does Arivo offer?",
     answer:
-      "Arivo offers a complete financial dashboard, an AI decision companion, goal progress trackers, smart diagnostics, strategic planning tools, and secure-by-design privacy.",
+      "Arivo gives you a clear dashboard for your money, a smart assistant to answer your questions, goal trackers, and helpful advice, all in a private and secure app.",
   },
   {
     question: "Is Arivo available on mobile and web?",
@@ -47,6 +47,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Can Arivo help with credit score and financial planning?",
     answer:
-      "Arivo provides smart analytics to understand spending patterns and plan your finances around your goals. Credit score analysis and deeper insights are planned for upcoming releases.",
+      "Arivo provides simple charts to help you understand your spending and reach your goals. Credit score analysis is planned for upcoming releases.",
   },
 ];

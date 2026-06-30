@@ -88,7 +88,7 @@ export function Statement() {
                   The new paradigm
                 </span>
                 <p className="mb-4 font-display text-xl font-extrabold statement-gradient">
-                  The future of money is decision intelligence.
+                  The future of money is smart suggestions.
                 </p>
                 <div className="flex flex-wrap gap-2" aria-hidden="true">
                   {["Verdict", "Confidence", "Impact"].map((chip) => (

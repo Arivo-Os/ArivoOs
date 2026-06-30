@@ -36,25 +36,25 @@ const tabs: TabItem[] = [
   {
     id: "net-worth",
     label: "Net Worth Tracker",
-    description: "Aggregate all assets and liabilities automatically in one single view.",
+    description: "See all your money in one simple place.",
     icon: Wallet,
   },
   {
     id: "spending",
-    label: "Intelligent Spending",
-    description: "Auto-categorize transactions and track real-time burn rates across bank accounts.",
+    label: "Track Your Spending",
+    description: "See exactly where your money goes every month.",
     icon: PieChart,
   },
   {
     id: "investments",
-    label: "Investment Hub",
-    description: "Monitor mutual funds, stocks, and deposits in a single dashboard with live pricing.",
+    label: "Your Investments",
+    description: "Keep an eye on all your investments in one easy-to-read view.",
     icon: TrendingUp,
   },
   {
     id: "advisory",
-    label: "Smart Recommendations",
-    description: "Get personalized AI recommendations to save tax, optimize interest, and reduce fees.",
+    label: "Helpful Suggestions",
+    description: "Get custom tips to help you save more and reach your goals faster.",
     icon: Sparkles,
   },
 ];
@@ -86,7 +86,7 @@ export const ProductPreview: React.FC = () => {
             "transition-all duration-300 rounded-xl p-2 -m-2",
             activeTab === "net-worth" && "bg-white/5 border border-white/10"
           )}>
-            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest block">TOTAL VALUATION</span>
+            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest block">NET WORTH</span>
             <h3 className="text-2xl font-black text-white mt-0.5 tracking-tight">₹2,000</h3>
           </div>
           <span className={cn(
@@ -95,7 +95,7 @@ export const ProductPreview: React.FC = () => {
               ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-400 scale-105"
               : "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
           )}>
-            <Sparkles className="w-3 h-3" /> Diagnostics Active
+            <Sparkles className="w-3 h-3" /> Insights Ready
           </span>
         </div>
 

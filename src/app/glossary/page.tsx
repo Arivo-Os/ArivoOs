@@ -8,7 +8,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Financial Glossary — Arivo",
-  description: "Learn the essential personal finance terms in India and understand how AI decision intelligence interprets them.",
+  description: "Learn the essential personal finance terms in India and understand how AI smart suggestions interprets them.",
   path: "/glossary",
   keywords: ["financial glossary", "finance terms India", "EMI meaning", "SIP definition", "CIBIL score explained"],
 });

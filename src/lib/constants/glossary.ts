@@ -34,13 +34,13 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     slug: "emergency-fund",
     term: "Emergency Fund",
     definition: "A highly liquid cash reserve specifically set aside for unplanned expenses or financial emergencies, such as medical bills or sudden job loss. A standard rule of thumb is 3 to 6 months of living expenses.",
-    arivoContext: "An emergency fund is the bedrock of Arivo's decision intelligence. Arivo will almost never recommend a major discretionary purchase if your emergency fund is below the safety threshold."
+    arivoContext: "An emergency fund is the bedrock of Arivo's smart suggestions. Arivo will almost never recommend a major discretionary purchase if your emergency fund is below the safety threshold."
   },
   {
     slug: "decision-intelligence",
-    term: "Decision Intelligence",
+    term: "Smart Suggestions",
     definition: "The application of AI and data analytics to support, augment, and automate business or personal decisions.",
-    arivoContext: "Arivo is built entirely on decision intelligence. Instead of just showing you pie charts of past spending, Arivo processes your data to deliver definitive answers: 'Proceed', 'Wait', or 'Reconsider'."
+    arivoContext: "Arivo is built entirely on smart suggestions. Instead of just showing you pie charts of past spending, Arivo processes your data to deliver definitive answers: 'Proceed', 'Wait', or 'Reconsider'."
   },
   {
     slug: "debt-to-income-ratio",

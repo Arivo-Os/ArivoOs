@@ -26,7 +26,7 @@ export const HeroSection: React.FC = () => {
 
         {/* Clear Outcome Description */}
         <Body className="text-slate-300 mb-10 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-          Arivo maps your income, expenses, and assets in a secure private profile, giving you personalized diagnostics and clear decision support.
+          Arivo organizes your money in one secure place, giving you clear insights and smart suggestions for every financial decision.
         </Body>
 
         <div className="flex justify-center mb-16">
@@ -61,8 +61,8 @@ export const HeroSection: React.FC = () => {
               <div className="w-1/5 border-r border-white/5 pr-4 flex flex-col justify-between py-2 text-[11px] text-slate-400">
                 <div className="space-y-3">
                   <div className="bg-brand-green/10 text-brand-green font-bold px-2 py-1 rounded-md">Dashboard</div>
-                  <div className="px-2">Vault Profile</div>
-                  <div className="px-2">Journey Plan</div>
+                  <div className="px-2">Profile</div>
+                  <div className="px-2">Goals & Activity</div>
                   <div className="px-2">Settings</div>
                 </div>
                 <div className="border-t border-white/5 pt-2 flex items-center gap-2 text-[10px]">
@@ -75,11 +75,11 @@ export const HeroSection: React.FC = () => {
               <div className="flex-1 space-y-4 overflow-hidden">
                 <div className="flex justify-between items-baseline">
                   <div>
-                    <span className="text-[10px] text-slate-400 font-semibold block uppercase tracking-wider">Total Valuation</span>
+                    <span className="text-[10px] text-slate-400 font-semibold block uppercase tracking-wider">Net Worth</span>
                     <span className="text-2xl font-bold text-white block mt-0.5">₹2,96,650</span>
                   </div>
                   <span className="text-[10px] bg-brand-green/15 text-brand-green px-2 py-0.5 rounded-full border border-brand-green/20">
-                    Diagnostics Active
+                    Insights Ready
                   </span>
                 </div>
 
@@ -94,7 +94,7 @@ export const HeroSection: React.FC = () => {
                     <span className="text-sm font-bold text-brand-green mt-1 block">67%</span>
                   </div>
                   <div className="bg-white/5 border border-white/5 p-3 rounded-xl">
-                    <span className="text-[9px] text-slate-400 block font-medium">TOTAL LIABILITIES</span>
+                    <span className="text-[9px] text-slate-400 block font-medium">MONTHLY SPENDING</span>
                     <span className="text-sm font-bold text-slate-300 mt-1 block">₹25,000</span>
                   </div>
                 </div>

@@ -17,7 +17,7 @@ export const ComparisonSection: React.FC = () => {
     "One integrated, secure workspace showing all assets and liabilities.",
     "100% automated background synchronization with zero manual effort.",
     "Real-time notifications on optimization, bills, and high interest cards.",
-    "Clear, direct AI recommendations that optimize and save your money.",
+    "Clear, helpful advice that shows you exactly how to save more money.",
     "Bank-grade safety, privacy-first, and Account Aggregator consent.",
   ];
 
@@ -29,7 +29,7 @@ export const ComparisonSection: React.FC = () => {
           Stop managing money on spreadsheets.
         </H2>
         <Body className="text-slate-600 dark:text-slate-300">
-          Compare how Arivo elevates your daily financial operations from cluttered chaos to an automated, intelligent, unified system.
+          See how Arivo takes you from cluttered chaos to having your money perfectly organized.
         </Body>
       </div>
 
@@ -93,7 +93,7 @@ export const ComparisonSection: React.FC = () => {
             </ul>
           </div>
           <div className="mt-8 pt-6 border-t border-slate-200/50 dark:border-slate-800/50 text-xs text-brand-green/90 font-medium">
-            Automated, secure, and intelligent growth.
+            Automated, secure, and easy to use.
           </div>
         </Card>
       </div>

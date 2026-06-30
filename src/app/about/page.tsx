@@ -94,7 +94,7 @@ export default function AboutPage() {
           <Reveal className="mb-12 max-w-2xl">
             <span className="section-label">What we believe</span>
             <h2 id="beliefs-heading" className="font-display text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-ink">
-              A new category — decision intelligence.
+              A new category — smart suggestions.
             </h2>
           </Reveal>
           <Reveal stagger className="grid gap-5 sm:grid-cols-2">

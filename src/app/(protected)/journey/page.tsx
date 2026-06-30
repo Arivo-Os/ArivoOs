@@ -51,8 +51,8 @@ export default function JourneyPage() {
   return (
     <div className="space-y-8">
       <AppPageHeader
-        title="Journey"
-        description="Goals, Veris decisions, and your financial timeline."
+        title="Goals & Activity"
+        description="Your goals, recent suggestions, and financial activity."
         action={
           <Link href="/journey/goals/new/">
             <AppButton size="sm" className="gap-2">
@@ -63,7 +63,7 @@ export default function JourneyPage() {
         }
       />
 
-      <AppCard>
+      <div className="bg-app-surface border border-app-border rounded-2xl p-6 shadow-sm">
         <h2 className="mb-6 font-bold text-app-text">Recent history</h2>
         <div className="space-y-4">
           {timelineEvents.slice(0, 8).map((event, index) => {
@@ -97,13 +97,13 @@ export default function JourneyPage() {
           })}
           {timelineEvents.length === 0 && (
             <p className="text-sm text-app-muted">
-              No history yet. Ask Veris a question or create your first goal.
+              No history yet. Ask for advice or create your first goal.
             </p>
           )}
         </div>
-      </AppCard>
+      </div>
 
-      <AppCard>
+      <div className="bg-app-surface border border-app-border rounded-2xl p-6 shadow-sm">
         <div className="mb-6 flex items-center justify-between gap-3">
           <h2 className="font-bold text-app-text">Goal progress</h2>
           <Link href="/journey/goals/new/" className="text-sm font-semibold text-app-accent hover:underline">
@@ -143,11 +143,11 @@ export default function JourneyPage() {
             />
           )}
         </div>
-      </AppCard>
+      </div>
 
-      <AppCard>
-        <h2 className="mb-2 font-bold text-app-text">Veris decisions</h2>
-        <p className="mb-4 text-xs text-app-muted">Questions you asked and recommendations from the backend.</p>
+      <div className="bg-app-surface border border-app-border rounded-2xl p-6 shadow-sm">
+        <h2 className="mb-2 font-bold text-app-text">Recent Suggestions</h2>
+        <p className="mb-4 text-xs text-app-muted">Your questions and our helpful answers.</p>
         <div className="space-y-3">
           {decisionList.map((d) => (
             <div key={d.decisionId} className="rounded-xl border border-app-border bg-app-bg p-4">
@@ -170,18 +170,18 @@ export default function JourneyPage() {
           )}
           {!decisions.isError && decisionList.length === 0 && (
             <p className="text-sm text-app-muted">
-              No Veris decisions yet.{" "}
+              No suggestions yet.{" "}
               <Link href="/veris/" className="text-app-accent hover:underline">
-                Ask Veris
+                Ask for advice
               </Link>
             </p>
           )}
         </div>
-      </AppCard>
+      </div>
 
-      <AppCard>
-        <h2 className="mb-2 font-bold text-app-text">Tracked outcomes</h2>
-        <p className="mb-4 text-xs text-app-muted">Accepted recommendations being monitored over time.</p>
+      <div className="bg-app-surface border border-app-border rounded-2xl p-6 shadow-sm">
+        <h2 className="mb-2 font-bold text-app-text">What we&apos;re tracking for you</h2>
+        <p className="mb-4 text-xs text-app-muted">Things we are keeping an eye on to help you reach your goals.</p>
         <div className="space-y-3">
           {outcomeList.map((o) => (
             <div key={o.id} className="rounded-xl border border-app-border bg-app-bg p-4">
@@ -212,10 +212,10 @@ export default function JourneyPage() {
             </div>
           ))}
           {outcomeList.length === 0 && (
-            <p className="text-sm text-app-muted">No tracked outcomes yet.</p>
+            <p className="text-sm text-app-muted">We aren&apos;t tracking anything yet.</p>
           )}
         </div>
-      </AppCard>
+      </div>
     </div>
   );
 }

@@ -44,20 +44,20 @@ export default function LifePage() {
   const savingsRate = monthlyIncome > 0 ? Math.round(((monthlyIncome - monthlyExpenses) / monthlyIncome) * 100) : 67;
 
   return (
-    <div className="space-y-6 text-app-text bg-app-card p-6 rounded-3xl border border-app-border relative overflow-hidden shadow-app-lg">
+    <div className="space-y-8 text-app-text relative w-full">
       {/* Background ambient glow */}
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-app-accent-muted rounded-full blur-[100px] pointer-events-none" />
 
       {/* Main Header / Top Valuation */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-app-border">
         <div>
-          <span className="text-[10px] text-app-muted font-bold uppercase tracking-widest block">TOTAL VALUATION</span>
+          <span className="text-[10px] text-app-muted font-bold uppercase tracking-widest block">NET WORTH</span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-app-text mt-1 tracking-tight">
             {formatINR(totalValuation)}
           </h1>
         </div>
         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-app-accent-muted border border-app-accent/20 text-xs font-semibold text-app-accent">
-          <Sparkles className="w-3.5 h-3.5" /> Diagnostics Active
+          <Sparkles className="w-3.5 h-3.5" /> Insights Ready
         </span>
       </div>
 
@@ -75,14 +75,14 @@ export default function LifePage() {
         </div>
         {/* Card 3 */}
         <div className="bg-app-surface border border-app-border p-5 rounded-2xl flex flex-col justify-between">
-          <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider block">MONTHLY EXPENSES</span>
+          <span className="text-[10px] text-app-muted font-bold uppercase tracking-wider block">MONTHLY SPENDING</span>
           <span className="text-lg font-bold text-app-text mt-2 block">{formatINR(monthlyExpenses)}</span>
         </div>
       </div>
 
       {/* Assets Growth Diagnostics SVG Graph */}
-      <div className="bg-app-surface border border-app-border p-5 rounded-2xl flex flex-col justify-between h-48">
-        <span className="text-[10px] text-app-muted font-bold uppercase tracking-widest block">ASSETS GROWTH DIAGNOSTICS</span>
+      <div className="bg-app-surface border border-app-border p-5 rounded-2xl flex flex-col justify-between h-48 shadow-sm">
+        <span className="text-[10px] text-app-muted font-bold uppercase tracking-widest block">GROWTH TREND</span>
         <div className="h-28 flex items-end justify-between px-2 pt-4 relative">
           <div className="absolute inset-0 flex flex-col justify-between opacity-[0.03]">
             <div className="border-b border-app-text w-full" />
@@ -108,7 +108,7 @@ export default function LifePage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         {/* Goals Column */}
-        <div className="bg-app-surface border border-app-border p-6 rounded-2xl flex flex-col justify-between">
+        <div className="bg-app-surface border border-app-border p-6 rounded-2xl flex flex-col justify-between shadow-sm">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-sm font-bold text-app-text uppercase tracking-wider">GOALS</h2>
             <Link href="/journey/goals/new/">
@@ -149,7 +149,7 @@ export default function LifePage() {
         </div>
 
         {/* Ask Veris Column */}
-        <div className="bg-app-surface border border-app-border p-6 rounded-2xl flex flex-col justify-between">
+        <div className="bg-app-surface border border-app-border p-6 rounded-2xl flex flex-col justify-between shadow-sm">
           <div className="flex items-center gap-2 mb-4">
             <div className="p-2 bg-app-accent-muted text-app-accent rounded-lg">
               <MessageSquare className="w-4 h-4" />
@@ -157,7 +157,7 @@ export default function LifePage() {
             <h2 className="text-sm font-bold text-app-text uppercase tracking-wider">ASK VERIS</h2>
           </div>
           <p className="text-xs text-app-muted mb-6 leading-relaxed">
-            Get an instant simulated decision recommendation before your next large expenditure.
+            Get helpful advice before making a big purchase.
           </p>
 
           <form 
@@ -191,7 +191,7 @@ export default function LifePage() {
       {/* Advisory Legal Disclaimer */}
       <div className="text-[10px] text-app-muted flex items-center gap-1.5 pt-4 border-t border-app-border">
         <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-        All recommendations are educational decision support insights based on self-reported inputs. We are not a SEBI-registered entity.
+        All advice is educational and based on what you tell us. We are not a SEBI-registered financial advisor.
       </div>
     </div>
   );

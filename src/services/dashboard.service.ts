@@ -21,7 +21,7 @@ export async function getDashboard(): Promise<DashboardData> {
       activeGoals: mockGoals.map((g) => ({
         id: g.id,
         goalName: g.name,
-        goalType: "CUSTOM",
+        goalType: "OTHER",
         targetAmount: g.target,
         currentAmount: g.saved,
         percentComplete: g.progress,

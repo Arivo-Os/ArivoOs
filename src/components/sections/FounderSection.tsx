@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { PLAY_STORE_LABEL } from "@/lib/constants/site";
 
 const highlights = [
-  { label: "Decision Intelligence", icon: BrainCircuit },
+  { label: "Smart Suggestions", icon: BrainCircuit },
   { label: "Financial Engine", icon: Cpu },
   { label: PLAY_STORE_LABEL, icon: Rocket },
 ];
@@ -51,7 +51,7 @@ export function FounderSection() {
               After 4+ years building technology across fintech, blockchain, and AI, I saw the same problem repeatedly: people were surrounded by financial data but lacked clear guidance when making important decisions.
             </p>
             <p className="mb-6 text-base leading-relaxed text-ink-muted">
-              That&apos;s why I started Arivo—to create Decision Intelligence for everyday life.
+              That&apos;s why I started Arivo—to create Smart Suggestions for everyday life.
             </p>
             <div className="mb-6 flex flex-wrap gap-2">
               {highlights.map(({ label, icon: Icon }) => (

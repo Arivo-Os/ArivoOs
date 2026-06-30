@@ -20,19 +20,19 @@ export const HowItWorks: React.FC = () => {
       number: "01",
       icon: Link2,
       title: "Create Your Vault Profile",
-      description: "Input your core income, assets, and liabilities into your private dashboard in under 2 minutes.",
+      description: "Add your income, savings, and debt to your private profile in just a couple of minutes.",
     },
     {
       number: "02",
       icon: LineChart,
-      title: "Review Financial Diagnostics",
-      description: "View calculated asset allocations, debt ratios, and financial health scores instantly.",
+      title: "Review Financial Health",
+      description: "Instantly see your financial health score and understand exactly where you stand.",
     },
     {
       number: "03",
       icon: Sparkles,
       title: "Receive Decision Support",
-      description: "Ask Veris to simulate large purchase decisions or identify unutilized cash opportunities.",
+      description: "Ask for advice before buying something big, or find new ways to grow your savings.",
     },
   ];
 
@@ -44,7 +44,7 @@ export const HowItWorks: React.FC = () => {
           Ready in three simple steps.
         </H2>
         <Body className="text-slate-600 dark:text-slate-300">
-          Set up your secure profile, analyze calculated metrics, and start simulating key financial choices.
+          Set up your secure profile, see your numbers clearly, and get answers to your money questions.
         </Body>
       </div>
 

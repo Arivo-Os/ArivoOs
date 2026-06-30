@@ -20,7 +20,7 @@ export const RoadmapSection: React.FC = () => {
             We&apos;re building Arivo step by step.
           </H2>
           <Body className="text-slate-600 dark:text-slate-300">
-            We&apos;re focusing on creating a trusted and intelligent personal finance platform. Here&apos;s what we&apos;re working toward.
+            We&apos;re building a simple, smart way to manage your money. Here&apos;s what we are working on next.
           </Body>
         </div>
 
@@ -48,7 +48,7 @@ export const RoadmapSection: React.FC = () => {
                 Account Aggregator Integration
               </H4>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Connect supported accounts securely through India&apos;s RBI-regulated Account Aggregator ecosystem to view balances in one place without sharing credentials.
+                Securely link your bank accounts to see all your balances in one place, without ever sharing your passwords.
               </p>
             </div>
 
@@ -61,7 +61,7 @@ export const RoadmapSection: React.FC = () => {
                 Investment Portfolio Tracking
               </H4>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Connect holdings from supported brokerage platforms to monitor portfolio returns and long-term asset value in one workspace.
+                Connect your brokers to see how your investments are growing, all from one dashboard.
               </p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export const RoadmapSection: React.FC = () => {
                 Proactive Financial Insights
               </H4>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Receive metrics identifying high-interest liabilities, optimization targets, or under-utilized cash buffers.
+                Get notified if you&apos;re paying too much interest or if you have cash that could be growing.
               </p>
             </div>
 
@@ -100,7 +100,7 @@ export const RoadmapSection: React.FC = () => {
                 Goal-Based Financial Planning
               </H4>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Set savings targets and view customized forecasts showing how allocation adjustments affect timeline outcomes.
+                Set goals and see exactly how changing your savings today can help you reach them faster.
               </p>
             </div>
           </div>

@@ -104,7 +104,7 @@ export default function ComparePage({ params }: ComparePageProps) {
 
           <div className="text-center">
             <h2 className="mb-4 font-display text-2xl font-bold text-ink">Ready to try a smarter alternative?</h2>
-            <p className="mb-8 text-ink-muted">Join the Arivo closed beta and experience decision intelligence.</p>
+            <p className="mb-8 text-ink-muted">Join the Arivo closed beta and experience smart suggestions.</p>
             <Button asChild size="lg">
               <Link href="/#early-access">Join the Waitlist</Link>
             </Button>

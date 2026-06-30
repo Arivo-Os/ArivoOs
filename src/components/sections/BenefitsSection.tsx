@@ -21,13 +21,13 @@ export const BenefitsSection: React.FC = () => {
       icon: Eye,
       title: "Private Financial Profile",
       tagline: "All key numbers in one spot",
-      description: "Centralize your core assets, liabilities, and income parameters in a secure private vault to calculate your financial diagnostics instantly.",
+      description: "Keep all your money details in one secure place so you can instantly see your Financial Health.",
     },
     {
       icon: BrainCircuit,
       title: "Always Know Where Your Money Goes",
-      tagline: "Decision-support advisor",
-      description: "Get diagnostic insights and analysis on how to optimize unutilized cash or evaluate large purchases based on your custom inputs.",
+      tagline: "Your helpful guide",
+      description: "Get helpful suggestions on how to save more or check if you can afford large purchases based on your situation.",
     },
     {
       icon: ShieldCheck,
@@ -42,10 +42,10 @@ export const BenefitsSection: React.FC = () => {
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="section-label">Why Choose Arivo</span>
         <H2 className="text-[#08111A] dark:text-white font-extrabold tracking-tight mb-4 text-balance">
-          The smart operating system for your financial life.
+          Your Money, Organized.
         </H2>
         <Body className="text-slate-600 dark:text-slate-300">
-          Arivo is built to empower you with clarity, intelligence, and premium control. Every benefit is tailored to deliver maximum financial wellness with absolute data security.
+          Arivo helps you see your money clearly. We keep things simple, private, and secure so you can make the best choices for your future.
         </Body>
       </div>
 

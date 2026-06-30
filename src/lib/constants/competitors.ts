@@ -16,7 +16,7 @@ export const COMPETITORS: Competitor[] = [
     slug: "cleo",
     name: "Cleo",
     title: "Arivo vs Cleo: Which AI Financial Assistant is Right for You?",
-    description: "Cleo is known for its sassy personality and Gen Z appeal. But when it comes to serious financial decisions in India, you need more than jokes. See how Arivo provides structured decision intelligence.",
+    description: "Cleo is known for its sassy personality and Gen Z appeal. But when it comes to serious financial decisions in India, you need more than jokes. See how Arivo provides structured smart suggestions.",
     arivoAdvantage: "While Cleo focuses on gamified financial tracking and a sassy chatbot persona, Arivo acts as a serious Financial Decision Engine. Arivo is built for the Indian context, focusing on structured recommendations for big life decisions (like buying a car or taking a loan) rather than just daily expense tracking.",
     features: [
       { name: "AI Persona", arivo: "Objective Financial Expert", competitor: "Sassy & Conversational" },
@@ -33,7 +33,7 @@ export const COMPETITORS: Competitor[] = [
     description: "YNAB is a powerful methodology, but it requires significant manual effort. See how Arivo automates financial clarity using AI, without the strict rules.",
     arivoAdvantage: "YNAB requires you to manually assign every rupee to a category, which can be exhausting. Arivo takes a different approach: it analyzes your overall financial health and uses AI to answer your specific money questions, adapting to your life rather than forcing you into a rigid framework.",
     features: [
-      { name: "Methodology", arivo: "AI Decision Intelligence", competitor: "Zero-Based Methodology" },
+      { name: "Methodology", arivo: "AI Smart Suggestions", competitor: "Zero-Based Methodology" },
       { name: "Manual Effort Required", arivo: "Low (Automated Insights)", competitor: "High (Manual Allocation)" },
       { name: "Conversational AI", arivo: true, competitor: false },
       { name: "Scenario Analysis", arivo: true, competitor: false },

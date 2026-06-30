@@ -23,11 +23,11 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "financial-decisions-beyond-spreadsheets",
-    tag: "Decision Intelligence",
+    tag: "Smart Suggestions",
     title: "Why financial decisions need more than spreadsheets",
     excerpt: "Most people don't need another dashboard. They need a clear answer before they act.",
     description:
-      "Learn why spreadsheets and budgeting apps fall short for major financial decisions — and how AI decision intelligence helps Indians choose smarter.",
+      "Learn why spreadsheets and budgeting apps fall short for major financial decisions — and how AI smart suggestions helps Indians choose smarter.",
     href: MEDIUM_PROFILE_URL,
     datePublished: "2026-03-15",
     dateModified: "2026-06-27",
@@ -43,7 +43,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         id: "decision-intelligence",
-        heading: "What decision intelligence means",
+        heading: "What smart suggestions means",
         paragraphs: [
           "Decision intelligence goes beyond tracking. It evaluates your full financial context — income, expenses, savings, debt, and goals — and returns a structured recommendation with confidence and risk levels.",
           "Arivo is built for this layer: the moment before you commit money to a decision that could affect your life for years.",
@@ -63,7 +63,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "designing-ai-for-money-questions",
     tag: "Building Arivo",
     title: "Designing AI for life's biggest money questions",
-    excerpt: "From car loans to career moves — how we're thinking about decision intelligence.",
+    excerpt: "From car loans to career moves — how we're thinking about smart suggestions.",
     description:
       "How Arivo designs AI for major financial decisions in India — car purchases, home loans, investments, and career moves.",
     href: MEDIUM_PROFILE_URL,
@@ -140,7 +140,7 @@ export const BLOG_POSTS: BlogPost[] = [
     tag: "AI Finance",
     title: "How to use AI for personal finance in India",
     excerpt: "Navigate India's complex financial landscape with Artificial Intelligence.",
-    description: "Discover how AI is transforming personal finance for Indians, from optimizing EMIs to contextual decision intelligence.",
+    description: "Discover how AI is transforming personal finance for Indians, from optimizing EMIs to contextual smart suggestions.",
     href: MEDIUM_PROFILE_URL,
     datePublished: "2026-06-30",
     dateModified: "2026-06-30",
@@ -159,7 +159,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "Going beyond basic tracking",
         paragraphs: [
           "Most apps stop at telling you that you spent too much on food. True AI in personal finance answers 'What next?'",
-          "By employing decision intelligence, AI can evaluate whether you should pay down a high-interest loan or invest in a tax-saving instrument, providing actionable verdicts rather than just passive dashboards."
+          "By employing smart suggestions, AI can evaluate whether you should pay down a high-interest loan or invest in a tax-saving instrument, providing actionable verdicts rather than just passive dashboards."
         ]
       }
     ]
@@ -208,7 +208,7 @@ export const BLOG_POSTS: BlogPost[] = [
         id: "the-difference",
         heading: "The core difference",
         paragraphs: [
-          "AI financial assistants excel at continuous data analysis, real-time insights, and objective decision intelligence without human bias or high fees.",
+          "AI financial assistants excel at continuous data analysis, real-time insights, and objective smart suggestions without human bias or high fees.",
           "However, human advisors provide emotional coaching, complex estate planning, and nuanced legal strategies that AI is not legally or contextually equipped to handle yet."
         ]
       },
@@ -224,10 +224,10 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "decision-intelligence-vs-expense-tracking",
-    tag: "Decision Intelligence",
-    title: "Decision Intelligence vs. Expense Tracking",
+    tag: "Smart Suggestions",
+    title: "Smart Suggestions vs. Expense Tracking",
     excerpt: "Why looking backwards won't help you move forwards.",
-    description: "Understand the shift from passive expense tracking to proactive financial decision intelligence.",
+    description: "Understand the shift from passive expense tracking to proactive financial smart suggestions.",
     href: MEDIUM_PROFILE_URL,
     datePublished: "2026-06-30",
     dateModified: "2026-06-30",

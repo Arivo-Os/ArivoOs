@@ -20,22 +20,22 @@ export const TrustDetails: React.FC = () => {
     {
       icon: ShieldCheck,
       title: "Privacy First",
-      description: "Your financial profile data is encrypted in transit and at rest with zero third-party ads.",
+      description: "Your data is safely locked away. We never show you ads.",
     },
     {
       icon: Lock,
       title: "Bank-Level Security",
-      description: "We use AES-256 encryption standards to protect your private parameters.",
+      description: "We use the same security standards as top banks to keep your details safe.",
     },
     {
       icon: Coins,
       title: "Your Data Stays Yours",
-      description: "Arivo does not sell user data or share financial intelligence with external networks.",
+      description: "We will never sell your personal information or share it with anyone else.",
     },
     {
       icon: HeartHandshake,
       title: "Built for India",
-      description: "Designed specifically to support Indian wealth, tax diagnostics, and financial goals.",
+      description: "Built from the ground up for how we handle money, taxes, and goals in India.",
     },
   ];
 
@@ -46,10 +46,10 @@ export const TrustDetails: React.FC = () => {
         <div className="w-full lg:w-1/2">
           <span className="section-label font-bold text-emerald-700 dark:text-emerald-400">Security First</span>
           <H2 className="text-[#08111A] dark:text-white font-extrabold tracking-tight mb-6 text-balance text-3xl md:text-4xl">
-            Your trust is our ultimate benchmark.
+            Your trust is our top priority.
           </H2>
           <Body className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-            We design security directly into our architecture, utilizing local parameters and encryption to protect your data while you explore financial decisions.
+            We built Arivo with safety first, so you can plan your financial future with complete peace of mind.
           </Body>
           
           <div className="mt-8 p-4 bg-emerald-500/5 border border-emerald-500/10 rounded-xl flex items-center gap-3">

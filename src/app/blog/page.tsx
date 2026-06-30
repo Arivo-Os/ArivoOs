@@ -10,7 +10,7 @@ import { blogIndexJsonLd } from "@/lib/seo/structured-data";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Arivo Blog — AI Personal Finance & Decision Intelligence",
+  title: "Arivo Blog — AI Personal Finance & Smart Suggestions",
   description:
     "Articles on AI personal finance, financial decision-making, and smarter money management for India. Insights from the Arivo team.",
   path: "/blog",

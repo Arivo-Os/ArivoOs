@@ -41,7 +41,7 @@ export function GetStarted() {
                     Ready to jump back in?
                   </h2>
                   <p className="mb-8 text-lg leading-relaxed text-white/60">
-                    Your financial OS is waiting for you.
+                    Your money, perfectly organized, is waiting for you.
                   </p>
                   <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                     <Link
@@ -62,8 +62,7 @@ export function GetStarted() {
                     What do you want to decide?
                   </h2>
                   <p className="mb-8 text-lg leading-relaxed text-white/60">
-                    Pick a question Veris can help with. We&apos;ll take you to sign in, then straight into
-                    your answer.
+                    Pick a question you need help with. We&apos;ll set up your account and get you the answer right away.
                   </p>
 
                   <div className="rounded-2xl border border-white/10 bg-[#08111A]/40 p-6 text-left backdrop-blur-sm">
