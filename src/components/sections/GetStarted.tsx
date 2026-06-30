@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { useAuth } from "@/features/auth/context/auth-context";
 import { MotionReveal } from "@/components/ui/MotionReveal";
-import { GooglePlayButton } from "@/components/ui/GooglePlayButton";
 import { FlowQuestionPicker } from "@/components/onboarding/FlowQuestionPicker";
 import { setFlowQuestion } from "@/lib/onboarding/flow-questions";
 
@@ -81,10 +80,9 @@ export function GetStarted() {
                       onClick={continueToSignIn}
                       className="inline-flex h-14 items-center gap-2 rounded-full bg-brand-green px-8 text-base font-semibold text-[#08111A] shadow-glow transition-all hover:shadow-glow-lg"
                     >
-                      {question ? "Continue with this question" : "Continue to sign in"}
+                      Try Arivo Free
                       <ArrowRight className="h-4 w-4" />
                     </button>
-                    <GooglePlayButton size="lg" label="Get on Google Play" />
                   </div>
 
                   <p className="mt-6 text-sm text-white/40">

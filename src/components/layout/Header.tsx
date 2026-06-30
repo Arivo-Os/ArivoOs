@@ -9,11 +9,11 @@ import { useTheme } from "@/features/theme/theme-context";
 import { useAuth } from "@/features/auth/context/auth-context";
 
 const navLinks = [
-  { href: "/#meet-veris", label: "Meet Veris" },
-  { href: "/#financial-profile", label: "How It Works" },
+  { href: "/#product-preview", label: "Features" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#security", label: "Security" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact Us" },
 ];
 
 function Logo({ light }: { light?: boolean }) {
@@ -116,11 +116,11 @@ export function Header() {
                   : "bg-brand-green text-[#08111A] hover:shadow-glow"
               )}
             >
-              Use Arivo
+              Try Arivo Free
             </Link>
           ) : (
             <Link
-              href="/#get-started"
+              href="/login/"
               className={cn(
                 "inline-flex rounded-full px-5 py-2.5 text-sm font-semibold transition-all",
                 onHero
@@ -128,7 +128,7 @@ export function Header() {
                   : "bg-brand-green text-[#08111A] hover:shadow-glow"
               )}
             >
-              Use Arivo
+              Try Arivo Free
             </Link>
           )}
         </div>

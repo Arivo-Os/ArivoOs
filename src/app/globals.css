@@ -25,6 +25,21 @@
     --ring: 142 71% 45%;
     --radius: 0.75rem;
 
+    /* Typography scale (using clamp for fluid sizes) */
+    --font-size-xs: clamp(0.75rem, 0.5vw + 0.5rem, 0.875rem);
+    --font-size-sm: clamp(0.875rem, 0.6vw + 0.6rem, 1rem);
+    --font-size-base: clamp(1rem, 0.7vw + 0.7rem, 1.125rem);
+    --font-size-lg: clamp(1.125rem, 0.8vw + 0.8rem, 1.25rem);
+    --font-size-xl: clamp(1.25rem, 0.9vw + 0.9rem, 1.5rem);
+    --font-size-2xl: clamp(1.5rem, 1vw + 1rem, 1.875rem);
+    --font-size-3xl: clamp(1.875rem, 1.2vw + 1.2rem, 2.25rem);
+    --font-size-4xl: clamp(2.25rem, 1.5vw + 1.5rem, 3rem);
+    --font-size-5xl: clamp(3rem, 2vw + 2rem, 4rem);
+
+    /* Font families */
+    --font-sans: "Inter", "Geist", system-ui, sans-serif;
+    --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
     /* App theme — light (default) */
     --app-bg: #f8fafc;
     --app-surface: #ffffff;
@@ -152,6 +167,19 @@
 }
 
 @layer utilities {
+  .font-xs { font-size: var(--font-size-xs); }
+  .font-sm { font-size: var(--font-size-sm); }
+  .font-base { font-size: var(--font-size-base); }
+  .font-lg { font-size: var(--font-size-lg); }
+  .font-xl { font-size: var(--font-size-xl); }
+  .font-2xl { font-size: var(--font-size-2xl); }
+  .font-3xl { font-size: var(--font-size-3xl); }
+  .font-4xl { font-size: var(--font-size-4xl); }
+  .font-5xl { font-size: var(--font-size-5xl); }
+
+  .font-sans { font-family: var(--font-sans); }
+  .font-mono { font-family: var(--font-mono); }
+
   .section-label {
     @apply mb-4 inline-block text-xs font-semibold uppercase tracking-[0.15em] text-brand-green;
   }

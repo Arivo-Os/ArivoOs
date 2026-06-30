@@ -27,10 +27,10 @@ import { useAuth } from "@/features/auth/context/auth-context";
 import { useSidebar } from "@/components/app/SidebarContext";
 
 const navItems = [
-  { href: "/life/", label: "Life", icon: Home },
-  { href: "/veris/", label: "Veris", icon: MessageSquare },
-  { href: "/journey/", label: "Journey", icon: Route },
-  { href: "/vault/", label: "Vault", icon: Vault },
+  { href: "/life/", label: "Dashboard", icon: Home },
+  { href: "/vault/", label: "Vault Profile", icon: Vault },
+  { href: "/journey/", label: "Journey Plan", icon: Route },
+  { href: "/settings/", label: "Settings", icon: Settings },
 ];
 
 function LogoMark({ size = "md" }: { size?: "sm" | "md" }) {
@@ -55,7 +55,7 @@ function formatWhen(iso?: string) {
 
 export function AppSidebar() {
   const pathname = usePathname();
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
   const {
     isCollapsed,
     toggleSidebar,
@@ -243,25 +243,42 @@ export function AppSidebar() {
         </div>
       )}
 
-      {/* Logout at bottom */}
-      <div className={cn("border-t border-app-border p-2 mt-auto", isCollapsed && "flex justify-center")}>
-        <button
-          type="button"
-          onClick={logout}
-          title={isCollapsed ? "Logout" : undefined}
-          className={cn(
-            "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-app-muted transition-all duration-200 hover:bg-app-danger/10 hover:text-app-danger",
-            isCollapsed && "justify-center w-10 px-0"
-          )}
-        >
-          <LogOut className="h-[18px] w-[18px] shrink-0" aria-hidden="true" />
-          {!isCollapsed && "Logout"}
-          {isCollapsed && (
-            <span className="pointer-events-none absolute left-full ml-2 z-50 whitespace-nowrap rounded-lg border border-app-border bg-app-surface px-2.5 py-1 text-xs font-medium text-app-text shadow-app-lg opacity-0 group-hover:opacity-100 transition-opacity">
-              Logout
-            </span>
-          )}
-        </button>
+      {/* User profile row and logout at bottom */}
+      <div className="border-t border-app-border p-2 mt-auto">
+        {!isCollapsed ? (
+          <div className="flex items-center justify-between gap-2 px-2 py-1.5">
+            <div className="flex items-center gap-2.5 overflow-hidden">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-green/20 text-[10px] font-extrabold text-brand-green border border-brand-green/20">
+                {user?.name ? user.name.split(" ").map(n => n.charAt(0)).join("").toUpperCase() : "AG"}
+              </span>
+              <span className="text-xs font-semibold text-slate-300 truncate">
+                {user?.name ? user.name.split(" ")[0] : "Akhilesh"}
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={logout}
+              title="Logout"
+              className="p-1.5 rounded-lg text-app-muted hover:bg-app-danger/10 hover:text-app-danger transition-colors shrink-0"
+            >
+              <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
+            </button>
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <button
+              type="button"
+              onClick={logout}
+              title="Logout"
+              className="group relative flex h-10 w-10 items-center justify-center rounded-xl text-app-muted hover:bg-app-danger/10 hover:text-app-danger transition-colors"
+            >
+              <LogOut className="h-[18px] w-[18px]" />
+              <span className="pointer-events-none absolute left-full ml-2 z-50 whitespace-nowrap rounded-lg border border-app-border bg-app-surface px-2.5 py-1 text-xs font-medium text-app-text shadow-app-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                Logout
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </aside>
   );

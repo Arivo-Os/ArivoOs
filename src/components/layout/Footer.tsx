@@ -3,9 +3,9 @@ import { Heart, Linkedin, Globe } from "lucide-react";
 import { SITE_URL, SOCIAL_LINKS } from "@/lib/constants/site";
 
 const centerLinks = [
-  { href: "/#meet-veris", label: "Meet Veris" },
-  { href: "/#financial-profile", label: "How It Works" },
-  { href: "/#get-started", label: "Use Arivo" },
+  { href: "/#product-preview", label: "Features" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#security", label: "Security" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/glossary", label: "Glossary" },

@@ -1,22 +1,28 @@
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Hero } from "@/components/sections/Hero";
-import { MeetVeris } from "@/components/sections/MeetVeris";
-import { FinancialProfile } from "@/components/sections/FinancialProfile";
-import { EverythingConnected } from "@/components/sections/EverythingConnected";
-import { AskBeforeYouSpend } from "@/components/sections/AskBeforeYouSpend";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { TrustBar } from "@/components/sections/TrustBar";
+import { ProductPreview } from "@/components/sections/ProductPreview";
+import { BenefitsSection } from "@/components/sections/BenefitsSection";
+import { ComparisonSection } from "@/components/sections/ComparisonSection";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { TrustDetails } from "@/components/sections/TrustDetails";
+import { RoadmapSection } from "@/components/sections/RoadmapSection";
 import { GetStarted } from "@/components/sections/GetStarted";
 import { FAQ } from "@/components/sections/FAQ";
 import { homepageJsonLd } from "@/lib/seo/structured-data";
 
 export default function HomePage() {
   return (
-    <main className="bg-page">
+    <main className="bg-slate-50 dark:bg-slate-950 overflow-x-hidden">
       <JsonLd id="jsonld-homepage" data={homepageJsonLd} />
-      <Hero />
-      <MeetVeris />
-      <FinancialProfile />
-      <EverythingConnected />
-      <AskBeforeYouSpend />
+      <HeroSection />
+      <TrustBar />
+      <ProductPreview />
+      <BenefitsSection />
+      <ComparisonSection />
+      <HowItWorks />
+      <TrustDetails />
+      <RoadmapSection />
       <GetStarted />
       <FAQ />
     </main>
